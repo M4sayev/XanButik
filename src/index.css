@@ -1,6 +1,6 @@
 
 :root {
-    --clr-primart-900: #141414;
+    --clr-primary-900: #141414;
     --clr-primary-200: #CECED0;
     --clr-primary-100: #f1f5f8;
 
@@ -29,6 +29,8 @@
     --fs-825: 2.875rem;
     --fs-850: 3.375rem;
     --fs-900: 3.75rem;
+
+    --std-transition: linear 300ms;
 
 
     /* --fs-nav: var(--fs-400);
@@ -71,6 +73,10 @@ figure, blockquote, dl, dd {
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
 ol[role='list'] {
+  list-style: none;
+}
+ul,
+ol {
   list-style: none;
 }
 

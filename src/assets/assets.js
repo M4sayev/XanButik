@@ -3,7 +3,7 @@
 import logo_black_bg from "./logo_black_bg.jpg";
 import logo_sheki_bg from "./logo_sheki_bg.jpg";
 import logo_no_bg from "./logo_no_bg.png";
-
+import logo_no_frame from "./logo_no_frame.png";
 // -----Home Page-----
 
 import calvin_klein_sweatshirt from "./header-imgs/calvin_klein_sweatshirt.jpg";
@@ -120,26 +120,26 @@ import paris_murky_blue_jeans_two from "./bottom/jeans/paris-murky-blue-jeans/pa
 // SHOES
 
 ////// single img shoes
-import black_loafers_white_soles from "./assets/shoes/black_loafers_white_soles.jpg";
-import creamy_n_sneakers from "./assets/shoes/creamy_n_sneakers.jpg";
-import dark_brown_sneakers from "./assets/shoes/dark_brown_sneakers.jpg";
-import dolumdia_sneakers from "./assets/shoes/dolumdia_sneakers.jpg";
-import double_stripe_sneakers from "./assets/shoes/double_stripe_sneakers.jpg";
-import mesh_black_loafers from "./assets/shoes/mesh_black_loafers.jpg";
-import mesh_gray_sneakers from "./assets/shoes/mesh_gray_sneakers.jpg";
+import black_loafers_white_soles from "./shoes/black_loafers_white_soles.jpg";
+import creamy_n_sneakers from "./shoes/creamy_n_sneakers.jpg";
+import dark_brown_sneakers from "./shoes/dark_brown_sneakers.jpg";
+import dolumdia_sneakers from "./shoes/dolumdia_sneakers.jpg";
+import double_stripe_sneakers from "./shoes/double_stripe_sneakers.jpg";
+import mesh_black_loafers from "./shoes/mesh_black_loafers.jpg";
+import mesh_gray_sneakers from "./shoes/mesh_gray_sneakers.jpg";
 
 ////// black brown sole sneakers
-import black_brown_sole_sneakers_one from "./assets/shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_one.jpg";
-import black_brown_sole_sneakers_two from "./assets/shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_two.jpg";
-import black_brown_sole_sneakers_three from "./assets/shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_three.jpg";
+import black_brown_sole_sneakers_one from "./shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_one.jpg";
+import black_brown_sole_sneakers_two from "./shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_two.jpg";
+import black_brown_sole_sneakers_three from "./shoes/black-brown-sole-sneakers/black_brown_sole_sneakers_three.jpg";
 
 ////// fuzzy ankle boots
-import fuzzy_ankle_boots_one from "./assets/shoes/fuzzy-ankle-boots/fuzzy_ankle_boots_one.jpg";
-import fuzzy_ankle_boots_two from "./assets/shoes/fuzzy-ankle-boots/fuzzy_ankle_boots_two.jpg";
+import fuzzy_ankle_boots_one from "./shoes/fuzzy-ankle-boots/fuzzy_ankle_boots_one.jpg";
+import fuzzy_ankle_boots_two from "./shoes/fuzzy-ankle-boots/fuzzy_ankle_boots_two.jpg";
 
 ////// mustard color loafers
-import mustard_color_loafers_one from "./assets/shoes/mustard-color-loafers/mustard_color_loafers_one.jpg";
-import mustard_color_loafers_two from "./assets/shoes/mustard-color-loafers/mustard_color_loafers_two.jpg";
+import mustard_color_loafers_one from "./shoes/mustard-color-loafers/mustard_color_loafers_one.jpg";
+import mustard_color_loafers_two from "./shoes/mustard-color-loafers/mustard_color_loafers_two.jpg";
 
 export const items_list = [
     {
@@ -541,6 +541,7 @@ export const items_list = [
 ];
 
 export const assets = {
+    logo_no_frame,
     logo_no_bg,
     header_image,
     shirts_front,
