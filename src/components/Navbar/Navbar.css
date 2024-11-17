@@ -164,7 +164,7 @@ header {
 
     box-shadow: -2px -2px 3px 0px rgb(0 0 0 / .2);
 
-    transform: scaleY(0.1);
+    transform: scaleY(0.1); 
     transform-origin: top center;
     opacity: 0;
     pointer-events: none;
@@ -323,8 +323,8 @@ header {
         display: none;
     }
 }
-@media (max-width: 780px) {
-    .navbar-right-side-btns:has(.top) {
+@media (max-width: 777px) {
+    .navbar-right-side-btns.top {
         display: none;
     }
     .sidebar-menu.is-active {
@@ -334,16 +334,56 @@ header {
     .sidebar-icon-btns {
         margin-top: 2em;
         display: flex;
-        gap: 2rem;
+        gap: 1.75rem;
     }
 
     /* currently here */
     .dropdown-contact-us {
-        left: 0;
-    }
-    .dropdown-phone-icon {
-        width: 16px;
-        height: 16px;
+        left: -200%;
+        top: 90%;
+
+        margin: 5px;
+        padding-right: 15em;
+
+        box-shadow: -1px 4px 15px 5px rgb(0 0 0 / .05);
+        transform: scaleY(1);
+
+        transition: opacity var(--std-transition);
     }
     
+}
+@media (max-width: 554px) {
+    .sidebar-icon-btns {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .sidebar-icon-btns .contact-us-dropdown-container > span {
+        display: none;
+    }
+    .sidebar-icon-btns .contact-us-dropdown-container {
+        padding-left: 0;
+        margin-right: 5em;
+    }
+    .sidebar-icon-btns .contact-us-dropdown-container .dropdown-contact-us {
+        position: relative;
+        left: 0;
+
+        opacity: 1;
+        transform: scaleY(1);
+
+        padding-left: 0;
+        padding-block: 0.1em;
+
+        box-shadow: none;
+    }
+    .dropdown-phone-icon {
+        margin-left: 0;
+    }
+    .sidebar-icon-btns .contact-us-btn {
+        width: 100%;
+        margin-right: 2rem;
+    }
+    .sidebar-menu ul {
+        width: 100%;
+    }
 }

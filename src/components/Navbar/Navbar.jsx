@@ -19,15 +19,17 @@ function Navbar() {
                     <span className='shopping-cart-item-count'>0</span>
                 </div>
                 <div class="contact-us-dropdown-container">
-                    <i className='mail-phone-icon-container' >
+                    <span className='mail-phone-icon-container' >
                         <CiMail className='btns-icon'/>
                         <MdLocalPhone className='phone-icon'/>
-                    </i>
+                    </span>
                     <span className='dropdown-arrow'>
                         <IoIosArrowUp className='dropdown-arrow-icon'/>
                     </span>
                     <div className="dropdown-contact-us">
-                        <FiPhone className='dropdown-phone-icon'/>
+                        <span>
+                            <FiPhone className='dropdown-phone-icon'/>
+                        </span>
                         <div>
                             <p>0554584886</p>
                             <p>Xan Butik</p>
