@@ -40,7 +40,7 @@ header {
     justify-content: flex-start;
     gap: 1rem;
 }
-.navbar nav ul li {
+.navbar nav ul li a{
     font-family: var(--ff-header);
     font-size: var(--ff-size-400);
     text-wrap: nowrap;
@@ -48,9 +48,9 @@ header {
     cursor: pointer;
     position: relative;
 }
-.navbar nav ul li::before {
+.navbar nav ul li a::before {
     content: "";
-    height: 1px;
+    height: 2px;
     width: 0%;
     
     position: absolute;
@@ -60,7 +60,7 @@ header {
 
     transition: width var(--std-transition);
 }
-.navbar nav ul li:hover::before {
+.navbar nav ul li a.active::before {
     width: 100%;
 }
 
@@ -77,18 +77,14 @@ header {
     align-items: center;
 }
 
-
 .btns-icon {
     width: 25px;
     height: 25px;
 
-    margin-top: 6px;
+    margin-top: .375rem;
     
     cursor: pointer;
 }
-
-
-/* wishlist */
 
 /* shopping cart icon */
 
@@ -122,7 +118,6 @@ header {
     background-color: var(--clr-primary-200);
     border-top-right-radius: 10px;
 
-
     position: absolute;
     left: -3px;
     bottom: 5px;
@@ -133,12 +128,12 @@ header {
     align-items: center;
     gap: 2px;
 
-    padding: 0.3em .275em;
+    padding: .3em .275em;
 
     position: relative;
 }
 .dropdown-arrow-icon {
-    margin-top: 5px;
+    margin-top: .375rem;
 
     width: 16px;
     height: 16px;
@@ -270,15 +265,14 @@ header {
     top: 8px;
 }
 
-/* change it to is active class with js  */
-.hamburger-menu:hover span {
+.hamburger-menu.is-active span {
     background-color: rgb(0 0 0 / 0);
 }
-.hamburger-menu:hover span::before {
+.hamburger-menu.is-active span::before {
     transform: translateY(8px) rotate(45deg);
     opacity: 1;
 }
-.hamburger-menu:hover span::after {
+.hamburger-menu.is-active span::after {
     transform: translateY(-8px) rotate(-45deg);
     opacity: 1;
 }
@@ -300,12 +294,9 @@ header {
 
     transition: width ease-in-out 800ms;
 }
-.hamburger-menu:hover + .sidebar-menu {
-    width: 40vw;
-}
 .sidebar-menu.is-active {
     width: 40vw;
-    transition: width ease-out 500ms;
+    transition: width ease-in 500ms;
 }
 
 @media (max-width: 994px) {
@@ -327,8 +318,11 @@ header {
     .navbar-right-side-btns.top {
         display: none;
     }
-    .sidebar-menu.is-active {
+    .sidebar-menu {
+        width: 0;
         max-width: none;
+    }
+    .sidebar-menu.is-active {
         width: 100%;
     }
     .sidebar-icon-btns {
@@ -336,8 +330,6 @@ header {
         display: flex;
         gap: 1.75rem;
     }
-
-    /* currently here */
     .dropdown-contact-us {
         left: -200%;
         top: 90%;
