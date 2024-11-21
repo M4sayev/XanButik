@@ -16,7 +16,6 @@
     --fw-regular: 300;
     --fw-semi-bold: 400;
     --fw-bold: 500;
-
     
     --fs-300: .875rem;
     --fs-400: 1rem;
@@ -35,16 +34,6 @@
 
     --inl-pdng-btn: 1.125em;
     --blk-pdng-btn: var(--fs-300);
-
-    /* --fs-nav: var(--fs-400);
-
-    --fs-body-header-primary-1: var(--fs-900);
-    --fs-body-header-primary-2: var(--fs-850);
-    --fs-body-header-primary-3: var(--fs-825);
-    --fs-body-header-primary-4: var(--fs-700);
-
-    --fs-body-header-secondary-1: var(--fs-800);
-    --fs-body-header-secondary-2: var(--fs-700); */
 }
 /* Box sizing rules */
 *,
@@ -92,6 +81,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  color: var(--clr-primary-900);
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -100,10 +90,11 @@ button, input, label {
   line-height: 1.1;
 }
 
-/* Balance text wrapping on headings */
+/* Balance text wrapping and define font family on headings */
 h1, h2,
 h3, h4 {
   text-wrap: balance;
+  font-family: var(--ff-primary);
 }
 
 /* Button standard desing  */
@@ -114,9 +105,11 @@ button:not(.hamburger-menu) {
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   text-wrap: nowrap;
+  color: var(--clr-neutral-100);
 
   padding: var(--blk-pdng-btn) var(--inl-pdng-btn);
 
+  background-color: var(--clr-primary-900);
   border: none;
   cursor: pointer;
 
@@ -127,8 +120,8 @@ button:not(.hamburger-menu) {
 }
 
 button[data-type="inverted"] {
-  background-color: var(--clr-primary-900);
-  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-100);
+  color: var(--clr-neutral-900);
 }
 
 button:not(.hamburger-menu):hover {
@@ -168,6 +161,24 @@ textarea:not([rows]) {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
+}
+
+/* Standard animation for components contents  */
+
+.animate-in {
+  animation: 1s slideIn;
+}
+@keyframes slideIn {
+  0% {
+      transform: translateY(50px);
+      filter: blur(2px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      filter: blur(0px);
+      opacity: 1;
+  }
 }
 
 /* Remove all animations, transitions, etc. (For those who prefer reduced motion) */

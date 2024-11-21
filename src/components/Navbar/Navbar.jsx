@@ -8,12 +8,12 @@ import { FiPhone } from "react-icons/fi";
 import { MdLocalPhone } from "react-icons/md";
 
 function Navbar() {
-  const [ isHamActive, setIsHamActive ] = useState(false);
-  const [ currentPage, setCurrentPage ] = useState("Home");
+  const [isHamActive, setIsHamActive] = useState(false);
+  const [currentPage, setCurrentPage] = useState("Home");
 
   function handlePage(page) {
     if (page.tagName !== "A") return;
-    if (currentPage !== page.innerHTML) setCurrentPage(page.innerHTML);   
+    if (currentPage !== page.innerHTML) setCurrentPage(page.innerHTML);
   }
 
   function BtnsContainer() {
@@ -53,7 +53,9 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <button data-type="inverted" className="contact-us-btn">Contact Us</button>
+        <button className="contact-us-btn">
+          Contact Us
+        </button>
       </>
     );
   }
@@ -62,15 +64,19 @@ function Navbar() {
       <div className="navbar">
         <img src={assets.logo_no_frame} alt="logo" className="logo" />
         <nav className="navbar-top-menu">
-          <ul role="list" onClick={e => handlePage(e.target)}>
+          <ul role="list" onClick={(e) => handlePage(e.target)}>
             <li>
               <a className={currentPage === "Home" ? "active" : ""}>Home</a>
             </li>
             <li>
-              <a className={currentPage === "About Us" ? "active" : ""}>About Us</a>
+              <a className={currentPage === "About Us" ? "active" : ""}>
+                About Us
+              </a>
             </li>
             <li>
-              <a className={currentPage === "Contact Us" ? "active" : ""}>Contact Us</a>
+              <a className={currentPage === "Contact Us" ? "active" : ""}>
+                Contact Us
+              </a>
             </li>
             <li>
               <a className={currentPage === "Store" ? "active" : ""}>Store</a>
@@ -86,26 +92,31 @@ function Navbar() {
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
               onClick={() => {
-                setIsHamActive(!isHamActive)
-                document.body.classList.toggle("body-menu-scroll")
-                }
-              }
+                setIsHamActive(!isHamActive);
+                document.body.classList.toggle("body-menu-scroll");
+              }}
             >
               <span></span>
             </button>
             <nav className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}>
-              <ul role="list" onClick={e => handlePage(e.target)}>
+              <ul role="list" onClick={(e) => handlePage(e.target)}>
                 <li>
                   <a className={currentPage === "Home" ? "active" : ""}>Home</a>
                 </li>
                 <li>
-                  <a className={currentPage === "About Us" ? "active" : ""}>About Us</a>
+                  <a className={currentPage === "About Us" ? "active" : ""}>
+                    About Us
+                  </a>
                 </li>
                 <li>
-                  <a className={currentPage === "Contact Us" ? "active" : ""}>Contact Us</a>
+                  <a className={currentPage === "Contact Us" ? "active" : ""}>
+                    Contact Us
+                  </a>
                 </li>
                 <li>
-                  <a className={currentPage === "Store" ? "active" : ""}>Store</a>
+                  <a className={currentPage === "Store" ? "active" : ""}>
+                    Store
+                  </a>
                 </li>
                 <div className="navbar-right-side-btns sidebar-icon-btns">
                   <BtnsContainer />

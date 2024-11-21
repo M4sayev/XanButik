@@ -8,7 +8,7 @@ function Header() {
   const { ref: headerContentsRef, inView } = useInView();
 
   return (
-    <div className="header">
+    <header>
         <Parallax speed={-20} className="header-parallax-bg"></Parallax>
         <div ref={headerContentsRef} className={`header-contents ${inView ? "animate-in" : ""}`}>
           <h1 className="header-title">Xan Butik: Elevating Men's Style</h1>
@@ -17,11 +17,11 @@ function Header() {
             in modern menswear fashion online
           </p>
           <div className="header-widgets-container">
-            <button data-type="inverted" className="widget-learn-more-btn">learn more</button>
-            <button className="widget-shop-now-btn">shop now</button>
+            <button className="widget-learn-more-btn">learn more</button>
+            <button data-type="inverted" className="widget-shop-now-btn">shop now</button>
           </div>
         </div>
-    </div>
+    </header>
   );
 }
 

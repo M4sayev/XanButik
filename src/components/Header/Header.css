@@ -1,7 +1,8 @@
+/* temporary to check scroll */
 body {
   height: 300vh;
 }
-.header {
+header {
   min-height: 720px;
 
   display: grid;
@@ -30,23 +31,7 @@ body {
 
   padding: 1rem 2rem;
 }
-.animate-in {
-  animation: 1s slideIn;
-}
-@keyframes slideIn {
-  0% {
-      transform: translateY(50px);
-      filter: blur(2px);
-      opacity: 0;
-  }
-  100% {
-      transform: translateY(0);
-      filter: blur(0px);
-      opacity: 1;
-  }
-}
 .header-title {
-  font-family: var(--ff-primary);
   font-size: var(--fs-700);
   color: var(--clr-primary-900);
 
@@ -90,5 +75,13 @@ body {
   }
   .header-description {
     font-size: var(--fs-450);
+  }
+}
+@media (min-width: 1200px) {
+  .header-title {
+    font-size: var(--fs-900);
+  }
+  .header-description {
+    font-size: var(--fs-400);
   }
 }
