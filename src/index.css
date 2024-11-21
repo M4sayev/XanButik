@@ -16,6 +16,7 @@
     --fw-regular: 300;
     --fw-semi-bold: 400;
     --fw-bold: 500;
+    --fw-bold-bold: 900;
 
     /* mobile */
     --fs-300: .875rem;
@@ -32,6 +33,10 @@
 
     --std-transition: linear 300ms;
 
+    /* padding button  */
+
+    --inl-pdng-btn: 1.125em;
+    --blk-pdng-btn: var(--fs-300);
 
     /* --fs-nav: var(--fs-400);
 
@@ -102,6 +107,41 @@ h1, h2,
 h3, h4 {
   text-wrap: balance;
 }
+
+/* Button standard desing  */
+
+button:not(.hamburger-menu) {
+  font-family: var(--ff-secondary);
+  font-size: var(--ff-size-400);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  text-wrap: nowrap;
+
+  padding: var(--blk-pdng-btn) var(--inl-pdng-btn);
+
+  border: none;
+  cursor: pointer;
+
+  transform: scale(1);
+  will-change: transform;
+
+  transition: transform var(--std-transition);
+}
+
+button[data-type="inverted"] {
+  background-color: var(--clr-primary-900);
+  color: var(--clr-neutral-100);
+}
+
+button:not(.hamburger-menu):hover {
+  transform: scale(1.05);
+}
+
+/* font family  */
+
+p, h1, h2, h3, h4 {
+  font-family: var(--ff-primary);
+} 
 
 /* Text length control (typography-friendly)  */
 p, li, figcaption {

@@ -53,12 +53,12 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <button className="contact-us-btn">Contact Us</button>
+        <button data-type="inverted" className="contact-us-btn">Contact Us</button>
       </>
     );
   }
   return (
-    <header>
+    <div className="navigation">
       <div className="navbar">
         <img src={assets.logo_no_frame} alt="logo" className="logo" />
         <nav className="navbar-top-menu">
@@ -111,7 +111,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 

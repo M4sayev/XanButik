@@ -1,4 +1,4 @@
-header {
+.navigation {
     font-family: var(--ff-header);
     background-color: var(--clr-primary-200);
 }
@@ -182,28 +182,7 @@ header {
 /* contact us button */
 
 .contact-us-btn {
-    font-family: var(--ff-secondary);
-    font-size: var(--ff-size-400);
-    font-weight: var(--fw-bold);
-    color: var(--clr-neutral-100);
-    text-transform: uppercase;
-    text-wrap: nowrap;
-
-    border: none;
-    background-color: var(--clr-primary-900);
-
-    padding: .825em 1em;
-
-    cursor: pointer;
-
-    transform: scale(1);
-    will-change: transform;
-
-    transition: transform var(--std-transition);
-}
-
-.contact-us-btn:hover {
-    transform: scale(1.05);
+    margin-left: 0.125rem;
 }
 
 /* hamburger menu */
