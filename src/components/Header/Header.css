@@ -1,5 +1,5 @@
 body {
-  height: 150vh;
+  height: 300vh;
 }
 .header {
   min-height: 720px;
@@ -30,7 +30,21 @@ body {
 
   padding: 1rem 2rem;
 }
-
+.animate-in {
+  animation: 1s slideIn;
+}
+@keyframes slideIn {
+  0% {
+      transform: translateY(50px);
+      filter: blur(2px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      filter: blur(0px);
+      opacity: 1;
+  }
+}
 .header-title {
   font-family: var(--ff-primary);
   font-size: var(--fs-700);
