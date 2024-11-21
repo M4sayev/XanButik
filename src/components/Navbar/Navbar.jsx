@@ -85,7 +85,11 @@ function Navbar() {
             <button
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
-              onClick={() => setIsHamActive(!isHamActive)}
+              onClick={() => {
+                setIsHamActive(!isHamActive)
+                document.body.classList.toggle("body-menu-scroll")
+                }
+              }
             >
               <span></span>
             </button>

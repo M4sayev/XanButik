@@ -16,7 +16,6 @@
     --fw-regular: 300;
     --fw-semi-bold: 400;
     --fw-bold: 500;
-    --fw-bold-bold: 900;
 
     /* mobile */
     --fs-300: .875rem;
@@ -137,11 +136,11 @@ button:not(.hamburger-menu):hover {
   transform: scale(1.05);
 }
 
-/* font family  */
-
-p, h1, h2, h3, h4 {
-  font-family: var(--ff-primary);
-} 
+@media (max-width: 576px) {
+  button:not(.hamburger-menu) {
+    padding-inline: var(--fs-300);
+  }
+}
 
 /* Text length control (typography-friendly)  */
 p, li, figcaption {
