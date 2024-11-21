@@ -1,10 +1,11 @@
 import React from "react";
 import "./Header.css";
+import { Parallax } from "react-scroll-parallax";
 
 function Header() {
   return (
     <div className="header">
-        <div className="header-parallax-bg"></div>
+        <Parallax speed={-20} className="header-parallax-bg"></Parallax>
         <div className="header-contents">
           <h1 className="header-title">Xan Butik: Elevating Men's Style</h1>
           <p className="header-description">

@@ -1,3 +1,6 @@
+body {
+  height: 150vh;
+}
 .header {
   min-height: 720px;
 
@@ -6,7 +9,7 @@
 
   position: relative;
 
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .header-parallax-bg {
   height: 100%;
@@ -57,5 +60,21 @@
 @media (min-width: 690px) {
   .header-parallax-bg {
     filter: blur(0);
+  }
+}
+@media (min-width: 777px) {
+  .header-title {
+    font-size: var(--fs-825);
+  }
+  .header-description {
+    font-size: var(--fs-400);
+  }
+}
+@media (min-width: 994px) {
+  .header-title {
+    font-size: var(--fs-850);
+  }
+  .header-description {
+    font-size: var(--fs-450);
   }
 }
