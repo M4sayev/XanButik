@@ -49,6 +49,10 @@
     font: inherit;
 }
 
+*:focus {
+  outline: 2px red solid;
+}
+
 /* Prevent font size inflation */
 html {
   -moz-text-size-adjust: none;
@@ -124,7 +128,8 @@ button[data-type="inverted"] {
   color: var(--clr-neutral-900);
 }
 
-button:not(.hamburger-menu):hover {
+button:not(.hamburger-menu):hover,
+button:not(.hamburger-menu):focus {
   transform: scale(1.05);
 }
 

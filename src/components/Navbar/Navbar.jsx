@@ -20,10 +20,10 @@ function Navbar() {
     return (
       <>
         <div>
-          <CiHeart aria-label="wishlist" className="btns-icon" />
+          <CiHeart tabIndex="5" aria-label="wishlist" className="btns-icon" />
         </div>
         <div className="shopping-cart-icon">
-          <PiShoppingBagLight aria-label="shopping bag" className="btns-icon" />
+          <PiShoppingBagLight tabIndex="6" aria-label="shopping bag" className="btns-icon" />
           <span
             aria-valuenow="0"
             aria-valuemin="0"
@@ -33,8 +33,8 @@ function Navbar() {
           </span>
         </div>
         <div class="contact-us-dropdown-container">
-          <span aria-label="contacts" className="mail-phone-icon-container">
-            <CiMail className="btns-icon" />
+          <span tabIndex="7" aria-label="contacts" className="mail-phone-icon-container">
+            <CiMail  className="btns-icon" />
             <MdLocalPhone className="phone-icon" />
           </span>
           <span className="dropdown-arrow">
@@ -53,7 +53,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <button className="contact-us-btn">
+        <button className="contact-us-btn" tabIndex="8">
           Contact Us
         </button>
       </>
@@ -63,23 +63,23 @@ function Navbar() {
     <div className="navigation">
       <div className="navbar">
         <img src={assets.logo_no_frame} alt="logo" className="logo" />
-        <nav className="navbar-top-menu">
-          <ul role="list" onClick={(e) => handlePage(e.target)}>
-            <li>
-              <a className={currentPage === "Home" ? "active" : ""}>Home</a>
+        <nav role="menubar" className="navbar-top-menu">
+          <ul role="menu" onClick={(e) => handlePage(e.target)}>
+            <li role="none">
+              <a role="menuitem" tabIndex="1" className={currentPage === "Home" ? "active" : ""}>Home</a>
             </li>
-            <li>
-              <a className={currentPage === "About Us" ? "active" : ""}>
+            <li role="none">
+              <a role="menuitem" tabIndex="2" className={currentPage === "About Us" ? "active" : ""}>
                 About Us
               </a>
             </li>
-            <li>
-              <a className={currentPage === "Contact Us" ? "active" : ""}>
+            <li role="none">
+              <a role="menuitem" tabIndex="3" className={currentPage === "Contact Us" ? "active" : ""}>
                 Contact Us
               </a>
             </li>
-            <li>
-              <a className={currentPage === "Store" ? "active" : ""}>Store</a>
+            <li role="none">
+              <a role="menuitem" tabIndex="4" className={currentPage === "Store" ? "active" : ""}>Store</a>
             </li>
           </ul>
         </nav>
@@ -88,7 +88,7 @@ function Navbar() {
             <BtnsContainer />
           </div>
           <div className="hamburger-menu-sidebar-container">
-            <button
+            <button 
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
               onClick={() => {
@@ -98,23 +98,25 @@ function Navbar() {
             >
               <span></span>
             </button>
-            <nav className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}>
-              <ul role="list" onClick={(e) => handlePage(e.target)}>
-                <li>
-                  <a className={currentPage === "Home" ? "active" : ""}>Home</a>
+            <nav role="menubar" className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}>
+              <ul role="menu" onClick={(e) => handlePage(e.target)}>
+                <li role="none">
+                  <a role="menuitem" tabIndex="1" className={currentPage === "Home" ? "active" : ""}>
+                    Home
+                  </a>
                 </li>
-                <li>
-                  <a className={currentPage === "About Us" ? "active" : ""}>
+                <li role="none">
+                  <a role="menuitem" tabIndex="2" className={currentPage === "About Us" ? "active" : ""}>
                     About Us
                   </a>
                 </li>
-                <li>
-                  <a className={currentPage === "Contact Us" ? "active" : ""}>
+                <li role="none">
+                  <a role="menuitem" tabIndex="3" className={currentPage === "Contact Us" ? "active" : ""}>
                     Contact Us
                   </a>
                 </li>
-                <li>
-                  <a className={currentPage === "Store" ? "active" : ""}>
+                <li role="none">                                  
+                  <a role="menuitem" tabIndex="4" className={currentPage === "Store" ? "active" : ""}>
                     Store
                   </a>
                 </li>
