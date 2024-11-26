@@ -49,10 +49,6 @@
     font: inherit;
 }
 
-*:focus {
-  outline: 2px red solid;
-}
-
 /* Prevent font size inflation */
 html {
   -moz-text-size-adjust: none;
