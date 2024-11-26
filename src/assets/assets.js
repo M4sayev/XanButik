@@ -6,6 +6,11 @@ import logo_no_bg from "./logo_no_bg.png";
 import logo_no_frame from "./logo_no_frame.png";
 // -----Home Page-----
 
+import tie_image from "./header_imgs/tie_image.jpg";
+import shirts_img from "./header_imgs/shirts_img.jpg";
+import shirts_front from "./header_imgs/shirts_front.jpg";
+import bomber_home from "./header_imgs/bomber_home.jpg"
+
 import calvin_klein_sweatshirt from "./header_imgs/calvin_klein_sweatshirt.jpg";
 import calvin_klein_sweatshirt_two from "./header_imgs/calvin_klein_sweatshirt_two.jpg";
 import genuine_leather_dress_shoes_one from "./header_imgs/genuine_leather_dress_shoes_one.jpg";
@@ -13,9 +18,6 @@ import half_classic_genuine_leather_dress_shoes from "./header_imgs/half_classic
 import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 import header_image from "./header_imgs/header_image.jpg";
-import shirts_front from "./header_imgs/shirts_front.jpg";
-import shirts_img from "./header_imgs/shirts_img.jpg";
-import tie_image from "./header_imgs/tie_image.jpg";
 
 // TOP
 
@@ -44,11 +46,11 @@ import dark_blue_zipup_sweater_logo from "./top/long_sleeve/dark_blue_zipup_swea
 import five_color_linen_shirts from "./top/long_sleeve/five_color_linen_shirts.jpg";
 import turant_lightbrown_polo_sweater from "./top/long_sleeve/turant_lightbrown_polo_sweater.jpg";
 
-////// zipup-sweater-rx
-import zipup_sweater_rx_one from "./top/long_sleeve/zipup-sweater-rx/zipup_sweater_rx_one.jpg";
-import zipup_sweater_rx_two from "./top/long_sleeve/zipup-sweater-rx/zipup_sweater_rx_two.jpg";
+////// zipup sweater rx
+import zipup_sweater_rx_one from "./top/long_sleeve/zipup_sweater_rx/zipup_sweater_rx_one.jpg";
+import zipup_sweater_rx_two from "./top/long_sleeve/zipup_sweater_rx/zipup_sweater_rx_two.jpg";
 
-////// sweater-three-color
+////// sweater three color
 import sweater_three_color_one from "./top/long_sleeve/sweater_three_color/sweater_three_color_one.jpg";
 import sweater_three_color_two from "./top/long_sleeve/sweater_three_color/sweater_three_color_two.jpg";
 import sweater_three_color_three from "./top/long_sleeve/sweater_three_color/sweater_three_color_three.jpg";
@@ -60,7 +62,7 @@ import cardigan_two from "./top/long_sleeve/cardigan/cardigan_two.jpg";
 import cardigan_three from "./top/long_sleeve/cardigan/cardigan_three.jpg";
 
 ////// 6 color turtleneck
-import six_color_turtleneck_one from "./top/long_sleeve/6_color-turtleneck/six_color_turtleneck_one.jpg";
+import six_color_turtleneck_one from "./top/long_sleeve/6_color_turtleneck/six_color_turtleneck_one.jpg";
 import gray_turtleneck from "./top/long_sleeve/6_color_turtleneck/gray_turtleneck.jpg";
 import lightbrown_turtleneck from "./top/long_sleeve/6_color_turtleneck/lightbrown_turtleneck.jpg";
 import white_turtleneck from "./top/long_sleeve/6_color_turtleneck/white_turtleneck.jpg";
@@ -68,7 +70,7 @@ import white_turtleneck from "./top/long_sleeve/6_color_turtleneck/white_turtlen
 
 //// Jackets 
 
-////// black-down-jacket
+////// black down jacket
 import black_down_jacket_one from "./top/jackets/black_down_jacket/black_down_jacket_one.jpg";
 import black_down_jacket_two from "./top/jackets/black_down_jacket/black_down_jacket_two.jpg";
 import black_down_jacket_three from "./top/jackets/black_down_jacket/black_down_jacket_three.jpg";
@@ -544,9 +546,12 @@ export const assets = {
     logo_no_frame,
     logo_no_bg,
     header_image,
+
+    bomber_home,
     shirts_front,
     shirts_img,
     tie_image,
+
     //
     logo_black_bg,
     logo_sheki_bg,
