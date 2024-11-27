@@ -79,6 +79,8 @@
     }
     .featured-items-imgs-grid div:nth-child(4) {
         grid-column: span 2;
+    }
+    .featured-items-imgs-grid div:nth-child(4) img {
         width: 100%;
     }
 }

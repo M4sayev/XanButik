@@ -546,18 +546,6 @@ export const assets = {
     logo_no_frame,
     logo_no_bg,
     header_image,
-    
-    bomber_home,
-    shirts_front,
-    shirts_img,
-    tie_image,
-    
-    featured_items: {
-        bomber_home,
-        shirts_front,
-        shirts_img,
-        tie_image
-    },
     //
     logo_black_bg,
     logo_sheki_bg,
@@ -570,3 +558,26 @@ export const assets = {
     //
     lv_tracksuit
 }
+
+export const favoriteItems = [
+    {
+        name: "Dark Blue Tie",
+        price: 20,
+        img: tie_image
+    },
+    {
+        name: "Classic Shirts",
+        price: 45,
+        img: shirts_img
+    },
+    {
+        name: "Flannel Shirts",
+        price: 50,
+        img: shirts_front
+    },
+    {
+        name: "Copper Bomber",
+        price: 64,
+        img: bomber_home
+    }
+]

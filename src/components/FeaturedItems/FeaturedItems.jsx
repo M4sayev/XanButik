@@ -1,6 +1,6 @@
 import React from 'react';
 import "./FeaturedItems.css";
-import { assets } from "../../assets/assets.js";
+import { favoriteItems } from "../../assets/assets.js";
 
 function FeaturedItems() {
   return (
@@ -11,34 +11,20 @@ function FeaturedItems() {
               <h1 className='featured-items-heading'>Everyone's favourite</h1>
           </div>
           <div className="featured-items-imgs-grid">
-            <div>
-              <img src={assets.tie_image} alt="tie" />
-              <span className='price-popup'>
-                <p className='item-name'>Featured Item</p>
-                <p className='item-price-usd'>100<span>USD</span></p>
-              </span>
-            </div>
-            <div>
-              <img src={assets.shirts_img} alt="shirts" />
-              <span className='price-popup'>
-                <p className='item-name'>Featured Item</p>
-                <p className='item-price-usd'>100<span>USD</span></p>
-              </span>
-            </div>
-            <div>
-              <img src={assets.shirts_front} alt="shirts" />
-              <span className='price-popup'>
-                <p className='item-name'>Featured Item</p>
-                <p className='item-price-usd'>100<span>USD</span></p>
-              </span>
-            </div>
-            <div>
-              <img src={assets.bomber_home} alt="bomber jacket" />
-              <span className='price-popup'>
-                <p className='item-name'>Featured Item</p>
-                <p className='item-price-usd'>100<span>USD</span></p>
-              </span>
-            </div>
+            {
+              favoriteItems.map((item, index) => {
+                const {name, img, price} = item;
+                return (
+                  <div key={index}>
+                    <img src={img} alt={name} />
+                    <span className='price-popup'>
+                      <p className='item-name'>{name}</p>
+                      <p className='item-price-usd'>{price}<span>AZN</span></p>
+                    </span>
+                  </div>
+                )
+              })
+            }
           </div>
           <button className='featured-items-view-more-btn'>view more</button>
         </div>
