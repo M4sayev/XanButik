@@ -19,6 +19,13 @@ import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 import header_image from "./header_imgs/header_image.jpg";
 
+// services icons
+
+import services_icon_one from "./services_icons/services_icon_one.png";
+import services_icon_two from "./services_icons/services_icon_two.png";
+import services_icon_three from "./services_icons/services_icon_three.png";
+import services_icon_four from "./services_icons/services_icon_four.png";
+
 // TOP
 
 //// Tshirts
@@ -556,7 +563,12 @@ export const assets = {
     genuine_leather_dress_shoes_one,
     half_classic_genuine_leather_dress_shoes,
     //
-    lv_tracksuit
+    lv_tracksuit,
+    //
+    services_icon_one,
+    services_icon_two,
+    services_icon_three,
+    services_icon_four
 }
 
 export const favoriteItems = [
