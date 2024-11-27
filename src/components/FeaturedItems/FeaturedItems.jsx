@@ -13,16 +13,31 @@ function FeaturedItems() {
           <div className="featured-items-imgs-grid">
             <div>
               <img src={assets.tie_image} alt="tie" />
-              <span></span>
+              <span className='price-popup'>
+                <p className='item-name'>Featured Item</p>
+                <p className='item-price-usd'>100<span>USD</span></p>
+              </span>
             </div>
             <div>
               <img src={assets.shirts_img} alt="shirts" />
+              <span className='price-popup'>
+                <p className='item-name'>Featured Item</p>
+                <p className='item-price-usd'>100<span>USD</span></p>
+              </span>
             </div>
             <div>
               <img src={assets.shirts_front} alt="shirts" />
+              <span className='price-popup'>
+                <p className='item-name'>Featured Item</p>
+                <p className='item-price-usd'>100<span>USD</span></p>
+              </span>
             </div>
             <div>
               <img src={assets.bomber_home} alt="bomber jacket" />
+              <span className='price-popup'>
+                <p className='item-name'>Featured Item</p>
+                <p className='item-price-usd'>100<span>USD</span></p>
+              </span>
             </div>
           </div>
           <button className='featured-items-view-more-btn'>view more</button>

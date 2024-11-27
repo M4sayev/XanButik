@@ -546,12 +546,18 @@ export const assets = {
     logo_no_frame,
     logo_no_bg,
     header_image,
-
+    
     bomber_home,
     shirts_front,
     shirts_img,
     tie_image,
-
+    
+    featured_items: {
+        bomber_home,
+        shirts_front,
+        shirts_img,
+        tie_image
+    },
     //
     logo_black_bg,
     logo_sheki_bg,
