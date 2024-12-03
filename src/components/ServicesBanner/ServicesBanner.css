@@ -52,7 +52,7 @@
     .services-container {
         flex-wrap: nowrap;
 
-        padding-left: 1rem;
+        padding-left: 2.5vw;
         text-align: start;
     }
     .services-container div {

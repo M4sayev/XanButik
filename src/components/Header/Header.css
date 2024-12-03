@@ -87,3 +87,8 @@ header {
     font-size: var(--fs-400);
   }
 }
+@media (min-width: 1800px) {
+  .header-parallax-bg {
+    background-size: cover;
+  }
+}

@@ -116,6 +116,9 @@
         height: 100%;
         object-fit: cover;
     }
+    .featured-items-imgs-grid div img {
+        width: 100%;
+    }
 }
 @media (min-width: 1200px) {
     .featured-items-heading {

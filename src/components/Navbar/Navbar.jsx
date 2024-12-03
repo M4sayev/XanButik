@@ -54,7 +54,7 @@ function Navbar() {
           </div>
         </div>
         <button className="contact-us-btn" tabIndex="8">
-          Contact Us
+          sing up
         </button>
       </>
     );
