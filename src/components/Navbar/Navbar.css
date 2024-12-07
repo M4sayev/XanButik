@@ -40,15 +40,18 @@
   justify-content: flex-start;
   gap: 1rem;
 }
-.navbar nav ul li a {
+.navbar nav ul li .link {
   font-family: var(--ff-header);
   font-size: var(--ff-size-400);
+  color: var(--clr-primary-900);
   text-wrap: nowrap;
 
   cursor: pointer;
   position: relative;
+
+  text-decoration: none;
 }
-.navbar nav ul li a::before {
+.navbar nav ul li .link::before {
   content: "";
   height: 2px;
   width: 0%;
@@ -60,11 +63,11 @@
 
   transition: width var(--std-transition);
 }
-.navbar nav ul li a.active::before {
+.navbar nav ul li .link.active::before {
   width: 100%;
 }
-.navbar nav ul li a:not(.active):hover::before,
-.navbar nav ul li a:not(.active):focus-visible::before {
+.navbar nav ul li .link:not(.active):hover::before,
+.navbar nav ul li .link:not(.active):focus-visible::before {
     width: 100%;
 }
 

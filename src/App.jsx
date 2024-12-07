@@ -7,6 +7,7 @@ import Store from './pages/Store/Store'
 import Wishlist from './pages/Wishlist/Wishlist'
 import Cart from './pages/Cart/Cart'
 import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/Wishlist' element={<Wishlist />} />
         <Route path='/Cart' element={<Cart />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

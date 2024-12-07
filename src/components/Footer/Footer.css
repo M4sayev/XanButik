@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+
+  background-color: var(--clr-accent);
+
+  padding-block: 3rem;
+}
+
+footer .logo {
+  margin-top: 1.5rem;
+
+  width: 85px;
+}
+footer p {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-300);
+
+  text-transform: capitalize;
+}
