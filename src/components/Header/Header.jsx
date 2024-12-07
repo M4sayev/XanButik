@@ -17,8 +17,8 @@ function Header() {
             in modern menswear fashion online
           </p>
           <div className="header-widgets-container">
-            <button className="widget-learn-more-btn">learn more</button>
-            <button data-type="inverted" className="widget-shop-now-btn">shop now</button>
+            <button tabIndex="8" className="widget-learn-more-btn">learn more</button>
+            <button tabIndex="9" data-type="inverted" className="widget-shop-now-btn">shop now</button>
           </div>
         </div>
     </header>

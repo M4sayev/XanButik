@@ -53,7 +53,7 @@ function OurClientsCarousel() {
               const { brandName, img } = carouselItem;
               return (
                 <SwiperSlide key={index}>
-                  <img src={img} alt={brandName} />
+                  <img tabIndex={index + 16} src={img} alt={brandName} />
                 </SwiperSlide>
               );
             })}

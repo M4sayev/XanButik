@@ -32,7 +32,7 @@ function FeaturedItems() {
               })
             }
           </div>
-          <button ref={btnRef} className={`featured-items-view-more-btn ${btnInView ? "animate-in" : ""}`}>view more</button>
+          <button tabIndex="11" ref={btnRef} className={`featured-items-view-more-btn ${btnInView ? "animate-in" : ""}`}>view more</button>
         </div>
     </section>
   )

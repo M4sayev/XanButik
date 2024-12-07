@@ -89,6 +89,7 @@ function Navbar() {
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button 
+              tabIndex="8"
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
               onClick={() => {

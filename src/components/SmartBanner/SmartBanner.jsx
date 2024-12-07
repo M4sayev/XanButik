@@ -16,7 +16,7 @@ function SmartBanner() {
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </div>
-        <button className="smart-banner-explore-btn">Explore</button>
+        <button tabIndex="10" className="smart-banner-explore-btn">Explore</button>
       </div>
     </section>
   );

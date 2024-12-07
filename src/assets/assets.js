@@ -18,6 +18,7 @@ import half_classic_genuine_leather_dress_shoes from "./header_imgs/half_classic
 import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 import header_image from "./header_imgs/header_image.jpg";
+import coming_soon from "./header_imgs/coming_soon.jpg";
 
 // services icons
 
@@ -563,6 +564,7 @@ export const assets = {
     logo_no_frame,
     logo_no_bg,
     header_image,
+    coming_soon,
     //
     logo_black_bg,
     logo_sheki_bg,

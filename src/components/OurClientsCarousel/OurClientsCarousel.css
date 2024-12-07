@@ -32,6 +32,8 @@
 .carousel-container {
   display: flex;
   justify-content: center;
+
+  margin-bottom: 1rem;
 }
 
 .carousel {
@@ -39,7 +41,7 @@
   max-width: 350px;
 }
 .swiper {
-  padding-bottom: 2rem !important;
+  padding-bottom: 3rem !important;
   padding-left: 30px !important;
 }
 .swiper-slide img {
@@ -48,6 +50,11 @@
 }
 .swiper-pagination-bullets {
   bottom: 0px !important;
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  margin-right: 0.75rem !important;
 }
 .swiper-pagination-bullet-active {
   background-color: var(--clr-primary-900) !important;
