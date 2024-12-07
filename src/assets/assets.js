@@ -26,6 +26,16 @@ import services_icon_two from "./services_icons/services_icon_two.png";
 import services_icon_three from "./services_icons/services_icon_three.png";
 import services_icon_four from "./services_icons/services_icon_four.png";
 
+// carousel 
+
+import carousel_brand_one from "./carousel/carousel_brand_one.png";
+import carousel_brand_two from "./carousel/carousel_brand_two.png";
+import carousel_brand_three from "./carousel/carousel_brand_three.png";
+import carousel_brand_four from "./carousel/carousel_brand_four.png";
+import carousel_brand_five from "./carousel/carousel_brand_five.png";
+import carousel_brand_six from "./carousel/carousel_brand_six.png";
+import carousel_brand_seven from "./carousel/carousel_brand_seven.png";
+
 // TOP
 
 //// Tshirts
@@ -570,6 +580,37 @@ export const assets = {
     services_icon_three,
     services_icon_four
 }
+
+export const carousel = [
+    {
+        brandName: "Elegance",
+        img: carousel_brand_one
+    },
+    {
+        brandName: "Rolestigana",
+        img: carousel_brand_two
+    },
+    {
+        brandName: "Blanco Y Negro",
+        img: carousel_brand_three
+    },
+    {
+        brandName: "Clean Sleep",
+        img: carousel_brand_four
+    },
+    {
+        brandName: "Dame Elegante",
+        img: carousel_brand_five
+    },
+    {
+        brandName: "Lullaby",
+        img: carousel_brand_six
+    },
+    {
+        brandName: "Knitted Dreams",
+        img: carousel_brand_seven
+    }
+];
 
 export const favoriteItems = [
     {

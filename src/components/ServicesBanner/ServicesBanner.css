@@ -1,67 +1,67 @@
 .services-banner {
-    background-color: var(--clr-accent);
-    
-    padding-block: 3.75rem;
+  background-color: var(--clr-accent);
+
+  padding-block: 3.75rem;
 }
 .services-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.75rem;
 
-    padding-inline: 1rem;
+  padding-inline: 1rem;
 
-    text-align: center;
+  text-align: center;
 }
 .services-container div img {
-    margin: auto;
-    margin-bottom: 2rem;
+  margin: auto;
+  margin-bottom: 2rem;
 }
 .services-container div p {
-    font-family: var(--ff-secondary);
-    font-size: var(--fs-450);
-    font-weight: var(--fw-bold);
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-450);
+  font-weight: var(--fw-bold);
 
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 @media (min-width: 777px) {
-    .services-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0;
+  .services-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
 
-        padding-left: calc(10vw + 0.25em);
-    }
-    .services-container div {
-        display: flex;
-        align-items: center;
+    padding-left: calc(10vw + 0.25em);
+  }
+  .services-container div {
+    display: flex;
+    align-items: center;
 
-        width: 50%;
-        padding-block: 1rem;
-    }
-    .services-container div img {
-        margin: 0;
-        margin-right: 1rem;
-    }
-    .services-container div p {
-        font-size: var(--fs-475);
-    }
+    width: 50%;
+    padding-block: 1rem;
+  }
+  .services-container div img {
+    margin: 0;
+    margin-right: 1rem;
+  }
+  .services-container div p {
+    font-size: var(--fs-475);
+  }
 }
 @media (min-width: 994px) {
-    .services-container {
-        flex-wrap: nowrap;
+  .services-container {
+    flex-wrap: nowrap;
 
-        padding-left: 2.5vw;
-        text-align: start;
-    }
-    .services-container div {
-        flex: 1;
-    }
-    .services-container div img {
-        margin-left: 0.25rem;
-    }
-    .services-container div p {
-        font-size: var(--fs-500);
-    }
+    padding-left: 2.5vw;
+    text-align: start;
+  }
+  .services-container div {
+    flex: 1;
+  }
+  .services-container div img {
+    margin-left: 0.25rem;
+  }
+  .services-container div p {
+    font-size: var(--fs-500);
+  }
 }
