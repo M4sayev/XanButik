@@ -189,7 +189,7 @@
 }
 /* contact us button */
 
-.contact-us-btn {
+.sign-up-btn {
   margin-left: 0.125rem;
 }
 
@@ -216,7 +216,7 @@
   cursor: pointer;
 
   position: relative;
-  z-index: 10000;
+  z-index: 101;
 }
 .body-menu-scroll {
   height: 100%;
@@ -363,7 +363,7 @@
   .dropdown-phone-icon {
     margin-left: 0;
   }
-  .sidebar-icon-btns .contact-us-btn {
+  .sidebar-icon-btns .sign-up-btn {
     width: 100%;
     margin-right: 2rem;
   }

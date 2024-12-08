@@ -25,8 +25,6 @@
 
     font-size: var(--fs-300);
     font-family: var(--ff-secondary);
-
-    animation: animate-in;
 }
 .login-popup-title {
     display: flex;
@@ -80,13 +78,6 @@
     right: 10px;
 
     cursor: pointer;
-    
-    transform: scale(1);
-    transition: transform 300ms linear;
-    will-change: transform;
-}
-.show-hide-icon:hover {
-    transform: scale(1.1);
 }
 /* end */
 .login-popup-container button {
@@ -101,6 +92,13 @@
 
     margin-top: -12px;
 }
+.login-popup-condition label {
+    cursor: pointer;
+}
+.login-popup-condition input[type="checkbox"] {
+    accent-color: var(--clr-primary-900);
+    cursor: pointer;
+}
 .login-popup-condition input {
     margin-top: 5px;
 }
@@ -113,5 +111,6 @@
     
     cursor: pointer;
 }
+
 
 

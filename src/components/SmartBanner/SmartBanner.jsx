@@ -1,6 +1,8 @@
 import React from "react";
 import "./SmartBanner.css";
 import { useInView } from "react-intersection-observer";
+import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 function SmartBanner() {
     const { ref: bannerContentsRef, inView: bannerInView } = useInView();
@@ -16,7 +18,7 @@ function SmartBanner() {
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </div>
-        <button tabIndex="10" className="smart-banner-explore-btn">Explore</button>
+        <Button as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
       </div>
     </section>
   );

@@ -2,11 +2,15 @@ import React, { useRef } from "react";
 import "./Header.css";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+
+
 
 function Header() {
   
   const { ref: headerContentsRef, inView } = useInView();
-
+  
   return (
     <header>
         <Parallax speed={-20} className="header-parallax-bg"></Parallax>
@@ -17,8 +21,8 @@ function Header() {
             in modern menswear fashion online
           </p>
           <div className="header-widgets-container">
-            <button tabIndex="8" className="widget-learn-more-btn">learn more</button>
-            <button tabIndex="9" data-type="inverted" className="widget-shop-now-btn">shop now</button>
+            <Button as={Link} to="/AboutUs" tabIndex="8" className="widget-learn-more-btn button">learn more</Button>
+            <Button as={Link} to="/Cart" tabIndex="9" data-type="inverted" className="widget-shop-now-btn button">shop now</Button>
           </div>
         </div>
     </header>

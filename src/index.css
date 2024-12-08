@@ -98,15 +98,18 @@ h3, h4 {
   font-family: var(--ff-primary);
 }
 
-/* Button standard desing  */
+/* Button design (both semantic react and standard btn) */
 
-button:not(.hamburger-menu) {
+button:not(.hamburger-menu),
+.button
+ {
   font-family: var(--ff-secondary);
   font-size: var(--ff-size-400);
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   text-wrap: nowrap;
   color: var(--clr-neutral-100);
+  text-decoration: none;
 
   padding: var(--blk-pdng-btn) var(--inl-pdng-btn);
 
@@ -119,19 +122,27 @@ button:not(.hamburger-menu) {
 
   transition: transform var(--std-transition), padding-inline var(--std-transition);
 }
+.button {
+  padding: 0.675rem var(--inl-pdng-btn);
+}
 
-button[data-type="inverted"] {
+button[data-type="inverted"],
+.button[data-type="inverted"] {
   background-color: var(--clr-primary-100);
   color: var(--clr-neutral-900);
 }
 
 button:not(.hamburger-menu):hover,
-button:not(.hamburger-menu):focus {
+button:not(.hamburger-menu):focus,
+.button:hover,
+.button:focus 
+ {
   transform: scale(1.05);
 }
 
 @media (max-width: 576px) {
-  button:not(.hamburger-menu) {
+  button:not(.hamburger-menu),
+  .button {
     padding-inline: var(--fs-300);
   }
 }

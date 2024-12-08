@@ -50,7 +50,7 @@ function BtnsContainer({setShowLogin}) {
           </div>
         </div>
       </div>
-      <button onClick={() => setShowLogin(true)} className="contact-us-btn" tabIndex="8">
+      <button onClick={() => setShowLogin(true)} className="sign-up-btn" tabIndex="8">
         sing up
       </button>
     </>

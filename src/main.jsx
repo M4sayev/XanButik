@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter future={{ v7_startTransition: true }}>
     <ParallaxProvider>
       <StrictMode>
-        <App />
+          <App />
       </StrictMode>
     </ParallaxProvider>
   </BrowserRouter>

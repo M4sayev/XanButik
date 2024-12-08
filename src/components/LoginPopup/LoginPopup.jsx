@@ -49,18 +49,16 @@ function LoginPopup({ setShowLogin, loginPopupRef }) {
           {currentState === "Sign Up" ? "Create account" : "Login"}
         </button>
         <div className="login-popup-condition">
-          <input type="checkbox" required />
-          <p>By continuing, I agree to the terms of use & privacy policy</p>
+          <input id="agreeWithConds" type="checkbox" required />
+          <label htmlFor="agreeWithConds">By continuing, I agree to the terms of use & privacy policy</label>
         </div>
         {currentState === "Login" ? (
           <p>
-            Create a new account?{" "}
-            <span onClick={() => setCurrentState("Sing Up")}>Click here</span>
+            Create a new account? <span onClick={() => setCurrentState("Sing Up")}>Click here</span>
           </p>
         ) : (
           <p>
-            Already have an account?{" "}
-            <span onClick={() => setCurrentState("Login")}>Login here</span>
+            Already have an account? <span onClick={() => setCurrentState("Login")}>Login here</span>
           </p>
         )}
       </form>

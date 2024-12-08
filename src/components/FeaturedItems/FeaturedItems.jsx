@@ -2,6 +2,8 @@ import React from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
+import Button from '../Button/Button.jsx';
+import { Link } from 'react-router-dom';
 
 function FeaturedItems() {
 
@@ -32,7 +34,7 @@ function FeaturedItems() {
               })
             }
           </div>
-          <button tabIndex="11" ref={btnRef} className={`featured-items-view-more-btn ${btnInView ? "animate-in" : ""}`}>view more</button>
+          <Button as={Link} to="/Cart" tabIndex="11" ref={btnRef} className={`featured-items-view-more-btn button ${btnInView ? "animate-in" : ""}`}>view more</Button>
         </div>
     </section>
   )
