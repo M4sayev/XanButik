@@ -1,6 +1,4 @@
-/* temporary to check scroll */
 body {
-  height: 300vh;
   background-color: var(--clr-primary-200);
 }
 header {

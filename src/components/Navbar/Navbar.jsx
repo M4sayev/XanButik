@@ -8,7 +8,7 @@ import { FiPhone } from "react-icons/fi";
 import { MdLocalPhone } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-function BtnsContainer() {
+function BtnsContainer({setShowLogin}) {
   return (
     <>
       <div>
@@ -50,14 +50,14 @@ function BtnsContainer() {
           </div>
         </div>
       </div>
-      <button className="contact-us-btn" tabIndex="8">
+      <button onClick={() => setShowLogin(true)} className="contact-us-btn" tabIndex="8">
         sing up
       </button>
     </>
   );
 }
 
-function Navbar() {
+function Navbar({setShowLogin}) {
   const [isHamActive, setIsHamActive] = useState(false);
   const [currentPage, setCurrentPage] = useState("Home");
 
@@ -118,7 +118,7 @@ function Navbar() {
         </nav>
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
-            <BtnsContainer />
+            <BtnsContainer setShowLogin={setShowLogin} />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
@@ -184,7 +184,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <div className="navbar-right-side-btns sidebar-icon-btns">
-                  <BtnsContainer />
+                  <BtnsContainer setShowLogin={setShowLogin}/>
                 </div>
               </ul>
             </nav>
