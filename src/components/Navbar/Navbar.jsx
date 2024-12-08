@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets.js";
 import { CiHeart, CiMail } from "react-icons/ci";
@@ -7,6 +7,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { FiPhone } from "react-icons/fi";
 import { MdLocalPhone } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext.jsx";
 
 function BtnsContainer({setShowLogin}) {
   return (
@@ -59,7 +60,7 @@ function BtnsContainer({setShowLogin}) {
 
 function Navbar({setShowLogin}) {
   const [isHamActive, setIsHamActive] = useState(false);
-  const [currentPage, setCurrentPage] = useState("Home");
+  const { currentPage, setCurrentPage } = useContext(StoreContext);
 
   function handlePage(page) {
     if (page.tagName !== "A") return;

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SmartBanner.css";
 import { useInView } from "react-intersection-observer";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
 
 function SmartBanner() {
     const { ref: bannerContentsRef, inView: bannerInView } = useInView();
+    const { setCurrentPage } = useContext(StoreContext);
 
   return (
     <section className="smart-banner">
@@ -18,7 +20,7 @@ function SmartBanner() {
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </div>
-        <Button as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
+        <Button onClick={() => setCurrentPage("Cart")} as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
       </div>
     </section>
   );

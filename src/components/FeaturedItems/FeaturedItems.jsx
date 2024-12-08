@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
-import Button from '../Button/Button.jsx';
+import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext.jsx';
 
 function FeaturedItems() {
 
   const {ref: titleRef, inView: titleInView} = useInView();
   const {ref: btnRef, inView: btnInView} = useInView();
+  const { setCurrentPage } = useContext(StoreContext);
 
   return (
     <section className='featured-items'>
@@ -34,7 +36,7 @@ function FeaturedItems() {
               })
             }
           </div>
-          <Button as={Link} to="/Cart" tabIndex="11" ref={btnRef} className={`featured-items-view-more-btn button ${btnInView ? "animate-in" : ""}`}>view more</Button>
+          <Button onClick={() => setCurrentPage("Cart")} as={Link} to="/Cart" tabIndex="11" ref={btnRef} className={`featured-items-view-more-btn button ${btnInView ? "animate-in" : ""}`}>view more</Button>
         </div>
     </section>
   )
