@@ -7,7 +7,7 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import StoreContextProvider from "./context/StoreContext.jsx";
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter future={{ v7_startTransition: true }}>
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <ParallaxProvider>
       <StrictMode>
         <StoreContextProvider>

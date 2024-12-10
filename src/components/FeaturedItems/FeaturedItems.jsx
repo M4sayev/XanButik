@@ -4,7 +4,7 @@ import { favoriteItems } from "../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { StoreContext } from '../../context/StoreContext.jsx';
+import { StoreContext } from '../../context/StoreContext';
 
 function FeaturedItems() {
 

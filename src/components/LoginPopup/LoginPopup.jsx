@@ -3,13 +3,13 @@ import "./LoginPopup.css";
 import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";
 
-function LoginPopup({ setShowLogin, loginPopupRef }) {
+function LoginPopup({ setShowLogin, innerRef }) {
   const [showPassword, setShowPassword] = useState(false);
   const [currentState, setCurrentState] = useState("Sing Up");
 
   return (
     <div className="login-popup">
-      <form ref={loginPopupRef} className="login-popup-container">
+      <form ref={innerRef} className="login-popup-container">
         <div className="login-popup-title">
           <h2>{currentState}</h2>
           <IoClose

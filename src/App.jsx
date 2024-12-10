@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      {showLogin ? <LoginPopup loginPopupRef={loginPopupRef} setShowLogin={ setShowLogin }/> : <></>}
+      {showLogin ? <LoginPopup innerRef={loginPopupRef} setShowLogin={ setShowLogin }/> : <></>}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin}/>
         <Routes>
