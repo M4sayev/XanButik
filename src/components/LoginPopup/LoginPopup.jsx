@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginPopup.css";
 import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";
+import { StoreContext } from "../../context/StoreContext";
 
-function LoginPopup({ setShowLogin, innerRef }) {
+function LoginPopup({ innerRef }) {
   const [showPassword, setShowPassword] = useState(false);
   const [currentState, setCurrentState] = useState("Sing Up");
+  const { setShowLogin } = useContext(StoreContext);
 
   return (
     <div className="login-popup">

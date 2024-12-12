@@ -9,7 +9,9 @@ import { MdLocalPhone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext.jsx";
 
-function BtnsContainer({setShowLogin}) {
+function BtnsContainer() {
+  const {setShowLogin} = useContext(StoreContext);
+
   return (
     <>
       <div>
@@ -58,9 +60,10 @@ function BtnsContainer({setShowLogin}) {
   );
 }
 
-function Navbar({setShowLogin}) {
+function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
+  const { setShowLogin } = useContext(StoreContext);
 
   function handlePage(page) {
     if (page.tagName !== "A") return;

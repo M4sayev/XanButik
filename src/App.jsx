@@ -1,5 +1,5 @@
 import './App.css'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
@@ -10,11 +10,13 @@ import Cart from './pages/Cart/Cart'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
+import { StoreContext } from './context/StoreContext'
 
 function App() {
 
   const loginPopupRef = useRef(null);
-  const [ showLogin, setShowLogin ] = useState(false);
+  const { showLogin, setShowLogin } = useContext(StoreContext);
+  // const [ showLogin, setShowLogin ] = useState(false);
 
   function handleClickOutside(event) {
     if (loginPopupRef.current && !loginPopupRef.current.contains(event.target)) {
@@ -31,9 +33,9 @@ function App() {
 
   return (
     <>
-      {showLogin ? <LoginPopup innerRef={loginPopupRef} setShowLogin={ setShowLogin }/> : <></>}
+      {showLogin ? <LoginPopup innerRef={loginPopupRef} /> : <></>}
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin}/>
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/About' element={<About />} />
