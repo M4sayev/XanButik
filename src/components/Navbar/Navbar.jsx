@@ -31,7 +31,7 @@ function BtnsContainer() {
           0
         </span>
       </div>
-      <div class="contact-us-dropdown-container">
+      <div className="contact-us-dropdown-container">
         <span
           tabIndex="7"
           aria-label="contacts"
@@ -60,10 +60,62 @@ function BtnsContainer() {
   );
 }
 
+function MenuItems({currentPage}) {
+  return (
+    <>
+      <li role="none">
+        <Link
+          to="/"
+          role="menuitem"
+          tabIndex="1"
+          className={`${currentPage === "Home" ? "active" : ""} link`}
+        >
+          Home
+        </Link>
+      </li>
+      <li role="none">
+        <Link
+          to="/About"
+          role="menuitem"
+          tabIndex="2"
+          className={`${
+            currentPage === "About Us" ? "active" : ""
+          } link`}
+        >
+          About Us
+        </Link>
+      </li>
+      <li role="none">
+        <Link
+          to="/ContactUs"
+          role="menuitem"
+          tabIndex="3"
+          className={`${
+            currentPage === "Contact Us" ? "active" : ""
+          } link`}
+        >
+          Contact Us
+        </Link>
+      </li>
+      <li role="none">
+        <Link
+          to="/Cart"
+          role="menuitem"
+          tabIndex="4"
+          className={`${
+            currentPage === "Store" ? "active" : ""
+          } link`}
+        >
+          Store
+        </Link>
+      </li>
+    </>
+  )
+}
+
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
-  const { setShowLogin } = useContext(StoreContext);
 
   function handlePage(page) {
     if (page.tagName !== "A") return;
@@ -73,56 +125,15 @@ function Navbar() {
   return (
     <div className="navigation">
       <div className="navbar">
-        <img src={assets.logo_no_frame} alt="logo" className="logo" />
+        <img onClick={() => window.location.reload(false)} src={assets.logo_no_frame} alt="logo" className="logo" />
         <nav role="menubar" className="navbar-top-menu">
           <ul role="menu" onClick={(e) => handlePage(e.target)}>
-            <li role="none">
-              <Link
-                to="/"
-                role="menuitem"
-                tabIndex="1"
-                className={`${currentPage === "Home" ? "active" : ""} link`}
-              >
-                Home
-              </Link>
-            </li>
-            <li role="none">
-              <Link
-                to="/About"
-                role="menuitem"
-                tabIndex="2"
-                className={`${currentPage === "About Us" ? "active" : ""} link`}
-              >
-                About Us
-              </Link>
-            </li>
-            <li role="none">
-              <Link
-                to="/ContactUs"
-                role="menuitem"
-                tabIndex="3"
-                className={`${
-                  currentPage === "Contact Us" ? "active" : ""
-                } link`}
-              >
-                Contact Us
-              </Link>
-            </li>
-            <li role="none">
-              <Link
-                to="/Cart"
-                role="menuitem"
-                tabIndex="4"
-                className={`${currentPage === "Store" ? "active" : ""} link`}
-              >
-                Store
-              </Link>
-            </li>
+            <MenuItems currentPage={currentPage}/>
           </ul>
         </nav>
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
-            <BtnsContainer setShowLogin={setShowLogin} />
+            <BtnsContainer />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
@@ -140,57 +151,10 @@ function Navbar() {
               role="menubar"
               className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}
             >
-              <ul role="menu" onClick={(e) => handlePage(e.target)}>
-                <li role="none">
-                  <Link
-                    to="/"
-                    role="menuitem"
-                    tabIndex="1"
-                    className={`${currentPage === "Home" ? "active" : ""} link`}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li role="none">
-                  <Link
-                    to="/About"
-                    role="menuitem"
-                    tabIndex="2"
-                    className={`${
-                      currentPage === "About Us" ? "active" : ""
-                    } link`}
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li role="none">
-                  <Link
-                    to="/ContactUs"
-                    role="menuitem"
-                    tabIndex="3"
-                    className={`${
-                      currentPage === "Contact Us" ? "active" : ""
-                    } link`}
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li role="none">
-                  <Link
-                    to="/Cart"
-                    role="menuitem"
-                    tabIndex="4"
-                    className={`${
-                      currentPage === "Store" ? "active" : ""
-                    } link`}
-                  >
-                    Store
-                  </Link>
-                </li>
-                <div className="navbar-right-side-btns sidebar-icon-btns">
-                  <BtnsContainer setShowLogin={setShowLogin}/>
-                </div>
-              </ul>
+              <MenuItems currentPage={currentPage}/>
+              <div className="navbar-right-side-btns sidebar-icon-btns">
+                <BtnsContainer />
+              </div>
             </nav>
           </div>
         </div>

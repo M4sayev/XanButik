@@ -10,7 +10,7 @@ function StoreContextProvider(props) {
     });
 
     useEffect(() => {
-        localStorage.setItem("mSenu", currentPage);
+        localStorage.setItem("menu", currentPage);
     }, [currentPage]);
 
     const contextValue = {
