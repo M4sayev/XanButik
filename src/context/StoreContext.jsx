@@ -5,12 +5,12 @@ export const StoreContext = createContext(null);
 function StoreContextProvider(props) {
     const [ showLogin, setShowLogin ] = useState(false);
     const [currentPage, setCurrentPage] = useState(() => {
-        if (!localStorage.getItem("menu")) return "Home";
-        return localStorage.getItem("menu");
+        if (!sessionStorage.getItem("menu")) return "Home";
+        return sessionStorage.getItem("menu");
     });
 
     useEffect(() => {
-        localStorage.setItem("menu", currentPage);
+        sessionStorage.setItem("menu", currentPage);
     }, [currentPage]);
 
     const contextValue = {

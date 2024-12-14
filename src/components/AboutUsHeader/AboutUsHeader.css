@@ -1,3 +1,8 @@
+.header-about-us .header-parallax-bg {
+    background: url("../../assets/header_imgs/coming_soon.jpg") no-repeat;
+    background-position: 10% 20%;
+    filter: blur(2px);
+}
 .header-contents-about-us {
     max-width: 1560px !important;
     width: 100%;
@@ -22,12 +27,13 @@
         align-items: flex-start;
         text-align: start;
     }
+    .header-contents-about-us p {
+        margin-left: 0;
+    }
+
 }
 @media (min-width: 1080px) {
     .header-contents-about-us {
         padding-inline: 3rem;
-    }
-    .header-contents-about-us p {
-        margin-left: 0;
     }
 }

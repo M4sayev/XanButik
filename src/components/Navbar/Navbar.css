@@ -319,9 +319,10 @@
     height: 100%;
   }
   .sidebar-icon-btns {
+    padding-left: 2rem;
     margin-top: 2em;
     display: flex;
-    gap: 1.75rem;
+    gap: 1.252rem;
   }
   .dropdown-contact-us {
     left: -200%;
