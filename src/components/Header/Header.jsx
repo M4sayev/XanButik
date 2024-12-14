@@ -14,7 +14,7 @@ function Header() {
   
   return (
     <header>
-        <Parallax speed={-20} className="header-parallax-bg"></Parallax>
+        <Parallax speed={-20} className="header-parallax-bg header-bg-animate"></Parallax>
         <div ref={headerContentsRef} className={`header-contents ${inView ? "animate-in" : ""}`}>
           <h1 className="header-title">Xan Butik: Elevating Men's Style</h1>
           <p className="header-description">

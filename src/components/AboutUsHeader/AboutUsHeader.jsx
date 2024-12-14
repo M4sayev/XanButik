@@ -11,7 +11,7 @@ function AboutUsHeader() {
 
   return (
     <header className="header-about-us">
-      <Parallax speed={-20} className="header-parallax-bg"></Parallax>
+      <Parallax speed={-20} className="header-parallax-bg header-bg-animate"></Parallax>
         <div ref={headerAboutContentsRef} className={`header-contents-about-us ${inView ? "animate-in" : ""}`}>
           <h1 className="header-title">Classic Men's Apparel Collection</h1>
           <p className="header-description">

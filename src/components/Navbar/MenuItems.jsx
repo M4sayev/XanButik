@@ -1,67 +1,61 @@
-import React from "react"; 
+import React from "react";
 import { Link } from "react-router-dom";
 
-function MenuItems({ setIsHamActive,currentPage}) {
-
-const handleBodyScroll = () => {
+function MenuItems({ isHamActive, setIsHamActive, currentPage }) {
+  const handleBodyScroll = () => {
+    if (!isHamActive) return;
     setIsHamActive(false);
-    document.body.classList.toggle("body-menu-scroll");
-}
+    document.body.classList.remove("body-menu-scroll");
+  };
 
-return (
+  return (
     <>
-    <li role="none">
+      <li role="none">
         <Link
-        to="/"
-        role="menuitem"
-        tabIndex="1"
-        className={`${currentPage === "Home" ? "active" : ""} link`}
-        onClick={() => handleBodyScroll()}
+          to="/"
+          role="menuitem"
+          tabIndex="1"
+          className={`${currentPage === "Home" ? "active" : ""} link`}
+          onClick={() => handleBodyScroll()}
         >
-        Home
+          Home
         </Link>
-    </li>
-    <li role="none">
+      </li>
+      <li role="none">
         <Link
-        to="/About"
-        role="menuitem"
-        tabIndex="2"
-        className={`${
-            currentPage === "About Us" ? "active" : ""
-        } link`}
-        onClick={() => handleBodyScroll()}
+          to="/About"
+          role="menuitem"
+          tabIndex="2"
+          className={`${currentPage === "About Us" ? "active" : ""} link`}
+          onClick={() => handleBodyScroll()}
         >
-        About Us
+          About Us
         </Link>
-    </li>
-    <li role="none">
+      </li>
+      <li role="none">
         <Link
-        to="/ContactUs"
-        role="menuitem"
-        tabIndex="3"
-        className={`${
-            currentPage === "Contact Us" ? "active" : ""
-        } link`}
-        onClick={() => handleBodyScroll()}
+          to="/ContactUs"
+          role="menuitem"
+          tabIndex="3"
+          className={`${currentPage === "Contact Us" ? "active" : ""} link`}
+          onClick={() => handleBodyScroll()}
         >
-        Contact Us
+          Contact Us
         </Link>
-    </li>
-    <li role="none">
+      </li>
+      <li role="none">
         <Link
-        to="/Cart"
-        role="menuitem"
-        tabIndex="4"
-        className={`${
-            currentPage === "Store" ? "active" : ""
-        } link`}
-        onClick={() => handleBodyScroll()}
+          to="/Cart"
+          role="menuitem"
+          tabIndex="4"
+          className={`${currentPage === "Store" ? "active" : ""} link`}
+          onClick={() => handleBodyScroll()}
         >
-        Store
+          Store
         </Link>
-    </li>
+      </li>
     </>
-)
+  );
 }
 
 export default MenuItems;

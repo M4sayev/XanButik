@@ -17,10 +17,19 @@ function Navbar() {
   return (
     <div className="navigation">
       <div className="navbar">
-        <img onClick={() => window.location.reload(false)} src={assets.logo_no_frame} alt="logo" className="logo" />
-        <nav role="menubar" className="navbar-top-menu">
+        <img
+          onClick={() => window.location.reload(false)}
+          src={assets.logo_no_frame}
+          alt="logo"
+          className="logo"
+        />
+        <nav className="navbar-top-menu">
           <ul role="menu" onClick={(e) => handlePage(e.target)}>
-            <MenuItems setIsHamActive={setIsHamActive} currentPage={currentPage}/>
+            <MenuItems
+              isHamActive={isHamActive}
+              setIsHamActive={setIsHamActive}
+              currentPage={currentPage}
+            />
           </ul>
         </nav>
         <div className="navbar-right-side">
@@ -32,6 +41,8 @@ function Navbar() {
               tabIndex="8"
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
+              aria-haspopup="menu"
+              aria-expanded={isHamActive ? "true" : "false"}
               onClick={() => {
                 setIsHamActive(!isHamActive);
                 document.body.classList.toggle("body-menu-scroll");
@@ -40,11 +51,14 @@ function Navbar() {
               <span></span>
             </button>
             <nav
-              role="menubar"
               className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}
             >
               <ul role="menu" onClick={(e) => handlePage(e.target)}>
-                <MenuItems setIsHamActive={setIsHamActive} currentPage={currentPage}/>
+                <MenuItems
+                  isHamActive={isHamActive}
+                  setIsHamActive={setIsHamActive}
+                  currentPage={currentPage}
+                />
               </ul>
               <div className="navbar-right-side-btns sidebar-icon-btns">
                 <BtnsContainer />

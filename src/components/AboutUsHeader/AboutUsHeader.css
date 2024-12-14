@@ -1,7 +1,6 @@
 .header-about-us .header-parallax-bg {
-    background: url("../../assets/header_imgs/coming_soon.jpg") no-repeat;
+    background: url("../../assets/header_imgs/header_about_us.png") no-repeat;
     background-position: 10% 20%;
-    filter: blur(2px);
 }
 .header-contents-about-us {
     max-width: 1560px !important;

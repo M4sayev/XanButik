@@ -179,9 +179,13 @@ textarea:not([rows]) {
 /* Standard animation for components contents  */
 
 .animate-in {
-  animation: 1s slideIn;
+  animation: 1s slide-in;
 }
-@keyframes slideIn {
+.header-bg-animate {
+  animation: 1s header-popup;
+}
+
+@keyframes slide-in {
   0% {
       transform: translateY(50px);
       filter: blur(2px);
@@ -191,6 +195,15 @@ textarea:not([rows]) {
       transform: translateY(0);
       filter: blur(0px);
       opacity: 1;
+  }
+}
+
+@keyframes header-popup {
+  0% {
+      filter: blur(1.25rem);
+  }
+  100% {
+      filter: blur(0);
   }
 }
 
