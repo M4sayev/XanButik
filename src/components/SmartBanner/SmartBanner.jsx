@@ -20,7 +20,7 @@ function SmartBanner() {
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </div>
-        <Button onClick={() => setCurrentPage("Cart")} as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
+        <Button id="ExploreHome" as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
       </div>
     </section>
   );

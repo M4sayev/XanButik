@@ -37,7 +37,7 @@ function FeaturedItems() {
             }
           </div>
           <div className={`featured-items-btn  ${btnInView ? "animate-in" : ""}`} ref={btnRef}>
-            <Button onClick={() => setCurrentPage("Cart")} as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn button">view more</Button>
+            <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn button">view more</Button>
           </div>
         </div>
     </section>

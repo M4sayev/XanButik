@@ -10,7 +10,7 @@ import { StoreContext } from "../../context/StoreContext";
 function Header() {
   
   const { ref: headerContentsRef, inView } = useInView();
-  const { setCurrentPage } = useContext(StoreContext);
+  const { setCurrentPage, currentPage } = useContext(StoreContext);
   
   return (
     <header>
@@ -22,8 +22,8 @@ function Header() {
             in modern menswear fashion online
           </p>
           <div className="header-widgets-container">
-            <Button as={Link} onClick={() => setCurrentPage("About Us")} to="/About" tabIndex="8" className="widget-learn-more-btn button">learn more</Button>
-            <Button as={Link} onClick={() => setCurrentPage("Store")} to="/Cart" tabIndex="9" data-type="inverted" className="widget-shop-now-btn button">shop now</Button>
+            <Button as={Link} id="LearnNowHome" to="/About" tabIndex="8" className="widget-learn-more-btn button">learn more</Button>
+            <Button as={Link} id="ShopNowHome" to="/Cart" tabIndex="9" data-type="inverted" className="widget-shop-now-btn button">shop now</Button>
           </div>
         </div>
     </header>
