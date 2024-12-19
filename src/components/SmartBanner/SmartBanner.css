@@ -1,5 +1,6 @@
 .smart-banner {
   background-color: var(--clr-accent);
+  margin-top: -2rem;
 }
 .smart-banner-container {
   display: flex;

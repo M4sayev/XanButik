@@ -2,6 +2,12 @@
     background: url("../../assets/header_imgs/header_about_us.png") no-repeat;
     background-position: 10% 20%;
 }
+@media (min-width: 1500px) {
+  .header-about-us .header-parallax-bg {
+    background-size: cover;
+    background-position-y: 40%;
+  }
+}
 .header-contents-about-us {
     max-width: 1560px !important;
     width: 100%;
