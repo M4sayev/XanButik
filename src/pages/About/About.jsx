@@ -3,6 +3,7 @@ import "./About.css"
 import AboutUsHeader from '../../components/AboutUsHeader/AboutUsHeader'
 import OurResultsBanner from '../../components/OurResultsBanner/OurResultsBanner'
 import Welcome from '../../components/Welcome/Welcome'
+import OurServices from '../../components/OurServices/OurServices'
 
 function About() {
   return (
@@ -10,6 +11,7 @@ function About() {
       <AboutUsHeader />
       <OurResultsBanner />
       <Welcome />
+      <OurServices />
     </div>
   )
 }

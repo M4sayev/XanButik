@@ -1,0 +1,51 @@
+.our-services {
+    padding-block: 2rem;
+}
+.our-services p {
+    font-family: var(--ff-secondary);
+}
+.our-services-contents {
+    padding-inline: 1rem;
+
+    text-align: center;
+}
+.our-services-subtitle {
+    font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
+
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+.our-services-title {
+    font-size: clamp(var(--fs-600), 6vw, var(--fs-900));
+    text-transform: capitalize;
+
+    margin-bottom: 1rem;
+}
+.our-services-introductory-paragraph {
+    font-size: var(--fs-300);
+
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding-inline: 1rem;
+}
+.our-services-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-self: center;
+    gap: 1rem;
+}
+.service-widget-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.service-widget-item .service-name {
+    font-weight: var(--fw-bold-bold);
+    font-size: clamp(var(--fs-450), 5vw ,var(--fs-500));
+
+    margin-bottom: 0.475em;
+}
+.service-widget-item .service-description {
+    font-size: var(--fs-300);
+    margin-bottom: 1rem;
+}

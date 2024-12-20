@@ -2,8 +2,6 @@
   padding-block: 2rem;
 
   background-color: var(--clr-accent);
-  /* dag */
-  margin-bottom: 5rem;
 }
 .welcome-section-contents {
   display: flex;

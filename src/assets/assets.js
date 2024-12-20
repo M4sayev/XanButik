@@ -27,6 +27,13 @@ import services_icon_two from "./services_icons/services_icon_two.png";
 import services_icon_three from "./services_icons/services_icon_three.png";
 import services_icon_four from "./services_icons/services_icon_four.png";
 
+// services imgs
+
+import personal_consultation_service from "./services_imgs_about/personal_consultation_service.jpg";
+import premium_fitting from "./services_imgs_about/premium_fitting.jpg";
+import shoe_care_n_repair from "./services_imgs_about/shoe_care_n_repair.jpg";
+import tailoring_n_alteration from "./services_imgs_about/tailoring_n_alteration.jpg";
+
 // carousel 
 
 import carousel_brand_one from "./carousel/carousel_brand_one.png";
@@ -636,3 +643,26 @@ export const favoriteItems = [
         img: bomber_home
     }
 ]
+
+export const ourServices = [
+    {
+        name: "Personal Styling Consulatition",
+        description: "Experience a personalized styling consultation with our fashion experts, who will curate signature looks tailored to your individual taste and lifestyle, elevating your wardrobe.",
+        img: personal_consultation_service
+    },
+    {
+        name: "Tailoring and Alteration",
+        description: "Discover our precise tailoring and alteration services, ensuring your clothing fits impeccably, reflecting your unique style and enhancing your confidence.",
+        img: tailoring_n_alteration
+    },
+    {
+        name: "Premium Suit Fittings",
+        description: "Indulge in premium suit fittings, where our skilled professionals will guide you through selecting the perfect suit, exuding sophistication and refinement for every occasion.",
+        img: premium_fitting
+    },
+    {
+        name: "Shoe Care and Repair",
+        description: "Trust our specialized shoe care and repair services to keep your footwear in pristine condition, preserving their quality and extending their longevity.",
+        img: shoe_care_n_repair
+    }
+];
