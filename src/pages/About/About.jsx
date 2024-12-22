@@ -4,6 +4,7 @@ import AboutUsHeader from '../../components/AboutUsHeader/AboutUsHeader'
 import OurResultsBanner from '../../components/OurResultsBanner/OurResultsBanner'
 import Welcome from '../../components/Welcome/Welcome'
 import OurServices from '../../components/OurServices/OurServices'
+import OurClientsCarousel from '../../components/OurClientsCarousel/OurClientsCarousel'
 
 function About() {
   return (
@@ -12,6 +13,7 @@ function About() {
       <OurResultsBanner />
       <Welcome />
       <OurServices />
+      <OurClientsCarousel bg={"dark"} />
     </div>
   )
 }

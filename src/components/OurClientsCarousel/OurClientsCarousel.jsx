@@ -7,13 +7,14 @@ import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper-bundle.css";
 
-function OurClientsCarousel() {
+function OurClientsCarousel({bg}) {
   const { ref: carouselSecRef, inView: carouselSecInView } = useInView();
 
   return (
     <section>
       <div
         ref={carouselSecRef}
+        data-type={bg}
         className={`carousel-section-contents ${
           carouselSecInView ? "animate-in" : ""
         }`}

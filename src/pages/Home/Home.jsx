@@ -13,7 +13,7 @@ function Home() {
       <SmartBanner />
       <FeaturedItems />
       <ServicesBanner />
-      <OurClientsCarousel />
+      <OurClientsCarousel bg="light"/>
     </main>
   )
 }
