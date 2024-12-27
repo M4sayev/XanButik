@@ -44,9 +44,12 @@ function OurClientsCarousel({bg}) {
               999: {
                 slidesPerView: 6,
               },
-              640: {
+              799: {
                 slidesPerView: 5,
               },
+              640: {
+                slidesPerView: 4,
+              }
             }}
           >
             {carousel.map((carouselItem, index) => {
