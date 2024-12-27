@@ -20,6 +20,12 @@ import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 import header_image from "./header_imgs/header_image.jpg";
 import coming_soon from "./header_imgs/coming_soon.jpg";
 
+// about us 
+
+import video_coming_soon from "./video_coming_soon.mp4";
+
+export { video_coming_soon as videoBg };
+
 // services icons
 
 import services_icon_one from "./services_icons/services_icon_one.png";

@@ -11,10 +11,9 @@ function OurClientsCarousel({bg}) {
   const { ref: carouselSecRef, inView: carouselSecInView } = useInView();
 
   return (
-    <section>
+    <section className="carousel-section" data-type={bg}>
       <div
         ref={carouselSecRef}
-        data-type={bg}
         className={`carousel-section-contents ${
           carouselSecInView ? "animate-in" : ""
         }`}

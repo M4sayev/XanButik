@@ -1,9 +1,9 @@
+.carousel-section[data-type="dark"] {
+  background-color: var(--clr-accent);
+}
 .carousel-section-contents {
   padding-block: 2rem;
   text-align: center;
-}
-.carousel-section-contents[data-type="dark"] {
-  background-color: var(--clr-accent);
 }
 .carousel-section-contents .text-container {
   text-align: center;
