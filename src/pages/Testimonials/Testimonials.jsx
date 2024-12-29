@@ -1,10 +1,11 @@
 import React from 'react'
+import TestimonialsHeader from '../../components/TestimonialsHeader/TestimonialsHeader'
 
 function Testimonials() {
   return (
-    <div>
-      
-    </div>
+    <main>
+      <TestimonialsHeader />
+    </main>
   )
 }
 

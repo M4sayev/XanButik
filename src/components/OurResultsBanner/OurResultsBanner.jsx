@@ -1,6 +1,7 @@
 import React from "react";
 import "./OurResultsBanner.css";
 import { useInView } from "react-intersection-observer";
+import { ourResults } from "../../assets/assets";
 
 function OurResultsBanner() {
 
@@ -11,22 +12,16 @@ function OurResultsBanner() {
         <h1 className="our-results-banner-content-title">Our results</h1>
         <div className="results-widgets-line-row">
           <div className="results-widgets-container">
-            <article>
-              <h2>5</h2>
-              <p>years of experience</p>
-            </article>
-            <article>
-              <h2>100%</h2>
-              <p>happy clients</p>
-            </article>
-            <article>
-              <h2>50+</h2>
-              <p>events hosted</p>
-            </article>
-            <article>
-              <h2>230</h2>
-              <p>projects completed</p>
-            </article>
+            {
+              ourResults.map((item, index) => {
+                return (
+                  <article key={index}>
+                    <h2>{item.achievement}</h2>
+                    <p>{item.result}</p>
+                  </article> 
+                )
+              })
+            }
           </div>
         </div>
       </article>

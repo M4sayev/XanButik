@@ -1,7 +1,7 @@
 body {
   background-color: var(--clr-primary-200);
 }
-header {
+.home-page-header {
   min-height: 720px;
 
   display: grid;

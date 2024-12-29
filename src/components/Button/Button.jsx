@@ -8,7 +8,7 @@ const Button = ({ onClick, children, as: Component = "button", ...rest }) => {
     const id = event.target.id;
     if (!id) return;
     if (id === "LearnNowHome") setCurrentPage("About Us");
-    else if (id === "ShopNowHome" || id === "ExploreHome" || id === "ViewMoreHome") setCurrentPage("Store");
+    else if (id === "ShopNowHome" || id === "Explore" || id === "ViewMoreHome") setCurrentPage("Store");
   }
     return (
       <Component role="button" onClick={() => handleMenuItemChange(event)} className="button" {...rest}>

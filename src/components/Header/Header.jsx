@@ -10,7 +10,7 @@ function Header() {
   const { ref: headerContentsRef, inView } = useInView();
   
   return (
-    <header>
+    <header className="home-page-header">
         <Parallax speed={-15} className="header-parallax-bg header-bg-animate"></Parallax>
         <div ref={headerContentsRef} className={`header-contents ${inView ? "animate-in" : ""}`}>
           <h1 className="header-title">Xan Butik: Elevating Men's Style</h1>

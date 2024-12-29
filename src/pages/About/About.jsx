@@ -9,14 +9,14 @@ import ComingSoon from '../../components/ComingSoon/ComingSoon'
 
 function About() {
   return (
-    <div>
+    <main>
       <AboutUsHeader />
       <OurResultsBanner />
       <Welcome />
       <OurServices />
       <OurClientsCarousel bg={"dark"} />
       <ComingSoon />
-    </div>
+    </main>
   )
 }
 

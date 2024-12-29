@@ -650,6 +650,25 @@ export const favoriteItems = [
     }
 ]
 
+export const ourResults = [
+    {
+        achievement: "5",
+        result: "years of experience"
+    },
+    {
+        achievement: "100%",
+        result: "happy clients"
+    },
+    {
+        achievement: "50+",
+        result: "events hosted"
+    },
+    {
+        achievement: "230",
+        result: "projects completed"
+    }
+];
+
 export const ourServices = [
     {
         name: "Personal Styling Consulatition",

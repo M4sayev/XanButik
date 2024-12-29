@@ -1,3 +1,14 @@
+.header-about-us {
+    min-height: 720px;
+    
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
 .header-about-us .header-parallax-bg {
     background: url("../../assets/header_imgs/header_about_us.png") no-repeat;
     background-position: 10% 20%;
