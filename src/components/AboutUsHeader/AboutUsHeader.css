@@ -32,7 +32,7 @@
     padding-inline: 1.75rem;
     margin: 0 auto;
 }
-.header-contents-about-us p {
+.about-us-header-paragraph {
     margin-bottom: 2rem;
 }
 @media (min-width: 560px) {
@@ -42,9 +42,6 @@
     .header-contents-about-us {
         align-items: flex-start;
         text-align: start;
-    }
-    .header-contents-about-us p {
-        margin-left: 0;
     }
 
 }

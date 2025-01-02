@@ -9,23 +9,7 @@
 
     text-align: center;
 }
-.our-services-subtitle {
-    font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
-
-    margin: 0 auto;
-    margin-bottom: 1rem;
-}
-.our-services-title {
-    font-size: clamp(var(--fs-600) + 0.1em, 6vw, var(--fs-900));
-    text-transform: capitalize;
-
-    margin-bottom: 1rem;
-}
 .our-services-introductory-paragraph {
-    font-size: clamp(var(--fs-300), 2.2vw, var(--fs-450));
-
-    margin: 0 auto;
-    margin-bottom: 1rem;
     padding-inline: 1rem;
 }
 .our-services-container {
@@ -52,7 +36,6 @@
 
     padding-inline: .5rem;
     margin-bottom: 1rem;
-
 }
 
 @media (min-width: 567px) {

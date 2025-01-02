@@ -21,9 +21,6 @@
   margin-bottom: 0.875rem;
 }
 .smart-banner-cta-paragraph {
-  font-size: var(--fs-300);
-  font-family: var(--ff-secondary);
-
   margin-bottom: 0.375rem;
 }
 @media (min-width: 777px) {
@@ -38,20 +35,9 @@
   .smart-banner-cta-title {
     font-size: var(--fs-800);
   }
-  .smart-banner-cta-paragraph {
-    font-size: var(--fs-400);
-  }
 }
 @media (min-width: 994px) {
   .smart-banner-container {
     padding-block: 3rem;
-  }
-  .smart-banner-cta-paragraph {
-    font-size: var(--fs-450);
-  }
-}
-@media (min-width: 1200px) {
-  .smart-banner-cta-paragraph {
-    font-size: var(--fs-400);
   }
 }

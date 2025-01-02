@@ -23,7 +23,7 @@ function ComingSoon() {
     <section className='coming-soon'>
       <div className={`coming-soon-contents`}>
         <div className="coming-soon-text-container">
-            <h1 className="coming-soon-title">Coming Soon</h1>
+            <h1 className="coming-soon-title std-heading">Coming Soon</h1>
             <p className='coming-soon-paragraph'>We&#8217;re proud of what we&#8217;ve achieved, but we&#8217;re not stopping there.</p>
         </div>
         <div className="coming-soon-clock-container">    

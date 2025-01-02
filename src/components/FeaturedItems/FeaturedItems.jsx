@@ -10,14 +10,13 @@ function FeaturedItems() {
 
   const {ref: titleRef, inView: titleInView} = useInView();
   const {ref: btnRef, inView: btnInView} = useInView();
-  const { setCurrentPage } = useContext(StoreContext);
 
   return (
     <section className='featured-items'>
         <div className='featured-items-content'>
           <div ref={titleRef} className={`featured-items-title ${titleInView ? "animate-in" : ""}`}>
-              <p className='featured-items-paragraph'>Featured items</p>
-              <h1 className='featured-items-heading'>Everyone's favourite</h1>
+              <p className='std-paragraph std-subtitle-fs mi-auto'>Featured items</p>
+              <h1 className='featured-items-heading std-heading'>Everyone's favourite</h1>
           </div>
           <div className="featured-items-imgs-grid">
             {
@@ -37,7 +36,7 @@ function FeaturedItems() {
             }
           </div>
           <div className={`featured-items-btn  ${btnInView ? "animate-in" : ""}`} ref={btnRef}>
-            <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn button">view more</Button>
+            <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
           </div>
         </div>
     </section>

@@ -19,8 +19,8 @@ function OurClientsCarousel({bg}) {
         }`}
       >
         <div className="text-container">
-          <h1 className="text-container-title">Our Clients</h1>
-          <p className="text-container-paragraph">
+          <h1 className="text-container-title std-heading">Our Clients</h1>
+          <p className="text-container-paragraph std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
             stylish clothes that will update your wardrobe. Whether you're

@@ -29,10 +29,6 @@
     align-items: center;
     text-align: center;
 }
-.coming-soon-title {
-    font-size: clamp(var(--fs-600) + 0.1em, 6vw, var(--fs-900));
-    margin-bottom: 1em;
-}
 .coming-soon-paragraph {
     font-family: var(--ff-secondary);
     font-size: clamp(var(--fs-300), 2.2vw, var(--fs-500));

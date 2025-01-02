@@ -23,17 +23,12 @@
   text-align: center;
 }
 .welcome-introductory-title {
-  font-family: var(--ff-secondary);
-  font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
   text-transform: capitalize;
-
-  margin-bottom: 1rem;
-  margin-inline: auto;
+  margin-bottom: 0;
 }
-.welcome-section-text h1 {
+.welcome-section-text-title {
   display: inline;
-  font-size: clamp(var(--fs-600), 6vw, var(--fs-900));
-
+  
   padding-bottom: 1rem;
   padding-top: 0.25em;
 
@@ -41,20 +36,12 @@
 }
 .welcome-main-text-paragraph {
   padding-inline: 1.25rem;
-  padding-block: 2rem;
-
-  font-family: var(--ff-secondary);
-  font-size: clamp(var(--fs-300), 2.5vw, var(--fs-450));
+  padding-block: 1rem;
 }
 .welcome-section-img {
   margin-inline: clamp(1rem, 10vw, 12rem);
 }
 
-@media (min-width: 777px) {
-  .welcome-introductory-title {
-    font-size: var(--fs-500);
-  }
-}
 @media (min-width: 994px) {
   .welcome-section-contents {
     flex-direction: row;

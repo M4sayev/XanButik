@@ -11,7 +11,7 @@ const Button = ({ onClick, children, as: Component = "button", ...rest }) => {
     else if (id === "ShopNowHome" || id === "Explore" || id === "ViewMoreHome") setCurrentPage("Store");
   }
     return (
-      <Component role="button" onClick={() => handleMenuItemChange(event)} className="button" {...rest}>
+      <Component role="button" onClick={() => handleMenuItemChange(event)} className="std-button" {...rest}>
         {children}
       </Component>
     );

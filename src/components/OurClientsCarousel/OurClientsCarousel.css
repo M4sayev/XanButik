@@ -10,28 +10,6 @@
   padding-inline: 2rem;
 }
 
-.carousel-section-contents .text-container .text-container-title {
-  font-size: clamp(var(--fs-600), 5.5vw, var(--fs-850));
-
-  margin-bottom: 2rem;
-}
-.carousel-section-contents .text-container .text-container-paragraph {
-  font-size: clamp(var(--fs-300), 2.5vw, var(--fs-450));
-  font-family: var(--ff-secondary);
-
-  margin: auto;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 1200px) {
-  .carousel-section-contents .text-container .text-container-title {
-    font-size: var(--fs-900);
-  }
-  .carousel-section-contents .text-container .text-container-paragraph {
-    font-size: var(--fs-400);
-  }
-}
-
 .carousel-container {
   display: flex;
   justify-content: center;

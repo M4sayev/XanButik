@@ -16,11 +16,11 @@ function SmartBanner() {
           <h1 className="smart-banner-cta-title">
             Don't miss out on these amazing deals!
           </h1>
-          <p className="smart-banner-cta-paragraph">
+          <p className="smart-banner-cta-paragraph std-paragraph">
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </article>
-        <Button id="Explore" as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn button">Explore</Button>
+        <Button id="Explore" as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn std-button">Explore</Button>
       </div>
     </section>
   );

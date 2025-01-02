@@ -9,7 +9,7 @@ function OurResultsBanner() {
   return (
     <section className="our-results-banner">
       <article ref={ourResultsRef} className={`our-results-banner-content ${resultsInView ? "animate-in" : ""}`}>
-        <h1 className="our-results-banner-content-title">Our results</h1>
+        <h1 className="our-results-banner-content-title std-heading">Our results</h1>
         <div className="results-widgets-line-row">
           <div className="results-widgets-container">
             {

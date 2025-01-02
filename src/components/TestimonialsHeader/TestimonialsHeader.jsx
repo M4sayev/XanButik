@@ -11,8 +11,8 @@ function TestimonialsHeader() {
     <header ref={testHeaderRef} className={`testimonials-header ${testHeaderInView ? "testimonials-header-animate-in" : ""}`}>
       <div className="testimonials-contents">
         <div className="testimonials-text-container">
-            <h1 className="header-title">Our results</h1>
-            <p className="header-description">We're proud of what we've achieved by we're not stopping there.</p>
+            <h1 className="std-heading">Our results</h1>
+            <p className="std-paragraph mi-auto">We're proud of what we've achieved by we're not stopping there.</p>
         </div>
         <div className="testimonials-widgets-container">
           <div className="testimonials-img-widget-container"></div>
@@ -22,7 +22,7 @@ function TestimonialsHeader() {
                   const {ref: resultRef, inView: resultInView} = useInView()
                   return (
                     <div ref={resultRef} key={index} className={`result-widget ${resultInView ? "animate-in" : ""}`}>
-                      <h1 className="result-widget-heading">{item.achievement}</h1>
+                      <h1 className="result-widget-heading std-heading">{item.achievement}</h1>
                       <p className="result-widget-name">{item.result}</p>
                     </div>
                   );
@@ -30,7 +30,7 @@ function TestimonialsHeader() {
               }
           </div>
         </div>
-        <Button as={Link} id="Explore" to="/Cart" className="testimonials-learn-more-btn button">Explore</Button>
+        <Button as={Link} id="Explore" to="/Cart" className="testimonials-learn-more-btn std-button">Explore</Button>
       </div>
     </header>
   )
