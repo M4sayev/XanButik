@@ -9,7 +9,7 @@
   justify-content: space-evenly;
   gap: 1rem;
 
-  max-width: 1860px;
+  max-width: var(--cnts-mx-width);
   margin: 0 auto;
 
   padding-inline: 1rem;

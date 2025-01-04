@@ -30,7 +30,7 @@ function TestimonialsHeader() {
               }
           </div>
         </div>
-        <Button as={Link} id="Explore" to="/Cart" className="testimonials-learn-more-btn std-button">Explore</Button>
+        <Button as={Link} id="Explore" to="/Cart" tabIndex="8" className="testimonials-learn-more-btn std-button">Explore</Button>
       </div>
     </header>
   )

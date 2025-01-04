@@ -20,7 +20,8 @@
   }
 }
 .header-contents-about-us {
-    max-width: 1560px !important;
+    /* max-width: 1560px; */
+    max-width: var(--cnts-mx-width);
     width: 100%;
 
     display: flex;

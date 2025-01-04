@@ -33,6 +33,11 @@
 
     --std-transition: linear 300ms;
 
+    /* max width for contents and banners */
+    
+    --cnts-mx-width: 1720px;
+    --bnrs-mx-width: 1150px;
+
     /* padding button  */
 
     --inl-pdng-btn: 1.125em;

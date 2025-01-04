@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { StoreContext } from '../../context/StoreContext';
 
 function FeaturedItems() {
 
@@ -35,7 +34,7 @@ function FeaturedItems() {
               })
             }
           </div>
-          <div className={`featured-items-btn  ${btnInView ? "animate-in" : ""}`} ref={btnRef}>
+          <div className={`featured-items-btn-wrapper  ${btnInView ? "animate-in" : ""}`} ref={btnRef}>
             <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
           </div>
         </div>

@@ -50,6 +50,13 @@ import carousel_brand_five from "./carousel/carousel_brand_five.png";
 import carousel_brand_six from "./carousel/carousel_brand_six.png";
 import carousel_brand_seven from "./carousel/carousel_brand_seven.png";
 
+// reviews
+
+import david_pp from "./reviews/david_pp.jpg";
+import dina_pp from "./reviews/dina_pp.jpg";
+import william_pp from "./reviews/william_pp.jpg";
+import emma_pp from "./reviews/emma_pp.jpg";
+
 // TOP
 
 //// Tshirts
@@ -173,6 +180,7 @@ import fuzzy_ankle_boots_two from "./shoes/fuzzy_ankle_boots/fuzzy_ankle_boots_t
 ////// mustard color loafers
 import mustard_color_loafers_one from "./shoes/mustard_color_loafers/mustard_color_loafers_one.jpg";
 import mustard_color_loafers_two from "./shoes/mustard_color_loafers/mustard_color_loafers_two.jpg";
+
 
 export const items_list = [
     {
@@ -691,3 +699,30 @@ export const ourServices = [
         img: shoe_care_n_repair
     }
 ];
+
+export const clientReviews = [
+    {
+        review: "The men's fashion ecommerce site offered a diverse range of trendy clothing options, and the quality exceeded my expectations. My go-to online store for fashion-forward pieces.",
+        name: "David Smith",
+        occupation: "Stylish Trendsetter",
+        img: david_pp
+    },
+    {
+        review: "The seamless shopping experience on the men's fashion ecommerce site was impressive. The clothing arrived promptly, and the fit and fabric were fantastic. Highly recommended for quality and service.",
+        name: "Dina Maro",
+        occupation: "Satisfied Customer",
+        img: dina_pp
+    },
+    {
+        review: "The men's fashion ecommerce site consistently delivers on their promise of stylish, high-quality clothing. The website's user-friendly interface and fast shipping make shopping a pleasure every time.",
+        name: "William Brown",
+        occupation: "Fashion Enthusiast",
+        img: william_pp
+    },
+    {
+        review: "I found unique and stylish pieces on the men's fashion ecommerce site that perfectly matched my taste. The timely delivery and excellent customer service were the cherry on top. Will be returning for more!",
+        name: "Emma Stone",
+        occupation: "Happy Shopper",
+        img: emma_pp
+    }
+] 

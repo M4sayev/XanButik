@@ -40,17 +40,6 @@ function OurClientsCarousel({bg}) {
             }}
             loop={true}
             slidesPerView={3}
-            breakpoints={{
-              999: {
-                slidesPerView: 6,
-              },
-              799: {
-                slidesPerView: 5,
-              },
-              640: {
-                slidesPerView: 4,
-              }
-            }}
           >
             {carousel.map((carouselItem, index) => {
               const { brandName, img } = carouselItem;

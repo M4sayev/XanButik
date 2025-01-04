@@ -18,7 +18,8 @@
     place-self: center;
     gap: 1rem;
 
-    max-width: 100rem;
+    /* max-width: 100rem; */
+    max-width: var(--cnts-mx-width);
 }
 .service-widget-item {
     display: flex;
