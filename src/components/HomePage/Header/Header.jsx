@@ -3,7 +3,7 @@ import "./Header.css";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 
 
 function Header() {

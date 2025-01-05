@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './TestimonialsReviewsCarousel.css';
-import { clientReviews } from '../../assets/assets';
+import { clientReviews } from '../../../assets/assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 function TestimonialsReviewsCarousel() {
 
@@ -9,9 +13,13 @@ function TestimonialsReviewsCarousel() {
     <section className='testimonials-reviews-carousel'>
         <div className="testimonials-reviews-carousel-contents">
             <h1 className="std-heading">What our clients say</h1>
-            <Swiper className="reviews-carousel-container"
+            <Swiper id="reviewSwiper" className="reviews-carousel-container"
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
               spaceBetween={50}
               slidesPerView={1}
+              loop={true}
               breakpoints={{
                 777: {
                   slidesPerView: 2

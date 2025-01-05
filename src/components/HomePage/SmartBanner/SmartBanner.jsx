@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./SmartBanner.css";
 import { useInView } from "react-intersection-observer";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
-import { StoreContext } from "../../context/StoreContext";
 
 function SmartBanner() {
     const { ref: bannerContentsRef, inView: bannerInView } = useInView();
-    const { setCurrentPage } = useContext(StoreContext);
 
   return (
     <section className="smart-banner">

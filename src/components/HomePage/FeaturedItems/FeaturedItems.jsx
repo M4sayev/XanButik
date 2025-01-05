@@ -1,8 +1,8 @@
 import React from 'react';
 import "./FeaturedItems.css";
-import { favoriteItems } from "../../assets/assets.js";
+import { favoriteItems } from "../../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import { Link } from 'react-router-dom';
 
 function FeaturedItems() {

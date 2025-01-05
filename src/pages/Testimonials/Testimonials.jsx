@@ -1,6 +1,6 @@
 import React from 'react'
-import TestimonialsHeader from '../../components/TestimonialsHeader/TestimonialsHeader'
-import TestimonialsReviewsCarousel from '../../components/TestimonailsReviewsCarousel/TestimonialsReviewsCarousel'
+import TestimonialsHeader from '../../components/TestimonialsPage/TestimonialsHeader/TestimonialsHeader'
+import TestimonialsReviewsCarousel from '../../components/TestimonialsPage/TestimonailsReviewsCarousel/TestimonialsReviewsCarousel'
 
 function Testimonials() {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import './TestimonialsHeader.css'
-import Button from '../Button/Button'
+import Button from '../../Button/Button'
 import { Link } from 'react-router-dom'
-import { ourResults } from '../../assets/assets'
+import { ourResults } from '../../../assets/assets'
 import { useInView } from 'react-intersection-observer'
 
 function TestimonialsHeader() {

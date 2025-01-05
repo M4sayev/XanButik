@@ -1,6 +1,6 @@
 import React from "react";
 import "./OurServices.css";
-import { ourServices } from "../../assets/assets";
+import { ourServices } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
 
 function OurServices() { 

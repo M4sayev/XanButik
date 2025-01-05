@@ -38,6 +38,14 @@ function OurClientsCarousel({bg}) {
               delay: 5000,
               disableOnInteraction: false,
             }}
+            breakpoints={{
+              999: {
+                slidesPerView: 6,
+              },
+              640: {
+                slidesPerView: 5,
+              }
+            }}
             loop={true}
             slidesPerView={3}
           >

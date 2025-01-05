@@ -30,7 +30,7 @@
     margin-top: 1rem;
 }
 .testimonials-img-widget-container {
-    background: url("../../assets/header_imgs/testimonials_header.jpg") no-repeat;
+    background: url("../../../assets/header_imgs/testimonials_header.jpg") no-repeat;
     background-size: cover;
     background-position: 50% 40%;
 

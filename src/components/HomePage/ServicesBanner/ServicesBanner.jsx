@@ -1,6 +1,6 @@
 import React from "react";
 import "./ServicesBanner.css";
-import { assets } from "../../assets/assets";
+import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
 
 function ServicesBanner() {

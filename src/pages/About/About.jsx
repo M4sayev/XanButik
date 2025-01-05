@@ -1,11 +1,11 @@
 import React from 'react'
 import "./About.css"
-import AboutUsHeader from '../../components/AboutUsHeader/AboutUsHeader'
-import OurResultsBanner from '../../components/OurResultsBanner/OurResultsBanner'
-import Welcome from '../../components/Welcome/Welcome'
-import OurServices from '../../components/OurServices/OurServices'
+import AboutUsHeader from '../../components/AboutUsPage/AboutUsHeader/AboutUsHeader'
+import OurResultsBanner from '../../components/AboutUsPage/OurResultsBanner/OurResultsBanner'
+import Welcome from '../../components/AboutUsPage/Welcome/Welcome'
+import OurServices from '../../components/AboutUsPage/OurServices/OurServices'
 import OurClientsCarousel from '../../components/OurClientsCarousel/OurClientsCarousel'
-import ComingSoon from '../../components/ComingSoon/ComingSoon'
+import ComingSoon from '../../components/AboutUsPage/ComingSoon/ComingSoon'
 
 function About() {
   return (

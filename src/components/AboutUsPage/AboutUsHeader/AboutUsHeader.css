@@ -10,7 +10,7 @@
 }
 
 .header-about-us .header-parallax-bg {
-    background: url("../../assets/header_imgs/header_about_us.png") no-repeat;
+    background: url("../../../assets/header_imgs/header_about_us.png") no-repeat;
     background-position: 10% 20%;
 }
 @media (min-width: 1500px) {
@@ -20,7 +20,6 @@
   }
 }
 .header-contents-about-us {
-    /* max-width: 1560px; */
     max-width: var(--cnts-mx-width);
     width: 100%;
 

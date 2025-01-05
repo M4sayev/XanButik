@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ComingSoon.css';
 import Countdown, { zeroPad } from 'react-countdown';
-import { videoBg } from '../../assets/assets';
-import { useInView } from 'react-intersection-observer';
+import { videoBg } from '../../../assets/assets';
 import ProgressBar from './ProgressBar';
 
 function ComingSoon() {
-  // const {ref: comingSoonRef, inView: comingSoonInView} = useInView();
 
   const renderer  = ({days, hours, minutes, seconds}) => {
       return (
