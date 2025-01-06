@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
 import Button from '../../Button/Button';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../../context/StoreContext.jsx';
 
 function FeaturedItems() {
 
   const {ref: titleRef, inView: titleInView} = useInView();
   const {ref: btnRef, inView: btnInView} = useInView();
+  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className='featured-items'>
         <div className='featured-items-content'>
-          <div ref={titleRef} className={`featured-items-title ${titleInView ? "animate-in" : ""}`}>
+          <div ref={titleRef} className={`featured-items-title ${handleAnimation(titleInView)}`}>
               <p className='std-paragraph std-subtitle-fs mi-auto'>Featured items</p>
               <h1 className='featured-items-heading std-heading'>Everyone's favourite</h1>
           </div>
@@ -34,7 +36,7 @@ function FeaturedItems() {
               })
             }
           </div>
-          <div className={`featured-items-btn-wrapper  ${btnInView ? "animate-in" : ""}`} ref={btnRef}>
+          <div className={`featured-items-btn-wrapper  ${handleAnimation(btnInView)}`} ref={btnRef}>
             <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
           </div>
         </div>

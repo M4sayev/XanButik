@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './TestimonialsReviewsCarousel.css';
 import { clientReviews } from '../../../assets/assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { A11y, Navigation, Pagination } from 'swiper/modules';
+import { useInView } from 'react-intersection-observer';
+import { StoreContext } from '../../../context/StoreContext';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/a11y';
 
 function TestimonialsReviewsCarousel() {
 
+  const {ref:tReviewsCarouselRef, inView: tReviewsCarouselInView} = useInView();
+  const {handleAnimation} = useContext(StoreContext);
+
   return (
     <section className='testimonials-reviews-carousel'>
-        <div className="testimonials-reviews-carousel-contents">
+        <div ref={tReviewsCarouselRef} className={`testimonials-reviews-carousel-contents ${handleAnimation(tReviewsCarouselInView)}`}>
             <h1 className="std-heading">What our clients say</h1>
             <Swiper id="reviewSwiper" className="reviews-carousel-container"
-              modules={[Navigation, Pagination]}
+              modules={[Navigation, Pagination, A11y]}
               navigation
               pagination={{ clickable: true }}
+              a11y
               spaceBetween={50}
               slidesPerView={1}
               loop={true}

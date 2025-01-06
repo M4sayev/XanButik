@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ServicesBanner.css";
 import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
+import {StoreContext} from "../../../context/StoreContext";
 
 function ServicesBanner() {
 
     const {ref: servicesRef, inView: servicesInView} = useInView();
+    const {handleAnimation} = useContext(StoreContext);
     
   return (
     <section className="services-banner">
-      <div ref={servicesRef} className={`services-container ${servicesInView ? "animate-in" : ""}`}>
+      <div ref={servicesRef} className={`services-container ${handleAnimation(servicesInView)}`}>
         <div>
           <img src={assets.services_icon_one} alt="tshirt" />
           <p>personal styling consultation</p>

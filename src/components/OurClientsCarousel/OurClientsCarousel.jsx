@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./OurClientsCarousel.css";
-import { carousel } from "../../assets/assets";
+import { ourBrandCompanies } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper-bundle.css";
+import { StoreContext } from "../../context/StoreContext";
 
 function OurClientsCarousel({bg}) {
   const { ref: carouselSecRef, inView: carouselSecInView } = useInView();
+  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className="carousel-section" data-type={bg}>
       <div
         ref={carouselSecRef}
-        className={`carousel-section-contents ${
-          carouselSecInView ? "animate-in" : ""
-        }`}
+        className={`carousel-section-contents ${handleAnimation(carouselSecInView)}`}
       >
         <div className="text-container">
           <h1 className="text-container-title std-heading">Our Clients</h1>
@@ -31,7 +31,7 @@ function OurClientsCarousel({bg}) {
         <div className="carousel-container">
           <Swiper
             className="carousel"
-            modules={[Pagination, A11y, Autoplay]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={0}
             pagination={{ clickable: true }}
             autoplay={{
@@ -49,7 +49,7 @@ function OurClientsCarousel({bg}) {
             loop={true}
             slidesPerView={3}
           >
-            {carousel.map((carouselItem, index) => {
+            {ourBrandCompanies.map((carouselItem, index) => {
               const { brandName, img } = carouselItem;
               return (
                 <SwiperSlide key={index}>

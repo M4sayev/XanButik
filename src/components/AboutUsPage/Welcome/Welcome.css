@@ -32,8 +32,27 @@
   padding-bottom: 1rem;
   padding-top: 0.25em;
 
-  border-bottom: 2px solid var(--clr-primary-900);
+  position: relative;
 }
+/* line under the title */
+.welcome-section-text-title::after {
+  content: "";
+  width: 5%;
+  height: 2px;
+
+  background-color: var(--clr-primary-900);
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 2s ease-in-out;
+}
+/* animate line when in view */
+.welcome-section-text.animate-in .welcome-section-text-title::after {
+  width: 60%;
+}
+
 .welcome-main-text-paragraph {
   padding-inline: 1.25rem;
   padding-block: 1rem;

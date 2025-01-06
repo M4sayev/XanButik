@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './TestimonialsHeader.css'
 import Button from '../../Button/Button'
 import { Link } from 'react-router-dom'
 import { ourResults } from '../../../assets/assets'
 import { useInView } from 'react-intersection-observer'
+import { StoreContext } from '../../../context/StoreContext'
 
 function TestimonialsHeader() {
   const {ref: testHeaderRef, inView: testHeaderInView} = useInView();
+  const {handleAnimation} = useContext(StoreContext);
   return (
     <header ref={testHeaderRef} className={`testimonials-header ${testHeaderInView ? "testimonials-header-animate-in" : ""}`}>
       <div className="testimonials-contents">
@@ -21,7 +23,7 @@ function TestimonialsHeader() {
                 ourResults.map((item, index) => {
                   const {ref: resultRef, inView: resultInView} = useInView()
                   return (
-                    <div ref={resultRef} key={index} className={`result-widget ${resultInView ? "animate-in" : ""}`}>
+                    <div ref={resultRef} key={index} className={`result-widget ${handleAnimation(resultInView)}`}>
                       <h1 className="result-widget-heading std-heading">{item.achievement}</h1>
                       <p className="result-widget-name">{item.result}</p>
                     </div>

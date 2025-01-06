@@ -13,11 +13,17 @@ function StoreContextProvider(props) {
         sessionStorage.setItem("menu", currentPage);
     }, [currentPage]);
 
+    function handleAnimation(inView) {
+        if (!inView) return "";
+        return "animate-in";
+    }
+
     const contextValue = {
         currentPage,
         setCurrentPage,
         showLogin,
-        setShowLogin
+        setShowLogin,
+        handleAnimation
     };
 
   return (

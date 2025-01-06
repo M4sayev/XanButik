@@ -42,13 +42,14 @@ import tailoring_n_alteration from "./services_imgs_about/tailoring_n_alteration
 
 // carousel 
 
-import carousel_brand_one from "./carousel/carousel_brand_one.png";
-import carousel_brand_two from "./carousel/carousel_brand_two.png";
-import carousel_brand_three from "./carousel/carousel_brand_three.png";
-import carousel_brand_four from "./carousel/carousel_brand_four.png";
-import carousel_brand_five from "./carousel/carousel_brand_five.png";
-import carousel_brand_six from "./carousel/carousel_brand_six.png";
-import carousel_brand_seven from "./carousel/carousel_brand_seven.png";
+import brand_company_one from "./companies/brand_company_one.png";
+import brand_company_two from "./companies/brand_company_two.png";
+import brand_company_three from "./companies/brand_company_three.png";
+import brand_company_four from "./companies/brand_company_four.png";
+import brand_company_five from "./companies/brand_company_five.png";
+import brand_company_six from "./companies/brand_company_six.png";
+import brand_company_seven from "./companies/brand_company_seven.png";
+import brand_company_eight from "./companies/brand_company_eight.png";
 
 // reviews
 
@@ -182,7 +183,7 @@ import mustard_color_loafers_one from "./shoes/mustard_color_loafers/mustard_col
 import mustard_color_loafers_two from "./shoes/mustard_color_loafers/mustard_color_loafers_two.jpg";
 
 
-export const items_list = [
+export const itemsList = [
     {
         id: 1,
         name: "Black Down Jacket",
@@ -604,34 +605,38 @@ export const assets = {
     services_icon_four
 }
 
-export const carousel = [
+export const ourBrandCompanies = [
     {
         brandName: "Elegance",
-        img: carousel_brand_one
+        img: brand_company_one
     },
     {
         brandName: "Rolestigana",
-        img: carousel_brand_two
+        img: brand_company_two
     },
     {
         brandName: "Blanco Y Negro",
-        img: carousel_brand_three
+        img: brand_company_three
     },
     {
         brandName: "Clean Sleep",
-        img: carousel_brand_four
+        img: brand_company_four
     },
     {
         brandName: "Dame Elegante",
-        img: carousel_brand_five
+        img: brand_company_five
     },
     {
         brandName: "Lullaby",
-        img: carousel_brand_six
+        img: brand_company_six
     },
     {
         brandName: "Knitted Dreams",
-        img: carousel_brand_seven
+        img: brand_company_seven
+    },
+    {
+        brandName: "roberto cavalli",
+        img: brand_company_eight
     }
 ];
 

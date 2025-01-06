@@ -1,0 +1,26 @@
+.testimonials-our-clients {
+    padding-block: 2.25rem;
+}
+.t-our-client-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: var(--bnrs-mx-width);
+    padding-inline: 1rem;
+    margin: auto;
+
+    text-align: center;
+    
+}
+.t-our-results-grid {
+    margin-top: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .25rem;
+}
+.client-item-container {
+    border: clamp(1rem, 3vw, 2rem) solid var(--clr-accent);
+}

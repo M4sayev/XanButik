@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Welcome.css";
 import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
+import { StoreContext } from "../../../context/StoreContext";
 
 function Welcome() {
   const { ref: welcomeTextAreaRef, inView: welcomeTextInView } = useInView();
   const { ref: welcomeImgRef, inView: welcomeImgInView } = useInView();
+  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className="about-us-welcome-section">
       <div className="welcome-section-contents">
         <article
           ref={welcomeTextAreaRef}
-          className={`welcome-section-text ${
-            welcomeTextInView ? "animate-in" : ""
-          }`}
+          className={`welcome-section-text ${handleAnimation(welcomeTextInView)}`}
         >
           <p className="welcome-introductory-title std-paragraph std-subtitle-fs mi-auto">about us</p>
           <h1 className="welcome-section-text-title std-heading">Welcome</h1>
@@ -28,9 +28,7 @@ function Welcome() {
         </article>
         <img
           ref={welcomeImgRef}
-          className={`welcome-section-img ${
-            welcomeImgInView ? "animate-in" : ""
-          }`}
+          className={`welcome-section-img ${handleAnimation(welcomeImgInView)}`}
           src={assets.logo_sheki_bg}
           alt="logo xan butik"
         />

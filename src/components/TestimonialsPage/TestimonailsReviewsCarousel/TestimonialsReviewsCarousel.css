@@ -2,9 +2,6 @@
     background-color: var(--clr-accent);
 
     padding-block: 2.25rem;
-
-    /* temp */
-    margin-bottom: 10rem;
 }
 .testimonials-reviews-carousel-contents {
     padding-inline: 1.25rem;
@@ -44,6 +41,7 @@
 @media (min-width: 777px) {
     .review-item {
         height: 100%;
+        padding-bottom: 1.5rem;
     }
     .reviewer-info-container {
         flex-direction: row;
@@ -52,17 +50,12 @@
         text-align: start;
     }
     .reviews-carousel-container {
-        height: 350px;
+        height: 340px;
     }
 }
 @media (min-width: 1000px) {
     .reviews-carousel-container {
-        height: 320px;
-    }
-}
-@media (min-width: 1200px) {
-    .reviews-carousel-container {
-        height: 290px;
+        height: 300px;
     }
 }
 .reviewer-pp {
@@ -87,6 +80,13 @@
 
 /* swiper pagination */
 
+.reviews-carousel-container .swiper-pagination-bullets {
+    bottom: 0px !important;
+  }
+.reviews-carousel-container {
+    padding-bottom: 1rem;
+}
+
 .swiper-pagination-bullets {
     bottom: 0px !important;
   }
@@ -100,22 +100,13 @@
 }
 
 /* swiper navigation  */
-.swiper-button-prev::after {
-    content: "";
-    width: 0;
-    height: 0;
-    padding: 3px;
 
-    display: inline-block;
-
-    position: absolute;
-    left: 42%;
-
-    border: solid var(--clr-accent);
-    border-width: 0 3px 3px 0;
-    
-    transform: rotate(135deg);
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
 }
+/* navigation btns arrows */
+.swiper-button-prev::after,
 .swiper-button-next::after {
     content: "";
     width: 0;
@@ -125,23 +116,45 @@
     display: inline-block;
 
     position: absolute;
-    right: 42%;
 
     border: solid var(--clr-accent);
     border-width: 0 3px 3px 0;
-    
+}
+.swiper-button-prev::after {
+    left: 42%;
+    transform: rotate(135deg);
+}
+.swiper-button-next::after {
+    right: 42%;
     transform: rotate(-45deg);
 }
 
+
 @media (min-width: 1120px) {
-    .swiper-pagination:not(.carousel > .swiper-pagination) {
+    /* to move navigation btns more on sides  */
+    .reviews-carousel-container .swiper-slide-active {
+        padding-left: 3rem !important;
+    }
+    .reviews-carousel-container .swiper-slide-next {
+        padding-right: 3rem !important;
+    }
+    /* avoid cascading dissappearing pagination in other swiper-pagination using css files  */
+
+    .review-carousel-container .swiper-pagination {
         display: none !important;
-      }
-    .swiper-pagination {
-        /* display: none !important; */
+    }
+    /* alternative: 
+        .swiper-pagination:not(.carousel > .swiper-pagination) {
+            display: none !important;
+        }  
+    */
+
+    .reviews-carousel-container .swiper-pagination {
+        display: none !important;
     }
     .swiper-button-prev,
     .swiper-button-next {
+        display: flex !important;
         width: 40px !important;
         height: 40px !important;
 
