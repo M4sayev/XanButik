@@ -16,7 +16,7 @@ import Testimonials from './pages/Testimonials/Testimonials'
 function App() {
 
   const loginPopupRef = useRef(null);
-  const { showLogin, setShowLogin, setCurrentPage } = useContext(StoreContext);
+  const { showLogin, setShowLogin } = useContext(StoreContext);
 
   function handleClickOutside(event) {
     if (loginPopupRef.current && !loginPopupRef.current.contains(event.target)) {

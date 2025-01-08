@@ -104,6 +104,15 @@
 .swiper-button-next,
 .swiper-button-prev {
     display: none !important;
+
+    will-change: transform;
+    transition: transform var(--std-transitiaon);
+}
+.swiper-button-next:active {
+    transform: translateX(5px);
+}
+.swiper-button-prev:active {
+    transform: translateX(-5px);
 }
 /* navigation btns arrows */
 .swiper-button-prev::after,

@@ -242,11 +242,21 @@ button:not(.hamburger-menu):focus,
 
   margin-bottom: 1.75rem;
 } 
-
 @media (min-width: 75rem) {
   .std-heading {
     font-size: var(--fs-900);
   }
+}
+.std-heading-cta {
+  font-size: var(--fs-700);
+  color: var(--clr-primary-900);
+
+  margin-bottom: 0.875rem;
+}
+@media (min-width: 777px) {
+    .smart-banner-cta-title {
+      font-size: var(--fs-800);
+    } 
 }
 /* standard descriptive paragraph + utility classes for it */
 

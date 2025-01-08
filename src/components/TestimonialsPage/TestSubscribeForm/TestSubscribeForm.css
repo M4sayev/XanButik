@@ -1,0 +1,77 @@
+.subcribe-form-section {
+    padding-block: 2.25rem;
+
+    position: relative;
+    
+    overflow-y: hidden;
+}
+.sf-section-bg-container {
+    height: 100%;
+    width: 100%;
+    
+    position: absolute;
+    top: 0;
+    z-index: -10000;
+
+    background: url("../../../assets/header_imgs/testimonials_form_section.jpg") no-repeat;
+    background-size: cover;
+}
+.subscribe-form-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    text-align: center;
+
+    background-color: var(--clr-accent);
+    
+    padding-block: clamp(3rem, 6vw, 5rem);
+    padding-inline: 1.25rem;
+    margin-inline: 1.25rem;
+
+    max-width: calc(var(--bnrs-mx-width) - 15em);
+}
+
+.subscribe-form-input {
+    width: 100%;
+
+    font-size: var(--fs-400);
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold-bold);
+    padding: 1rem 0.75rem;
+
+    border: none;
+    margin-bottom: 1.25rem;
+}
+.subscribe-form-input:focus-visible {
+    outline: 3px solid var(--clr-primary-200);
+}
+.subscribe-btn {
+    padding: 1rem 3rem !important;
+}
+@media (min-width: 535px) {
+    .subscribe-btn {
+       width: 100%;
+    }
+}
+@media (min-width: 777px) {
+    .subcribe-form-section {
+        padding-block: 10rem;
+    }
+    .sf-section-bg-container {
+        background-size: auto;
+        background-position: center center;
+    }
+}
+@media (min-width: 910px) {
+    .subscribe-form-contents {
+        margin: auto;
+    }
+    .subscribe-form p {
+        margin-top: 1.5em;
+    }
+    .subscribe-form-input {
+        margin-top: .75rem;
+        margin-bottom: 1.5rem;
+    }
+}

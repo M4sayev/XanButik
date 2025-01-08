@@ -13,7 +13,7 @@ function SmartBanner() {
     <section className="smart-banner">
       <div ref={bannerContentsRef} className={`smart-banner-container ${handleAnimation(bannerInView)}`}>
         <article className="smart-banner-text-container">
-          <h1 className="smart-banner-cta-title">
+          <h1 className="smart-banner-cta-title std-heading-cta">
             Don't miss out on these amazing deals!
           </h1>
           <p className="smart-banner-cta-paragraph std-paragraph">

@@ -26,6 +26,10 @@ import video_coming_soon from "./video_coming_soon.mp4";
 
 export { video_coming_soon as videoBg };
 
+// testimonials 
+
+import testimonials_form_section from "./header_imgs/testimonials_form_section.jpg";
+
 // services icons
 
 import services_icon_one from "./services_icons/services_icon_one.png";
@@ -587,6 +591,8 @@ export const assets = {
     logo_no_bg,
     header_image,
     coming_soon,
+
+    testimonials_form_section,
     //
     logo_black_bg,
     logo_sheki_bg,
