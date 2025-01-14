@@ -21,7 +21,7 @@ function TestSubscribeForm() {
   
   return (
     <section className="subcribe-form-section">
-        <Parallax speed={-5} className="sf-section-bg-container"></Parallax>
+        <Parallax speed={-10} className="sf-section-bg-container"></Parallax>
         <article className="subscribe-form-contents">
             <form onSubmit={handleOnSubmit} ref={sFormRef} className={`subscribe-form ${handleAnimation(sFormInView)}`}>
                 <h1 className="std-heading-cta">Subscribe form</h1>

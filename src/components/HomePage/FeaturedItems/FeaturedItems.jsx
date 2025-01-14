@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
-import Button from '../../Button/Button';
+import Button from '../../Button/Button.jsx';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../../context/StoreContext.jsx';
 
@@ -36,8 +36,8 @@ function FeaturedItems() {
               })
             }
           </div>
-          <div className={`featured-items-btn-wrapper  ${handleAnimation(btnInView)}`} ref={btnRef}>
-            <Button id="ViewMoreHome" as={Link} to="/Cart" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
+          <div className={`featured-items-btn-wrapper ${handleAnimation(btnInView)}`} ref={btnRef}>
+            <Button id="ViewMore" as={Link} to="/Store" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
           </div>
         </div>
     </section>

@@ -63,8 +63,6 @@
     font-family: var(--ff-primary);
     font-size: var(--fs-900);
     letter-spacing: .125rem;
-
-    width: auto !important;
     
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -1,0 +1,122 @@
+.contacts-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    text-align: center;
+}
+@media (min-width: 999px) {
+    .contacts-contents {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+.contacts-address-info-container,
+.working-hours-contents {
+    padding: clamp(1.5rem, 5vw, 2.5rem) 1rem;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* underscore  */
+.info-container-heading {
+    position: relative;
+
+    padding-bottom: 1rem;
+}
+
+.info-container-heading::after {
+    content: "";
+    width: 5%;
+    height: 2px;
+
+    background-color: var(--clr-primary-900);
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 2s ease-in-out;
+}
+/* adding animation */
+.contacts-contents .animate-in .info-container-heading::after {
+    width: 20%;
+}
+
+.contact-widgets-container {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    margin-top: 2rem;
+    gap: 1rem;
+}
+@media (min-width: 576px) {
+    .contact-widgets-container {
+        flex-direction: row;
+    }
+}
+@media (min-width: 777px) {
+    .contact-widgets-container {
+        flex-direction: column;
+    }
+}
+
+.conatct-widget-item {
+    margin-bottom: 1.25rem;
+}
+.conatct-widget-item > span,
+.work-hour-item > span {
+    display: block;
+    font-family: var(--ff-secondary);
+}
+.widget-name,
+.day-of-the-week {
+    font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
+    font-weight: var(--fw-bold);
+}
+.widget-name {
+    margin-bottom: .5rem;
+}
+.contacts-working-hours-info-container {
+    background-color: var(--clr-accent);
+    width: 100%;
+}
+@media (min-width: 999px) {
+    .contacts-working-hours-info-container {
+        width: 50%;
+    }
+}
+.workin-hours-list {
+    margin-top: 1.25rem;
+}
+.work-hour-item {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 1.25rem;
+} 
+.work-hour-item .hours {
+    font-size: var(--fs-300);
+    letter-spacing: 0.1rem;
+}
+/* to remove spacing on am and pm */
+.hours span {
+    letter-spacing: normal;
+}
+
+@media (min-width: 777px) {
+    .work-hour-item  {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .day-of-the-week {
+        margin-right: 5rem;
+    }
+}

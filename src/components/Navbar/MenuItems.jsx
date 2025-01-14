@@ -45,7 +45,7 @@ function MenuItems({ isHamActive, setIsHamActive, currentPage }) {
       </li>
       <li role="none">
         <Link
-          to="/Cart"
+          to="/Store"
           role="menuitem"
           tabIndex="4"
           className={`${currentPage === "Store" ? "active" : ""} link`}

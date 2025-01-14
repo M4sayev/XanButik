@@ -1,11 +1,12 @@
 import React from 'react'
 import "./ContactUs.css"
+import Contacts from '../../components/ContactUs/Contacts/Contacts'
 
 function ContactUs() {
   return (
-    <div>
-      
-    </div>
+    <main>
+      <Contacts />
+    </main>
   )
 }
 

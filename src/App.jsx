@@ -14,7 +14,6 @@ import { StoreContext } from './context/StoreContext'
 import Testimonials from './pages/Testimonials/Testimonials'
 
 function App() {
-
   const loginPopupRef = useRef(null);
   const { showLogin, setShowLogin } = useContext(StoreContext);
 

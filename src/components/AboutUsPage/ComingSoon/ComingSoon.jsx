@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ComingSoon.css';
 import Countdown, { zeroPad } from 'react-countdown';
 import { videoBg } from '../../../assets/assets';
 import ProgressBar from './ProgressBar';
 
 function ComingSoon() {
+  const [startTime, setStartTIme] = useState(1000);
+  const endTime = 6000000;
+
+  useEffect(() => {
+    if (startTime != endTime) {
+      let timerID = setTimeout(() => {
+        setStartTIme(() => (startTime + 1000));
+      }, 1000);
+      return () => {clearTimeout(timerID)};
+    }
+  }, [startTime])
 
   const renderer  = ({days, hours, minutes, seconds}) => {
       return (
-      <div className="coming-soon-countdown" style={{width: "650px"}}>
+      <div className="coming-soon-countdown">
           <span>{zeroPad(days)}</span>
           <span>{zeroPad(hours)}</span>
           <span>{zeroPad(minutes)}</span>
@@ -26,7 +37,7 @@ function ComingSoon() {
         </div>
         <div className="coming-soon-clock-container">    
             <ProgressBar /> 
-            <Countdown renderer={renderer} date={Date.now() + 6000000} />
+            <Countdown renderer={renderer} now={() => startTime} date={endTime}/>
         </div>
       </div>
       <video autoPlay loop muted className="coming-soon-bg-video" src={videoBg}></video>
