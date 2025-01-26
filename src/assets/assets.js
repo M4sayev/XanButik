@@ -20,6 +20,8 @@ import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 import header_image from "./header_imgs/header_image.jpg";
 import coming_soon from "./header_imgs/coming_soon.jpg";
 
+import contact_us_form from "./header_imgs/contact_us_form.jpg";
+
 // about us 
 
 import video_coming_soon from "./video_coming_soon.mp4";
@@ -593,6 +595,7 @@ export const assets = {
     coming_soon,
 
     testimonials_form_section,
+    contact_us_form,
     //
     logo_black_bg,
     logo_sheki_bg,

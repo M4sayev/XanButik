@@ -109,10 +109,10 @@
     transition: transform var(--std-transitiaon);
 }
 .swiper-button-next:active {
-    transform: translateX(5px);
+    transform: translateX(1px);
 }
 .swiper-button-prev:active {
-    transform: translateX(-5px);
+    transform: translateX(-1px);
 }
 /* navigation btns arrows */
 .swiper-button-prev::after,

@@ -1,0 +1,125 @@
+.question-form {
+    padding-block: 2.25rem;
+
+    background-color: var(--clr-neutral-300);
+}
+.question-form-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    max-width: var(--cnts-mx-width);
+    margin-inline: auto;
+}
+.qf-text-n-form {
+    flex: 1;
+
+    margin-inline: clamp(0.1rem, 2vw, 1rem);
+}
+.qf-widgets-container {
+    padding-inline: 1rem;
+}
+.qf-text-container {
+    text-align: center;
+}
+.qf-heading {
+    display: inline-block;
+    text-transform: none;
+    
+    position: relative;
+    padding-bottom: 1rem;
+}
+.qf-heading::after {
+    content: "";
+    
+    width: 5%;
+    height: 2px;
+    
+    background-color: var(--clr-primary-900);
+    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    transition: width 2s ease-in-out;
+}
+
+/* animation of a underline */
+
+.qf-text-n-form.animate-in .qf-heading::after {
+    width: 20%;
+}
+
+.qf-contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.qf-contact-form span {
+    display: block;
+    
+    font-family: var(--ff-secondary);
+    
+    margin-bottom: 0.5rem;
+}
+.qf-contact-form div {
+    width: 100%;
+}
+.qf-email-input-lbl::after {
+    content: "*";
+    
+    margin-left: 0.125rem;
+}
+.qf-contact-form input, textarea {
+    width: 100%;
+    
+    font-size: var(--fs-425);
+    font-family: var(--ff-secondary);
+    padding: 0.875rem 0.75rem;
+    
+    border: none;
+    border-radius: 0.25rem;
+    margin-bottom: 1.25rem;
+}
+.qf-contact-form input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--clr-primary-200);
+}
+.qf-contact-form textarea {
+    resize: none;
+}
+.qf-btn {
+    padding-inline: 3rem !important;
+}
+.qf-img-container {
+    flex: 1;
+}
+.qf-img-container img {
+    height: 100%;
+    object-fit: cover;
+}
+@media (min-width: 479px) {
+    .qf-contact-form {
+        align-items: start;
+    }
+    .qf-text-container {
+        text-align: start;
+    }
+    .qf-heading::after {
+        left: 3%;
+        transform: translateX(-10%);
+    }
+}
+@media (min-width: 959px) {
+    .question-form-contents {
+        flex-direction: row;
+        gap: 0;
+    }
+    .qf-text-n-form {
+        margin: 0;
+    }
+    .qf-widgets-container {
+        padding: clamp(1px, 1.5vw, 2rem) clamp(2rem, 5vw, 6rem);
+    }
+}

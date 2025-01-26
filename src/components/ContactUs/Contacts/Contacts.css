@@ -5,6 +5,9 @@
     gap: 1rem;
 
     text-align: center;
+
+    max-width: var(--cnts-mx-width);
+    margin-inline: auto;
 }
 @media (min-width: 999px) {
     .contacts-contents {

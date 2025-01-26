@@ -9,9 +9,20 @@ function LoginPopup({ innerRef }) {
   const [currentState, setCurrentState] = useState("Sing Up");
   const { setShowLogin } = useContext(StoreContext);
 
+  const [ name, setName ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  
+  function handleOnSubmit(e) {
+      e.preventDefault();
+      setName("");
+      setEmail("");
+      setPassword("");
+  }
+
   return (
     <div className="login-popup">
-      <form ref={innerRef} className="login-popup-container">
+      <form onSubmit={handleOnSubmit} ref={innerRef} className="login-popup-container">
         <div className="login-popup-title">
           <h2>{currentState}</h2>
           <IoClose
@@ -24,15 +35,29 @@ function LoginPopup({ innerRef }) {
           {currentState === "Login" ? (
             <></>
           ) : (
-            <input type="text" placeholder="Your name" required />
+            <input  
+              type="text" 
+              placeholder="Your name" 
+              required 
+              value={name} 
+              onChange={(e) => setName(e.target.value)}
+            />
           )}
-          <input type="email" placeholder="Your email" required />
+          <input 
+            type="email" 
+            placeholder="Your email" 
+            required 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
           <div className="password-input-container">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="input-password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             {showPassword ? (
               <BiShow

@@ -23,7 +23,7 @@
     
     text-align: center;
 
-    background-color: var(--clr-accent);
+    background-color: var(--clr-neutral-300);
     
     padding-block: clamp(3rem, 6vw, 5rem);
     padding-inline: 1.25rem;
