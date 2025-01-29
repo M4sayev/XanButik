@@ -1,10 +1,25 @@
 // Logo 
 
-import logo_black_bg from "./logo_black_bg.jpg";
-import logo_sheki_bg from "./logo_sheki_bg.jpg";
+import logo_black_bg from "./logo_black_bg.jpg"; 
 import logo_no_bg from "./logo_no_bg.png";
+
+import logo_sheki_bg from "./logo_sheki_bg.jpg";
 import logo_no_frame from "./logo_no_frame.png";
-// -----Home Page-----
+
+// Carousel 
+
+import brand_company_one from "./companies/brand_company_one.png";
+import brand_company_two from "./companies/brand_company_two.png";
+import brand_company_three from "./companies/brand_company_three.png";
+import brand_company_four from "./companies/brand_company_four.png";
+import brand_company_five from "./companies/brand_company_five.png";
+import brand_company_six from "./companies/brand_company_six.png";
+import brand_company_seven from "./companies/brand_company_seven.png";
+import brand_company_eight from "./companies/brand_company_eight.png";
+
+// -----Home Page----- //
+
+import header_image from "./header_imgs/header_image.jpg";
 
 import tie_image from "./header_imgs/tie_image.jpg";
 import shirts_img from "./header_imgs/shirts_img.jpg";
@@ -17,52 +32,43 @@ import genuine_leather_dress_shoes_one from "./header_imgs/genuine_leather_dress
 import half_classic_genuine_leather_dress_shoes from "./header_imgs/half_classic_genuine_leather_dress_shoes.jpg";
 import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
-import header_image from "./header_imgs/header_image.jpg";
-import coming_soon from "./header_imgs/coming_soon.jpg";
-
-import contact_us_form from "./header_imgs/contact_us_form.jpg";
-
-// about us 
-
-import video_coming_soon from "./video_coming_soon.mp4";
-
-export { video_coming_soon as videoBg };
-
-// testimonials 
-
-import testimonials_form_section from "./header_imgs/testimonials_form_section.jpg";
-
 // services icons
-
 import services_icon_one from "./services_icons/services_icon_one.png";
 import services_icon_two from "./services_icons/services_icon_two.png";
 import services_icon_three from "./services_icons/services_icon_three.png";
 import services_icon_four from "./services_icons/services_icon_four.png";
 
-// services imgs
+// -----About Us Page----- //
 
+// services imgs
 import personal_consultation_service from "./services_imgs_about/personal_consultation_service.jpg";
 import premium_fitting from "./services_imgs_about/premium_fitting.jpg";
 import shoe_care_n_repair from "./services_imgs_about/shoe_care_n_repair.jpg";
 import tailoring_n_alteration from "./services_imgs_about/tailoring_n_alteration.jpg";
 
-// carousel 
+// coming soon
+import video_coming_soon from "./video_coming_soon.mp4";
+export { video_coming_soon as videoBg };
 
-import brand_company_one from "./companies/brand_company_one.png";
-import brand_company_two from "./companies/brand_company_two.png";
-import brand_company_three from "./companies/brand_company_three.png";
-import brand_company_four from "./companies/brand_company_four.png";
-import brand_company_five from "./companies/brand_company_five.png";
-import brand_company_six from "./companies/brand_company_six.png";
-import brand_company_seven from "./companies/brand_company_seven.png";
-import brand_company_eight from "./companies/brand_company_eight.png";
+// -----Testimonials Page----- //
 
 // reviews
-
 import david_pp from "./reviews/david_pp.jpg";
 import dina_pp from "./reviews/dina_pp.jpg";
 import william_pp from "./reviews/william_pp.jpg";
 import emma_pp from "./reviews/emma_pp.jpg";
+
+// form
+import testimonials_form_section from "./header_imgs/testimonials_form_section.jpg";
+
+// -----Contact Us Page----- //
+
+import contact_us_form from "./header_imgs/contact_us_form.jpg";
+
+// map icon 
+import xan_butik_marker from "./xan_butik_marker.png";
+export { xan_butik_marker as x_marker };
+
 
 // TOP
 
@@ -590,23 +596,12 @@ export const itemsList = [
 
 export const assets = {
     logo_no_frame,
-    logo_no_bg,
-    header_image,
-    coming_soon,
-
+    //
     testimonials_form_section,
+    //
     contact_us_form,
     //
-    logo_black_bg,
     logo_sheki_bg,
-    //
-    calvin_klein_sweatshirt,
-    calvin_klein_sweatshirt_two,
-    //
-    genuine_leather_dress_shoes_one,
-    half_classic_genuine_leather_dress_shoes,
-    //
-    lv_tracksuit,
     //
     services_icon_one,
     services_icon_two,

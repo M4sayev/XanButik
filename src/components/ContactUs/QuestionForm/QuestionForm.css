@@ -120,6 +120,6 @@ textarea:focus-visible {
         margin: 0;
     }
     .qf-widgets-container {
-        padding: clamp(1px, 1.5vw, 2rem) clamp(2rem, 5vw, 6rem);
+        padding: clamp(1px, 1.5vw, 2rem) clamp(2rem, 5vw, 4rem);
     }
 }
