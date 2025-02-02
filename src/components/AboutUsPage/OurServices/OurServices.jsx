@@ -3,6 +3,7 @@ import "./OurServices.css";
 import { ourServices } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
 import { StoreContext } from "../../../context/StoreContext";
+import ServiceItem from "./ServiceItem";
 
 function OurServices() { 
 
@@ -20,17 +21,12 @@ function OurServices() {
         <div className="our-services-container">
             {
                 ourServices.map((serviceItem, index) => {
-
-                  const {ref: serviceItemRef, inView: serviceItemInView} = useInView();
-
                     return (
-                        <div ref={serviceItemRef} key={index} className={`service-widget-item ${handleAnimation(serviceItemInView)}`}>
-                            <img src={serviceItem.img} alt={serviceItem.name} />
-                            <div className="services-item-text-container">
-                                <p className="service-name">{serviceItem.name}</p>
-                                <p className="service-description">{serviceItem.description}</p>
-                            </div>
-                        </div>
+                        <ServiceItem
+                          key={index}
+                          {...serviceItem}
+                          handleAnimation={handleAnimation}
+                        />
                     )
                 })
             }

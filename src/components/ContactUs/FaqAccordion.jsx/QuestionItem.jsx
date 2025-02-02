@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { StoreContext } from "../../../context/StoreContext";
 import { useInView } from "react-intersection-observer";
 
-function QuestionItem({ question, ans, isFiltered}) {
+function QuestionItem({ question, ans, isFiltered, handleAnimation}) {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { handleAnimation } = useContext(StoreContext);
   const { ref: accordionItemRef, inView: accordionItemInView } = useInView()
   // collapsing every question on category change
     useEffect(() => setIsCollapsed(true), [isFiltered]);

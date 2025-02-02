@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Button from '../../Button/Button.jsx';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../../context/StoreContext.jsx';
+import FeaturedItem from './FeaturedItem.jsx';
 
 function FeaturedItems() {
 
@@ -22,16 +23,12 @@ function FeaturedItems() {
           <div className="featured-items-imgs-grid">
             {
               favoriteItems.map((item, index) => {
-                const {name, img, price} = item;
-                const {ref: gridElement, inView: inView} = useInView();
                 return (
-                  <div className={inView ? "animate-in" : ""} ref={gridElement} key={index}>
-                    <img src={img} alt={name} />
-                    <span className='price-popup'>
-                      <p className='item-name'>{name}</p>
-                      <p className='item-price-usd'>{price}<span>AZN</span></p>
-                    </span>
-                  </div>
+                  <FeaturedItem 
+                    key={index} 
+                    {...item} 
+                    handleAnimation={handleAnimation}
+                  />
                 )
               })
             }

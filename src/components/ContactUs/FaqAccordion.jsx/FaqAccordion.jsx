@@ -61,8 +61,14 @@ function FaqAccordion() {
           </ul>
           <div className="faq-accordion">
             {accordionItems.map((questionItem, index) => {
-              const { question, ans } = questionItem;
-              return <QuestionItem key={index} ans={ans} question={question} isFiltered={isFiltered}/>;
+              return (
+                <QuestionItem
+                  key={index}
+                  {...questionItem}
+                  isFiltered={isFiltered}
+                  handleAnimation={handleAnimation}
+                />
+              );
             })}
           </div>
         </div>
