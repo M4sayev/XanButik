@@ -8,12 +8,13 @@ function OurResultsBanner() {
 
   const {ref: ourResultsRef, inView: resultsInView} = useInView();
   const {handleAnimation} = useContext(StoreContext);
+  
   return (
     <section className="our-results-banner">
-      <article ref={ourResultsRef} className={`our-results-banner-content ${handleAnimation(resultsInView)}`}>
+      <article className="our-results-banner-content">
         <h1 className="our-results-banner-content-title std-heading">Our results</h1>
         <div className="results-widgets-line-row">
-          <div className="results-widgets-container">
+          <div ref={ourResultsRef} className={`results-widgets-container ${handleAnimation(resultsInView)}`}>
             {
               ourResults.map((item, index) => {
                 return (

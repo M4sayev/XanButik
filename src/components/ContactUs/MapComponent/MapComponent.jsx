@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./MapComponent.css";
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 import { x_marker } from '../../../assets/assets';
-
 
 const containerStyle = {
   width: '100%',
@@ -14,12 +13,15 @@ const center = {
   lng: 47.18301226464812,
 }
 
-
 function MapComponent() {
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GMAPS_API,
   });
+
+  // to force a re-render
+  const [key, setKey] = useState(0)
+
 
   return isLoaded ? (
     <section className="widget-map-section" >
@@ -27,11 +29,16 @@ function MapComponent() {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={18}
+          key={key}
         >
-          <Marker 
+          <MarkerF
             position={center}
             icon={x_marker}
           />
+          <button 
+            className='std-btn center-map-btn'
+            onClick={() => setKey(key + 1)}
+          >Back to Center</button>
           
         </GoogleMap>
     </section>

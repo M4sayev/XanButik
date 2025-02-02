@@ -3,6 +3,7 @@ import "./ContactUs.css"
 import Contacts from '../../components/ContactUs/Contacts/Contacts'
 import QuestionForm from '../../components/ContactUs/QuestionForm/QuestionForm'
 import MapComponent from "../../components/ContactUs/MapComponent/MapComponent"
+import FaqAccordion from '../../components/ContactUs/FaqAccordion.jsx/FaqAccordion'
 
 
 function ContactUs() {
@@ -11,6 +12,7 @@ function ContactUs() {
       <Contacts />
       <QuestionForm />
       <MapComponent />
+      <FaqAccordion />
     </main>
   )
 }

@@ -55,7 +55,7 @@ function BtnsContainer() {
         className="sign-up-btn"
         tabIndex="8"
       >
-        sing up
+        sign up
       </button>
     </>
   );

@@ -4,3 +4,10 @@
     display: grid;
     place-items: center;
 }
+.center-map-btn {
+    margin-top: 10px;
+    margin-left: 80.125rem;
+
+    padding-block: 0.75rem !important;
+}
+

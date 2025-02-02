@@ -734,4 +734,42 @@ export const clientReviews = [
         occupation: "Happy Shopper",
         img: emma_pp
     }
-] 
+];
+
+export const askedQuestions = [
+    {
+        question: "How can I find the right size when shopping for men's clothing online?",
+        ans: "To find the right size when shopping for men's clothing online, refer to the brand's size chart and take accurate body measurements. Additionally, read customer reviews for insights on the fit and consider reaching out to customer support for guidance.",
+        category: "Styling Questions"
+    },
+    {
+        question: "What are some essential wardrobe pieces for men?",
+        ans: "Essential wardrobe pieces for men include versatile items such as a well-fitted suit, quality denim jeans, classic white sneakers, a tailored dress shirt, a leather belt, and a versatile jacket. These pieces can be mixed and matched for various looks.",
+        category: "Styling Questions"
+    },
+    {
+        question: "What should I consider when buying men's fashion accessories?",
+        ans: "When buying men's fashion accessories, consider the quality of materials, versatility, and how the accessory complements your personal style. Pay attention to details such as hardware, stitching, and functionality. Choose accessories that can add a stylish and practical touch to your outfits.",
+        category: "Styling Questions"
+    },
+    {
+        question: "Can I pick up my order in person at a store location?",
+        ans: "Currently, we do not offer in-store pickup for online orders. However, you can choose from various shipping options during checkout, including standard and expedited shipping. Keep an eye on our site for future updates, as we may offer in-store pickup or local pickup options in the future.",
+        category: "Delivery Questions"
+    },
+    {
+        question: "How long will it take for my order to be delivered?",
+        ans: "Delivery times vary based on your location and the shipping method you select during checkout. Standard shipping typically takes 5-7 business days, while expedited options can deliver in 2-3 business days. Once your order ships, we’ll send you tracking information so you can monitor its progress.",
+        category: "Delivery Questions"
+    },
+    {
+        question: "What should I do if my order hasn't arrived yet?",
+        ans: "If your order hasn't arrived by the estimated delivery date, please first check the tracking information you received via email for updates. If the tracking shows no updates or if there are any issues with the delivery, contact our customer service team. We’ll work with the carrier to resolve any issues and ensure your order is delivered.",
+        category: "Delivery Questions"
+    },
+    {
+        question: "What are the advantages of shopping for men's fashion online?",
+        ans: "Shopping for men's fashion online offers the advantage of convenience, a wide range of options, easy price comparison, and access to exclusive collections. Online retailers often provide detailed product descriptions and customer reviews, making it easier to make informed choices.",
+        category: "Other Questions"
+    }
+]
