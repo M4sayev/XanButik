@@ -69,6 +69,9 @@ import contact_us_form from "./header_imgs/contact_us_form.jpg";
 import xan_butik_marker from "./xan_butik_marker.png";
 export { xan_butik_marker as x_marker };
 
+// -----Cart Page----- //
+
+import cart_header from "./header_imgs/cart_header.jpg";
 
 // TOP
 
@@ -606,7 +609,9 @@ export const assets = {
     services_icon_one,
     services_icon_two,
     services_icon_three,
-    services_icon_four
+    services_icon_four,
+    //
+    cart_header
 }
 
 export const ourBrandCompanies = [

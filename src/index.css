@@ -284,3 +284,9 @@ button:not(.hamburger-menu):focus,
 .std-subtitle-fs  {
   font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
 }
+
+/* white color text elements */
+
+.clr-white {
+  color: var(--clr-primary-100);
+}

@@ -1,0 +1,135 @@
+body {
+    height: 100rem;
+}
+.header-store-contents {
+    position: relative;
+
+    max-width: var(--cnts-mx-width);
+    margin: 0 auto;
+}
+.header-store-img {
+    position: absolute;
+    z-index: 0;
+}
+.header-store-search-text-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+.header-store-text-wrapper {
+    display: grid;
+    place-items: center;
+
+    height: 155vw;
+}
+.header-store-text-container {
+    text-align: center;
+
+    background-color: hsla(0, 0%, 0%, 0.2);
+    backdrop-filter: saturate(80%);
+
+    max-width: 500px;
+    
+    margin-inline: calc(1.25rem + 2vw);
+    padding: calc(2.5rem + 1vw) calc(.125rem + 3vw);
+
+    border-bottom: var(--clr-primary-100) solid calc(5px + 1vw);
+}
+.header-store-text-container h1 {
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+.search-bar-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: calc(0.5rem + 2.5vw);
+}
+
+.store-search-input-wrapper {
+    position: relative;
+
+    width: 60%;
+}
+
+.search-bar-container .search-icon {
+    width: 16px;
+    height: 16px;
+    
+    opacity: 0.6;
+
+    font-weight: bold;
+
+    position: absolute;
+
+    left: 10px;
+    top: 47%;
+    transform: translateY(-50%);
+}
+
+.store-search-input {
+    width: 100%;
+
+    font-size: var(--fs-400);
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold-bold);
+    
+    padding: .875rem .75rem .875rem 2rem;
+
+    border: none;
+}
+
+@media (min-width: 777px) {
+    .header-store-contents {
+        display: flex;
+        align-items: center;
+
+        max-height: 110vh;
+        overflow: hidden;
+        object-position: center bottom ;
+        
+        gap: clamp(0.5rem, 1vw, 3rem);
+    }
+    .store-header-img-wrapper {
+        max-height: 200vh;
+
+        flex: 1;
+    }
+    .header-store-img {
+        position: static;
+    }
+    .header-store-search-text-container {
+        flex: 1;
+        gap: 2rem;
+        align-items: flex-start;
+
+        margin-inline: 2.25rem;
+    }
+    .header-store-text-wrapper {
+        height: auto;
+    }
+    .header-store-text-container {
+        background-color: transparent;
+        backdrop-filter: saturate(100%);
+        
+        text-align: start;
+        
+        border: none;
+
+        padding-inline-start: 0;
+        margin: 0;
+    }
+    .search-bar-container {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    } 
+    .store-search-input-wrapper {
+        width: 100%;
+    }
+    .store-header-p {
+        font-size: var(--fs-500) !important;
+    }
+}

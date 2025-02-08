@@ -216,7 +216,7 @@
   cursor: pointer;
 
   position: relative;
-  z-index: 101;
+  z-index: 1000001;
 }
 .body-menu-scroll {
   height: 100%;
@@ -274,7 +274,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  z-index: 100;
+  z-index: 100000;
 
   padding-top: 6em;
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import "./Store.css"
+import HeaderStore from '../../components/CartPage/HeaderStore/HeaderStore'
 
 function Store() {
   return (
-    <div>
-      
-    </div>
+    <main>
+      <HeaderStore />
+    </main>
   )
 }
 

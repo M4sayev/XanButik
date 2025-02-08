@@ -19,6 +19,9 @@ function FaqAccordion() {
   ];
 
   const filterItems = (category) => {
+    // to collapse all the questions when the category changes
+    setIsFiltered(!isFiltered);
+    //
     if (category === "All Questions") {
       setAccordionItems(askedQuestions);
       return;
@@ -27,8 +30,6 @@ function FaqAccordion() {
       (accordionItem) => accordionItem.category === category
     );
     setAccordionItems(newAccordionItems);
-    // to collapse all the questions when the category changes
-    setIsFiltered(!isFiltered);
   };
 
   const handleQuestionSelected = (category) => {
