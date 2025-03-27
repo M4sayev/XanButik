@@ -1,0 +1,139 @@
+.filter-store {
+    max-width: 200px;
+}
+.filter-menu-container {
+    display: none;
+}
+.filter-icon-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+.filter-icon-container span{
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-300);
+    text-transform: uppercase;
+
+    padding-block: .125rem;
+}
+.filter-icon-container .filter-icon {
+    width: 15px;
+    height: 15px;
+    
+    margin-bottom: .125rem;
+}
+
+/* to hide filter on mobile screen sizes */
+
+.filter-display-none {
+    display: none;
+}
+
+/* desktop styling  */
+
+.filter-store {
+    display: flex;
+    flex-direction: column;
+}
+.category-filtered {
+    position: relative;
+}
+.category-filtered-head {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+
+    padding-block: 0.5rem;
+
+    border-top: 1px solid var(--clr-accent);
+    border-bottom: 1px solid var(--clr-accent);
+}
+.category-filtered-body {
+    display: flex;
+    flex-direction: column;
+
+    padding: .875rem 0 .875rem 0.5rem;
+
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-300);
+
+    transition: all 500ms ease-in-out;
+}
+.cf-body-collapse {
+    height: 0;
+    padding-block: 0;
+    transition: all 500ms ease-in-out;
+}
+.cf-body-collapse .filter-items-container {
+    opacity: 0;
+}
+
+.filter-items-container {
+    position: relative;
+    padding-block: 0.125rem;
+
+    cursor: pointer;
+}
+.category-filtered-body {
+    transition: all 300ms ease-out;
+}
+.category-filtered-body span {
+    position: relative;
+}
+/* collapsing categories on click  */
+.collapse-categories {
+    /* opacity: 0; */
+}
+.category-filtered-body .filter-name::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--clr-primary-900);
+    border-radius: .125rem;
+
+    position: absolute;
+    left: 170px;
+}
+.category-filtered-body label:hover span::after {
+    background-color: var(--clr-accent);
+}
+.filter-checkbox[type='checkbox'] {
+    display: none;
+}
+.filter-checkmark {
+    opacity: 0;
+
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    left: 166px;
+    bottom: 4px;
+
+    transform: scale(0.1);
+    transition: transform 100ms ease-in-out;
+}
+
+.filter-checkbox[type='checkbox']:checked ~ .filter-checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (min-width: 777px) {
+    .filter-icon-container {
+        display: none;
+    }
+    .filter-menu-container {
+        display: block;
+    }
+}
+

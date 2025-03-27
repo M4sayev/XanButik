@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer'
  
 function HeaderStore() {
   const { handleAnimation } = useContext(StoreContext);
+  const { ref: imgRef, inView: imgInView } = useInView();
   const { ref: textRef, inView: textInView } = useInView();
 
   const { query, setQuery } = useState("");
@@ -14,8 +15,8 @@ function HeaderStore() {
   return (
     <header className='header-store'>
       <div className="header-store-contents">
-        <div className="store-header-img-wrapper">
-          <img className="header-store-img" src={assets.cart_header} alt="Xan Butik" />
+        <div ref={imgRef} className={`store-header-img-wrapper ${handleAnimation(imgInView)}`}>
+          <img className="header-store-img" src={assets.store_header} alt="Xan Butik" />
         </div>
         <div className="header-store-search-text-container">
             <div className='header-store-text-wrapper'>

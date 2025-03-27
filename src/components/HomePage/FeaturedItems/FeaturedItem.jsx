@@ -2,9 +2,9 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer';
 
 function FeaturedItem({img, name, price, handleAnimation}) {
-    const {ref: gridElement, inView: inView} = useInView();
+  const [ref , inView ] = useInView();
   return (
-    <div className={handleAnimation(inView)} ref={gridElement}>
+    <div className={handleAnimation(inView)} ref={ref}>
         <img src={img} alt={name} />
         <span className='price-popup'>
             <p className='item-name'>{name}</p>
