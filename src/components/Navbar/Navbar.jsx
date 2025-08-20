@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets.js";
 import { StoreContext } from "../../context/StoreContext.jsx";
@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
+  const sidebarRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
   const navigate = useNavigate();
 
   function handlePage(e) {
@@ -30,9 +33,46 @@ function Navbar() {
     document.body.classList.toggle("body-menu-scroll")
   }
 
-  function trapFocus() {
-    
-  }
+  // Trap focus inside the sideBar when its open
+  useEffect(() => {
+    if (!isHamActive || !sidebarRef.current) return;
+
+    const focusableSelectors = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ];
+
+    const focusableElements = sidebarRef.current.querySelectorAll(focusableSelectors.join(","));
+    const firstEl = hamburgerRef.current;
+    const lastEl = focusableElements[focusableElements.length - 1];
+
+    // Focus the first element when sidebar opens
+    firstEl?.focus();
+
+    function handleKeyDown(e) {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isHamActive])
 
   return (
     <div className="navigation">
@@ -67,12 +107,14 @@ function Navbar() {
               aria-haspopup="true"
               aria-expanded={isHamActive}
               onClick={toggleHamburger}
+              ref={hamburgerRef}
             >
               <span />
             </button>
             <nav
               className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="Sidebar navigation"
+              ref={sidebarRef}
             >
               <ul role="menubar" onClick={handlePage}>
                 <MenuItems
