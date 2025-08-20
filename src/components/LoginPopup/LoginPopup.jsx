@@ -1,9 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./LoginPopup.css";
 import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";
 import { StoreContext } from "../../context/StoreContext";
 import { useFocusTrap } from "../../hooks/useTrapFocus";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,10 +39,14 @@ function LoginPopup({ formRef }) {
 
   useFocusTrap(popupRef, true, firstPopupElRef)
 
+  // Close modal on escape
+  useEscapeKey(() => setShowLogin(false));
+
   return (
     <div 
       className="login-popup"
       aria-modal="true"
+      role="dialog"
       aria-labelledby="loginPopupTitle"
       ref={popupRef}
     >
@@ -52,7 +57,7 @@ function LoginPopup({ formRef }) {
         aria-describedby="loginPopupDesc"
       >
         <div className="login-popup-title">
-          <h2>{currentState}</h2>
+          <h2 id="loginPopupTitle">{currentState}</h2>
           <button 
             className="icon-btn cross-icon"
             type="button"

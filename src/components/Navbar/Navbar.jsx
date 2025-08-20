@@ -6,6 +6,7 @@ import BtnsContainer from "./BtnsContainer.jsx";
 import MenuItems from "./MenuItems.jsx";
 import { useNavigate } from "react-router-dom";
 import { useFocusTrap } from "../../hooks/useTrapFocus.js";
+import { useEscapeKey } from "../../hooks/useEscapeKey.js";
 
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
@@ -36,6 +37,9 @@ function Navbar() {
 
   // Trap focus inside the sideBar when its open
   useFocusTrap(sidebarRef, isHamActive, hamburgerRef);
+
+  // Handle Escape key pressed
+  useEscapeKey(() => setIsHamActive(false));
 
   return (
     <div className="navigation">
