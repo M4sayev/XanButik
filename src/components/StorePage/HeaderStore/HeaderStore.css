@@ -1,6 +1,9 @@
 body {
     height: 100rem;
 }
+.header-store {
+    background-color: var(--clr-primary-200);
+}
 .header-store-contents {
     position: relative;
 

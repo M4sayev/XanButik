@@ -12,11 +12,10 @@ function BtnsContainer() {
   return (
     <>
       <div>
-        <CiHeart tabIndex="5" aria-label="wishlist" className="btns-icon" />
+        <CiHeart aria-label="wishlist" className="btns-icon" />
       </div>
       <div className="shopping-cart-icon">
         <PiShoppingBagLight
-          tabIndex="6"
           aria-label="shopping bag"
           className="btns-icon"
         />
@@ -30,7 +29,6 @@ function BtnsContainer() {
       </div>
       <div className="contact-us-dropdown-container">
         <span
-          tabIndex="7"
           aria-label="contacts"
           className="mail-phone-icon-container"
         >
@@ -53,7 +51,6 @@ function BtnsContainer() {
       <button
         onClick={() => setShowLogin(true)}
         className="sign-up-btn"
-        tabIndex="8"
       >
         sign up
       </button>

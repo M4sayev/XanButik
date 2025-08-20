@@ -1,5 +1,7 @@
 .filter-store {
     max-width: 200px;
+
+    padding-inline: 1rem;
 }
 .filter-menu-container {
     display: none;
