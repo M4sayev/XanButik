@@ -4,27 +4,49 @@ import { assets } from "../../assets/assets.js";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import BtnsContainer from "./BtnsContainer.jsx";
 import MenuItems from "./MenuItems.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
+  const navigate = useNavigate();
 
-  function handlePage(page) {
-    if (page.tagName !== "A") return;
-    if (currentPage !== page.innerHTML) setCurrentPage(page.innerHTML);
+  function handlePage(e) {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const pageName = link.textContent.trim();
+    if (currentPage !== pageName) 
+      setCurrentPage(pageName);
+  }
+
+  function handleLogoClick() {
+    navigate("/");
+    setCurrentPage("Home");
+  }
+
+  function toggleHamburger() {
+    setIsHamActive((prev) => !prev);
+    document.body.classList.toggle("body-menu-scroll")
+  }
+
+  function trapFocus() {
+    
   }
 
   return (
     <div className="navigation">
       <div className="navbar">
         <img
-          onClick={() => window.location.reload(false)}
+          tabIndex={0}
+          onClick={handleLogoClick}
           src={assets.logo_no_frame}
-          alt="logo"
+          alt="Xan Butik Logo"
           className="logo"
         />
-        <nav className="navbar-top-menu">
-          <ul role="menu" onClick={(e) => handlePage(e.target)}>
+        {/* Top menu links */}
+        <nav className="navbar-top-menu" aria-label="Main navigation">
+          <ul role="menubar" onClick={handlePage}>
             <MenuItems
               isHamActive={isHamActive}
               setIsHamActive={setIsHamActive}
@@ -32,28 +54,27 @@ function Navbar() {
             />
           </ul>
         </nav>
+
+        {/* Rigth section - icons and hamburger */}
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
             <BtnsContainer />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
-              tabIndex="8"
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="toggle"
-              aria-haspopup="menu"
-              aria-expanded={isHamActive ? "true" : "false"}
-              onClick={() => {
-                setIsHamActive(!isHamActive);
-                document.body.classList.toggle("body-menu-scroll");
-              }}
+              aria-haspopup="true"
+              aria-expanded={isHamActive}
+              onClick={toggleHamburger}
             >
-              <span></span>
+              <span />
             </button>
             <nav
               className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}
+              aria-label="Sidebar navigation"
             >
-              <ul role="menu" onClick={(e) => handlePage(e.target)}>
+              <ul role="menubar" onClick={handlePage}>
                 <MenuItems
                   isHamActive={isHamActive}
                   setIsHamActive={setIsHamActive}

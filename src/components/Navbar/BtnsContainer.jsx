@@ -11,36 +11,45 @@ function BtnsContainer() {
 
   return (
     <>
-      <div>
+      <button className="icon-btn" aria-label="wishlist">
         <CiHeart aria-label="wishlist" className="btns-icon" />
-      </div>
-      <div className="shopping-cart-icon">
+      </button>
+      <button className="icon-btn shopping-cart-icon">
         <PiShoppingBagLight
           aria-label="shopping bag"
           className="btns-icon"
         />
         <span
-          aria-valuenow="0"
-          aria-valuemin="0"
+          aria-live="polite"
           className="shopping-cart-item-count"
         >
           0
         </span>
-      </div>
+      </button>
       <div className="contact-us-dropdown-container">
         <span
           aria-label="contacts"
+          aria-haspopup="true"
           className="mail-phone-icon-container"
+          tabIndex={0}
         >
           <CiMail className="btns-icon" />
           <MdLocalPhone className="phone-icon" />
         </span>
         <span className="dropdown-arrow">
-          <IoIosArrowUp aria-label="arrow up" className="dropdown-arrow-icon" />
+          <IoIosArrowUp 
+            aria-label="Arrow up" 
+            aria-hidden="true"
+            className="dropdown-arrow-icon"
+          />
         </span>
         <div role="dropdown" className="dropdown-contact-us">
           <span>
-            <FiPhone aria-label="phone" className="dropdown-phone-icon" />
+            <FiPhone 
+              aria-label="Phone icon" 
+              aria-hidden="true"
+              className="dropdown-phone-icon" 
+            />
           </span>
           <div>
             <p>0554584886</p>
@@ -50,9 +59,10 @@ function BtnsContainer() {
       </div>
       <button
         onClick={() => setShowLogin(true)}
-        className="sign-up-btn"
+        className="std-button sign-up-btn"
+        aria-label="Sign up"
       >
-        sign up
+        Sign up
       </button>
     </>
   );

@@ -93,6 +93,7 @@
 
   cursor: pointer;
 }
+/* wishlist */
 
 /* shopping cart icon */
 
@@ -127,7 +128,7 @@
 
   position: absolute;
   left: -3px;
-  bottom: 5px;
+  bottom: 3px;
 }
 
 .contact-us-dropdown-container {
@@ -172,10 +173,12 @@
   opacity: 0;
   pointer-events: none;
   transition: transform var(--std-transition);
+  z-index: 1000000000;
 }
 /* dropdown appear on hover  */
 .contact-us-dropdown-container:focus-within .dropdown-contact-us,
-.contact-us-dropdown-container:hover .dropdown-contact-us {
+.contact-us-dropdown-container:hover .dropdown-contact-us,
+.dropdown-contact-us:focus {
   transform: scaleY(1);
   opacity: 1;
   pointer-events: all;

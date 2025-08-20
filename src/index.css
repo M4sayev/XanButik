@@ -185,7 +185,6 @@ textarea:not([rows]) {
 
 /* Button design (both semantic react and standard btn) */
 
-button:not(.hamburger-menu),
 .std-button
   {
   font-family: var(--ff-secondary);
@@ -211,14 +210,11 @@ button:not(.hamburger-menu),
   padding: 0.675rem var(--inl-pdng-btn);
 }
 
-button[data-type="inverted"],
 .std-button[data-type="inverted"] {
   background-color: var(--clr-primary-100);
   color: var(--clr-neutral-900);
 }
 
-button:not(.hamburger-menu):hover,
-button:not(.hamburger-menu):focus,
 .std-button:hover,
 .std-button:focus 
   {
@@ -226,10 +222,17 @@ button:not(.hamburger-menu):focus,
 }
 
 @media (max-width: 576px) {
-  button:not(.hamburger-menu),
   .std-button {
     padding-inline: var(--fs-300);
   }
+}
+
+/* icon button styling */
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* standard heading */

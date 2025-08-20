@@ -20,7 +20,7 @@ function SmartBanner() {
             We are proud of what we've achieved, but we are not stopping there.
           </p>
         </article>
-        <Button id="Explore" as={Link} to="/Cart" tabIndex="10" className="smart-banner-explore-btn std-button">Explore</Button>
+        <Button id="Explore" as={Link} to="/Cart" className="smart-banner-explore-btn std-button">Explore</Button>
       </div>
     </section>
   );

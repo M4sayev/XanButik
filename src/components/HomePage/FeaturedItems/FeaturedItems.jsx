@@ -34,7 +34,7 @@ function FeaturedItems() {
             }
           </div>
           <div className={`featured-items-btn-wrapper ${handleAnimation(btnInView)}`} ref={btnRef}>
-            <Button id="ViewMore" as={Link} to="/Store" tabIndex="11" className="featured-items-view-more-btn std-button">view more</Button>
+            <Button id="ViewMore" as={Link} to="/Store" className="featured-items-view-more-btn std-button">view more</Button>
           </div>
         </div>
     </section>

@@ -8,54 +8,25 @@ function MenuItems({ isHamActive, setIsHamActive, currentPage }) {
     document.body.classList.remove("body-menu-scroll");
   };
 
-  return (
-    <>
-      <li role="none">
-        <Link
-          to="/"
-          role="menuitem"
-          tabIndex="1"
-          className={`${currentPage === "Home" ? "active" : ""} link`}
-          onClick={() => handleBodyScroll()}
-        >
-          Home
-        </Link>
-      </li>
-      <li role="none">
-        <Link
-          to="/About"
-          role="menuitem"
-          tabIndex="2"
-          className={`${currentPage === "About Us" ? "active" : ""} link`}
-          onClick={() => handleBodyScroll()}
-        >
-          About Us
-        </Link>
-      </li>
-      <li role="none">
-        <Link
-          to="/ContactUs"
-          role="menuitem"
-          tabIndex="3"
-          className={`${currentPage === "Contact Us" ? "active" : ""} link`}
-          onClick={() => handleBodyScroll()}
-        >
-          Contact Us
-        </Link>
-      </li>
-      <li role="none">
-        <Link
-          to="/Store"
-          role="menuitem"
-          tabIndex="4"
-          className={`${currentPage === "Store" ? "active" : ""} link`}
-          onClick={() => handleBodyScroll()}
-        >
-          Store
-        </Link>
-      </li>
-    </>
-  );
+  const items = [
+    { label: "Home", path: "/"},
+    { label: "About Us", path: "/About"},
+    { label: "Contact Us", path: "/ContactUs" },
+    { label: "Store", path: "/Store" },
+  ];
+
+  return items.map(({label, path}) => (
+    <li key={label} role="none">
+      <Link 
+        to={path}
+        role="menuitem"
+        className={`link ${currentPage === label ? "active" : ""}`}
+        onClick={handleBodyScroll}
+      >
+        {label}
+      </Link>
+    </li>
+  ));
 }
 
 export default MenuItems;

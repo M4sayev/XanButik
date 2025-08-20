@@ -21,8 +21,8 @@ function Header() {
             in modern menswear fashion online
           </p>
           <div className="header-widgets-container">
-            <Button as={Link} id="LearnMore" to="/About" tabIndex="8" className="widget-learn-more-btn std-button">learn more</Button>
-            <Button as={Link} id="ShopNow" to="/Store" tabIndex="9" data-type="inverted" className="widget-shop-now-btn std-button">shop now</Button>
+            <Button as={Link} id="LearnMore" to="/About" className="widget-learn-more-btn std-button">learn more</Button>
+            <Button as={Link} id="ShopNow" to="/Store" data-type="inverted" className="widget-shop-now-btn std-button">shop now</Button>
           </div>
         </div>
     </header>
