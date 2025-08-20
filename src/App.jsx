@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext } from 'react'
+import { useRef, useEffect, useContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
@@ -23,15 +23,28 @@ function App() {
   };
 
   useEffect(() => {
+    const disableScroll = () => {
+      document.body.style.overflow = 'hidden';
+    };
+
+    const enableScroll = () => {
+      document.body.style.overflow = 'auto';
+    };
     if (showLogin) {
-      window.addEventListener("mousedown", handleClickOutside)
+      window.addEventListener("mousedown", handleClickOutside);
+      disableScroll();
+    } else {
+      enableScroll();
     }
-    return () => window.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside);
+      enableScroll();
+    }
   }, [showLogin]);
 
   return (
     <>
-      {showLogin ? <LoginPopup innerRef={loginPopupRef} /> : <></>}
+      {showLogin ? <LoginPopup formRef={loginPopupRef}/> : <></>}
       <div className='app'>
         <Navbar />
         <Routes>

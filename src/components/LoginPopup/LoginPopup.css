@@ -3,7 +3,7 @@
     width: 100%;
 
     position: fixed;
-    z-index: 1000;
+    z-index: var(--z-dropdown);
 
     backdrop-filter: blur(10px);
 
@@ -38,8 +38,7 @@
     font-size: var(--fs-400);
 }
 .cross-icon {
-    width: 1.75rem;
-    height: 1.75rem;
+    padding: 0 !important;
 
     cursor: pointer;
     transform: scale(1);
@@ -47,6 +46,12 @@
     will-change: transform;
     transition: transform 300ms linear;
 }
+
+.cross-icon .cross {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
 .cross-icon:hover {
     transform: scale(1.1);
 }
@@ -75,10 +80,12 @@
 }
 .show-hide-icon {
     position: absolute;
-    right: 10px;
+    right: 4px;
+    top: 1px;
 
     cursor: pointer;
 }
+
 /* end */
 .login-popup-container button {
     border: none;
@@ -105,12 +112,34 @@
 .login-popup-condition + p {
     text-align: center;
 }
-.login-popup p span{
+.suggestion-text {
+    text-align: center !important;
+}
+.link-button {
+    background: none;
+    border: none;
     color: var(--clr-primary-900);
     font-weight: var(--fw-bold);
-    
-    cursor: pointer;
+    cursor: pointer;    
+    padding: 0 !important;
+    padding-left: calc(var(--spacing-sm) / 2) !important;
+    font: inherit;
+    text-decoration: underline;
 }
 
+.login-popup-container {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 

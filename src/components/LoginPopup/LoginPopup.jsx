@@ -4,90 +4,165 @@ import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";
 import { StoreContext } from "../../context/StoreContext";
 
-function LoginPopup({ innerRef }) {
+function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [currentState, setCurrentState] = useState("Sing Up");
+  const [currentState, setCurrentState] = useState("Sign Up");
   const { setShowLogin } = useContext(StoreContext);
 
-  const [ name, setName ] = useState("");
-  const [ email, setEmail ] = useState("");
-  const [ password, setPassword ] = useState("");
+  const [ form, setForm ] = useState({
+    name: "",
+    email: "",
+    password: "",
+    agreeToTerms: false,
+  })
   
   function handleOnSubmit(e) {
-      e.preventDefault();
-      setName("");
-      setEmail("");
-      setPassword("");
+    e.preventDefault();
+
+    setForm({
+      name: "",
+      email: "",
+      password: "",
+      agreeToTerms: false,
+    });
+
+    setShowLogin(false);
+  }
+
+  function handleOnChange(e) {
+    setForm({...form, [e.target.name]: e.target.value});
   }
 
   return (
-    <div className="login-popup">
-      <form onSubmit={handleOnSubmit} ref={innerRef} className="login-popup-container">
+    <div 
+      className="login-popup"
+      aria-modal="true"
+      aria-labelledby="loginPopupTitle"
+    >
+      <form 
+        onSubmit={handleOnSubmit} 
+        ref={formRef} 
+        className="login-popup-container"
+        aria-describedby="loginPopupDesc"
+      >
         <div className="login-popup-title">
           <h2>{currentState}</h2>
-          <IoClose
-            className="cross-icon"
+          <button 
+            className="icon-btn cross-icon"
+            type="button"
             onClick={() => setShowLogin(false)}
-            alt="cross icon"
-          />
+            aria-label="Close login popup"
+          >
+            <IoClose className="cross"/>
+          </button>
         </div>
         <div className="login-popup-inputs">
           {currentState === "Login" ? (
             <></>
           ) : (
-            <input  
-              type="text" 
-              placeholder="Your name" 
-              required 
-              value={name} 
-              onChange={(e) => setName(e.target.value)}
-            />
+            <>
+              <label 
+                htmlFor="name" 
+                className="visually-hidden"
+              >Name</label>
+              <input  
+                type="text" 
+                id="name"
+                name="name"
+                placeholder="Your name" 
+                required 
+                value={form.name} 
+                onChange={handleOnChange}
+                autoFocus
+              />
+            </>
           )}
-          <input 
-            type="email" 
-            placeholder="Your email" 
-            required 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-          />
+          <>
+            <label 
+              htmlFor="email" 
+              className="visually-hidden"
+            >Email</label>
+            <input 
+              type="email" 
+              name="email"
+              id="email"
+              placeholder="Your email" 
+              required 
+              value={form.email} 
+              onChange={handleOnChange}
+              autoFocus={currentState === "Login"}
+            />
+          </>
           <div className="password-input-container">
+            <label 
+              htmlFor="password" 
+              className="visually-hidden"
+            >Password</label>
             <input
               type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
               placeholder="Password"
               className="input-password"
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={form.password}
+              onChange={handleOnChange}
             />
-            {showPassword ? (
-              <BiShow
-                className="show-hide-icon"
-                onClick={() => setShowPassword(false)}
-              />
-            ) : (
-              <BiHide
-                className="show-hide-icon"
-                onClick={() => setShowPassword(true)}
-              />
-            )}
+            <button
+              type="button"
+              className="icon-btn show-hide-icon"
+              onClick={() => setShowPassword(prev => !prev)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <BiShow/> : <BiHide/>}
+            </button>
           </div>
         </div>
-        <button>
+        {currentState === "Sign Up" && (
+          <div className="login-popup-condition">
+            <input 
+              id="agreeWithConds"
+              type="checkbox"
+              name="agreeToTerms"
+              checked={form.agreeToTerms}
+              onChange={(e) => setForm({ ...form, agreeToTerms: e.target.checked })}
+              required
+            />
+            <label htmlFor="agreeWithConds">
+              By continuing, I agree to the terms of use & privacy policy
+            </label>
+          </div>
+        )}
+        <button 
+          type="submit"
+          className="std-button">
           {currentState === "Sign Up" ? "Create account" : "Login"}
         </button>
-        <div className="login-popup-condition">
-          <input id="agreeWithConds" type="checkbox" required />
-          <label htmlFor="agreeWithConds">By continuing, I agree to the terms of use & privacy policy</label>
-        </div>
-        {currentState === "Login" ? (
-          <p>
-            Create a new account? <span onClick={() => setCurrentState("Sing Up")}>Click here</span>
-          </p>
-        ) : (
-          <p>
-            Already have an account? <span onClick={() => setCurrentState("Login")}>Login here</span>
-          </p>
-        )}
+        <p className="suggestion-text">
+          {currentState === "Login" ? (
+            <>
+              Create a new account?{" "}
+              <button
+                type="button"
+                className="icon-btn link-button"
+                onClick={() => setCurrentState("Sign Up")}
+              >
+                Click here
+              </button>
+            </>
+          ) : (
+            <>
+              Already have an account?{" "}
+              <button
+                type="button"
+                className="icon-btn link-button"
+                onClick={() => setCurrentState("Login")}
+              >
+                Login here
+              </button>
+            </>
+          )}
+        </p>
       </form>
     </div>
   );
