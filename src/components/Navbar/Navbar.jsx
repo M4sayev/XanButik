@@ -5,6 +5,7 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 import BtnsContainer from "./BtnsContainer.jsx";
 import MenuItems from "./MenuItems.jsx";
 import { useNavigate } from "react-router-dom";
+import { useFocusTrap } from "../../hooks/useTrapFocus.js";
 
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
@@ -34,45 +35,7 @@ function Navbar() {
   }
 
   // Trap focus inside the sideBar when its open
-  useEffect(() => {
-    if (!isHamActive || !sidebarRef.current) return;
-
-    const focusableSelectors = [
-      'a[href]',
-      'button:not([disabled])',
-      'input:not([disabled])',
-      'select:not([disabled])',
-      'textarea:not([disabled])',
-      '[tabindex]:not([tabindex="-1"])',
-    ];
-
-    const focusableElements = sidebarRef.current.querySelectorAll(focusableSelectors.join(","));
-    const firstEl = hamburgerRef.current;
-    const lastEl = focusableElements[focusableElements.length - 1];
-
-    // Focus the first element when sidebar opens
-    firstEl?.focus();
-
-    function handleKeyDown(e) {
-      if (e.key !== "Tab") return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        }
-      } else {
-        if (document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
-    }
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isHamActive])
+  useFocusTrap(sidebarRef, isHamActive, hamburgerRef);
 
   return (
     <div className="navigation">

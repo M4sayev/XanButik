@@ -1,12 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./LoginPopup.css";
 import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";
 import { StoreContext } from "../../context/StoreContext";
+import { useFocusTrap } from "../../hooks/useTrapFocus";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
   const [currentState, setCurrentState] = useState("Sign Up");
+  const popupRef = useRef(null);
+  const firstPopupElRef = useRef(null);
   const { setShowLogin } = useContext(StoreContext);
 
   const [ form, setForm ] = useState({
@@ -33,11 +36,14 @@ function LoginPopup({ formRef }) {
     setForm({...form, [e.target.name]: e.target.value});
   }
 
+  useFocusTrap(popupRef, true, firstPopupElRef)
+
   return (
     <div 
       className="login-popup"
       aria-modal="true"
       aria-labelledby="loginPopupTitle"
+      ref={popupRef}
     >
       <form 
         onSubmit={handleOnSubmit} 
@@ -52,6 +58,7 @@ function LoginPopup({ formRef }) {
             type="button"
             onClick={() => setShowLogin(false)}
             aria-label="Close login popup"
+            ref={firstPopupElRef}
           >
             <IoClose className="cross"/>
           </button>
