@@ -17,6 +17,14 @@
     --fw-regular: 300;
     --fw-bold: 500;
     --fw-bold-bold: 700;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+
+    --z-navbar: 1000;
+    --z-sidebar: 1100;
+    --z-dropdown: 1200;
     
     --fs-300: .875rem;
     --fs-400: 1rem;
