@@ -39,6 +39,10 @@
 .carousel .swiper-pagination-bullet-active {
   background-color: var(--clr-primary-900) !important;
 }
+.carousel .swiper-pagination-bullet:focus-visible {
+  outline: 2px solid var(--clr-primary-900);
+  outline-offset: 2px;
+}
 
 @media (min-width: 340px) {
   .carousel {

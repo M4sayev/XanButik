@@ -2,24 +2,27 @@ import React, { useContext } from "react";
 import "./OurClientsCarousel.css";
 import { ourBrandCompanies } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, A11y } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper-bundle.css";
 import { StoreContext } from "../../context/StoreContext";
 
 function OurClientsCarousel({bg}) {
-  const { ref: carouselSecRef, inView: carouselSecInView } = useInView();
+  const { ref: carouselSecRef, inView: carouselSecInView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const {handleAnimation} = useContext(StoreContext);
 
   return (
-    <section className="carousel-section" data-type={bg}>
+    <section className="carousel-section" data-type={bg} aria-labelledby="our-clients-heading">
       <div
         ref={carouselSecRef}
         className={`carousel-section-contents ${handleAnimation(carouselSecInView)}`}
       >
         <div className="text-container">
-          <h1 className="text-container-title std-heading">Our Clients</h1>
+          <h1 id="our-clients-heading" className="text-container-title std-heading">Our Clients</h1>
           <p className="text-container-paragraph std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
@@ -31,32 +34,48 @@ function OurClientsCarousel({bg}) {
         <div className="carousel-container">
           <Swiper
             className="carousel"
-            modules={[Pagination, Autoplay]}
-            spaceBetween={0}
+            modules={[Pagination, Autoplay, A11y ]}
             pagination={{ clickable: true }}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
             breakpoints={{
-              999: {
-                slidesPerView: 6,
+              320: {
+                slidesPerView: 3,
               },
               640: {
                 slidesPerView: 5,
-              }
+              },
+              999: {
+                slidesPerView: 6,
+              },
             }}
             loop={true}
-            slidesPerView={3}
+            a11y={{
+              enabled: true,
+            }}
+            role="region"
+            aria-label="Client logos carousel"
+            keyboard={{
+              enabled: true,
+              onlyInViewport: true,
+            }}
           >
-            {ourBrandCompanies.map((carouselItem, index) => {
-              const { brandName, img } = carouselItem;
-              return (
+            {ourBrandCompanies.length ? (
+              ourBrandCompanies.map(({ brandName, img},  index) => (
                 <SwiperSlide key={index}>
-                  <img src={img} alt={brandName} />
+                  <img 
+                    src={img} 
+                    loading="lazy"
+                    alt={`${brandName} logo`}
+                    aria-hidden="true"
+                  />
                 </SwiperSlide>
-              );
-            })}
+              ))
+            ) : (
+              <p>No client logos available at the moment.</p>
+            )}
           </Swiper>
         </div>
       </div>
