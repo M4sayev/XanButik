@@ -61,6 +61,7 @@
     gap: 1.25rem;
 }
 .login-popup-inputs input {
+    width: 100%;
     outline: none;
     border: 1px solid var(--clr-accent);
 
@@ -68,12 +69,15 @@
 
     padding: .675rem;
 }
+
 /* hide show button */
 .password-input-container {
     position: relative;
+}
 
+.password-input-h-s-btn input{
+    width: 100% !important;
     display: flex;
-    align-items: center;
 }
 .input-password {
     width: 100%;
@@ -93,11 +97,13 @@
     padding: .675rem;
 }
 .login-popup-condition {
+
+    margin-top: -12px;
+}
+.login-popup-condition-container {
     display: flex;
     align-items: start;
     gap: .5rem;
-
-    margin-top: -12px;
 }
 .login-popup-condition label {
     cursor: pointer;

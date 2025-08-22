@@ -9,6 +9,7 @@ import { useEscapeKey } from "../../hooks/useEscapeKey";
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
   const [currentState, setCurrentState] = useState("Sign Up");
+  const [ errors, setErrors ] = useState({});
   const popupRef = useRef(null);
   const firstPopupElRef = useRef(null);
   const { setShowLogin } = useContext(StoreContext);
@@ -23,24 +24,70 @@ function LoginPopup({ formRef }) {
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    setForm({
-      name: "",
-      email: "",
-      password: "",
-      agreeToTerms: false,
-    });
+    const validationErrors = validate();
+    setErrors(validationErrors);
 
-    setShowLogin(false);
+    if (Object.keys(validationErrors).length === 0) {
+      setForm({
+        name: "",
+        email: "",
+        password: "",
+        agreeToTerms: false,
+      });
+  
+      setShowLogin(false);
+    }
   }
 
   function handleOnChange(e) {
-    setForm({...form, [e.target.name]: e.target.value});
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+
+    // Clear error for the current field as the user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   }
 
   useFocusTrap(popupRef, true, firstPopupElRef)
 
   // Close modal on escape
   useEscapeKey(() => setShowLogin(false));
+
+  // Validate the form
+
+  function validate() {
+    const errors = {};
+
+    if (!form.name.trim()) errors.name="Name is required";
+    if (!form.password.trim()) errors.password="Password is required";
+    if (!form.email.trim()) {
+      errors.email="Email is required";
+    } else if ((!/\S+@\S+\.\S+/.test(form.email))) {
+      errors.email = "Email is invalid";
+    }
+
+    if (currentState === "Sign Up" && !form.agreeToTerms) {
+      errors.agreeToTerms = "You must agree to the terms";
+    }
+    
+    return errors;
+  }
+
+  // Render errors
+  function renderError(fieldName) {
+    if (!errors[fieldName]) return null;
+    return (
+      <p id={`${fieldName}-error`} role="alert" style={{ color: 'red' }} aria-live="assertive">
+        {errors[fieldName]}
+      </p>
+    );
+  }
+
 
   return (
     <div 
@@ -55,6 +102,7 @@ function LoginPopup({ formRef }) {
         ref={formRef} 
         className="login-popup-container"
         aria-describedby="loginPopupDesc"
+        noValidate
       >
         <div className="login-popup-title">
           <h2 id="loginPopupTitle">{currentState}</h2>
@@ -72,7 +120,7 @@ function LoginPopup({ formRef }) {
           {currentState === "Login" ? (
             <></>
           ) : (
-            <>
+            <div>
               <label 
                 htmlFor="name" 
                 className="visually-hidden"
@@ -86,10 +134,13 @@ function LoginPopup({ formRef }) {
                 value={form.name} 
                 onChange={handleOnChange}
                 autoFocus
+                aria-invalid={errors.name ? "true" : "false"}
+                aria-describedby={errors.name ? "name-error" : undefined}
               />
-            </>
+              {renderError("name")}
+            </div>
           )}
-          <>
+          <div>
             <label 
               htmlFor="email" 
               className="visually-hidden"
@@ -103,47 +154,62 @@ function LoginPopup({ formRef }) {
               value={form.email} 
               onChange={handleOnChange}
               autoFocus={currentState === "Login"}
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? "email-error" : undefined}
             />
-          </>
+            {renderError("email")}
+          </div>
           <div className="password-input-container">
             <label 
               htmlFor="password" 
               className="visually-hidden"
             >Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              placeholder="Password"
-              className="input-password"
-              required
-              value={form.password}
-              onChange={handleOnChange}
-            />
-            <button
-              type="button"
-              className="icon-btn show-hide-icon"
-              onClick={() => setShowPassword(prev => !prev)}
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              {showPassword ? <BiShow/> : <BiHide/>}
-            </button>
-          </div>
+            <div>
+              <div className="password-input-h-s-btn">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  className="input-password"
+                  required
+                  value={form.password}
+                  onChange={handleOnChange}
+                  aria-invalid={errors.password ? "true" : "false"}
+                  aria-describedby={errors.password ? "password-error" : undefined}
+                />
+                <button
+                  type="button"
+                  className="icon-btn show-hide-icon"
+                  onClick={() => setShowPassword(prev => !prev)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                  {showPassword ? <BiShow/> : <BiHide/>}
+                </button>
+              </div>
+            </div>
+            {renderError("password")}
+            </div>
         </div>
         {currentState === "Sign Up" && (
+          <>
           <div className="login-popup-condition">
-            <input 
-              id="agreeWithConds"
-              type="checkbox"
-              name="agreeToTerms"
-              checked={form.agreeToTerms}
-              onChange={(e) => setForm({ ...form, agreeToTerms: e.target.checked })}
-              required
-            />
-            <label htmlFor="agreeWithConds">
-              By continuing, I agree to the terms of use & privacy policy
-            </label>
+            <div className="login-popup-condition-container">
+              <input 
+                id="agreeWithConds"
+                type="checkbox"
+                name="agreeToTerms"
+                checked={form.agreeToTerms}
+                onChange={(e) => setForm({ ...form, agreeToTerms: e.target.checked })}
+                required
+              />
+              <label htmlFor="agreeWithConds">
+                By continuing, I agree to the terms of use & privacy policy
+              </label>
+            </div>
+            {renderError("agreeToTerms")}
           </div>
+          </>
         )}
         <button 
           type="submit"

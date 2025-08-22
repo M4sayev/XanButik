@@ -73,7 +73,13 @@ function BtnsContainer() {
               className="dropdown-phone-icon" 
             />
           </span>
-          <div onClick={handleDropDownClick} onKeyDown={handleDropDownClick} className="dropdown-item" tabIndex={0}>
+          <div 
+            onClick={handleDropDownClick} 
+            onKeyDown={handleDropDownClick} 
+            role="button" 
+            className="dropdown-item" 
+            tabIndex={0} 
+            aria-label={copied ? 'Phone number copied to clipboard' : 'Copy phone number to clipboard'}>
             <p className="dropdown-phone-number">
               0554584886
               <span className="copy-icon" aria-hidden="true">
