@@ -71,7 +71,7 @@
     .featured-items-imgs-grid .layout-3 {
         grid-column: span 2;
     }
-    .featured-items-imgs-grid .layout-4 img {
+    .featured-items-imgs-grid .layout-3 img {
         width: 100%;
     }
 }

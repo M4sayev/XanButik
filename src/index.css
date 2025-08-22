@@ -331,3 +331,15 @@ textarea:focus-visible,
 .clr-white {
   color: var(--clr-primary-100);
 }
+
+@keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+}

@@ -11,10 +11,12 @@ import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import { StoreContext } from './context/StoreContext'
 import Testimonials from './pages/Testimonials/Testimonials'
+import ScrollToTop from './components/ScrollTop/ScrollToTop'
 
 function App() {
   const loginPopupRef = useRef(null);
   const { showLogin, setShowLogin } = useContext(StoreContext);
+  const [ showScrollTopBtn, setShowScrollTopBtn ] = useState(false);
 
   function handleClickOutside(event) {
     if (loginPopupRef.current && !loginPopupRef.current.contains(event.target)) {
@@ -42,6 +44,18 @@ function App() {
     }
   }, [showLogin]);
 
+
+  useEffect(() => {
+    function showTopBtn() {
+      const offsetBoolean = window.pageYOffset > 500;
+      setShowScrollTopBtn(offsetBoolean)
+    }
+    window.addEventListener("scroll", showTopBtn);
+    return () => window.removeEventListener("scroll", showTopBtn);
+  }, [])
+
+  
+
   return (
     <>
       {showLogin ? <LoginPopup formRef={loginPopupRef}/> : <></>}
@@ -56,6 +70,7 @@ function App() {
           <Route path='/Wishlist' element={<Wishlist />} />
           <Route path='/Cart' element={<Cart />} />
         </Routes>
+        <ScrollToTop showScrollTopBtn={showScrollTopBtn}/>
         <Footer />
       </div>
     </>

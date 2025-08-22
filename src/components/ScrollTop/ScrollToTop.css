@@ -1,0 +1,37 @@
+.scroll-to-top-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+
+    animation: bounce 2s infinite;
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 !important;
+
+    transition: var(--std-transition);
+}
+
+.hide-to-top {
+    right: -55px;
+}
+.scroll-to-top-btn:not(.hide-to-top) .rotate-icon {
+    animation: rollOut 2s;
+}
+
+
+@keyframes rollOut {
+    0% {
+        transform: translateX(-50px);
+        transform: rotate(-360deg);
+    }
+    100% {
+        transform: translateX(0);
+        transform: rotate(360deg);
+    }
+}
