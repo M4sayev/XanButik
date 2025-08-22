@@ -18,7 +18,7 @@ function BtnsContainer() {
     const phoneNum = e.currentTarget.querySelector(".dropdown-phone-number")?.textContent?.trim();
 
     if (phoneNum) {
-    navigator.clipboard.writeText(phoneNum)
+      navigator.clipboard.writeText(phoneNum)
       .then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);

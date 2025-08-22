@@ -6,30 +6,31 @@ import {StoreContext} from "../../../context/StoreContext";
 
 function ServicesBanner() {
 
-    const {ref: servicesRef, inView: servicesInView} = useInView();
+    const {ref: servicesRef, inView: servicesInView} = useInView({
+      threshold: 0.2,
+      triggerOnce: true
+    });
+
+    const services = [
+      { icon: assets.services_icon_one, alt: "T-shirt icon representing styling consultation", label: "personal styling consultation" },
+      { icon: assets.services_icon_two, alt: "Suit icon representing tailoring services", label: "tailoring and alterations" },
+      { icon: assets.services_icon_three, alt: "Pants icon representing premium fittings"
+, label: "premium suit fittings" },
+      { icon: assets.services_icon_four, alt: "Tie icon representing shoe care and repair", label: "shoe care and repair" }
+    ];
     const {handleAnimation} = useContext(StoreContext);
     
   return (
-    <section className="services-banner">
-      <div ref={servicesRef} className={`services-container ${handleAnimation(servicesInView)}`}>
-        <div>
-          <img src={assets.services_icon_one} alt="tshirt" />
-          <p>personal styling consultation</p>
-        </div>
-        <div>
-          <img src={assets.services_icon_two} alt="suit" />
-          <p>tailoring and alterations</p>
-        </div>
-        <div>
-          <img src={assets.services_icon_three} alt="pants" />
-          <p>premium suit fittings</p>
-        </div>
-        <div>
-          <img src={assets.services_icon_four} alt="tie" />
-          <p>shoe care and repair</p>
-        </div>
-      </div>
-    </section>
+    <section className="services-banner" role="region" aria-label="Services Offered">
+    <div ref={servicesRef} className={`services-container ${handleAnimation(servicesInView)}`}>
+      {services.map((service, index) => (
+        <article key={index}>
+          <img src={service.icon} alt={service.alt} />
+          <p>{service.label}</p>
+        </article>
+      ))}
+    </div>
+  </section>
   );
 }
 
