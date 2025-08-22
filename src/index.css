@@ -146,7 +146,7 @@ textarea:not([rows]) {
 /* Standard animation for components contents  */
 
 .animate-in {
-  animation: 1s slide-in;
+  animation: 1s slide-in forwards;
 }
 .header-bg-animate {
   animation: 1s header-popup;
@@ -173,6 +173,8 @@ textarea:not([rows]) {
       filter: blur(0);
     }
   }
+
+
   
   /* Remove all animations, transitions, etc. (For those who prefer reduced motion) */
 
@@ -188,6 +190,12 @@ textarea:not([rows]) {
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    .animate-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 

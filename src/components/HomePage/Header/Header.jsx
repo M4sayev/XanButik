@@ -8,7 +8,10 @@ import { StoreContext } from "../../../context/StoreContext";
 
 
 function Header() {
-  const { ref: headerContentsRef, inView: headerInView } = useInView();
+  const { ref: headerContentsRef, inView: headerInView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const {handleAnimation} = useContext(StoreContext);
   
   return (

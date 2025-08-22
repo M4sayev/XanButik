@@ -11,11 +11,17 @@ function StoreContextProvider(props) {
     });
     const location = useLocation();
 
+    const routePageMap = {
+        "/": "Home",
+        "/About": "About Us",
+        "/Testimonials": "About Us",
+        "/ContactUs": "Contact Us",
+        "/Store": "Store"
+    };
+
     useEffect(() => {
-        if (location.pathname === "/") setCurrentPage("Home");
-        else if (location.pathname === "/About" || location.pathname === "/Testimonials") setCurrentPage("About Us")
-        else if (location.pathname === "/ContactUs") setCurrentPage("Contact Us");
-        else if (location.pathname === "/Store") setCurrentPage("Store");
+        const page = routePageMap[location.pathname] || "Other";
+        setCurrentPage(page);
     }, [location]); 
 
     useEffect(() => {
@@ -23,8 +29,7 @@ function StoreContextProvider(props) {
     }, [currentPage]);
 
     function handleAnimation(inView) {
-        if (!inView) return "";
-        return "animate-in";
+        return inView ? "animate-in" : "";
     }
 
     const contextValue = {

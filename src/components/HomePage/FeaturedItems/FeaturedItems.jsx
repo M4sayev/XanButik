@@ -8,10 +8,16 @@ import { StoreContext } from '../../../context/StoreContext.jsx';
 import FeaturedItem from './FeaturedItem.jsx';
 
 function FeaturedItems() {
-
-  const {ref: titleRef, inView: titleInView} = useInView();
-  const {ref: btnRef, inView: btnInView} = useInView();
   const {handleAnimation} = useContext(StoreContext);
+  
+  const {ref: titleRef, inView: titleInView} = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+  const {ref: btnRef, inView: btnInView} = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
 
   return (
     <section className='featured-items'>
@@ -23,18 +29,26 @@ function FeaturedItems() {
           <div className="featured-items-imgs-grid">
             {
               favoriteItems.map((item, index) => {
+                const layoutClass = `layout-${index}`;
                 return (
                   <FeaturedItem 
                     key={index} 
                     {...item} 
-                    handleAnimation={handleAnimation}
+                    layoutClass={layoutClass}
                   />
                 )
               })
             }
           </div>
           <div className={`featured-items-btn-wrapper ${handleAnimation(btnInView)}`} ref={btnRef}>
-            <Button id="ViewMore" as={Link} to="/Store" className="featured-items-view-more-btn std-button">view more</Button>
+            <Button 
+              id="ViewMore" 
+              as={Link} 
+              to="/Store" 
+              className="featured-items-view-more-btn std-button"
+            >
+              view more
+            </Button>
           </div>
         </div>
     </section>

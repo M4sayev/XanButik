@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import { StoreContext } from "../../../context/StoreContext";
 
 function SmartBanner() {
-    const { ref: bannerContentsRef, inView: bannerInView } = useInView();
+    const { ref: bannerContentsRef, inView: bannerInView } = useInView({
+      threshold: 0.2,
+      triggerOnce: true
+    });
     const {handleAnimation} = useContext(StoreContext);
 
   return (
