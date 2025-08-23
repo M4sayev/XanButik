@@ -37,6 +37,7 @@ function Welcome() {
           className={`welcome-section-img ${handleAnimation(welcomeImgInView)}`}
           src={assets.logo_sheki_bg}
           alt="Xan Butik logo"
+          loading="lazy"
         />
       </div>
     </section>
