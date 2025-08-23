@@ -5,19 +5,25 @@ import { useInView } from "react-intersection-observer";
 import { StoreContext } from "../../../context/StoreContext";
 
 function Welcome() {
-  const { ref: welcomeTextAreaRef, inView: welcomeTextInView } = useInView();
-  const { ref: welcomeImgRef, inView: welcomeImgInView } = useInView();
+  const { ref: welcomeTextAreaRef, inView: welcomeTextInView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+  const { ref: welcomeImgRef, inView: welcomeImgInView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const {handleAnimation} = useContext(StoreContext);
 
   return (
-    <section className="about-us-welcome-section">
+    <section className="about-us-welcome-section" aria-labelledby="welcome-heading">
       <div className="welcome-section-contents">
         <article
           ref={welcomeTextAreaRef}
           className={`welcome-section-text ${handleAnimation(welcomeTextInView)}`}
         >
           <p className="welcome-introductory-title std-paragraph std-subtitle-fs mi-auto">about us</p>
-          <h1 className="welcome-section-text-title std-heading">Welcome</h1>
+          <h1 className="welcome-section-text-title std-heading" id="welcome-heading">Welcome</h1>
           <p className="welcome-main-text-paragraph std-paragraph">
             Discover Xan Butik, your go-to destination for men's fashion in
             Sheki, Azerbaijan. With a commitment to affordable prices, loyalty
@@ -30,7 +36,7 @@ function Welcome() {
           ref={welcomeImgRef}
           className={`welcome-section-img ${handleAnimation(welcomeImgInView)}`}
           src={assets.logo_sheki_bg}
-          alt="logo xan butik"
+          alt="Xan Butik logo"
         />
       </div>
     </section>
