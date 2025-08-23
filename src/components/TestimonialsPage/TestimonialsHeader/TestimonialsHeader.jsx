@@ -7,32 +7,45 @@ import { useInView } from 'react-intersection-observer'
 import { StoreContext } from '../../../context/StoreContext'
 
 function TestimonialsHeader() {
-  const {ref: testHeaderRef, inView: testHeaderInView} = useInView();
+  const {ref: testHeaderRef, inView: testHeaderInView} = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const {handleAnimation} = useContext(StoreContext);
   return (
-    <header ref={testHeaderRef} className={`testimonials-header ${testHeaderInView ? "testimonials-header-animate-in" : ""}`}>
+    <header 
+      ref={testHeaderRef} 
+      className={`testimonials-header ${testHeaderInView ? "testimonials-header-animate-in" : ""}`}
+      aria-labelledby='our-results-heading'
+    >
       <div className="testimonials-contents">
         <div className="testimonials-text-container">
-            <h1 className="std-heading">Our results</h1>
+            <h1 id="our-results-heading" className="std-heading">Our results</h1>
             <p className="std-paragraph mi-auto">We're proud of what we've achieved by we're not stopping there.</p>
         </div>
         <div className="testimonials-widgets-container">
           <div className="testimonials-img-widget-container"></div>
-          <div className="testimonials-results-container">
+          <div className="testimonials-results-container" role='list'>
               {
                 ourResults.map((item, index) => {
                   const {ref: resultRef, inView: resultInView} = useInView()
                   return (
-                    <div ref={resultRef} key={index} className={`result-widget ${handleAnimation(resultInView)}`}>
+                    <article 
+                      ref={resultRef} 
+                      key={index} 
+                      className={`result-widget ${handleAnimation(resultInView)}`}
+                      role="listitem"
+                      aria-label={`Achievement: ${item.achievement}, Result: ${item.result}`}
+                    >
                       <h1 className="result-widget-heading std-heading">{item.achievement}</h1>
                       <p className="result-widget-name">{item.result}</p>
-                    </div>
+                    </article>
                   );
                 })
               }
           </div>
         </div>
-        <Button as={Link} id="Explore" to="/Cart" tabIndex="8" className="testimonials-learn-more-btn std-button">Explore</Button>
+        <Button as={Link} id="Explore" to="/Cart" className="testimonials-learn-more-btn std-button">Explore</Button>
       </div>
     </header>
   )

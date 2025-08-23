@@ -23,10 +23,10 @@ function ComingSoon() {
   };
 
   return (
-    <section className='coming-soon'>
+    <section className='coming-soon' aria-labelledby='coming-soon-heading'>
       <div className={`coming-soon-contents`}>
         <div className="coming-soon-text-container">
-            <h1 className="coming-soon-title std-heading">Coming Soon</h1>
+            <h1 id='coming-soon-heading' className="coming-soon-title std-heading">Coming Soon</h1>
             <p className='coming-soon-paragraph'>We&#8217;re proud of what we&#8217;ve achieved, but we&#8217;re not stopping there.</p>
         </div>
         <div className="coming-soon-clock-container">    
