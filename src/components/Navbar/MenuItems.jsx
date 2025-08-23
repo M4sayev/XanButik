@@ -16,7 +16,7 @@ function MenuItems({ isHamActive, setIsHamActive, currentPage }) {
   ];
 
   return items.map(({label, path}) => (
-    <li key={label} role="none">
+    <li key={label} role="none" >
       <Link 
         to={path}
         role="menuitem"

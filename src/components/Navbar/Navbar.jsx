@@ -41,6 +41,16 @@ function Navbar() {
   // Handle Escape key pressed
   useEscapeKey(() => setIsHamActive(false));
 
+  useEffect(() => {
+  if (sidebarRef.current) {
+    if (!isHamActive) {
+      sidebarRef.current.setAttribute("inert", "true");
+    } else {
+      sidebarRef.current.removeAttribute("inert");
+    }
+  }
+}, [isHamActive]);
+
   return (
     <div className="navigation">
       <div className="navbar">
@@ -81,6 +91,7 @@ function Navbar() {
             <nav
               className={`sidebar-menu ${isHamActive ? "is-active" : ""}`}
               aria-label="Sidebar navigation"
+              aria-hidden={!isHamActive}
               ref={sidebarRef}
             >
               <ul role="menubar" onClick={handlePage}>
