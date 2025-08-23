@@ -28,7 +28,8 @@ function TestimonialsHeader() {
           <div className="testimonials-results-container" role='list'>
               {
                 ourResults.map((item, index) => {
-                  const {ref: resultRef, inView: resultInView} = useInView()
+                  const {ref: resultRef, inView: resultInView} = useInView({
+                  })
                   return (
                     <article 
                       ref={resultRef} 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './TestimonialsReviewsCarousel.css';
 import { clientReviews } from '../../../assets/assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y, Navigation, Pagination } from 'swiper/modules';
+import { A11y, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useInView } from 'react-intersection-observer';
 import { StoreContext } from '../../../context/StoreContext';
 
@@ -12,18 +12,38 @@ import 'swiper/css/a11y';
 
 function TestimonialsReviewsCarousel() {
 
-  const {ref:tReviewsCarouselRef, inView: tReviewsCarouselInView} = useInView();
+  const reviewFallback = {
+    review: "No review provided",
+    name: "No name provided",
+    occupation: "No occupation provided",
+    img: "no-pic.avif"
+  }
+
+  const {ref:tReviewsCarouselRef, inView: tReviewsCarouselInView} = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
   const {handleAnimation} = useContext(StoreContext);
 
   return (
-    <section className='testimonials-reviews-carousel'>
+    <section 
+      className='testimonials-reviews-carousel' 
+      aria-label="Client testimonials carousel"
+    >
         <div ref={tReviewsCarouselRef} className={`testimonials-reviews-carousel-contents ${handleAnimation(tReviewsCarouselInView)}`}>
             <h1 className="std-heading">What our clients say</h1>
             <Swiper id="reviewSwiper" className="reviews-carousel-container"
-              modules={[Navigation, Pagination, A11y]}
+              modules={[Navigation, Pagination, A11y, Autoplay ]}
               navigation
               pagination={{ clickable: true }}
-              a11y
+              a11y={{
+                prevSlideMessage: 'Previous testimonial',
+                nextSlideMessage: 'Next testimonial'
+              }}
+              autoplay={{
+                delay: 3000,     
+                disableOnInteraction: false,  
+              }}
               spaceBetween={50}
               slidesPerView={1}
               loop={true}
@@ -39,12 +59,17 @@ function TestimonialsReviewsCarousel() {
                   return (
                     <SwiperSlide key={index}>
                       <article className='review-item'>
-                        <p className="std-paragraph">{review}</p>
+                        <p className="std-paragraph">{review || reviewFallback.review}</p>
                         <div className="reviewer-info-container">
-                          <img src={img} alt={name} className='reviewer-pp'/>
+                          <img 
+                            src={img || reviewFallback.img} 
+                            alt={`Photo of ${name}, ${occupation}`} 
+                            className='reviewer-pp'
+                            loading='lazy'
+                          />
                           <div className="reviewer-name-job-container">
-                            <p className="reviewer-name">{name}</p>
-                            <p className="std-paragraph">{occupation}</p>
+                            <p className="reviewer-name">{name || reviewFallback.name}</p>
+                            <p className="std-paragraph">{occupation || reviewFallback.occupation}</p>
                           </div>
                         </div>
                       </article>
