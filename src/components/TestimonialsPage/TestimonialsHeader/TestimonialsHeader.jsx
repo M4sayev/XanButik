@@ -21,7 +21,7 @@ function TestimonialsHeader() {
       <div className="testimonials-contents">
         <div className="testimonials-text-container">
             <h1 id="our-results-heading" className="std-heading">Our results</h1>
-            <p className="std-paragraph mi-auto">We're proud of what we've achieved by we're not stopping there.</p>
+            <p className="std-paragraph mi-auto">We're proud of what we've achieved, but we're not stopping there.</p>
         </div>
         <div className="testimonials-widgets-container">
           <div className="testimonials-img-widget-container"></div>
@@ -45,7 +45,13 @@ function TestimonialsHeader() {
               }
           </div>
         </div>
-        <Button as={Link} id="Explore" to="/Cart" className="testimonials-learn-more-btn std-button">Explore</Button>
+        <Button 
+          as={Link} 
+          id="Explore" 
+          to="/Cart" 
+          className="testimonials-learn-more-btn std-button"
+          aria-label="Explore our achievements"
+        >Explore</Button>
       </div>
     </header>
   )
