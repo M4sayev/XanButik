@@ -70,16 +70,23 @@
     }
 }
 
-.conatct-widget-item {
+.contact-widget-item {
     margin-bottom: 1.25rem;
 }
-.conatct-widget-item > span,
+.contact-widget-item > span,
 .work-hour-item > span {
     display: block;
-    font-family: var(--ff-secondary);
+    
+}
+.contact-widget-item > span + a,
+.work-hour-item > span + a {
+    color: var(--clr-primary-900);
+    font-family: var(--ff-secondary); 
+    text-decoration: none;
 }
 .widget-name,
 .day-of-the-week {
+    font-family: var(--ff-secondary);
     font-size: clamp(var(--fs-450), 4vw, var(--fs-500));
     font-weight: var(--fw-bold);
 }
@@ -89,6 +96,7 @@
 .contacts-working-hours-info-container {
     background-color: var(--clr-accent);
     width: 100%;
+    
 }
 @media (min-width: 999px) {
     .contacts-working-hours-info-container {
@@ -103,6 +111,7 @@
     flex-direction: column;
 
     margin-bottom: 1.25rem;
+    font-family: var(--ff-secondary);
 } 
 .work-hour-item .hours {
     font-size: var(--fs-300);
