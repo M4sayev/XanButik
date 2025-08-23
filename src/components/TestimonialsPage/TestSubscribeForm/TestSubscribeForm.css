@@ -41,13 +41,37 @@
     padding: 1rem 0.75rem;
 
     border: none;
-    margin-bottom: 1.25rem;
+}
+.email-error-message {
+    text-align: left;
+    color: rgb(186, 67, 67);
 }
 .subscribe-form-input:focus-visible {
     outline: 3px solid var(--clr-primary-200);
 }
 .subscribe-btn {
+    margin-top: 1.25rem;
     padding: 1rem 3rem !important;
+}
+
+/* Toastify styles */
+.Toastify__toast {
+  background-color: var(--clr-primary-900) !important; 
+  color: var(--clr-neutral-100) !important; 
+  border: 1px solid var(--clr-primary-200) !important; 
+}
+
+.Toastify__toast--success {
+  background-color: var(--clr-primary-200) !important;
+  color: var(--clr-secondary) !important;
+}
+
+.Toastify__close-button {
+  color: var(--clr-accent) !important;
+}
+
+.Toastify__progress-bar {
+  background: var(--clr-primary-100) !important;
 }
 @media (min-width: 535px) {
     .subscribe-btn {

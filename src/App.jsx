@@ -12,6 +12,8 @@ import LoginPopup from './components/LoginPopup/LoginPopup'
 import { StoreContext } from './context/StoreContext'
 import Testimonials from './pages/Testimonials/Testimonials'
 import ScrollToTop from './components/ScrollTop/ScrollToTop'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const loginPopupRef = useRef(null);
@@ -60,6 +62,17 @@ function App() {
     <>
       {showLogin ? <LoginPopup formRef={loginPopupRef}/> : <></>}
       <div className='app'>
+        <ToastContainer 
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
