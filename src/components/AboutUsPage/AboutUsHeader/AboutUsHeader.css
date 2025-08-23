@@ -10,8 +10,11 @@
 }
 
 .header-about-us .header-parallax-bg {
+    height: 110%;
+    background-size: cover;
     background: url("../../../assets/header_imgs/header_about_us.png") no-repeat;
     background-position: 10% 20%;
+    will-change: transform;
 }
 @media (min-width: 1500px) {
   .header-about-us .header-parallax-bg {
@@ -49,4 +52,10 @@
     .header-contents-about-us {
         padding-inline: 3rem;
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-parallax-bg {
+    background-attachment: scroll !important;
+  }
 }
