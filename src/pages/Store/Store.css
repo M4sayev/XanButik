@@ -8,3 +8,23 @@ body {
 
     padding-inline: 1rem;
 }
+
+@media screen and (min-width: 777px) {
+    .str-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.375rem;
+
+    padding-inline: 1rem;
+}
+}
+
+@media screen and (min-width: 1170px) {
+    .str-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.375rem;
+
+    padding-inline: 1rem;
+}
+}

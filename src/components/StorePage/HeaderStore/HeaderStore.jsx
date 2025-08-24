@@ -1,22 +1,50 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import "./HeaderStore.css"
 import {assets} from "../../../assets/assets"
 import { IoSearchSharp } from 'react-icons/io5'
 import {StoreContext} from "../../../context/StoreContext"
 import { useInView } from 'react-intersection-observer'
- 
-function HeaderStore() {
-  const { handleAnimation } = useContext(StoreContext);
-  const { ref: imgRef, inView: imgInView } = useInView();
-  const { ref: textRef, inView: textInView } = useInView();
 
-  const { query, setQuery } = useState("");
+const SEARCH_DEBOUNCE = 300;
+ 
+function HeaderStore({setSearchQuery, searchQuery, applyFilters}) {
+  const { handleAnimation } = useContext(StoreContext);
+  const { ref: imgRef, inView: imgInView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const { ref: textRef, inView: textInView } = useInView();
+  const debounceTimeout = useRef(null);
+
+  let firstKeyStroke = true;
+
+  function handleSearchInput(e) {
+    const value = e.target.value;
+    setSearchQuery(value)
+
+    if (firstKeyStroke) {
+      applyFilters(value);
+      firstKeyStroke = false;
+    }
+
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+
+    debounceTimeout.current = setTimeout(() => {  
+        firstKeyStroke = true;
+        applyFilters(value);
+    }, SEARCH_DEBOUNCE);
+    
+  }
 
   return (
     <header className='header-store'>
       <div className="header-store-contents">
         <div ref={imgRef} className={`store-header-img-wrapper ${handleAnimation(imgInView)}`}>
-          <img className="header-store-img" src={assets.store_header} alt="Xan Butik" />
+          <img 
+            className="header-store-img" 
+            src={assets.store_header} 
+            alt="Banner for Xan Butik men's apparel"  
+          />
         </div>
         <div className="header-store-search-text-container">
             <div className='header-store-text-wrapper'>
@@ -28,15 +56,18 @@ function HeaderStore() {
             <div className="search-bar-container">
                 <div className="store-search-input-wrapper">
                   <IoSearchSharp  className='search-icon' />
+                  <label htmlFor="searchBar" className='visually-hidden'>Search for products</label>
                   <input 
-                    value={query} 
-                    onChange={(e) => setQuery(e.target.value)} 
+                    value={searchQuery} 
+                    name='searchBar'
+                    id='searchBar'
+                    onChange={handleSearchInput} 
                     className='store-search-input' 
                     type="text" 
                     placeholder='Search for items'
                   />
                 </div>
-                <button className='std-button'>Search</button>
+                <button className='std-button search-btn' aria-label="Submit search">Search</button>
             </div>
         </div>
       </div>

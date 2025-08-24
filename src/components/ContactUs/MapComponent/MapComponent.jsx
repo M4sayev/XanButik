@@ -13,7 +13,7 @@ function LeafletMap() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    mapRef.current = L.map('map').setView(center, zoomLevel);
+    mapRef.current = L.map('map', {scrollWheelZoom: false}).setView(center, zoomLevel);
 
     const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors & CartoDB',

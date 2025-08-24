@@ -127,7 +127,7 @@ export const itemsList = [
         id: 1,
         name: "Black Down Jacket",
         price: 65,
-        imgs: [
+        img: [
             black_down_jacket_one,
             black_down_jacket_two,
             black_down_jacket_three
@@ -139,7 +139,7 @@ export const itemsList = [
         id: 2,
         name: "Black Leather Jacket",
         price: 65,
-        imgs: [
+        img: [
             omon_faux_leather_jacket_one,
             omon_faux_leather_jacket_two,
             omon_faux_leather_jacket_three
@@ -151,7 +151,7 @@ export const itemsList = [
         id: 3,
         name: "Black Puffer Jacket",
         price: 65,
-        imgs: [
+        img: [
             terra_black_puffer_jacket_one,
             terra_black_puffer_jacket_two,
             terra_black_puffer_jacket_three
@@ -163,7 +163,7 @@ export const itemsList = [
         id: 4,
         name: "Turtleneck sweater",
         price: 35,
-        imgs: [
+        img: [
             gray_turtleneck,
             lightbrown_turtleneck,
             six_color_turtleneck_one,
@@ -176,7 +176,7 @@ export const itemsList = [
         id: 5,
         name: "Zip-up Cardigan",
         price: 35,
-        imgs: [
+        img: [
            cardigan_one,
            cardigan_two,
            cardigan_three
@@ -188,7 +188,7 @@ export const itemsList = [
         id: 6,
         name: "Crewneck Sweater",
         price: 45,
-        imgs: [
+        img: [
            sweater_three_color_one,
            sweater_three_color_two,
            sweater_three_color_three,
@@ -201,7 +201,7 @@ export const itemsList = [
         id: 7,
         name: "Zip-up Sweater",
         price: 45,
-        imgs: [
+        img: [
            zipup_sweater_rx_one,
            zipup_sweater_rx_two
         ],
@@ -212,7 +212,7 @@ export const itemsList = [
         id: 8,
         name: "Dark Blue Zip-up Sweater",
         price: 45,
-        imgs: [
+        img: [
            dark_blue_zipup_sweater_logo
         ],
         category: "Sweaters & Cardigans",
@@ -222,7 +222,7 @@ export const itemsList = [
         id: 9,
         name: "Linen Shirt",
         price: 25,
-        imgs: [
+        img: [
            five_color_linen_shirts
         ],
         category: "Shirts",
@@ -232,7 +232,7 @@ export const itemsList = [
         id: 10,
         name: "Lightbrown Polo Sweater",
         price: 45,
-        imgs: [
+        img: [
            turant_lightbrown_polo_sweater
         ],
         category: "Sweaters & Cardigans",
@@ -242,7 +242,7 @@ export const itemsList = [
         id: 11,
         name: "Plain T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            four_color_plain_tshirts
         ],
         category: "T-Shirts",
@@ -252,7 +252,7 @@ export const itemsList = [
         id: 12,
         name: "Polo T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            four_color_polo_tshirts,
            four_color_polo_white_polo
         ],
@@ -263,7 +263,7 @@ export const itemsList = [
         id: 13,
         name: "Darkgray Hog T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            hog_tshirt_darkgray
         ],
         category: "T-Shirts",
@@ -273,7 +273,7 @@ export const itemsList = [
         id: 14,
         name: "Mado Blue T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            mado_murkyblue_tshirt
         ],
         category: "T-Shirts",
@@ -283,7 +283,7 @@ export const itemsList = [
         id: 15,
         name: "Mado Lightbrown-Creamy T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            mado_two_color_lightbrown_creamy_tshirt
         ],
         category: "T-Shirts",
@@ -293,7 +293,7 @@ export const itemsList = [
         id: 16,
         name: "Mado White-Paisley T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            mado_two_color_white_paisley_tshirt
         ],
         category: "T-Shirts",
@@ -303,7 +303,7 @@ export const itemsList = [
         id: 17,
         name: "Mado Black n' White T-Shirt",
         price: 25,
-        imgs: [
+        img: [
            mado_white_collar_black_tshirt
         ],
         category: "T-Shirts",
@@ -313,7 +313,7 @@ export const itemsList = [
         id: 18,
         name: "White Sport Polo",
         price: 25,
-        imgs: [
+        img: [
            white_polo_sport
         ],
         category: "T-Shirts",
@@ -327,7 +327,7 @@ export const itemsList = [
             black_drawstring_pants
         ],
         category: "Classic Pants",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 20,
@@ -337,7 +337,7 @@ export const itemsList = [
             blue_drawstring_pants
         ],
         category: "Classic Pants",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 21,
@@ -347,7 +347,7 @@ export const itemsList = [
             lightdark_drawstring_pants
         ],
         category: "Classic Pants",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 22,
@@ -357,7 +357,7 @@ export const itemsList = [
             three_color_drawstring_pants_one
         ],
         category: "Classic Pants",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 23,
@@ -368,7 +368,7 @@ export const itemsList = [
             armani_gray_blue_jeans_two
         ],
         category: "Jeans",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 24,
@@ -379,7 +379,7 @@ export const itemsList = [
             boyfriend_light_blue_jeans_two
         ],
         category: "Jeans",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 25,
@@ -390,7 +390,7 @@ export const itemsList = [
             designs_dark_gray_jeans_two
         ],
         category: "Jeans",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 26,
@@ -401,7 +401,7 @@ export const itemsList = [
             elastic_waist_black_cargo_pants_two
         ],
         category: "Pants",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 27,
@@ -412,7 +412,7 @@ export const itemsList = [
             paris_murky_blue_jeans_two
         ],
         category: "Jeans",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     //shoes
     {
@@ -425,7 +425,7 @@ export const itemsList = [
             black_brown_sole_sneakers_three
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 29,
@@ -436,7 +436,7 @@ export const itemsList = [
             fuzzy_ankle_boots_two
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 30,
@@ -447,7 +447,7 @@ export const itemsList = [
             mustard_color_loafers_two
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 31,
@@ -457,7 +457,7 @@ export const itemsList = [
             black_loafers_white_soles
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 32,
@@ -467,7 +467,7 @@ export const itemsList = [
             creamy_n_sneakers
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 33,
@@ -477,7 +477,7 @@ export const itemsList = [
             dark_brown_sneakers
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 34,
@@ -487,17 +487,17 @@ export const itemsList = [
             dolumdia_sneakers
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 35,
         name: "Double Stripe Sneakers",
         price: 55,
-        img: {
+        img: [
             double_stripe_sneakers
-        },
+        ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 36,
@@ -507,7 +507,7 @@ export const itemsList = [
             mesh_black_loafers
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
     {
         id: 37,
@@ -517,6 +517,6 @@ export const itemsList = [
             mesh_gray_sneakers
         ],
         category: "Shoes",
-        descriptions: "coming soon..."
+        description: "coming soon..."
     },
 ];
