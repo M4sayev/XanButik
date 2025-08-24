@@ -20,7 +20,7 @@ function FaqAccordion() {
 
   const filterItems = (category) => {
     // to collapse all the questions when the category changes
-    setIsFiltered(!isFiltered);
+    setIsFiltered(true);
     //
     if (category === "All Questions") {
       setAccordionItems(askedQuestions);
@@ -37,6 +37,74 @@ function FaqAccordion() {
     filterItems(category);
   };
 
+  function handleKeyDown(e, index) {
+    const focusAccordionEl = (string) => {
+      if (string === "prev") {
+        const prev = (index - 1 + allCategories.length) % allCategories.length;
+        const prevStr = `tab-${prev}`;
+        document.getElementById(prevStr).focus();
+      } 
+      if (string === "next") {
+        const next = (index + 1) % allCategories.length;
+        const nextStr = `tab-${next}`;
+        document.getElementById(nextStr).focus();
+      }
+      if (string === "first-question") {
+        const firstQuestion = document.querySelector(`.faq-accordion-item button`);
+        if (firstQuestion) {
+          firstQuestion.focus();
+          firstQuestion.click(); 
+        }
+      }
+    }
+    
+    const isWideScreen = window.innerWidth > 777;
+
+    if (e.key === "ArrowRight") {
+      if (!isWideScreen) {
+        focusAccordionEl("next");
+      } else {
+        focusAccordionEl("first-question")
+      }
+    }
+    if (e.key === "ArrowLeft" && !isWideScreen) {
+      focusAccordionEl('prev');
+    }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!isWideScreen) {
+        focusAccordionEl("first-question");
+      } else {
+        focusAccordionEl("next");
+      }
+    }
+    if (e.key === "ArrowUp" && isWideScreen) {
+      e.preventDefault();
+      focusAccordionEl("prev");
+    }
+  }
+
+  function handleArrows(e, index) {
+      const len = accordionItems.length
+
+      let targetIndex;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        targetIndex = (index + 1) % len;
+      }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        targetIndex = (index - 1 + len) % len;
+      }
+      const targetEl = document.querySelector(`[data-tab-index="article-button-${targetIndex}"]`);
+
+      if (targetEl) {
+        targetEl.focus();
+        targetEl.click();
+      }
+    }
+
   return (
     <section className="faq-accordion-section">
       <div className="faq-accordion-contents">
@@ -45,17 +113,23 @@ function FaqAccordion() {
           className={`std-heading faq-heading ${handleAnimation(headingInView)}`}
         >Frequently asked questions</h1>
         <div className="faq-accordion-container">
-          <ul className="faq-question-categories">
+          <ul className="faq-question-categories" role="tablist">
             {allCategories.map((category, index) => {
               return (
-                <li
-                  className={`faq-category-item ${
-                    activeCategory === category ? "category-active" : ""
-                  }`}
-                  key={index}
-                  onClick={() => handleQuestionSelected(category)}
-                >
-                  {category}
+                <li key={category} role="presentation">
+                  <button
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    tabIndex={0}
+                    aria-selected={activeCategory === category}
+                    className={`faq-category-item ${
+                      activeCategory === category ? "category-active" : ""
+                    }`}
+                    onClick={() => handleQuestionSelected(category)}
+                    id={`tab-${index}`}
+                    aria-controls={`tabpanel-${index}`}
+                  >
+                    {category}
+                  </button>
                 </li>
               );
             })}
@@ -65,9 +139,12 @@ function FaqAccordion() {
               return (
                 <QuestionItem
                   key={index}
+                  id={`question-item-${index}`}
                   {...questionItem}
                   isFiltered={isFiltered}
                   handleAnimation={handleAnimation}
+                  handleArrows={handleArrows}
+                  index={index}
                 />
               );
             })}

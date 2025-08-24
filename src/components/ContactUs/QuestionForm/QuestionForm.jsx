@@ -125,11 +125,11 @@ function QuestionForm() {
                             {renderError("lastName")}
                         </div>
                         <div>
-                            <label className="qf-email-input-lbl" htmlFor='email'>Email address</label>
+                            <label className="qf-email-input-lbl" htmlFor='qfEmail'>Email address</label>
                             <input 
                                 type="email" 
                                 name='email'
-                                id='email'
+                                id='qfEmail'
                                 value={form.email}
                                 required
                                 onChange={handleChange}
