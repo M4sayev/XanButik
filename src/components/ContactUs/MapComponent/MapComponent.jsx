@@ -10,9 +10,10 @@ const zoomLevel = 20;
 function LeafletMap() {
   const [loading, setLoading] = useState(true);
   const loadingTimeoutRef = useRef(null);
+  const mapRef = useRef(null);
 
   useEffect(() => {
-    const map = L.map('map').setView(center, zoomLevel);
+    mapRef.current = L.map('map').setView(center, zoomLevel);
 
     const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap contributors & CartoDB',
@@ -29,15 +30,14 @@ function LeafletMap() {
       loadingTimeoutRef.current = setTimeout(() => setLoading(false), 300);
     });
 
-    tileLayer.addTo(map);
+    tileLayer.addTo(mapRef.current);
 
   const myIcon = L.icon({
-    iconUrl: x_marker, 
-     
+    iconUrl: x_marker,   
     iconAnchor: [16, 32], 
     popupAnchor: [0, -32], 
   });
-    L.marker(center, { icon: myIcon }).addTo(map);
+    L.marker(center, { icon: myIcon }).addTo(mapRef.current);
 
     // Fallback: hide loader after 10 seconds if loading never finishes
     loadingTimeoutRef.current = setTimeout(() => setLoading(false), 10000);
@@ -46,13 +46,13 @@ function LeafletMap() {
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
       }
-      map.remove();
+      mapRef.current?.remove();
     };
   }, []);
 
   const handleBackToCenter = () => {
-    if (map) {
-      map.setView(center, zoomLevel);
+    if (mapRef.current) {
+      mapRef.current.setView(center, zoomLevel);
     }
   };
 
