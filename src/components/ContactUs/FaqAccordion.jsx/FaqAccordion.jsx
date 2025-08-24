@@ -30,6 +30,9 @@ function FaqAccordion() {
       (accordionItem) => accordionItem.category === category
     );
     setAccordionItems(newAccordionItems);
+
+    // Reset after collapsing to allow re-triggering next time
+    setTimeout(() => setIsFiltered(false), 0);
   };
 
   const handleQuestionSelected = (category) => {

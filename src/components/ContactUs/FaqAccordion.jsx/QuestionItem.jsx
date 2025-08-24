@@ -9,7 +9,6 @@ function QuestionItem({ question, ans, isFiltered, handleAnimation, handleArrows
 
   // collapsing every question on category change
     useEffect(() => setIsCollapsed(true), [isFiltered]);
-
     
   return (
     <article 

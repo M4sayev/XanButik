@@ -4,6 +4,7 @@ import { assets } from '../../../assets/assets'
 import { useInView } from 'react-intersection-observer'
 import {StoreContext} from "../../../context/StoreContext"
 import useForm from '../../../hooks/useForm'
+import { toast } from 'react-toastify'
 
 function QuestionForm() {
 
@@ -31,6 +32,8 @@ function QuestionForm() {
         const validationErrors = validate();
         setErrors(validationErrors);
 
+        const notify = () => toast.success("We value each and every question you submit!");
+
         if (Object.keys(validationErrors).length === 0) {  
             setForm({
                 firstName: "",
@@ -39,6 +42,7 @@ function QuestionForm() {
                 phone: "",
                 notes: ""
             })
+           notify();
         }
     }
 
