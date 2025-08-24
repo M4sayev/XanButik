@@ -7,8 +7,14 @@ import useForm from '../../../hooks/useForm'
 
 function QuestionForm() {
 
-    const { ref: qfTextRef, inView: qfTextInView } = useInView();
-    const { ref: qfimgRef, inView: qfImgInView } = useInView();
+    const { ref: qfTextRef, inView: qfTextInView } = useInView({
+        threshold: 0.3,
+        triggerOnce: true
+    });
+    const { ref: qfimgRef, inView: qfImgInView } = useInView({
+        threshold: 0.3,
+        triggerOnce: true
+    });
     const { handleAnimation } = useContext(StoreContext);
     const formData = {
         firstName: "",

@@ -1,55 +1,84 @@
-import React, { useState } from 'react';
-import "./MapComponent.css";
-import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
+import React, { useEffect, useRef, useState } from 'react';
+import "./MapComponent.css"
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { x_marker } from '../../../assets/assets';
 
-const containerStyle = {
-  width: '100%',
-  height: '80vh',
-}
+const center = [41.2015, 47.1830];
+const zoomLevel = 20;
 
-const center = {
-  lat: 41.201518685898094,
-  lng: 47.18301226464812,
-}
+function LeafletMap() {
+  const [loading, setLoading] = useState(true);
+  const loadingTimeoutRef = useRef(null);
 
-function MapComponent() {
+  useEffect(() => {
+    const map = L.map('map').setView(center, zoomLevel);
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GMAPS_API,
+    const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors & CartoDB',
+    });
+
+    tileLayer.on('loading', () => {
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      setLoading(true);
+    });
+
+    tileLayer.on('load', () => {
+      loadingTimeoutRef.current = setTimeout(() => setLoading(false), 300);
+    });
+
+    tileLayer.addTo(map);
+
+  const myIcon = L.icon({
+    iconUrl: x_marker, 
+     
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -32], 
   });
+    L.marker(center, { icon: myIcon }).addTo(map);
 
-  // to force a re-render
-  const [key, setKey] = useState(0)
+    // Fallback: hide loader after 10 seconds if loading never finishes
+    loadingTimeoutRef.current = setTimeout(() => setLoading(false), 10000);
 
+    return () => {
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
+      map.remove();
+    };
+  }, []);
 
-  return isLoaded ? (
-    <section className="widget-map-section" >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={18}
-          key={key}
+  const handleBackToCenter = () => {
+    if (map) {
+      map.setView(center, zoomLevel);
+    }
+  };
+
+  return (
+    <section className="widget-map-section" style={{ position: 'relative' }}>
+      <div id="map" style={{ height: '80vh', width: '100%' }}></div>
+      {loading && (
+        <div 
+          className='map-loading'
+          aria-live="polite"
+          aria-busy="true"
         >
-          <MarkerF
-            position={center}
-            icon={x_marker}
-          />
-          <button 
-            className='std-btn center-map-btn'
-            onClick={() => setKey(key + 1)}
-          >Back to Center</button>
-          
-        </GoogleMap>
+          <h1 className='std-heading'>Loading...</h1>
+        </div>
+      )}
+      <button
+        onClick={handleBackToCenter}
+        className="std-button center-map-btn"
+        aria-label="Back to map center"
+      >
+        Back to Center
+      </button>
     </section>
-  ) 
-  : 
-  (
-    <div className="map-loading">
-      <h1 className='std-heading'>Loading...</h1>
-    </div>
   )
-
 }
 
-export default MapComponent
+export default LeafletMap;
+
+
