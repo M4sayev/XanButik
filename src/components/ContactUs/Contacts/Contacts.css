@@ -73,17 +73,18 @@
 .contact-widget-item {
     margin-bottom: 1.25rem;
 }
-.contact-widget-item > span,
-.work-hour-item > span {
-    display: block;
-    
-}
-.contact-widget-item > span + a,
-.work-hour-item > span + a {
+.widget-info {
     color: var(--clr-primary-900);
     font-family: var(--ff-secondary); 
     text-decoration: none;
+    display: block;
 }
+.contact-widget-item > span,
+.work-hour-item > span {
+    display: block;
+    font-family: var(--ff-secondary); 
+}
+
 .widget-name,
 .day-of-the-week {
     font-family: var(--ff-secondary);
