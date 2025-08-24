@@ -21,4 +21,7 @@
     right: 20px;
     z-index: var(--z-navbar);
 }
+.widget-map-section {
+    position: relative;
+}
 

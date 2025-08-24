@@ -57,8 +57,18 @@ function LeafletMap() {
   };
 
   return (
-    <section className="widget-map-section" style={{ position: 'relative' }}>
-      <div id="map" style={{ height: '80vh', width: '100%' }}></div>
+    <section className="widget-map-section">
+      <div id="map-description" className="visually-hidden">
+        This is an interactive map centered on [location name]. Use the button below to re-center the map.
+      </div>
+      <div 
+        id="map" 
+        role="application" 
+        tabIndex="0"
+        style={{ height: '80vh', width: '100%' }}
+        aria-labelledby="map-description"
+        aria-label="Interactive map centered on [location name or coordinates]"
+      ></div>
       {loading && (
         <div 
           className='map-loading'
