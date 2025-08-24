@@ -5,26 +5,26 @@ import { BiShow, BiHide } from "react-icons/bi";
 import { StoreContext } from "../../context/StoreContext";
 import { useFocusTrap } from "../../hooks/useTrapFocus";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
+import useForm from "../../hooks/useForm";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
   const [currentState, setCurrentState] = useState("Sign Up");
-  const [ errors, setErrors ] = useState({});
   const popupRef = useRef(null);
   const firstPopupElRef = useRef(null);
   const { setShowLogin } = useContext(StoreContext);
-
-  const [ form, setForm ] = useState({
+  const formSchema = {
     name: "",
     email: "",
     password: "",
     agreeToTerms: false,
-  })
+  };
+  const { form, errors, setForm, setErrors, handleChange} = useForm(formSchema, {})  
   
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    const validationErrors = validate();
+    const validationErrors = validate();  
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
@@ -39,20 +39,6 @@ function LoginPopup({ formRef }) {
     }
   }
 
-  function handleOnChange(e) {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-
-    // Clear error for the current field as the user starts typing
-    if (errors[name]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
-  }
-
   useFocusTrap(popupRef, true, firstPopupElRef)
 
   // Close modal on escape
@@ -61,28 +47,33 @@ function LoginPopup({ formRef }) {
   // Validate the form
 
   function validate() {
-    const errors = {};
+    const newErrors = {};
 
-    if (!form.name.trim()) errors.name="Name is required";
-    if (!form.password.trim()) errors.password="Password is required";
+    if (!form.name.trim()) {
+      newErrors.name="Name is required";
+    }
+    if (!form.password.trim()) {
+      newErrors.password="Password is required";
+    }
+
     if (!form.email.trim()) {
-      errors.email="Email is required";
+      newErrors.email="Email is required";
     } else if ((!/\S+@\S+\.\S+/.test(form.email))) {
-      errors.email = "Email is invalid";
+      newErrors.email = "Email is invalid";
     }
 
     if (currentState === "Sign Up" && !form.agreeToTerms) {
-      errors.agreeToTerms = "You must agree to the terms";
+      newErrors.agreeToTerms = "You must agree to the terms";
     }
     
-    return errors;
+    return newErrors;
   }
 
   // Render errors
   function renderError(fieldName) {
     if (!errors[fieldName]) return null;
     return (
-      <p id={`${fieldName}-error`} role="alert" style={{ color: 'red' }} aria-live="assertive">
+      <p id={`${fieldName}-error`} role="alert" style={{ color:  "var(--clr-validation-err)" }} aria-live="assertive">
         {errors[fieldName]}
       </p>
     );
@@ -132,7 +123,7 @@ function LoginPopup({ formRef }) {
                 placeholder="Your name" 
                 required 
                 value={form.name} 
-                onChange={handleOnChange}
+                onChange={handleChange}
                 autoFocus
                 aria-invalid={errors.name ? "true" : "false"}
                 aria-describedby={errors.name ? "name-error" : undefined}
@@ -152,7 +143,7 @@ function LoginPopup({ formRef }) {
               placeholder="Your email" 
               required 
               value={form.email} 
-              onChange={handleOnChange}
+              onChange={handleChange}
               autoFocus={currentState === "Login"}
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
@@ -174,7 +165,7 @@ function LoginPopup({ formRef }) {
                   className="input-password"
                   required
                   value={form.password}
-                  onChange={handleOnChange}
+                  onChange={handleChange}
                   aria-invalid={errors.password ? "true" : "false"}
                   aria-describedby={errors.password ? "password-error" : undefined}
                 />

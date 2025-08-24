@@ -56,12 +56,13 @@
     align-items: center;
     width: 100%;
 }
-.qf-contact-form span {
+.qf-contact-form label {
     display: block;
     
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-secondary) !important;
     
     margin-bottom: 0.5rem;
+    margin-top: 1.25rem;
 }
 .qf-contact-form div {
     width: 100%;
@@ -80,7 +81,6 @@
     
     border: none;
     border-radius: 0.25rem;
-    margin-bottom: 1.25rem;
 }
 .qf-contact-form input:focus-visible,
 textarea:focus-visible {
@@ -91,6 +91,7 @@ textarea:focus-visible {
 }
 .qf-btn {
     padding-inline: 3rem !important;
+    margin-top: 1.25rem;
 }
 .qf-img-container {
     flex: 1;

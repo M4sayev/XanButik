@@ -10,6 +10,8 @@
     --clr-neutral-100: #FFFFFF;
     --clr-neutral-300: #AFAFB2;
 
+    --clr-validation-err: #e53935;
+
     --ff-primary: "Passion One", cursive;
     --ff-secondary: "Baloo Bhaijaan 2", cursive;
     --ff-header: "Open Sans", sans-serif;

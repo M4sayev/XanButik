@@ -55,11 +55,11 @@ function Contacts() {
                             <li className="work-hour-item" key={day}>
                                 <span className="day-of-the-week">{day}</span>
                                 <span className="hours">
-                                    <time datetime={hours[0]}>
+                                    <time dateTime={hours[0]}>
                                         {hours[0]} <span>am</span>
                                     </time>
                                     -
-                                    <time datetime={hours[1]}>
+                                    <time dateTime={hours[1]}>
                                         {hours[1]} <span>pm</span>
                                     </time>
                                 </span>
