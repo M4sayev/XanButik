@@ -21,8 +21,8 @@ function Store() {
       <FilterComponent />
       <section className='str-products-grid'>
         {
-          products.map((product) => {
-            return <Product key={product.id} {...product} />
+          products.map((product, index) => {
+            return <Product key={product.id} {...product} index={index}/>
           })
         }
       </section>

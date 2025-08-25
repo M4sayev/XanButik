@@ -127,6 +127,7 @@ export const itemsList = [
         id: 1,
         name: "Black Down Jacket",
         price: 65,
+        discountPercent: 5,
         img: [
             black_down_jacket_one,
             black_down_jacket_two,
@@ -139,6 +140,7 @@ export const itemsList = [
         id: 2,
         name: "Black Leather Jacket",
         price: 65,
+        discountPercent: 50,
         img: [
             omon_faux_leather_jacket_one,
             omon_faux_leather_jacket_two,
@@ -151,6 +153,7 @@ export const itemsList = [
         id: 3,
         name: "Black Puffer Jacket",
         price: 65,
+        discountPercent: 0,
         img: [
             terra_black_puffer_jacket_one,
             terra_black_puffer_jacket_two,
@@ -163,6 +166,7 @@ export const itemsList = [
         id: 4,
         name: "Turtleneck sweater",
         price: 35,
+        discountPercent: 0,
         img: [
             gray_turtleneck,
             lightbrown_turtleneck,
@@ -176,6 +180,7 @@ export const itemsList = [
         id: 5,
         name: "Zip-up Cardigan",
         price: 35,
+        discountPercent: 0,
         img: [
            cardigan_one,
            cardigan_two,
@@ -188,6 +193,7 @@ export const itemsList = [
         id: 6,
         name: "Crewneck Sweater",
         price: 45,
+        discountPercent: 0,
         img: [
            sweater_three_color_one,
            sweater_three_color_two,
@@ -201,6 +207,7 @@ export const itemsList = [
         id: 7,
         name: "Zip-up Sweater",
         price: 45,
+        discountPercent: 0,
         img: [
            zipup_sweater_rx_one,
            zipup_sweater_rx_two
@@ -212,6 +219,7 @@ export const itemsList = [
         id: 8,
         name: "Dark Blue Zip-up Sweater",
         price: 45,
+        discountPercent: 0,
         img: [
            dark_blue_zipup_sweater_logo
         ],
@@ -222,6 +230,7 @@ export const itemsList = [
         id: 9,
         name: "Linen Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            five_color_linen_shirts
         ],
@@ -232,6 +241,7 @@ export const itemsList = [
         id: 10,
         name: "Lightbrown Polo Sweater",
         price: 45,
+        discountPercent: 0,
         img: [
            turant_lightbrown_polo_sweater
         ],
@@ -242,6 +252,7 @@ export const itemsList = [
         id: 11,
         name: "Plain T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            four_color_plain_tshirts
         ],
@@ -252,6 +263,7 @@ export const itemsList = [
         id: 12,
         name: "Polo T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            four_color_polo_tshirts,
            four_color_polo_white_polo
@@ -263,6 +275,7 @@ export const itemsList = [
         id: 13,
         name: "Darkgray Hog T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            hog_tshirt_darkgray
         ],
@@ -273,6 +286,7 @@ export const itemsList = [
         id: 14,
         name: "Mado Blue T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            mado_murkyblue_tshirt
         ],
@@ -283,6 +297,7 @@ export const itemsList = [
         id: 15,
         name: "Mado Lightbrown-Creamy T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            mado_two_color_lightbrown_creamy_tshirt
         ],
@@ -293,6 +308,7 @@ export const itemsList = [
         id: 16,
         name: "Mado White-Paisley T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            mado_two_color_white_paisley_tshirt
         ],
@@ -303,6 +319,7 @@ export const itemsList = [
         id: 17,
         name: "Mado Black n' White T-Shirt",
         price: 25,
+        discountPercent: 0,
         img: [
            mado_white_collar_black_tshirt
         ],
@@ -313,6 +330,7 @@ export const itemsList = [
         id: 18,
         name: "White Sport Polo",
         price: 25,
+        discountPercent: 0,
         img: [
            white_polo_sport
         ],
@@ -323,6 +341,7 @@ export const itemsList = [
         id: 19,
         name: "Black Drawstring Classic Pants",
         price: 35,
+        discountPercent: 0,
         img: [
             black_drawstring_pants
         ],
@@ -333,6 +352,7 @@ export const itemsList = [
         id: 20,
         name: "Blue Drawstring Classic Pants",
         price: 35,
+        discountPercent: 0,
         img: [
             blue_drawstring_pants
         ],
@@ -343,6 +363,7 @@ export const itemsList = [
         id: 21,
         name: "Blackish Drawstring Classic Pants",
         price: 35,
+        discountPercent: 0,
         img: [
             lightdark_drawstring_pants
         ],
@@ -353,6 +374,7 @@ export const itemsList = [
         id: 22,
         name: "Drawstring Classic Pants",
         price: 35,
+        discountPercent: 0,
         img: [
             three_color_drawstring_pants_one
         ],
@@ -363,6 +385,7 @@ export const itemsList = [
         id: 23,
         name: "Armani Gray Blue-gray Jeans",
         price: 45,
+        discountPercent: 0,
         img: [
             armani_gray_blue_jeans_one,
             armani_gray_blue_jeans_two
@@ -374,6 +397,7 @@ export const itemsList = [
         id: 24,
         name: "Light Blue Boyfriend Jeans",
         price: 45,
+        discountPercent: 0,
         img: [
             boyfriend_light_blue_jeans_one,
             boyfriend_light_blue_jeans_two
@@ -385,6 +409,7 @@ export const itemsList = [
         id: 25,
         name: "Designs Dark Gray Jeans",
         price: 45,
+        discountPercent: 20,
         img: [
             designs_dark_gray_jeans_one,
             designs_dark_gray_jeans_two
@@ -396,6 +421,7 @@ export const itemsList = [
         id: 26,
         name: "Elastic Waist Cargo Pants",
         price: 45,
+        discountPercent: 0,
         img: [
             elastic_waist_black_cargo_pants_one,
             elastic_waist_black_cargo_pants_two
@@ -407,6 +433,7 @@ export const itemsList = [
         id: 27,
         name: "Paris Murky Blue Jeans",
         price: 45,
+        discountPercent: 0,
         img: [
             paris_murky_blue_jeans_one,
             paris_murky_blue_jeans_two
@@ -419,6 +446,7 @@ export const itemsList = [
         id: 28,
         name: "Black Faux Leather Sneakers",
         price: 25,
+        discountPercent: 10,
         img: [
             black_brown_sole_sneakers_one,
             black_brown_sole_sneakers_two,
@@ -431,6 +459,7 @@ export const itemsList = [
         id: 29,
         name: "Fuzzy Ankle Boots",
         price: 55,
+        discountPercent: 0,
         img: [
             fuzzy_ankle_boots_one,
             fuzzy_ankle_boots_two
@@ -442,6 +471,7 @@ export const itemsList = [
         id: 30,
         name: "Mustard Color Loafers",
         price: 45,
+        discountPercent: 0,
         img: [
             mustard_color_loafers_one,
             mustard_color_loafers_two
@@ -453,6 +483,7 @@ export const itemsList = [
         id: 31,
         name: "Black Luxury Loafers",
         price: 45,
+        discountPercent: 5,
         img: [
             black_loafers_white_soles
         ],
@@ -463,6 +494,7 @@ export const itemsList = [
         id: 32,
         name: "Cream-colored N Sneakers",
         price: 35,
+        discountPercent: 0,
         img: [
             creamy_n_sneakers
         ],
@@ -473,6 +505,7 @@ export const itemsList = [
         id: 33,
         name: "Dark Brown Sneakers",
         price: 55,
+        discountPercent: 0,
         img: [
             dark_brown_sneakers
         ],
@@ -483,6 +516,7 @@ export const itemsList = [
         id: 34,
         name: "Dolumdia Creamy Sneakers",
         price: 55,
+        discountPercent: 1,
         img: [
             dolumdia_sneakers
         ],
@@ -493,6 +527,7 @@ export const itemsList = [
         id: 35,
         name: "Double Stripe Sneakers",
         price: 55,
+        discountPercent: 0,
         img: [
             double_stripe_sneakers
         ],
@@ -503,6 +538,7 @@ export const itemsList = [
         id: 36,
         name: "Mesh Black Leather Loafers",
         price: 55,
+        discountPercent: 0,
         img: [
             mesh_black_loafers
         ],
@@ -513,6 +549,7 @@ export const itemsList = [
         id: 37,
         name: "Mesh Gray Sneakers",
         price: 55,
+        discountPercent: 0,
         img: [
             mesh_gray_sneakers
         ],
