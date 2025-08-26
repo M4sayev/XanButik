@@ -18,7 +18,7 @@ function Product({id, price, category, name, img, description, index, discountPe
     intervalRef.current = setInterval(() => {
       imgIndexRef.current++;
       
-      if (imgIndexRef.current >= img.length) imgIndex.current = 0;
+      if (imgIndexRef.current >= img.length) imgIndexRef.current = 0;
       setImage(img[imgIndexRef.current]);
     }, 800)
     

@@ -4,6 +4,9 @@ import HeaderStore from '../../components/StorePage/HeaderStore/HeaderStore'
 import FilterComponent from '../../components/StorePage/filterComponent/FilterComponent'
 import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
+import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
+
+const ITEMS_PER_PAGE = 8;
 
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
@@ -11,14 +14,19 @@ function Store() {
 
   function applyFilters(query) {
     const trimmedQuery = query.trim().toLowerCase();
-    const filtered = itemsList.filter(item => item.name.toLowerCase().includes(query));
+    const filtered = itemsList.filter(item => item.name.toLowerCase().includes(trimmedQuery));
     setProducts(filtered);
   };
+
+  const [ currentPage, setCurrentPage ] = useState(1);
+  const totalPages = Math.ceil(itemsList.length / ITEMS_PER_PAGE);
+
+  const start = (currentPage - 1) * ITEMS_PER_PAGE;
+  const newItems = itemsList.slice(start, start + ITEMS_PER_PAGE);
 
   return (
     <main>
       <HeaderStore applyFilters={applyFilters} setSearchQuery={setSearchQuery} searchQuery={searchQuery}/>
-      <FilterComponent />
       <section className='str-products-grid'>
         {
           products.map((product, index) => {
@@ -26,6 +34,11 @@ function Store() {
           })
         }
       </section>
+      <Pagination 
+        setCurrentPage={setCurrentPage} 
+        currentPage={currentPage} 
+        totalPages={totalPages}
+      />
     </main>
   )
 }

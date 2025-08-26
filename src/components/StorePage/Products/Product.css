@@ -1,4 +1,8 @@
-
+.str-product {
+  opacity: 0;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease forwards;
+}
 .str-preview-img {
     aspect-ratio: 1/1;
 }
@@ -34,10 +38,6 @@
 .str-product-info-container .shopping-bag {
     width: 25px;
     height: 25px;
-}
-.str-product {
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
 }
 .product-sale {
     font-family: var(--ff-primary);

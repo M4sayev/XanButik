@@ -40,12 +40,14 @@
 }
 .header-store-text-container h1 {
     margin-bottom: clamp(1.5rem, 4vw, 3rem);
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
 }
 .search-bar-container {
     width: 100%;
 
     display: flex;
     justify-content: center;
+    
 
     margin-bottom: calc(0.5rem + 2.5vw);
 }

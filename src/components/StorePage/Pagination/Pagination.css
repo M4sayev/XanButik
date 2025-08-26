@@ -1,0 +1,26 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+
+    justify-content: center;
+    padding-block: var(--spacing-lg);
+}
+.pagination-btn {
+    transition: var(--std-transition);
+    background-color: transparent;
+    color: var(--clr-primary-900);
+}
+.active {
+    background-color: var(--clr-primary-900);
+    color: var(--clr-neutral-100);
+}
+
+.pagination-btn,
+.pagination-btn-prev
+.pagination-btn-next {
+    height: 100%;
+    width: 40px;
+    padding: 0;
+    font-size: var(--fs-300) 
+}

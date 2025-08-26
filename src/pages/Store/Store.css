@@ -3,10 +3,13 @@ body {
 }
 .str-products-grid {
     display: grid;
+    place-self: center;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
 
-    padding-inline: 1rem;
+    margin-top: calc(var(--spacing-md) + 2rem);
+
+    max-width: var(--cnts-mx-width);
 }
 
 @media screen and (min-width: 777px) {
