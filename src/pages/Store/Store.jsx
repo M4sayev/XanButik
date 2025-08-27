@@ -6,7 +6,7 @@ import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 8;
 
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
@@ -46,7 +46,12 @@ function Store() {
       <section className='str-products-grid'>
         {
           paginatedProducts.map((product, index) => {
-            return <Product key={product.id} {...product} index={index}/>
+            return <Product 
+                    key={product.id} 
+                    {...product} 
+                    index={index} 
+                    searchQuery={searchQuery}
+                  />
           })
         }
       </section>

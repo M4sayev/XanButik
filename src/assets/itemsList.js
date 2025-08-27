@@ -10,13 +10,17 @@ import mado_two_color_lightbrown_creamy_tshirt from "./top/tshirts/mado_two_colo
 import mado_murkyblue_tshirt from "./top/tshirts/mado_murkyblue_tshirt.jpg";
 import hog_tshirt_darkgray from "./top/tshirts/hog_tshirt_darkgray.jpg";
 
+import white_plain_skull_tshirt from "./top/tshirts/white_plain_skull_tshirt.jpg";
+import teal_sack_tshirt from "./top/tshirts/teal_sack_tshirt.jpg";
+import plain_white_tshirt from "./top/tshirts/plain_white_tshirt.jpg";
+import burgundy_sack_tshirt from "./top/tshirts/burgundy_sack_tshirt.jpg";
+
 ////// 4 color polos
 import four_color_polo_tshirts from "./top/tshirts/4_color_polo_tshirts/four_color_polo_tshirts.jpg";
 import four_color_polo_white_polo from "./top/tshirts/4_color_polo_tshirts/four_color_polo_white_polo.jpg";
 
 ////// 4 color plain tshirts
 import four_color_plain_tshirts from "./top/tshirts/4_color_plain_tshirts/four_color_plain_tshirts.jpg";
-
 
 //// Long-sleeve
 
@@ -46,6 +50,21 @@ import gray_turtleneck from "./top/long_sleeve/6_color_turtleneck/gray_turtlenec
 import lightbrown_turtleneck from "./top/long_sleeve/6_color_turtleneck/lightbrown_turtleneck.jpg";
 import white_turtleneck from "./top/long_sleeve/6_color_turtleneck/white_turtleneck.jpg";
 
+////// solid white shirt
+import solid_white_shirt from "./top/long_sleeve/long_sleeve_white_shirt.jpg";
+import white_striped_long_sleeve_shirt from "./top/long_sleeve/white_striped_long_sleeve_shirt.jpg";
+import white_tight_striped_shirt from "./top/long_sleeve/white_tight_striped_shirt.jpg";
+
+////// black white shirt
+import solid_black_shirt from "./top/long_sleeve/black_long_sleeve_shirt.jpg";
+import denim_shirt from "./top/long_sleeve/denim_shirt.jpg";
+import full_black_shirt from "./top/long_sleeve/full_black_shirt.jpg";
+
+//// short-sleeve shirts
+
+import brown_striped_shirt from "./top/short_sleeve_shirts/brown_striped_shirt.jpg";
+import white_striped_shirt from "./top/short_sleeve_shirts/white_striped_shirt.jpg";
+import brownish_short_sleeve_shirt from "./top/short_sleeve_shirts/brownish_short_sleeve_shirt.jpg";
 
 //// Jackets 
 
@@ -63,6 +82,11 @@ import omon_faux_leather_jacket_three from "./top/jackets/omon_faux_leather_jack
 import terra_black_puffer_jacket_one from "./top/jackets/terra_black_puffer_jacket/terra_black_puffer_jacket_one.jpg";
 import terra_black_puffer_jacket_two from "./top/jackets/terra_black_puffer_jacket/terra_black_puffer_jacket_two.jpg";
 import terra_black_puffer_jacket_three from "./top/jackets/terra_black_puffer_jacket/terra_black_puffer_jacket_three.jpg";
+
+////// black leather jacket
+
+import black_leather_jacket_one from "./top/jackets/black_leather_jacket/black_leather_jacket.jpg"
+import black_leather_jacket_two from "./top/jackets/black_leather_jacket/black_leather_jacket_one.jpg"
 
 
 // BOTTOM
@@ -97,6 +121,9 @@ import elastic_waist_black_cargo_pants_two from "./bottom/jeans/elastic_waist_ca
 import paris_murky_blue_jeans_one from "./bottom/jeans/paris_murky_blue_jeans/paris_murky_blue_jeans_one.jpg";
 import paris_murky_blue_jeans_two from "./bottom/jeans/paris_murky_blue_jeans/paris_murky_blue_jeans_two.jpg";
 
+////// light gray denim jeans
+import light_gray_denim_jean_one from "./bottom/jeans/light_gray_denim_jeans/light_gray_denim_jeans_one.jpg";
+import light_gray_denim_jeans_two from "./bottom/jeans/light_gray_denim_jeans/light_gray_denim_jeans_two.jpg";
 
 // SHOES
 
@@ -556,4 +583,171 @@ export const itemsList = [
         category: "Shoes",
         description: "coming soon..."
     },
+    {
+        id: 38,
+        name: "Black Leather Jacket",
+        price: 60,
+        discountPercent: 20,
+        img: [
+            black_leather_jacket_one,
+            black_leather_jacket_two
+        ],
+        category: "Jacket & Coats",
+        description: "coming soon..."
+    },
+    {
+        id: 39,
+        name: "Light Gray Jeans",
+        price: 30,
+        discountPercent: 10,
+        img: [
+            light_gray_denim_jean_one,
+            light_gray_denim_jeans_two
+        ],
+        category: "Jeans",
+        description: "coming soon..."
+    },
+    {
+        id: 40,
+        name: "Brown Striped Shirt",
+        price: 20,
+        discountPercent: 0,
+        img: [
+            brown_striped_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 41,
+        name: "White Striped Shirt",
+        price: 20,
+        discountPercent: 10,
+        img: [
+           white_striped_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 42,
+        name: "Brownish Short Sleeve Shirt",
+        price: 30,
+        discountPercent: 0,
+        img: [
+            brownish_short_sleeve_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 43,
+        name: "Long Sleeve White Shirt",
+        price: 30,
+        discountPercent: 0,
+        img: [
+            solid_white_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 44,
+        name: "Black Sleeve White Shirt",
+        price: 30,
+        discountPercent: 0,
+        img: [
+            solid_black_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 45,
+        name: "White Skull Tshirt",
+        price: 25,
+        discountPercent: 5,
+        img: [
+            white_plain_skull_tshirt
+        ],
+        category: "T-Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 46,
+        name: "Teal Colored Sack T-Shirt",
+        price: 24,
+        discountPercent: 0,
+        img: [
+            teal_sack_tshirt
+        ],
+        category: "T-Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 47,
+        name: "Plain White T-Shirt",
+        price: 20,
+        discountPercent: 0,
+        img: [
+            plain_white_tshirt
+        ],
+        category: "T-Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 48,
+        name: "Burgundy Sack T-Shirt",
+        price: 20,
+        discountPercent: 0,
+        img: [
+            burgundy_sack_tshirt
+        ],
+        category: "T-Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 49,
+        name: "White Spaced Striped Shirt",
+        price: 22,
+        discountPercent: 2,
+        img: [
+            white_striped_long_sleeve_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 50,
+        name: "White Tight Striped Shirt",
+        price: 29,
+        discountPercent: 5,
+        img: [
+            white_tight_striped_shirt
+        ],
+        category: "Shirt",
+        description: "coming soon..."
+    },
+    {
+        id: 51,
+        name: "Denim Shirt",
+        price: 35,
+        discountPercent: 15,
+        img: [
+            denim_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    },
+    {
+        id: 52,
+        name: "Full Black Shirt",
+        price: 27,
+        discountPercent: 0,
+        img: [
+            full_black_shirt
+        ],
+        category: "Shirts",
+        description: "coming soon..."
+    }
 ];

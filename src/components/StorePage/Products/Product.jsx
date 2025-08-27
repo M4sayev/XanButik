@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import "./Product.css"
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
-function Product({id, price, category, name, img, description, index, discountPercent }) {
+function Product({id, price, category, name, img, description, index, discountPercent, searchQuery }) {
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
   const intervalRef = useRef(null);
@@ -31,6 +31,22 @@ function Product({id, price, category, name, img, description, index, discountPe
     setImage(img[0]);
   }
 
+  const getHighlightedText = (text, highlight) => {
+    if (!highlight) return text;
+
+    const regex = new RegExp(`(${highlight})`, "gi");
+    const parts = text.split(regex);
+
+    return parts.map((part, index) =>
+      part.toLowerCase() === highlight.toLowerCase() ? (
+        <mark key={index}>{part}</mark>
+      ) : (
+        part
+      )
+    );
+  };
+
+
   return (
     <article className='str-product' style={{ animationDelay }} >
         <div className="str-product-img-wrapper" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -39,7 +55,7 @@ function Product({id, price, category, name, img, description, index, discountPe
         </div>
         <div className="str-product-info-container">
             <div className="str-product-name-price">
-                <p className='str-product-name'>{name}</p>
+                <p className='str-product-name'>{getHighlightedText(name, searchQuery)}</p>
                 {discountPercent === 0 ? 
                   <span className='str-product-price'>{price.toFixed(2)}$</span>
                   :

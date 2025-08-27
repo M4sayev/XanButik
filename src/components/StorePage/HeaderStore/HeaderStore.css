@@ -57,6 +57,11 @@
     width: 60%;
 }
 
+.store-search-input {
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
 .search-bar-container .search-icon {
     width: 16px;
     height: 16px;

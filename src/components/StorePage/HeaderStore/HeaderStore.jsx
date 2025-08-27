@@ -5,7 +5,7 @@ import { IoSearchSharp } from 'react-icons/io5'
 import {StoreContext} from "../../../context/StoreContext"
 import { useInView } from 'react-intersection-observer'
 
-const SEARCH_DEBOUNCE = 300;
+const SEARCH_DEBOUNCE = 50;
  
 function HeaderStore({setSearchQuery, searchQuery }) {
   const { handleAnimation } = useContext(StoreContext);

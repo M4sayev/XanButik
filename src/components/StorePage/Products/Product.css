@@ -5,6 +5,7 @@
 }
 .str-preview-img {
     aspect-ratio: 1/1;
+    object-fit: cover;
 }
 .str-product-info-container {
     display: flex;
