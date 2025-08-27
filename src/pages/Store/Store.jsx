@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import "./Store.css"
 import HeaderStore from '../../components/StorePage/HeaderStore/HeaderStore'
 import FilterComponent from '../../components/StorePage/filterComponent/FilterComponent'
@@ -6,36 +6,31 @@ import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 4;
 
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ currentPage, setCurrentPage ] = useState(1);
-  const [ filteredProducts, setFilteredProducts ] = useState(itemsList);
-  const [ totalPages, setTotalPages ] = useState(Math.ceil(itemsList.length / ITEMS_PER_PAGE));
-  const [ paginatedProducts, setPaginatedProducts ] = useState([]);
 
-  useEffect(() => {
-    let filtered = [...itemsList];
-
-    if (searchQuery) {
-      const trimmedQuery = searchQuery.trim().toLowerCase();
-      filtered = itemsList.filter(item => item.name.toLowerCase().includes(trimmedQuery));
-    }
-
-    setFilteredProducts(filtered);
-    setCurrentPage(1);
-
+  const filteredProducts = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return itemsList.filter(item =>
+      item.name.toLowerCase().includes(query)
+    );
   }, [searchQuery]);
 
-  useEffect(() => {
-    const total = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-    setTotalPages(total);
+  const totalPages = useMemo(() => {
+    return Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  }, [filteredProducts]);
 
+  const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    const paginated = filteredProducts.slice(start, start + ITEMS_PER_PAGE);
-    setPaginatedProducts(paginated);
+    return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
   }, [currentPage, filteredProducts]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
 
   function goToPage(page) {
