@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Pagination.css";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-function Pagination({totalPages, currentPage, goToPage}) {
+function Pagination({totalPages, currentPage, goToPage }) {
 
     const [ maxLength, setMaxLength ] = useState(window.innerWidth < 777 ? 5 : 7);
     
@@ -13,7 +13,7 @@ function Pagination({totalPages, currentPage, goToPage}) {
         }
 
         window.addEventListener('resize', handleResize);
-        
+
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -80,7 +80,7 @@ function Pagination({totalPages, currentPage, goToPage}) {
                 return (
                     <li key={index}>
                         <button 
-                            className={`std-button pagination-btn ${num === currentPage ? "active" : ""}`}
+                            className={`std-button pagination-btn ${num === currentPage ? "pagination--active" : ""}`}
                             aria-label={`Page ${num}`}
                             aria-current={num === currentPage ? "page" : undefined}
                             onClick={() => {

@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer'
 
 const SEARCH_DEBOUNCE = 300;
  
-function HeaderStore({setSearchQuery, searchQuery, applyFilters}) {
+function HeaderStore({setSearchQuery, searchQuery }) {
   const { handleAnimation } = useContext(StoreContext);
   const { ref: imgRef, inView: imgInView } = useInView({
     threshold: 0.3,
@@ -16,24 +16,14 @@ function HeaderStore({setSearchQuery, searchQuery, applyFilters}) {
   const { ref: textRef, inView: textInView } = useInView();
   const debounceTimeout = useRef(null);
 
-  let firstKeyStroke = true;
-
   function handleSearchInput(e) {
     const value = e.target.value;
-    setSearchQuery(value)
-
-    if (firstKeyStroke) {
-      applyFilters(value);
-      firstKeyStroke = false;
-    }
 
     if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
 
-    debounceTimeout.current = setTimeout(() => {  
-        firstKeyStroke = true;
-        applyFilters(value);
+    debounceTimeout.current = setTimeout(() => {
+      setSearchQuery(value);
     }, SEARCH_DEBOUNCE);
-    
   }
 
   return (

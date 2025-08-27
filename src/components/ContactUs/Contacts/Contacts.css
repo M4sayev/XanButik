@@ -1,6 +1,3 @@
-.contacts-section {
-    background-image: linear-gradient(to right, white 50%, var(--clr-accent) 50%);
-}
 .contacts-contents {
     display: flex;
     flex-direction: column;
@@ -103,6 +100,9 @@
     
 }
 @media (min-width: 999px) {
+    .contacts-section {
+        background-image: linear-gradient(to right, white 50%, var(--clr-accent) 50%);
+    }
     .contacts-working-hours-info-container {
         width: 50%;
     }
