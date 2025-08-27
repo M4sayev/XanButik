@@ -6,7 +6,7 @@ import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 4;
 
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
@@ -20,6 +20,12 @@ function Store() {
 
   const [ currentPage, setCurrentPage ] = useState(1);
   const totalPages = Math.ceil(itemsList.length / ITEMS_PER_PAGE);
+
+  function goToPage(page) {
+      if (page >= 1 && page <= totalPages) {
+          setCurrentPage(page);
+      }
+  }
 
   const start = (currentPage - 1) * ITEMS_PER_PAGE;
   const newItems = itemsList.slice(start, start + ITEMS_PER_PAGE);
@@ -38,6 +44,7 @@ function Store() {
         setCurrentPage={setCurrentPage} 
         currentPage={currentPage} 
         totalPages={totalPages}
+        goToPage={goToPage}
       />
     </main>
   )

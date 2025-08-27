@@ -1,17 +1,47 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./Pagination.css";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-function Pagination({totalPages, currentPage, setCurrentPage}) {
+function Pagination({totalPages, currentPage, goToPage}) {
 
-    const pagArr = Array.from( {length: totalPages}, (_, i) => i + 1);
+    function getPagination(currentPage, totalPages, maxLength = 7) {
 
-    function goToPage(page) {
-        console.log(page);
-        if (page >= 1 && page <= totalPages) {
-            setCurrentPage(page);
+        const sideWidth = maxLength < 9 ? 1 : 2; 
+        const available = maxLength - sideWidth * 2 - 3; 
+        const leftWidth = Math.floor(available / 2); 
+        const rightWidth = available - leftWidth; 
+
+        function range(start, end) {
+            if (start === end) return [start];
+            return Array.from({ length: end - start + 1 }, (_, i) => i + start);
         }
+
+        if (totalPages <= maxLength) {
+            return range(1, totalPages);
+        }
+
+        if (currentPage <= maxLength - sideWidth - 1 - rightWidth) {
+            return [...range(1, maxLength - sideWidth - 1), 
+                    '...', 
+                    ...range(totalPages - sideWidth + 1, totalPages)];
+        }
+
+        if (currentPage >= totalPages - sideWidth - 1 - leftWidth) {
+            return [...range(1, sideWidth), 
+                    '...', 
+                    ...range(totalPages - sideWidth - 1 - leftWidth - rightWidth, totalPages)];
+        }
+
+        return [
+            ...range(1, sideWidth),
+            '...',
+            ...range(currentPage - leftWidth, currentPage + rightWidth),
+            '...',
+            ...range(totalPages - sideWidth + 1, totalPages)
+        ];  
     }
+
+    
 
     if (totalPages === 0) return null;
 
@@ -29,9 +59,9 @@ function Pagination({totalPages, currentPage, setCurrentPage}) {
                 </button>
             </li>
             {
-                pagArr.map((num) => {
+                getPagination(currentPage, totalPages).map((num, index) => {
                 return (
-                    <li key={num}>
+                    <li key={index}>
                         <button 
                             className={`std-button pagination-btn ${num === currentPage ? "active" : ""}`}
                             aria-label={`Page ${num}`}
