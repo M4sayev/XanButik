@@ -11,24 +11,22 @@ const ITEMS_PER_PAGE = 4;
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ products, setProducts ] = useState(itemsList);
+  const [ currentPage, setCurrentPage ] = useState(1);
 
   function applyFilters(query) {
     const trimmedQuery = query.trim().toLowerCase();
     const filtered = itemsList.filter(item => item.name.toLowerCase().includes(trimmedQuery));
+    setCurrentPage(1);
     setProducts(filtered);
   };
 
-  const [ currentPage, setCurrentPage ] = useState(1);
-  const totalPages = Math.ceil(itemsList.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
   function goToPage(page) {
       if (page >= 1 && page <= totalPages) {
           setCurrentPage(page);
       }
   }
-
-  const start = (currentPage - 1) * ITEMS_PER_PAGE;
-  const newItems = itemsList.slice(start, start + ITEMS_PER_PAGE);
 
   return (
     <main>

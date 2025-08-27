@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Pagination.css";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 function Pagination({totalPages, currentPage, goToPage}) {
+
+    const [ maxLength, setMaxLength ] = useState(window.innerWidth < 777 ? 5 : 7);
+    
+    useEffect(() => {
+        function handleResize() {
+            const width = window.innerWidth;
+            setMaxLength(width < 777 ? 5 : 7);
+        }
+
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     function getPagination(currentPage, totalPages, maxLength = 7) {
 
@@ -21,27 +36,29 @@ function Pagination({totalPages, currentPage, goToPage}) {
         }
 
         if (currentPage <= maxLength - sideWidth - 1 - rightWidth) {
-            return [...range(1, maxLength - sideWidth - 1), 
-                    '...', 
-                    ...range(totalPages - sideWidth + 1, totalPages)];
+            return [
+                ...range(1, maxLength - sideWidth - 1),
+                "...",
+                ...range(totalPages - sideWidth  + 1, totalPages)
+            ]
         }
 
         if (currentPage >= totalPages - sideWidth - 1 - leftWidth) {
-            return [...range(1, sideWidth), 
-                    '...', 
-                    ...range(totalPages - sideWidth - 1 - leftWidth - rightWidth, totalPages)];
+            return [
+                ...range(1, sideWidth),
+                "...",
+                ...range(totalPages - sideWidth - 1 - leftWidth - rightWidth, totalPages)
+            ]
         }
 
         return [
             ...range(1, sideWidth),
-            '...',
+            "...",
             ...range(currentPage - leftWidth, currentPage + rightWidth),
-            '...',
+            "...",
             ...range(totalPages - sideWidth + 1, totalPages)
-        ];  
+        ]
     }
-
-    
 
     if (totalPages === 0) return null;
 
@@ -59,7 +76,7 @@ function Pagination({totalPages, currentPage, goToPage}) {
                 </button>
             </li>
             {
-                getPagination(currentPage, totalPages).map((num, index) => {
+                getPagination(currentPage, totalPages, maxLength).map((num, index) => {
                 return (
                     <li key={index}>
                         <button 
