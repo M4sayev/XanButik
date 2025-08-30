@@ -33,6 +33,7 @@ import half_classic_genuine_leather_dress_shoes from "./header_imgs/half_classic
 import tshirt_category_preview from "./header_imgs/tshirt_category_preview.jpg";
 import shirts_category_preview from "./header_imgs/shirts_category_preview.jpg";
 import pants_category_preview from "./header_imgs/pants_category_preview.jpg";
+import all_category_preview from "./header_imgs/all_category_preview.jpg";
 import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 // services icons
@@ -266,6 +267,7 @@ export const askedQuestions = [
 ]
 
 export const categoryPreviewMap = {
+    "All": all_category_preview,
     "Shoes": half_classic_genuine_leather_dress_shoes,
     "Jackets": calvin_klein_sweatshirt,
     "Sweaters": calvin_klein_sweatshirt_two,

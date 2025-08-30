@@ -2,7 +2,7 @@ import React from 'react'
 import "./CategoryButtons.css";
 import { categoryPreviewMap } from '../../../assets/assets';
 
-function CategoryButtons({categoryMap}) {
+function CategoryButtons({categoryMap, handleCategoryBtn, currentCategory}) {
     
   return (
     <section className='category-btns-section'>
@@ -13,7 +13,11 @@ function CategoryButtons({categoryMap}) {
             if (categoryPreviewMap[category] == undefined) imgSrc = products[0].img[0];
             else imgSrc = categoryPreviewMap[category];
             return (
-                <button className='category-btn' key={index}>
+                <button 
+                    className={`category-btn ${currentCategory === category && "category-btn--active"}`} 
+                    key={index} 
+                    onClick={() => handleCategoryBtn(category)}
+                >
                     <div className='category-img-wrapper'>
                         <img 
                             className="category-preview-img"

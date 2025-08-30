@@ -60,7 +60,7 @@ function Pagination({totalPages, currentPage, goToPage }) {
         ]
     }
 
-    if (totalPages === 0) return null;
+    if (totalPages < 2) return null;
 
   return (
     <nav aria-label='Pagination' role="navigation">

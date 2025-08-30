@@ -13,13 +13,33 @@ function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ currentPage, setCurrentPage ] = useState(1);
 
+  const [ currentCategory, setCurrentCategory ] = useState("All");
+  const [ products, setProducts ] = useState(itemsList);
+
+  // Create categoryMap
+  const categoryMap = itemsList.reduce((map, product) => {
+      if (!map[product.category]) {
+          map[product.category] = [];
+      }
+      map[product.category].push(product);
+      return map;
+  }, {"All": itemsList});
+
+  useEffect(() => {
+    const category = categoryMap[currentCategory];
+    setProducts(category);
+    setSearchQuery("")
+    setCurrentPage(1);
+  }, [currentCategory]);
+
   // Filter products by search bar input
   const filteredProducts = useMemo(() => {
+    
     const query = searchQuery.trim().toLowerCase();
-    return itemsList.filter(item =>
+    return products.filter(item =>
       item.name.toLowerCase().includes(query)
     );
-  }, [searchQuery]);
+  }, [searchQuery, products]);
 
   // Count total pages for the pagination
   const totalPages = useMemo(() => {
@@ -43,20 +63,23 @@ function Store() {
       }
   }
 
-  // Create categoryMap
-  const categoryMap = itemsList.reduce((map, product) => {
-      if (!map[product.category]) {
-          map[product.category] = [];
-      }
-      map[product.category].push(product);
-      return map;
-  }, {})
-
+  // Handle select category
+  function handleCategoryBtn(category) {
+    if (category === currentCategory) {
+      setCurrentCategory("All");
+    } else {
+      setCurrentCategory(category);
+    }
+  }
 
   return (
     <main>
       <HeaderStore setSearchQuery={setSearchQuery} searchQuery={searchQuery}/>
-      <CategoryButtons categoryMap={categoryMap}/>
+      <CategoryButtons 
+        categoryMap={categoryMap} 
+        handleCategoryBtn={handleCategoryBtn}
+        currentCategory={currentCategory}
+      />
       {
       filteredProducts.length === 0 
       ? 
