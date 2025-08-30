@@ -5,6 +5,7 @@ import FilterComponent from '../../components/StorePage/filterComponent/FilterCo
 import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
+import CategoryButtons from '../../components/StorePage/CategoryButtons/CategoryButtons.jsx'
 
 const ITEMS_PER_PAGE = 8;
 
@@ -12,6 +13,7 @@ function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ currentPage, setCurrentPage ] = useState(1);
 
+  // Filter products by search bar input
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     return itemsList.filter(item =>
@@ -19,10 +21,12 @@ function Store() {
     );
   }, [searchQuery]);
 
+  // Count total pages for the pagination
   const totalPages = useMemo(() => {
     return Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   }, [filteredProducts]);
 
+  // Create an array of page products for paginations
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
@@ -39,10 +43,20 @@ function Store() {
       }
   }
 
+  // Create categoryMap
+  const categoryMap = itemsList.reduce((map, product) => {
+      if (!map[product.category]) {
+          map[product.category] = [];
+      }
+      map[product.category].push(product);
+      return map;
+  }, {})
+
 
   return (
     <main>
       <HeaderStore setSearchQuery={setSearchQuery} searchQuery={searchQuery}/>
+      <CategoryButtons categoryMap={categoryMap}/>
       {
       filteredProducts.length === 0 
       ? 

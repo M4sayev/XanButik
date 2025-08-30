@@ -7,8 +7,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
 
-    margin-top: calc(var(--spacing-md) + 2rem);
-
     max-width: var(--cnts-mx-width);
 }
 

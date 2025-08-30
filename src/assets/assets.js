@@ -26,10 +26,12 @@ import shirts_img from "./header_imgs/shirts_img.jpg";
 import shirts_front from "./header_imgs/shirts_front.jpg";
 import bomber_home from "./header_imgs/bomber_home.jpg"
 
+// category preview
 import calvin_klein_sweatshirt from "./header_imgs/calvin_klein_sweatshirt.jpg";
 import calvin_klein_sweatshirt_two from "./header_imgs/calvin_klein_sweatshirt_two.jpg";
-import genuine_leather_dress_shoes_one from "./header_imgs/genuine_leather_dress_shoes_one.jpg";
 import half_classic_genuine_leather_dress_shoes from "./header_imgs/half_classic_genuine_leather_dress_shoes.jpg";
+import tshirt_category_preview from "./header_imgs/tshirt_category_preview.jpg"
+import shirt_category_preview from "./header_imgs/shirt_category_preview.jpg"
 import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 // services icons
@@ -261,3 +263,11 @@ export const askedQuestions = [
         category: "Other Questions"
     }
 ]
+
+export const categoryPreviewMap = {
+    "Shoes": half_classic_genuine_leather_dress_shoes,
+    "Sweaters & Cardigans": calvin_klein_sweatshirt,
+    "Jacket & Coats": calvin_klein_sweatshirt_two,
+    "T-Shirts": tshirt_category_preview,
+    "Shirts": shirt_category_preview
+};
