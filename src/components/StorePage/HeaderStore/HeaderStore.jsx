@@ -37,7 +37,7 @@ function HeaderStore({setSearchQuery, searchQuery }) {
           />
         </div>
         <div className="header-store-search-text-container">
-            <div className='header-store-text-wrapper'>
+            <div className='header-store-text-wrapper wrapper-slide-down'>
               <article ref={textRef} className={`header-store-text-container ${handleAnimation(textInView)}`}>
                   <h1 className="std-heading clr-white">Men's Brandy Apparel</h1>
                   <p className='store-header-p | std-paragraph clr-white'>Discover our exquisite collection of menswear. From classic to casual clothes, we've got you covered.</p>

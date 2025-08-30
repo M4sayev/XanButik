@@ -43,8 +43,23 @@ function Store() {
   return (
     <main>
       <HeaderStore setSearchQuery={setSearchQuery} searchQuery={searchQuery}/>
+      {
+      filteredProducts.length === 0 
+      ? 
+      <section 
+        className='no-results-container' 
+        role="status" 
+        aria-live="polite"
+      >
+        <div className='no-results-text'>
+          <h1>No Results</h1>
+          <p>We couldn't find anything matching "<strong>{searchQuery}</strong>"</p>
+        </div>
+      </section>
+      : 
       <section className='str-products-grid'>
         {
+          
           paginatedProducts.map((product, index) => {
             return <Product 
                     key={product.id} 
@@ -55,6 +70,7 @@ function Store() {
           })
         }
       </section>
+      }
       <Pagination 
         setCurrentPage={setCurrentPage} 
         currentPage={currentPage} 

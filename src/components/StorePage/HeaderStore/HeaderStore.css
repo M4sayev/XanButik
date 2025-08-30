@@ -22,7 +22,8 @@
     display: grid;
     place-items: center;
 
-    height: 153vw;
+    height: 151vw;
+    transition: var(--std-transition);
 }
 .header-store-text-container {
     text-align: center;
@@ -46,7 +47,9 @@
 
     display: flex;
     justify-content: center;
-    
+
+    /* hide behind the header image */
+    z-index: 0;
 
     margin-bottom: calc(0.5rem + 2.5vw);
 }
