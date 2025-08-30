@@ -160,7 +160,7 @@ export const itemsList = [
             black_down_jacket_two,
             black_down_jacket_three
         ],
-        category: "Jacket & Coats",
+        category: "Jackets",
         description: "coming soon..."
     },
     {
@@ -173,7 +173,7 @@ export const itemsList = [
             omon_faux_leather_jacket_two,
             omon_faux_leather_jacket_three
         ],
-        category: "Jacket & Coats",
+        category: "Jackets",
         description: "coming soon..."
     },
     {
@@ -186,7 +186,7 @@ export const itemsList = [
             terra_black_puffer_jacket_two,
             terra_black_puffer_jacket_three
         ],
-        category: "Jacket & Coats",
+        category: "Jackets",
         description: "coming soon..."
     },
     {
@@ -200,7 +200,7 @@ export const itemsList = [
             six_color_turtleneck_one,
             white_turtleneck
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -213,7 +213,7 @@ export const itemsList = [
            cardigan_two,
            cardigan_three
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -227,7 +227,7 @@ export const itemsList = [
            sweater_three_color_three,
            sweater_three_color_four
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -239,7 +239,7 @@ export const itemsList = [
            zipup_sweater_rx_one,
            zipup_sweater_rx_two
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -250,7 +250,7 @@ export const itemsList = [
         img: [
            dark_blue_zipup_sweater_logo
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -272,7 +272,7 @@ export const itemsList = [
         img: [
            turant_lightbrown_polo_sweater
         ],
-        category: "Sweaters & Cardigans",
+        category: "Sweaters",
         description: "coming soon..."
     },
     {
@@ -372,7 +372,7 @@ export const itemsList = [
         img: [
             black_drawstring_pants
         ],
-        category: "Classic Pants",
+        category: "Pants",
         description: "coming soon..."
     },
     {
@@ -383,18 +383,18 @@ export const itemsList = [
         img: [
             blue_drawstring_pants
         ],
-        category: "Classic Pants",
+        category: "Pants",
         description: "coming soon..."
     },
     {
         id: 21,
-        name: "Blackish Drawstring Classic Pants",
+        name: "Blackish Drawstring Pants",
         price: 35,
         discountPercent: 0,
         img: [
             lightdark_drawstring_pants
         ],
-        category: "Classic Pants",
+        category: "Pants",
         description: "coming soon..."
     },
     {
@@ -405,7 +405,7 @@ export const itemsList = [
         img: [
             three_color_drawstring_pants_one
         ],
-        category: "Classic Pants",
+        category: "Pants",
         description: "coming soon..."
     },
     {
@@ -592,7 +592,7 @@ export const itemsList = [
             black_leather_jacket_one,
             black_leather_jacket_two
         ],
-        category: "Jacket & Coats",
+        category: "Jackets",
         description: "coming soon..."
     },
     {
@@ -725,7 +725,7 @@ export const itemsList = [
         img: [
             white_tight_striped_shirt
         ],
-        category: "Shirt",
+        category: "Shirts",
         description: "coming soon..."
     },
     {

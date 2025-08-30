@@ -1,53 +1,34 @@
 import React from 'react'
 import "./CategoryButtons.css";
 import { categoryPreviewMap } from '../../../assets/assets';
-import tshirtPreview from './tshirt_category_preview.jpg';
 
 function CategoryButtons({categoryMap}) {
     
   return (
-    <section>
+    <section className='category-btns-section'>
       <div className='category-btns-container'>
-        <button className='category-btn'>
-            <div className='category-contents'>
-                <img className="category-preview-img" src={tshirtPreview} alt="category" />
-            </div>
-            <div className='category-btn-overlay'>
-                <h1>T-Shirts</h1>
-            </div>
-        </button>
-        <button className='category-btn'>
-            <div className='category-contents'>
-                <img className="category-preview-img" src={tshirtPreview} alt="category" />
-            </div>
-            <div className='category-btn-overlay'>
-                <h1>T-Shirts</h1>
-            </div>
-        </button>
-        <button className='category-btn'>
-            <div className='category-contents'>
-                <img className="category-preview-img" src={tshirtPreview} alt="category" />
-            </div>
-            <div className='category-btn-overlay'>
-                <h1>T-Shirts</h1>
-            </div>
-        </button>
-        <button className='category-btn'>
-            <div className='category-contents'>
-                <img className="category-preview-img" src={tshirtPreview} alt="category" />
-            </div>
-            <div className='category-btn-overlay'>
-                <h1>T-Shirts</h1>
-            </div>
-        </button>
-        <button className='category-btn'>
-            <div className='category-contents'>
-                <img className="category-preview-img" src={tshirtPreview} alt="category" />
-            </div>
-            <div className='category-btn-overlay'>
-                <h1>T-Shirts</h1>
-            </div>
-        </button>
+        {
+          Object.entries(categoryMap).map(([category, products], index) => {
+            let imgSrc;
+            if (categoryPreviewMap[category] == undefined) imgSrc = products[0].img[0];
+            else imgSrc = categoryPreviewMap[category];
+            return (
+                <button className='category-btn' key={index}>
+                    <div className='category-img-wrapper'>
+                        <img 
+                            className="category-preview-img"
+                            src={imgSrc} 
+                            alt={category} 
+                        />
+                    </div>
+                    <div className='category-btn-overlay'>
+                        <h1>{category}</h1>
+                    </div>
+                </button>
+            )
+          })  
+        }
+        
       </div>
     </section>
   )
