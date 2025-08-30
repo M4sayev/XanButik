@@ -54,3 +54,20 @@
 
     text-transform: uppercase;
 }
+
+.add-to-wishlist-btn {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+}
+
+.add-to-wishlist-btn svg {
+    width: 25px;
+    height: 25px;
+}

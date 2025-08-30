@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import "./Product.css"
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { CiHeart } from 'react-icons/ci';
 
 function Product({id, price, category, name, img, description, index, discountPercent, searchQuery }) {
   const animationDelay = `${index * 0.2}s`;
@@ -52,6 +53,9 @@ function Product({id, price, category, name, img, description, index, discountPe
         <div className="str-product-img-wrapper" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {discountPercent === 0 ? "" : <span className='product-sale'>Sale</span>}
             <img className='str-preview-img' src={image} alt={name} />
+            <button className='std-button add-to-wishlist-btn'>
+              <CiHeart aria-hidden="true"/>
+            </button>
         </div>
         <div className="str-product-info-container">
             <div className="str-product-name-price">
