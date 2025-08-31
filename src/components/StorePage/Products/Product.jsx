@@ -49,7 +49,13 @@ function Product({id, price, category, name, img, description, index, discountPe
 
 
   return (
-    <article className='str-product' style={{ animationDelay }} >
+    <article 
+      className='str-product' 
+      style={{ animationDelay }}  
+      role="group" 
+      aria-label={name}
+      tabIndex={0}
+    >
         <div className="str-product-img-wrapper" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {discountPercent === 0 ? "" : <span className='product-sale'>Sale</span>}
             <img className='str-preview-img' src={image} alt={name} />

@@ -17,13 +17,15 @@ function Store() {
   const [ products, setProducts ] = useState(itemsList);
 
   // Create categoryMap
-  const categoryMap = itemsList.reduce((map, product) => {
+  const categoryMap = useMemo(() => {
+    return itemsList.reduce((map, product) => {
       if (!map[product.category]) {
           map[product.category] = [];
       }
       map[product.category].push(product);
       return map;
-  }, {"All": itemsList});
+    }, {"All": itemsList});
+  }, []);
 
   useEffect(() => {
     const category = categoryMap[currentCategory];

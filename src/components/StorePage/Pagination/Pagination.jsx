@@ -81,7 +81,7 @@ function Pagination({totalPages, currentPage, goToPage }) {
                     <li key={index}>
                         <button 
                             className={`std-button pagination-btn ${num === currentPage ? "pagination--active" : ""}`}
-                            aria-label={`Page ${num}`}
+                            aria-label={`Go to page ${num}`}
                             aria-current={num === currentPage ? "page" : undefined}
                             onClick={() => {
                                 goToPage(num)
