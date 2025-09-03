@@ -161,7 +161,19 @@ export const itemsList = [
             black_down_jacket_three
         ],
         category: "Jackets",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black"],
+        size: ["S", "M", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "High Neck",
+        season: ["Winter"],
+        isNewArrival: false,
+        releaseDate: "2025-05-15",
+        style: ["Casual", "Streetwear"],
+        material: ["Cotton", "Faux Leather"]
     },
     {
         id: 2,
@@ -174,7 +186,19 @@ export const itemsList = [
             omon_faux_leather_jacket_three
         ],
         category: "Jackets",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black"],
+        size: ["S", "M", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "High Neck",
+        season: ["Winter"],
+        isNewArrival: true,
+        releaseDate: "2025-08-15",
+        style: ["Casual", "Streetwear"],
+        material: ["Cotton", "Leather"]
     },
     {
         id: 3,
@@ -187,7 +211,19 @@ export const itemsList = [
             terra_black_puffer_jacket_three
         ],
         category: "Jackets",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black"],
+        size: ["S", "M", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "High Neck",
+        season: ["Winter"],
+        isNewArrival: true,
+        releaseDate: "2025-08-10",
+        style: ["Casual", "Streetwear"],
+        material: ["Cotton", "Leather"]
     },
     {
         id: 4,
@@ -201,7 +237,19 @@ export const itemsList = [
             white_turtleneck
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black", "White", "Red", "Mustard", "Dark Green"],
+        size: ["S", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Turtle Neck",
+        season: ["Winter", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-01",
+        style: ["Formal"],
+        material: ["Cotton", "Polyester"]
     },
     {
         id: 5,
@@ -214,7 +262,19 @@ export const itemsList = [
            cardigan_three
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black", "Beige"],
+        size: ["S", "M", "L", "XL", "XXL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "High Neck",
+        season: ["Winter", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-01",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 6,
@@ -228,7 +288,19 @@ export const itemsList = [
            sweater_three_color_four
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black", "Brown"],
+        size: ["S", "M", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Crew Neck",
+        season: ["Winter", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-05",
+        style: ["Casual", "Streetwear"],
+        material: ["Cotton"]
     },
     {
         id: 7,
@@ -240,7 +312,19 @@ export const itemsList = [
            zipup_sweater_rx_two
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black", "White"],
+        size: ["S", "M", "L", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Funnel Neck",
+        season: ["Winter", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-02",
+        style: ["Casual", "Streetwear"],
+        material: ["Cotton", "Polyester"]
     },
     {
         id: 8,
@@ -251,7 +335,19 @@ export const itemsList = [
            dark_blue_zipup_sweater_logo
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Blue"],
+        size: ["S", "M"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Funnel Neck",
+        season: ["Winter", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-02",
+        style: ["Formal"],
+        material: ["Cotton", "Polyester"]
     },
     {
         id: 9,
@@ -262,7 +358,19 @@ export const itemsList = [
            five_color_linen_shirts
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Blue", "Navy", "Gray"],
+        size: ["S", "M", "XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Classic Collar",
+        season: ["Fall", "Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-02",
+        style: ["Semi-Formal"],
+        material: ["Linen"]
     },
     {
         id: 10,
@@ -273,7 +381,19 @@ export const itemsList = [
            turant_lightbrown_polo_sweater
         ],
         category: "Sweaters",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Baggy",
+        color: ["Lightbrown"],
+        size: ["XL"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Band Collar",
+        season: ["Spring", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-11",
+        style: ["Semi-Formal"],
+        material: ["Cotton"]
     },
     {
         id: 11,
@@ -284,7 +404,19 @@ export const itemsList = [
            four_color_plain_tshirts
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Slim",
+        color: ["White", "Mustard", "Lightgreen", "Black"],
+        size: ["XS","M","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Round Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-01",
+        style: ["Casual"],
+        material: ["Polyester"]
     },
     {
         id: 12,
@@ -296,7 +428,19 @@ export const itemsList = [
            four_color_polo_white_polo
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White", "Red", "Darkgreen", "Lightblue"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Polo Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-06",
+        style: ["Formal"],
+        material: ["Cotton"]
     },
     {
         id: 13,
@@ -307,7 +451,19 @@ export const itemsList = [
            hog_tshirt_darkgray
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Loose",
+        color: ["Gray"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Round Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Polyester"]
     },
     {
         id: 14,
@@ -318,7 +474,19 @@ export const itemsList = [
            mado_murkyblue_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Darkblue"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Round Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Polyester", "Cotton"]
     },
     {
         id: 15,
@@ -329,7 +497,19 @@ export const itemsList = [
            mado_two_color_lightbrown_creamy_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Brown", "White"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Two Colors",
+        neckline: "Round Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: false,
+        releaseDate: "2025-07-03",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 16,
@@ -340,7 +520,19 @@ export const itemsList = [
            mado_two_color_white_paisley_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Brown", "Black"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Paisley",
+        neckline: "Round Neck",
+        season: ["Summer"],
+        isNewArrival: false,
+        releaseDate: "2025-07-03",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 17,
@@ -351,7 +543,19 @@ export const itemsList = [
            mado_white_collar_black_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White", "Black"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Two Colors",
+        neckline: "Round Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: false,
+        releaseDate: "2025-07-03",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 18,
@@ -362,7 +566,19 @@ export const itemsList = [
            white_polo_sport
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Polo Neck",
+        season: ["Summer", "Fall"],
+        isNewArrival: false,
+        releaseDate: "2025-07-10",
+        style: ["Formal"],
+        material: ["Cotton"]
     },
     {
         id: 19,
@@ -373,7 +589,19 @@ export const itemsList = [
             black_drawstring_pants
         ],
         category: "Pants",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Baggy",
+        color: ["Black"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 20,
@@ -384,7 +612,19 @@ export const itemsList = [
             blue_drawstring_pants
         ],
         category: "Pants",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Baggy",
+        color: ["Darkblue"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 21,
@@ -395,7 +635,19 @@ export const itemsList = [
             lightdark_drawstring_pants
         ],
         category: "Pants",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Loose",
+        color: ["Black"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 22,
@@ -406,7 +658,19 @@ export const itemsList = [
             three_color_drawstring_pants_one
         ],
         category: "Pants",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Skinny",
+        color: ["Black", "Darkblue", "Gray"],
+        size: ["XS","M", "L","XL"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-15",
+        style: ["Formal"],
+        material: ["Fabric"]
     },
     {
         id: 23,
@@ -418,7 +682,19 @@ export const itemsList = [
             armani_gray_blue_jeans_two
         ],
         category: "Jeans",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Murky blue"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["All"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Denim"]
     },
     {
         id: 24,
@@ -430,7 +706,19 @@ export const itemsList = [
             boyfriend_light_blue_jeans_two
         ],
         category: "Jeans",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Lightblue"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["All"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Denim"]
     },
     {
         id: 25,
@@ -442,7 +730,19 @@ export const itemsList = [
             designs_dark_gray_jeans_two
         ],
         category: "Jeans",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Lightgray"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["All"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Denim"]
     },
     {
         id: 26,
@@ -454,7 +754,19 @@ export const itemsList = [
             elastic_waist_black_cargo_pants_two
         ],
         category: "Pants",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Loose",
+        color: ["Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Spring", "Fall", "Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-21",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 27,
@@ -466,7 +778,19 @@ export const itemsList = [
             paris_murky_blue_jeans_two
         ],
         category: "Jeans",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Murky blue"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["All"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Denim"]
     },
     //shoes
     {
@@ -480,7 +804,19 @@ export const itemsList = [
             black_brown_sole_sneakers_three
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Narrow",
+        color: ["Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Spring", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-03",
+        style: ["Casual"],
+        material: ["Faux Leather", "Rubber"]
     },
     {
         id: 29,
@@ -492,7 +828,19 @@ export const itemsList = [
             fuzzy_ankle_boots_two
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Wide",
+        color: ["Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Spring", "Winter"],
+        isNewArrival: true,
+        releaseDate: "2025-08-25",
+        style: ["Formal"],
+        material: ["Genuine Leather", "Fur"]
     },
     {
         id: 30,
@@ -504,7 +852,19 @@ export const itemsList = [
             mustard_color_loafers_two
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Narrow",
+        color: ["Mustard"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Formal"],
+        material: ["Suede", "Fabric"]
     },
     {
         id: 31,
@@ -515,7 +875,19 @@ export const itemsList = [
             black_loafers_white_soles
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Narrow",
+        color: ["Black", "White"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Two color",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: false,
+        releaseDate: "2025-08-22",
+        style: ["Formal"],
+        material: ["Faux Leather"]
     },
     {
         id: 32,
@@ -526,7 +898,19 @@ export const itemsList = [
             creamy_n_sneakers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Wide",
+        color: ["Mustard", "Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Two color",
+        neckline: null,
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-29",
+        style: ["Casual"],
+        material: ["Suede", "Fabric"]
     },
     {
         id: 33,
@@ -537,7 +921,19 @@ export const itemsList = [
             dark_brown_sneakers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "True to size",
+        color: ["Gray"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Semi Formal"],
+        material: ["Faux Leather", "Fabric"]
     },
     {
         id: 34,
@@ -548,7 +944,19 @@ export const itemsList = [
             dolumdia_sneakers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "True to size",
+        color: ["Brown", "White", "Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Suede", "Fabric"]
     },
     {
         id: 35,
@@ -559,7 +967,19 @@ export const itemsList = [
             double_stripe_sneakers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "True to size",
+        color: ["White", "Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Suede", "Fabric"]
     },
     {
         id: 36,
@@ -570,7 +990,19 @@ export const itemsList = [
             mesh_black_loafers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Narrow",
+        color: ["Brown", "White", "Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Formal"],
+        material: ["Faux Leather", "Fabric"]
     },
     {
         id: 37,
@@ -581,7 +1013,19 @@ export const itemsList = [
             mesh_gray_sneakers
         ],
         category: "Shoes",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Wide",
+        color: ["Gray"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Cotton", "Rubber"]
     },
     {
         id: 38,
@@ -593,7 +1037,19 @@ export const itemsList = [
             black_leather_jacket_two
         ],
         category: "Jackets",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Baggy",
+        color: ["Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "High Neck",
+        season: ["Winter", "Spring", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Genuine Leather"]
     },
     {
         id: 39,
@@ -605,7 +1061,19 @@ export const itemsList = [
             light_gray_denim_jeans_two
         ],
         category: "Jeans",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Baggy",
+        color: ["Gray"],
+        size: ["XS","M", "L"],
+        sleeveLength: null,
+        design: "Plain",
+        neckline: null,
+        season: ["Summer", "Spring", "Fall"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Denim"]
     },
     {
         id: 40,
@@ -616,7 +1084,19 @@ export const itemsList = [
             brown_striped_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Gray"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Striped",
+        neckline: "Band Neck",
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-26",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 41,
@@ -627,7 +1107,19 @@ export const itemsList = [
            white_striped_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Striped",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 42,
@@ -638,7 +1130,19 @@ export const itemsList = [
             brownish_short_sleeve_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Gray"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Noisy",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 43,
@@ -649,7 +1153,19 @@ export const itemsList = [
             solid_white_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 44,
@@ -660,7 +1176,19 @@ export const itemsList = [
             solid_black_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Plain",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 45,
@@ -671,7 +1199,19 @@ export const itemsList = [
             white_plain_skull_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Prints",
+        neckline: "Round Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Cotton", "Polyester"]
     },
     {
         id: 46,
@@ -682,7 +1222,19 @@ export const itemsList = [
             teal_sack_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Slim",
+        color: ["Teal"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Sacky",
+        neckline: "Round Neck",
+        season: ["Summer", "Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-31",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 47,
@@ -693,7 +1245,19 @@ export const itemsList = [
             plain_white_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Slim",
+        color: ["White"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Plain",
+        neckline: "Round Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Polyester"]
     },
     {
         id: 48,
@@ -704,7 +1268,19 @@ export const itemsList = [
             burgundy_sack_tshirt
         ],
         category: "T-Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Slim",
+        color: ["Burgundy"],
+        size: ["XS","M", "L"],
+        sleeveLength: "Short Sleeve",
+        design: "Sacky",
+        neckline: "Round Neck",
+        season: ["Spring"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Cotton"]
     },
     {
         id: 49,
@@ -715,7 +1291,19 @@ export const itemsList = [
             white_striped_long_sleeve_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XXS", "XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Striped",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 50,
@@ -726,7 +1314,19 @@ export const itemsList = [
             white_tight_striped_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["White"],
+        size: ["XXS", "XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Striped",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Linen"]
     },
     {
         id: 51,
@@ -737,7 +1337,19 @@ export const itemsList = [
             denim_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Gray"],
+        size: ["XXS", "XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Sunburnt",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-08-30",
+        style: ["Casual"],
+        material: ["Fabric"]
     },
     {
         id: 52,
@@ -748,6 +1360,18 @@ export const itemsList = [
             full_black_shirt
         ],
         category: "Shirts",
-        description: "coming soon..."
+        description: "coming soon...",
+        productType: "Outerwear",
+        fit: "Regular",
+        color: ["Black"],
+        size: ["XXS", "XS","M", "L"],
+        sleeveLength: "Long Sleeve",
+        design: "Striped",
+        neckline: "Band Neck",
+        season: ["Summer"],
+        isNewArrival: true,
+        releaseDate: "2025-09-1",
+        style: ["Casual"],
+        material: ["Linen"]
     }
 ];
