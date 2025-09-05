@@ -108,6 +108,10 @@ button, input, label {
   line-height: 1.1;
 }
 
+label {
+  font-family: var(--ff-secondary);
+}
+
 /* Balance text wrapping and standard font family*/
 h1, h2,
 h3, h4 {

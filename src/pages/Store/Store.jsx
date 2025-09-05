@@ -82,6 +82,7 @@ function Store() {
         handleCategoryBtn={handleCategoryBtn}
         currentCategory={currentCategory}
       />
+      <FilterComponent  />
       {
       filteredProducts.length === 0 
       ? 
