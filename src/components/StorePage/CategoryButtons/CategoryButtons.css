@@ -14,14 +14,15 @@
     overflow-x: scroll;
 }
 .category-btns-container::-webkit-scrollbar {
-    background-color: var(--clr-primary-200);
     height: 8px;
 }
 .category-btns-container::-webkit-scrollbar-thumb {
-    width: 20px;
+
     color: var(--clr-accent);
-    background-color: var(--clr-accent);
+    background-color: var(--clr-primary-200);
+
 }
+
 .category-btn {
     background-color: transparent;
     border: none;
@@ -138,4 +139,7 @@
         background-color: rgba(206, 206, 206, 0.1);
     }
     
+    .category-btns-container::-webkit-scrollbar-thumb  {
+        background-color: var(--clr-accent);
+    }
 }

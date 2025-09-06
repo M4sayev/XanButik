@@ -1,4 +1,4 @@
-footer {
+.main-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,12 +9,12 @@ footer {
 
   padding-block: 3rem;
 }
-footer .logo {
+.main-footer .logo {
   margin-top: 1.5rem;
 
   width: 85px;
 }
-footer p {
+.main-footer p {
   font-family: var(--ff-secondary);
   font-size: var(--fs-300);
 
