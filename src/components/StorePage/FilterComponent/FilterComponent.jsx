@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./FilterComponent.css"
 import { GiCheckMark } from 'react-icons/gi'
-import { FaCross } from 'react-icons/fa'
-import { IoClose } from 'react-icons/io5'
-import { IoMdClose } from 'react-icons/io'
+import { IoIosCheckmark, IoMdCheckmark, IoMdClose } from 'react-icons/io'
+import { ImCheckmark } from 'react-icons/im'
+import 'react-range-slider-input/dist/style.css';
+import ReactRangeSliderInput from 'react-range-slider-input'
 
 function FilterComponent() {
+
+    const [priceRange, setPriceRange] = useState([0, 1500]);
   return (
     <search className='sort-filter-component'>
         <div className='sort-filter-controls-mobile'>
@@ -37,6 +40,7 @@ function FilterComponent() {
                         <button className='mr-clear-all-btn'>clear all</button>
                     </header>
                     <div className='mr-menu-body'>
+                        {/* just a structure (assets not implemented yet) */}
                         <button className='mr-filter-btn'>Brand</button>
                         <button className='mr-filter-btn'>Size</button>
                         <button className='mr-filter-btn'>Color</button>
@@ -61,6 +65,80 @@ function FilterComponent() {
 
         {/* desktop refinements */}
         <ul className='sort-refinements-list'>
+            {/* just a structure (assets not implemented yet) rl-dropdown--active*/}
+            <li className='refinement-list-element'>
+                <div className='refinement-dropdown-container'>
+                    <button className='refinement-head-btn'>
+                        <span>Sort</span>
+                    </button>
+                    <div className='rl-dropdown'>
+                        <ul className='rl-dropdown-sort-options-list'>
+                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected'>Recommended</li>
+                            <li className='rl-dropdown-sort-option'>What's new</li>
+                            <li className='rl-dropdown-sort-option'>Price high to low</li>
+                            <li className='rl-dropdown-sort-option'>Price low to high</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li className='refinement-list-element'>
+                <div className='refinement-dropdown-container '>
+                    <button className='refinement-head-btn'>
+                       <span>Brand</span>
+                    </button>
+                    <div className='rl-dropdown'>
+                        <header className='rl-dropdown-header'>
+                            <p>(0) selected </p>
+                            <button className='std-button rl-dropdown-header-btn'>
+                                <ImCheckmark style={{paddingTop: "5px"}}/>
+                                ALL
+                                {/* conditionally clear */}
+                            </button>
+                        </header>
+                        <ul className='rl-dropdown-sort-options-list'>
+                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected'>
+                                Mado (1)
+                            </li>
+                            <li className='rl-dropdown-sort-option'>
+                                Mado (1)
+                            </li>
+                            <li className='rl-dropdown-sort-option'>
+                                Mado (1) 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li className='refinement-list-element'>
+                <div className='refinement-dropdown-container  color'>
+                    <button className='refinement-head-btn'>
+                        <span>Color</span>
+                    </button>
+                    <div className='rl-dropdown'>
+                        <header className='rl-dropdown-header'>
+                            <p>(0) selected </p>
+                            <button className='std-button rl-dropdown-header-btn'>
+                                <ImCheckmark style={{paddingTop: "5px"}}/>
+                                ALL
+                                {/* conditionally clear */}
+                            </button>
+                        </header>
+                        {/* color for the color dropdown */}
+                        <ul className='rl-dropdown-sort-options-list'>
+                            {/* inject the color dynamically to the pseudoelement */}
+                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected' data-color="Red">
+                                Red
+                            </li>
+                            <li className='rl-dropdown-sort-option'>
+                                Green
+                            </li>
+                            <li className='rl-dropdown-sort-option'>
+                                Purple
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
             <li className='refinement-list-element'>
                 <div className='refinement-dropdown-container'>
                     <button className='refinement-head-btn'>
@@ -78,32 +156,11 @@ function FilterComponent() {
             <li className='refinement-list-element'>
                 <div className='refinement-dropdown-container'>
                     <button className='refinement-head-btn'>
-                        <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                        <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
                        <span>Sort</span>
                     </button>
                 </div>
             </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element refinement-head-btn--active'>
+            <li className='refinement-list-element refinement-head-btn--selected'>
                 <div className='refinement-dropdown-container'>
                     <button className='refinement-head-btn'>
                        <span>Sort</span>
@@ -139,10 +196,39 @@ function FilterComponent() {
                 </div>
             </li>
             <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
+                <div className='refinement-dropdown-container price-range rl-dropdown--active'>
                     <button className='refinement-head-btn'>
-                       <span>Sort</span>
+                       <span>Price Range</span>
                     </button>
+                    <div className='rl-dropdown'>
+                        <header className='rl-dropdown-header'>
+                            <p>Price Range Selected </p>
+                            <p className='range-preview'>
+                                ${priceRange[0]} - ${priceRange[1]}
+                            </p>
+                        </header>
+                        <div className='range-slider-dropdown'>
+                            <div className='range-slider-dropdown-container'>
+                                <div className='thumb-label-container'>
+                                    <div className="thumb-label-left-label">
+                                        ${priceRange[0]}
+                                    </div>
+                                    <div className="thumb-label-right-label">
+                                        ${priceRange[1]}
+                                    </div>
+                                </div>
+                                <ReactRangeSliderInput 
+                                    id="price-range-slider"
+                                    min={0}
+                                    max={1500}
+                                    step={1}
+                                    value={priceRange}
+                                    onInput={setPriceRange}
+                                />
+ 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
