@@ -284,9 +284,6 @@
 .rl-dropdown {
     display: none;
     position: absolute;
-
-    /* dynamically determine if it overflow and add this  */
-    /* right: 0; */
     
     z-index: var(--z-sidebar);
     background-color: var(--clr-primary-200);
@@ -294,6 +291,10 @@
 
     padding: var(--spacing-sm);
     padding-bottom: 0;
+}
+
+.dropdown-left {
+    right: 0;
 }
 
 .rl-dropdown-sort-option {
@@ -330,6 +331,7 @@
 .rl-dropdown--active .refinement-head-btn {
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.3);
 }
+
 
 /* other buttons */
 

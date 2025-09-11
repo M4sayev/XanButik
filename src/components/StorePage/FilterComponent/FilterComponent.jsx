@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import "./FilterComponent.css"
 import { GiCheckMark } from 'react-icons/gi'
 import { IoIosCheckmark, IoMdCheckmark, IoMdClose } from 'react-icons/io'
@@ -9,6 +9,47 @@ import ReactRangeSliderInput from 'react-range-slider-input'
 function FilterComponent() {
 
     const [priceRange, setPriceRange] = useState([0, 1500]);
+    const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
+    const dropdownRefs = useRef({});
+    const [sortOptions, setSortOptions] = useState("Recommended");
+
+    function toggleDropDown(dropdownName) {
+        setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
+    }
+
+
+    useLayoutEffect(() => {
+        if (!openDropdown) {
+            setIsDropDownOverflowing(false);
+            return;
+        }
+
+        const dropdownEl = dropdownRefs.current[openDropdown];
+        if (dropdownEl) {
+            const rect = dropdownEl.getBoundingClientRect();
+            const overflows = rect.right > window.innerWidth;
+            if (overflows !== isDropDownOverflowing) {
+                setIsDropDownOverflowing(overflows);
+            }
+        }
+    }, [openDropdown]);
+
+    function handleSortOptionSelect(option) {
+        setSortOptions(option);
+        setOpenDropdown(null);
+    }
+
+    function handleOptionsDelegation(e) {
+        const li = e.target.closest('li');
+        if (!li) return;
+
+        const selectedOption = li.dataset.option;
+        if (selectedOption) {
+            handleSortOptionSelect(selectedOption);
+        }
+    }
+
   return (
     <search className='sort-filter-component'>
         <div className='sort-filter-controls-mobile'>
@@ -67,16 +108,27 @@ function FilterComponent() {
         <ul className='sort-refinements-list'>
             {/* just a structure (assets not implemented yet) rl-dropdown--active*/}
             <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
+                <div className={`refinement-dropdown-container ${openDropdown === "Sort" ? "rl-dropdown--active" : ""}`}>
+                    <button 
+                        className='refinement-head-btn'
+                        onClick={() => toggleDropDown("Sort")}
+                    >
                         <span>Sort</span>
                     </button>
-                    <div className='rl-dropdown'>
-                        <ul className='rl-dropdown-sort-options-list'>
-                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected'>Recommended</li>
-                            <li className='rl-dropdown-sort-option'>What's new</li>
-                            <li className='rl-dropdown-sort-option'>Price high to low</li>
-                            <li className='rl-dropdown-sort-option'>Price low to high</li>
+                    <div 
+                        className={`rl-dropdown ${isDropDownOverflowing ? "dropdown-left" : ""}`}
+                        ref={(el) => { dropdownRefs.current["Sort"] = el }}
+                    >
+                        <ul className='rl-dropdown-sort-options-list'onClick={handleOptionsDelegation}>
+                            {["Recommended", "What's new", "Price high to low", "Price low to high"].map(option => {
+                                return (
+                                     <li 
+                                        className={`rl-dropdown-sort-option ${sortOptions === option ? "rl-dropdown-sort-option--selected" : ""}`}
+                                        data-option={option}
+                                    >{option}</li>
+                                )
+                            })}
+
                         </ul>
                     </div>
                 </div>
@@ -196,11 +248,17 @@ function FilterComponent() {
                 </div>
             </li>
             <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container price-range rl-dropdown--active'>
-                    <button className='refinement-head-btn'>
+                <div className={`refinement-dropdown-container price-range ${openDropdown === "Price Range" ? "rl-dropdown--active" : ""}`}>
+                    <button 
+                        className='refinement-head-btn' 
+                        onClick={() => toggleDropDown("Price Range")}
+                    >
                        <span>Price Range</span>
                     </button>
-                    <div className='rl-dropdown'>
+                    <div 
+                        className={`rl-dropdown ${isDropDownOverflowing ? "dropdown-left" : ""}`}
+                        ref={(el) => { dropdownRefs.current["Price Range"] = el }}
+                    >
                         <header className='rl-dropdown-header'>
                             <p>Price Range Selected </p>
                             <p className='range-preview'>
