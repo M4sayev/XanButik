@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import "./Store.css"
 import HeaderStore from '../../components/StorePage/HeaderStore/HeaderStore'
-import FilterComponent from '../../components/StorePage/filterComponent/FilterComponent'
+import FilterComponent from '../../components/StorePage/FilterComponent/FilterComponent'
 import Product from '../../components/StorePage/Products/Product'
 import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 import CategoryButtons from '../../components/StorePage/CategoryButtons/CategoryButtons.jsx'
+import { StoreContext } from '../../context/StoreContext.jsx'
 
 const ITEMS_PER_PAGE = 8;
 
@@ -15,6 +16,8 @@ function Store() {
 
   const [ currentCategory, setCurrentCategory ] = useState("All");
   const [ products, setProducts ] = useState(itemsList);
+
+  const {sortOption} = useContext(StoreContext);
 
   // Create categoryMap
   const categoryMap = useMemo(() => {

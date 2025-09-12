@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 
 export const StoreContext = createContext(null); 
 
+const DEFAULT_SORT = "Recommended";
+
 function StoreContextProvider(props) {
     const [ showLogin, setShowLogin ] = useState(false);
     const [currentPage, setCurrentPage] = useState(() => {
@@ -10,6 +12,7 @@ function StoreContextProvider(props) {
         return sessionStorage.getItem("menu");
     });
     const location = useLocation();
+    const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
 
     const routePageMap = {
         "/": "Home",
@@ -37,7 +40,10 @@ function StoreContextProvider(props) {
         setCurrentPage,
         showLogin,
         setShowLogin,
-        handleAnimation
+        handleAnimation,
+        sortOptions,
+        setSortOptions,
+        DEFAULT_SORT
     };
 
   return (

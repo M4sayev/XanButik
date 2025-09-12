@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import "./FilterComponent.css"
 
 import { filterConfig } from '../../../assets/filterConfig'
@@ -7,19 +7,19 @@ import PriceRangeDropdown from './PriceRangeDropdown'
 import SortFilterMobile from './SortFilterMobile'
 import FilterButtonDesktop from './FilterButtonDesktop';
 
-const DEFAULT_SORT = "Recommended";
+import { StoreContext } from "../../../context/StoreContext";
 
 function FilterComponent({ currentCategory }) {
     const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
+    const { sortOptions, setSortOptions, DEFAULT_SORT } = useContext(StoreContext);
     const dropdownRefs = useRef({});
-    const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
+
+    
     const [intitalValues, setInitialValues] = useState(() => filterConfig[currentCategory]);
     
     useEffect(() => {
-        console.log("currentCategory:", currentCategory);
         const newInitialValues = filterConfig[currentCategory] || {};
-        console.log(newInitialValues);
         setInitialValues(newInitialValues);
 
         // Reset filters
@@ -46,6 +46,7 @@ function FilterComponent({ currentCategory }) {
 
     function toggleDropDown(dropdownName) {
         setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
+        setIsDropDownOverflowing(false);
     }
 
     useLayoutEffect(() => {
@@ -53,12 +54,21 @@ function FilterComponent({ currentCategory }) {
             setIsDropDownOverflowing(false);
             return;
         }
+
         const dropdownEl = dropdownRefs.current[openDropdown];
 
         if (dropdownEl) {
             const rect = dropdownEl.getBoundingClientRect();
             const overflows = rect.right > window.innerWidth;
+            console.log({
+                "window": window.innerWidth,
+                "right": rect.right,
+                "rect": rect
+            })
             if (overflows !== isDropDownOverflowing) {
+                console.log({overflows,
+                    isDropDownOverflowing
+                });
                 setIsDropDownOverflowing(overflows);
             }
         }
@@ -72,6 +82,7 @@ function FilterComponent({ currentCategory }) {
         function handleClickOutside(e) {
             if (dropdownEl && !dropdownEl.contains(e.target)) {
                 setOpenDropdown(null);
+                setIsDropDownOverflowing(false);
             }
         }
 
