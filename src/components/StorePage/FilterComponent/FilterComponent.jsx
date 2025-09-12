@@ -5,33 +5,85 @@ import { IoIosCheckmark, IoMdCheckmark, IoMdClose } from 'react-icons/io'
 import { ImCheckmark } from 'react-icons/im'
 import 'react-range-slider-input/dist/style.css';
 import ReactRangeSliderInput from 'react-range-slider-input'
+import { itemsList } from '../../../assets/itemsList'
+import SortDropdown from './SortDropdown'
+
+const DEFAULT_PRICE_RANGE_MIN = 0;
+const DEFAULT_PRICE_RANGE_MAX = 1500;
+const DEFAULT_SORT = "Recommended";
+
+
+const COLOR_MAP = {
+    Red: "#b23939ff",
+    Brown: "#4d2121ff",
+    Green: "#387638ff",
+    Blue: "#331285ff",
+    Yellow: "#c1a83dff",
+    Pink: "#dd4c70ff"
+}
 
 function FilterComponent() {
-
     const [priceRange, setPriceRange] = useState([0, 1500]);
     const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRefs = useRef({});
-    const [sortOptions, setSortOptions] = useState("Recommended");
+    const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
+
+    const intitalValues = {
+        "Color" : ["Red", "Brown", "Green", "Blue", "Yellow", "Pink" ]
+    };
+
+    const [filters, setFilters] = useState({
+        "Brand": [],
+        "Size": [],
+        "Product Type": [],
+        "Color": [],
+        "Product Fit": [],
+        "Sleeve Length": [],
+        "Material": [],
+        "Season": [],
+        "Neckline": [],
+        "Style": []
+    })
 
     function toggleDropDown(dropdownName) {
         setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
     }
-
 
     useLayoutEffect(() => {
         if (!openDropdown) {
             setIsDropDownOverflowing(false);
             return;
         }
-
         const dropdownEl = dropdownRefs.current[openDropdown];
+
         if (dropdownEl) {
             const rect = dropdownEl.getBoundingClientRect();
             const overflows = rect.right > window.innerWidth;
             if (overflows !== isDropDownOverflowing) {
                 setIsDropDownOverflowing(overflows);
             }
+        }
+    }, [openDropdown])
+
+    // handle click outside dropdown
+    useEffect(() => {
+        const dropdownEl = dropdownRefs.current[openDropdown];
+        let timeoutId;
+
+        function handleClickOutside(e) {
+            if (dropdownEl && !dropdownEl.contains(e.target)) {
+                setOpenDropdown(null);
+            }
+        }
+
+        timeoutId = setTimeout(() => {
+            document.addEventListener("click", handleClickOutside);
+        }, 0);
+
+        return () => {
+            clearTimeout(timeoutId);
+            document.removeEventListener("click", handleClickOutside);
         }
     }, [openDropdown]);
 
@@ -48,6 +100,30 @@ function FilterComponent() {
         if (selectedOption) {
             handleSortOptionSelect(selectedOption);
         }
+    }
+    
+    function handleClearFilterOptions(filter) {
+        setFilters((prev) => ({...prev, [filter]: []}));
+    }
+
+    function handleSelectAllFilterOptions(filter) {
+        setFilters((prev) => ({...prev, [filter]: intitalValues[filter]}));
+    }
+
+    function selectFilterOption(filter, option) {
+
+        setFilters((prev) => {
+            const currentOptions = prev[filter] || [];
+            const isSelected = currentOptions.includes(option);
+    
+            return {
+                ...prev,
+                [filter]: isSelected
+                    ? currentOptions.filter(o => o !== option)
+                    : [...currentOptions, option] 
+            };
+                
+        });
     }
 
   return (
@@ -104,150 +180,101 @@ function FilterComponent() {
 
 
 
-        {/* desktop refinements */}
+        {/*desktop refinements */}
         <ul className='sort-refinements-list'>
-            {/* just a structure (assets not implemented yet) rl-dropdown--active*/}
-            <li className='refinement-list-element'>
-                <div className={`refinement-dropdown-container ${openDropdown === "Sort" ? "rl-dropdown--active" : ""}`}>
-                    <button 
+            <SortDropdown 
+                sortOptions={sortOptions} 
+                openDropdown={openDropdown} 
+                toggleDropDown={toggleDropDown} 
+                isDropDownOverflowing={isDropDownOverflowing} 
+                dropdownRefs={dropdownRefs} 
+                handleOptionsDelegation={handleOptionsDelegation}
+                DEFAULT_SORT={DEFAULT_SORT}
+            />
+
+            <li className={`refinement-list-element ${filters["Color"].length ? "refinement-head-btn--selected" : ""}`} data-type={"Color"}>
+                <div 
+                    className={`refinement-dropdown-container ${openDropdown === "Color" ? "rl-dropdown--active" : ""} color`}
+                >
+                    <button  
                         className='refinement-head-btn'
-                        onClick={() => toggleDropDown("Sort")}
+                        onClick={() => toggleDropDown("Color")}
                     >
-                        <span>Sort</span>
+                        <span>Color</span>
                     </button>
                     <div 
                         className={`rl-dropdown ${isDropDownOverflowing ? "dropdown-left" : ""}`}
-                        ref={(el) => { dropdownRefs.current["Sort"] = el }}
+                        ref={(el) => { dropdownRefs.current["Color"] = el }}
                     >
-                        <ul className='rl-dropdown-sort-options-list'onClick={handleOptionsDelegation}>
-                            {["Recommended", "What's new", "Price high to low", "Price low to high"].map(option => {
-                                return (
-                                     <li 
-                                        className={`rl-dropdown-sort-option ${sortOptions === option ? "rl-dropdown-sort-option--selected" : ""}`}
-                                        data-option={option}
-                                    >{option}</li>
-                                )
-                            })}
-
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container '>
-                    <button className='refinement-head-btn'>
-                       <span>Brand</span>
-                    </button>
-                    <div className='rl-dropdown'>
                         <header className='rl-dropdown-header'>
-                            <p>(0) selected </p>
-                            <button className='std-button rl-dropdown-header-btn'>
-                                <ImCheckmark style={{paddingTop: "5px"}}/>
-                                ALL
-                                {/* conditionally clear */}
-                            </button>
-                        </header>
-                        <ul className='rl-dropdown-sort-options-list'>
-                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected'>
-                                Mado (1)
-                            </li>
-                            <li className='rl-dropdown-sort-option'>
-                                Mado (1)
-                            </li>
-                            <li className='rl-dropdown-sort-option'>
-                                Mado (1) 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container  color'>
-                    <button className='refinement-head-btn'>
-                        <span>Color</span>
-                    </button>
-                    <div className='rl-dropdown'>
-                        <header className='rl-dropdown-header'>
-                            <p>(0) selected </p>
-                            <button className='std-button rl-dropdown-header-btn'>
-                                <ImCheckmark style={{paddingTop: "5px"}}/>
-                                ALL
-                                {/* conditionally clear */}
-                            </button>
+                            <div className='dropdown-selected-preview-container'>
+                                <p>({filters["Color"].length}) selected </p>
+                                <span className='rl-dropdown-header-preview'>
+                                    {filters["Color"].join(", ")}
+                                </span>
+                            </div>
+                            {
+                                !filters["Color"].length ? 
+                                <button 
+                                    className='std-button rl-dropdown-header-btn'
+                                    onClick={() => handleSelectAllFilterOptions("Color")}
+                                >
+                                    <ImCheckmark style={{paddingTop: "5px"}}/>
+                                    ALL
+                                </button> 
+                                :
+                                <button 
+                                    className='std-button rl-dropdown-header-btn'
+                                    onClick={() => handleClearFilterOptions("Color")}
+                                >
+                                    CLEAR
+                                </button> 
+                            }
                         </header>
                         {/* color for the color dropdown */}
                         <ul className='rl-dropdown-sort-options-list'>
                             {/* inject the color dynamically to the pseudoelement */}
-                            <li className='rl-dropdown-sort-option rl-dropdown-sort-option--selected' data-color="Red">
-                                Red
-                            </li>
-                            <li className='rl-dropdown-sort-option'>
-                                Green
-                            </li>
-                            <li className='rl-dropdown-sort-option'>
-                                Purple
-                            </li>
+                            {intitalValues["Color"].map((color, index) => {
+                                const isSelected = filters["Color"].includes(color);
+
+                                return (
+                                    <li 
+                                        className={`rl-dropdown-sort-option ${isSelected ? "rl-dropdown-sort-option--selected" : ""}`}
+                                        data-option={color}
+                                        style={{ "--before-color": COLOR_MAP[color] || "transparent" }}
+                                        key={index}
+                                        onClick={() => selectFilterOption("Color", color)}
+                                    >
+                                        {color}
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </div>
                 </div>
             </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                        <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element refinement-head-btn--selected'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
-                <div className='refinement-dropdown-container'>
-                    <button className='refinement-head-btn'>
-                       <span>Sort</span>
-                    </button>
-                </div>
-            </li>
-            <li className='refinement-list-element'>
+
+            {["Brand", "Product Type", "Fit", "Size", "Sleeve Length", "Style", "Material", "Neckline", "Design"].map((sortBtn, index) => {
+                return (
+                    <li className='refinement-list-element' key={index}>
+                        <div className='refinement-dropdown-container'>
+                            <button className='refinement-head-btn'>
+                                <span>{sortBtn}</span>
+                            </button>
+                        </div>
+                    </li>
+                )
+                
+            })
+            }   
+            <li 
+                className={`refinement-list-element 
+                    ${(priceRange[0] !== DEFAULT_PRICE_RANGE_MIN ||
+                      priceRange[1] !== DEFAULT_PRICE_RANGE_MAX) 
+                      ? "refinement-head-btn--selected" : ""
+                    }
+                    `}
+            >
                 <div className={`refinement-dropdown-container price-range ${openDropdown === "Price Range" ? "rl-dropdown--active" : ""}`}>
                     <button 
                         className='refinement-head-btn' 
@@ -261,7 +288,7 @@ function FilterComponent() {
                     >
                         <header className='rl-dropdown-header'>
                             <p>Price Range Selected </p>
-                            <p className='range-preview'>
+                            <p className='rl-dropdown-header-preview'>
                                 ${priceRange[0]} - ${priceRange[1]}
                             </p>
                         </header>
