@@ -385,14 +385,14 @@
 
 /* color button */
 
-[data-type="Color"] .rl-dropdown-sort-option {
+[data-type="color"] .rl-dropdown-sort-option {
     padding-left: calc(var(--spacing-lg) * 1.5);
     position: relative;
     overflow: hidden;
 
     --before-color: transparent;
 }
-[data-type="Color"] .rl-dropdown-sort-option::before {
+[data-type="color"] .rl-dropdown-sort-option::before {
     content: "";
     position: absolute;
     background-color: var(--before-color);

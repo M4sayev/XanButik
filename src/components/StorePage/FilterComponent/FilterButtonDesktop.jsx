@@ -51,7 +51,7 @@ function FilterButtonDesktop({
                         <button 
                             className='std-button rl-dropdown-header-btn'
                             onClick={() => handleSelectAllFilterOptions(sortCategory)}
-                        ><ImCheckmark style={{paddingTop: "5px"}}/>ALL</button> 
+                        ><ImCheckmark style={{height: "10px"}}/>ALL</button> 
                         :
                         <button 
                             className='std-button rl-dropdown-header-btn'

@@ -1,5 +1,14 @@
 import { itemsList } from "./itemsList";
 
+const SIZE_ORDER_MAP = {
+  "XS": 0,
+  "S": 1,
+  "M": 2,
+  "L": 3,
+  "XL": 4,
+  "XXL": 5
+};
+
 function extractFiltersByCategory(itemsList) {
     const excludedKeys = ["id", "name", "price", "discountPercent", "description", "img", "isNewArrival", "releaseDate", "category"];
     const filtersByCategory = { All: {} };
@@ -32,7 +41,13 @@ function extractFiltersByCategory(itemsList) {
     // Convert sets to array for easier use
     for (const category in filtersByCategory) {
         for (const key in filtersByCategory[category]) {
-            filtersByCategory[category][key] = Array.from(filtersByCategory[category][key]);
+            let valuesArray = Array.from(filtersByCategory[category][key]);
+
+            if (key.toLowerCase() === "size") {
+                valuesArray.sort((a, b) => SIZE_ORDER_MAP[a] - SIZE_ORDER_MAP[b]);
+            }
+
+            filtersByCategory[category][key] = valuesArray;
         }
     }
 
