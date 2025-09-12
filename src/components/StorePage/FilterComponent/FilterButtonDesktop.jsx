@@ -14,6 +14,13 @@ function FilterButtonDesktop({
     selectFilterOption,
     data
     }) {
+
+    function camelCaseToLabel(str) {
+        return str
+        .replace(/([A-Z])/g, " $1")     // insert space before capital letters
+        .replace(/^./, s => s.toUpperCase()); // capitalize first letter
+    }
+
   return (
         <li 
             className={`refinement-list-element ${filters[sortCategory].length ? "refinement-head-btn--selected" : ""}`} 
@@ -26,7 +33,7 @@ function FilterButtonDesktop({
                 className='refinement-head-btn'
                 onClick={() => toggleDropDown(sortCategory)}
             >
-                <span>{sortCategory}</span>
+                <span>{camelCaseToLabel(sortCategory)}</span>
             </button>
             <div 
                 className={`rl-dropdown ${isDropDownOverflowing ? "dropdown-left" : ""}`}

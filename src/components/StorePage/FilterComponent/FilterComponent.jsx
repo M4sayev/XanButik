@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import "./FilterComponent.css"
 
-import { itemsList } from '../../../assets/itemsList'
+import { filterConfig } from '../../../assets/filterConfig'
 import SortDropdown from './SortDropdown'
 import PriceRangeDropdown from './PriceRangeDropdown'
 import SortFilterMobile from './SortFilterMobile'
@@ -9,36 +9,39 @@ import FilterButtonDesktop from './FilterButtonDesktop';
 
 const DEFAULT_SORT = "Recommended";
 
-function FilterComponent() {
+function FilterComponent({ currentCategory }) {
     const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRefs = useRef({});
     const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
+    const [intitalValues, setInitialValues] = useState(() => filterConfig[currentCategory]);
+    
+    useEffect(() => {
+        console.log("currentCategory:", currentCategory);
+        const newInitialValues = filterConfig[currentCategory] || {};
+        console.log(newInitialValues);
+        setInitialValues(newInitialValues);
 
-    const intitalValues = {
-        "Brand" : ["Mado", "Adidas", "Nike"],
-        "Size" : ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
-        "Product Type" : ["Outerwear"],
-        "Color" : ["Red", "Brown", "Green", "Blue", "Yellow", "Pink" ],
-        "Product Fit": ["Regular", "Slim", "Loose"],
-        "Sleeve Length": ["Long Sleeve", "Short Sleeve"],
-        "Material": ["Cotton", "Linen", "Polyester", "Plastic"],
-        "Season": ["Winter", "Summer", "Fall", "Spring"],
-        "Neckline": ["Round", "Crew", "V-Neck"],
-        "Style": ["Casual", "Formal"]
-    };
+        // Reset filters
+        const resetFilters = {};
+        for (const key in newInitialValues) {
+            resetFilters[key] = [];
+        }
+
+        setFilters(resetFilters);
+    }, [currentCategory]);
 
     const [filters, setFilters] = useState({
-        "Brand": [],
-        "Size": [],
-        "Product Type": [],
-        "Color": [],
-        "Product Fit": [],
-        "Sleeve Length": [],
-        "Material": [],
-        "Season": [],
-        "Neckline": [],
-        "Style": []
+        "size": [],
+        "productType": [],
+        "color": [],
+        "fit": [],
+        "sleeveLength": [],
+        "material": [],
+        "design": [],
+        "season": [],
+        "neckline": [],
+        "style": []
     })
 
     function toggleDropDown(dropdownName) {
@@ -120,6 +123,7 @@ function FilterComponent() {
                 
         });
     }
+
   return (
     <search className='sort-filter-component'>
         <SortFilterMobile />
@@ -138,6 +142,7 @@ function FilterComponent() {
 
             {
             Object.entries(intitalValues).map(([sortCategory, data]) => {
+                if (!data.length) return;
                 return <FilterButtonDesktop 
                             sortCategory={sortCategory}
                             data={data}

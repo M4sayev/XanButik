@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactRangeSliderInput from 'react-range-slider-input'
+import 'react-range-slider-input/dist/style.css';
 
 const DEFAULT_PRICE_RANGE_MIN = 0;
 const DEFAULT_PRICE_RANGE_MAX = 1500;

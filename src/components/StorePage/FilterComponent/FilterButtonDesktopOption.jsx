@@ -10,6 +10,8 @@ const COLOR_MAP = {
 }
 
 function FilterButtonDesktopOption({isSelected, sortCategory, option, selectFilterOption}) {
+
+  
   return (
     <li 
         className={`rl-dropdown-sort-option ${isSelected ? "rl-dropdown-sort-option--selected" : ""}`}
@@ -21,7 +23,7 @@ function FilterButtonDesktopOption({isSelected, sortCategory, option, selectFilt
         }
         onClick={() => selectFilterOption(sortCategory, option)}
     >
-        {option}
+        {(option)}
     </li>
   )
 }
