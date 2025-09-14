@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import ReactRangeSliderInput from 'react-range-slider-input'
 import 'react-range-slider-input/dist/style.css';
+import { StoreContext } from '../../../context/StoreContext';
 
-const DEFAULT_PRICE_RANGE_MIN = 0;
-const DEFAULT_PRICE_RANGE_MAX = 1500;
-
-function PriceRangeDropdown({toggleDropDown, isDropDownOverflowing, openDropdown, dropdownRefs}) {
-    const [priceRange, setPriceRange] = useState([DEFAULT_PRICE_RANGE_MIN, DEFAULT_PRICE_RANGE_MAX]);
-
+function PriceRangeDropdown({toggleDropDown, isDropDownOverflowing, openDropdown, dropdownRefs }) {
+    const { priceRange, setPriceRange, DEFAULT_PRICE_RANGE_MAX, DEFAULT_PRICE_RANGE_MIN } = useContext(StoreContext);
   return (
     <li 
         className={`refinement-list-element 

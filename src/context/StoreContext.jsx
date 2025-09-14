@@ -16,6 +16,8 @@ const DEFAULT_RESET_FILTER = {
         "neckline": [],
         "style": []
     };
+const DEFAULT_PRICE_RANGE_MIN = 0;
+const DEFAULT_PRICE_RANGE_MAX = 1500;
 
 function StoreContextProvider(props) {
     const [ showLogin, setShowLogin ] = useState(false);
@@ -25,6 +27,7 @@ function StoreContextProvider(props) {
     });
     const location = useLocation();
     const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
+    const [priceRange, setPriceRange] = useState([DEFAULT_PRICE_RANGE_MIN, DEFAULT_PRICE_RANGE_MAX]);
 
     const [filters, setFilters] = useState(DEFAULT_RESET_FILTER)
 
@@ -64,7 +67,11 @@ function StoreContextProvider(props) {
         DEFAULT_SORT,
         filters,
         setFilters,
-        calculateDiscountPrice
+        calculateDiscountPrice,
+        priceRange,
+        setPriceRange,
+        DEFAULT_PRICE_RANGE_MIN,
+        DEFAULT_PRICE_RANGE_MAX
     };
 
   return (

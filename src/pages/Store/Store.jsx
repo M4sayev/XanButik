@@ -17,7 +17,7 @@ function Store() {
   const [ currentCategory, setCurrentCategory ] = useState("All");
   const [ products, setProducts ] = useState(itemsList);
 
-  const {sortOptions, filters, calculateDiscountPrice} = useContext(StoreContext);
+  const {sortOptions, filters, calculateDiscountPrice, priceRange} = useContext(StoreContext);
 
   // Create categoryMap
   const categoryMap = useMemo(() => {
@@ -46,25 +46,33 @@ function Store() {
     );
   }, [searchQuery, products]);
 
+  // Price range filter
+  const productsWithinRange = useMemo(() => {
+    return filteredProducts.filter((product) => {
+      const totalPrice = calculateDiscountPrice(product.price, product.discountPercent);
+      return ((totalPrice <= priceRange[1]) && (totalPrice >= priceRange[0]));
+    })
+  }, [priceRange, filteredProducts])
+
   // Sort products by sort options
   const filteredBySortOptions = useMemo(() => {
     let newProducts;
     switch (sortOptions) {
       case "Recommended":
-        newProducts =  filteredProducts;
+        newProducts =  productsWithinRange;
         break;
       case "What's new":
-        newProducts = filteredProducts.filter((product) => product.isNewArrival);
+        newProducts = productsWithinRange.filter((product) => product.isNewArrival);
         break;
       case "Price low to high":
-        newProducts = filteredProducts.toSorted((productOne, productTwo) => {
+        newProducts = productsWithinRange.toSorted((productOne, productTwo) => {
           const priceOne = calculateDiscountPrice(productOne.price, productOne.discountPercent);
           const priceTwo = calculateDiscountPrice(productTwo.price, productTwo.discountPercent);
           return priceOne - priceTwo;
         });
         break;
       case "Price high to low":
-        newProducts = filteredProducts.toSorted((productOne, productTwo) => {
+        newProducts = productsWithinRange.toSorted((productOne, productTwo) => {
           const priceOne = calculateDiscountPrice(productOne.price, productOne.discountPercent);
           const priceTwo = calculateDiscountPrice(productTwo.price, productTwo.discountPercent);
           return priceTwo - priceOne;
@@ -73,9 +81,7 @@ function Store() {
     }
 
     return newProducts;
-  }, [sortOptions, filteredProducts])
-
-  console.log({filteredBySortOptions})
+  }, [sortOptions, productsWithinRange])
 
   // Filter products by filter options 
   const filteredByFilterOptions = useMemo(() => {
