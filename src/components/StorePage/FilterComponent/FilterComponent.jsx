@@ -9,10 +9,10 @@ import FilterButtonDesktop from './FilterButtonDesktop';
 
 import { StoreContext } from "../../../context/StoreContext";
 
-function FilterComponent({ currentCategory }) {
+function FilterComponent({ currentCategory, setCurrentPage }) {
     const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
-    const { sortOptions, setSortOptions, DEFAULT_SORT } = useContext(StoreContext);
+    const { sortOptions, setSortOptions, DEFAULT_SORT, filters, setFilters } = useContext(StoreContext);
     const dropdownRefs = useRef({});
 
     
@@ -31,18 +31,6 @@ function FilterComponent({ currentCategory }) {
         setFilters(resetFilters);
     }, [currentCategory]);
 
-    const [filters, setFilters] = useState({
-        "size": [],
-        "productType": [],
-        "color": [],
-        "fit": [],
-        "sleeveLength": [],
-        "material": [],
-        "design": [],
-        "season": [],
-        "neckline": [],
-        "style": []
-    })
 
     function toggleDropDown(dropdownName) {
         setOpenDropdown((prev) => prev === dropdownName ? null : dropdownName);
@@ -60,15 +48,7 @@ function FilterComponent({ currentCategory }) {
         if (dropdownEl) {
             const rect = dropdownEl.getBoundingClientRect();
             const overflows = rect.right > window.innerWidth;
-            console.log({
-                "window": window.innerWidth,
-                "right": rect.right,
-                "rect": rect
-            })
             if (overflows !== isDropDownOverflowing) {
-                console.log({overflows,
-                    isDropDownOverflowing
-                });
                 setIsDropDownOverflowing(overflows);
             }
         }
@@ -132,6 +112,8 @@ function FilterComponent({ currentCategory }) {
                     : [...currentOptions, option] 
             };
                 
+            // Set the page to the first
+            setCurrentPage(1);
         });
     }
 

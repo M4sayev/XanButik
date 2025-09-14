@@ -212,6 +212,7 @@
 /* hamburger menu */
 .hamburger-menu-sidebar-container {
   position: relative;
+
   display: none;
 
   margin-left: var(--spacing-sm);
@@ -283,6 +284,7 @@
   transform: translateY(-8px) rotate(-45deg);
   opacity: 1;
 }
+
 
 /* side navbar */
 .sidebar-menu {

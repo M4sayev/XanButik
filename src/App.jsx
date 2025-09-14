@@ -27,22 +27,13 @@ function App() {
   };
 
   useEffect(() => {
-    const disableScroll = () => {
-      document.body.style.overflow = 'hidden';
-    };
-
-    const enableScroll = () => {
-      document.body.style.overflow = 'auto';
-    };
     if (showLogin) {
+      document.body.style.overflow = 'hidden';
       window.addEventListener("mousedown", handleClickOutside);
-      disableScroll();
-    } else {
-      enableScroll();
-    }
+    } 
     return () => {
+      document.body.style.overflow = '';
       window.removeEventListener('mousedown', handleClickOutside);
-      enableScroll();
     }
   }, [showLogin]);
 

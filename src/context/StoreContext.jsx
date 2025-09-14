@@ -4,6 +4,18 @@ import { useLocation } from "react-router-dom";
 export const StoreContext = createContext(null); 
 
 const DEFAULT_SORT = "Recommended";
+const DEFAULT_RESET_FILTER = {
+        "size": [],
+        "productType": [],
+        "color": [],
+        "fit": [],
+        "sleeveLength": [],
+        "material": [],
+        "design": [],
+        "season": [],
+        "neckline": [],
+        "style": []
+    };
 
 function StoreContextProvider(props) {
     const [ showLogin, setShowLogin ] = useState(false);
@@ -13,6 +25,8 @@ function StoreContextProvider(props) {
     });
     const location = useLocation();
     const [sortOptions, setSortOptions] = useState(DEFAULT_SORT);
+
+    const [filters, setFilters] = useState(DEFAULT_RESET_FILTER)
 
     const routePageMap = {
         "/": "Home",
@@ -43,7 +57,9 @@ function StoreContextProvider(props) {
         handleAnimation,
         sortOptions,
         setSortOptions,
-        DEFAULT_SORT
+        DEFAULT_SORT,
+        filters,
+        setFilters
     };
 
   return (

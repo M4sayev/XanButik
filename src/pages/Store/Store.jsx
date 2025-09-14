@@ -7,6 +7,7 @@ import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 import CategoryButtons from '../../components/StorePage/CategoryButtons/CategoryButtons.jsx'
 import { StoreContext } from '../../context/StoreContext.jsx'
+import { FaProjectDiagram } from 'react-icons/fa'
 
 const ITEMS_PER_PAGE = 8;
 
@@ -17,7 +18,7 @@ function Store() {
   const [ currentCategory, setCurrentCategory ] = useState("All");
   const [ products, setProducts ] = useState(itemsList);
 
-  const {sortOption} = useContext(StoreContext);
+  const {sortOptions, filters} = useContext(StoreContext);
 
   // Create categoryMap
   const categoryMap = useMemo(() => {
@@ -46,16 +47,44 @@ function Store() {
     );
   }, [searchQuery, products]);
 
+  console.log({filteredProducts});
+
+  // Filter products by filter options 
+  const filteredByOptions = useMemo(() => {
+
+    function hasCommonElement(arr1, arr2) {
+      return arr1.some(element => arr2.includes(element));
+    }
+
+    const newProducts = filteredProducts.filter((product) => {
+      let bool = true;
+      Object.entries(filters).every(([filteredByOptions, data]) => {
+        if (data.length && product[filteredByOptions])  {
+          const productData = product[filteredByOptions];
+            if (!Array.isArray(productData)) return false;
+            bool = hasCommonElement(productData, data);
+            if (!bool) return false; 
+          }
+          return true;
+      });
+      if (bool) return product;
+    })
+
+    return newProducts;
+  }, [filters, filteredProducts])
+
+   console.log({filteredByOptions});
+
   // Count total pages for the pagination
   const totalPages = useMemo(() => {
-    return Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-  }, [filteredProducts]);
+    return Math.ceil(filteredByOptions.length / ITEMS_PER_PAGE);
+  }, [filteredByOptions]);
 
   // Create an array of page products for paginations
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
-  }, [currentPage, filteredProducts]);
+    return filteredByOptions.slice(start, start + ITEMS_PER_PAGE);
+  }, [currentPage, filteredByOptions]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -87,9 +116,10 @@ function Store() {
       />
       <FilterComponent  
         currentCategory={currentCategory}
+        setCurrentPage={setCurrentPage}
       />
       {
-      filteredProducts.length === 0 
+      (filteredProducts.length === 0 || filteredByOptions.length === 0)
       ? 
       <section 
         className='no-results-container' 

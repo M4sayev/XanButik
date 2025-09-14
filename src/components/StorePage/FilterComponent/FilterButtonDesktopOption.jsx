@@ -19,7 +19,8 @@ const COLOR_MAP = {
     "Burgundy": "#800020ff",
     "Teal": "#008080ff",
     "Light Gray": "#e6e4e4ff",
-    "Murky Blue": "#4a646cff"
+    "Murky Blue": "#4a646cff",
+    "White": "#ffffffff"
 }
 
 function FilterButtonDesktopOption({isSelected, sortCategory, option, selectFilterOption}) {

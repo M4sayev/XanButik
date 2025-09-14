@@ -1,5 +1,11 @@
 .sort-filter-component {
     margin-bottom: 1rem;
+
+    /* position: sticky;
+    z-index: var(--z-sidebar);
+    top: 0; */
+    /* possible add a logic to collapse the filters when sticky is lower 
+    than upper side of the product list  */
 }
 .sort-filter-container {
     display: flex;
