@@ -49,6 +49,10 @@ function StoreContextProvider(props) {
         return inView ? "animate-in" : "";
     }
 
+    function calculateDiscountPrice(price, discountPercent) {
+        return price * (1 - (discountPercent || 0) / 100);
+    }
+
     const contextValue = {
         currentPage,
         setCurrentPage,
@@ -59,7 +63,8 @@ function StoreContextProvider(props) {
         setSortOptions,
         DEFAULT_SORT,
         filters,
-        setFilters
+        setFilters,
+        calculateDiscountPrice
     };
 
   return (

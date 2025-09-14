@@ -7,7 +7,6 @@ import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 import CategoryButtons from '../../components/StorePage/CategoryButtons/CategoryButtons.jsx'
 import { StoreContext } from '../../context/StoreContext.jsx'
-import { FaProjectDiagram } from 'react-icons/fa'
 
 const ITEMS_PER_PAGE = 8;
 
@@ -18,7 +17,7 @@ function Store() {
   const [ currentCategory, setCurrentCategory ] = useState("All");
   const [ products, setProducts ] = useState(itemsList);
 
-  const {sortOptions, filters} = useContext(StoreContext);
+  const {sortOptions, filters, calculateDiscountPrice} = useContext(StoreContext);
 
   // Create categoryMap
   const categoryMap = useMemo(() => {
@@ -47,20 +46,49 @@ function Store() {
     );
   }, [searchQuery, products]);
 
-  console.log({filteredProducts});
+  // Sort products by sort options
+  const filteredBySortOptions = useMemo(() => {
+    let newProducts;
+    switch (sortOptions) {
+      case "Recommended":
+        newProducts =  filteredProducts;
+        break;
+      case "What's new":
+        newProducts = filteredProducts.filter((product) => product.isNewArrival);
+        break;
+      case "Price low to high":
+        newProducts = filteredProducts.toSorted((productOne, productTwo) => {
+          const priceOne = calculateDiscountPrice(productOne.price, productOne.discountPercent);
+          const priceTwo = calculateDiscountPrice(productTwo.price, productTwo.discountPercent);
+          return priceOne - priceTwo;
+        });
+        break;
+      case "Price high to low":
+        newProducts = filteredProducts.toSorted((productOne, productTwo) => {
+          const priceOne = calculateDiscountPrice(productOne.price, productOne.discountPercent);
+          const priceTwo = calculateDiscountPrice(productTwo.price, productTwo.discountPercent);
+          return priceTwo - priceOne;
+        });
+        break;
+    }
+
+    return newProducts;
+  }, [sortOptions, filteredProducts])
+
+  console.log({filteredBySortOptions})
 
   // Filter products by filter options 
-  const filteredByOptions = useMemo(() => {
+  const filteredByFilterOptions = useMemo(() => {
 
     function hasCommonElement(arr1, arr2) {
       return arr1.some(element => arr2.includes(element));
     }
 
-    const newProducts = filteredProducts.filter((product) => {
+    const newProducts = filteredBySortOptions.filter((product) => {
       let bool = true;
-      Object.entries(filters).every(([filteredByOptions, data]) => {
-        if (data.length && product[filteredByOptions])  {
-          const productData = product[filteredByOptions];
+      Object.entries(filters).every(([filter, data]) => {
+        if (data.length && product[filter])  {
+          const productData = product[filter];
             if (!Array.isArray(productData)) return false;
             bool = hasCommonElement(productData, data);
             if (!bool) return false; 
@@ -71,20 +99,18 @@ function Store() {
     })
 
     return newProducts;
-  }, [filters, filteredProducts])
-
-   console.log({filteredByOptions});
+  }, [filters, filteredBySortOptions])
 
   // Count total pages for the pagination
   const totalPages = useMemo(() => {
-    return Math.ceil(filteredByOptions.length / ITEMS_PER_PAGE);
-  }, [filteredByOptions]);
+    return Math.ceil(filteredByFilterOptions.length / ITEMS_PER_PAGE);
+  }, [filteredByFilterOptions]);
 
   // Create an array of page products for paginations
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredByOptions.slice(start, start + ITEMS_PER_PAGE);
-  }, [currentPage, filteredByOptions]);
+    return filteredByFilterOptions.slice(start, start + ITEMS_PER_PAGE);
+  }, [currentPage, filteredByFilterOptions]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -119,7 +145,7 @@ function Store() {
         setCurrentPage={setCurrentPage}
       />
       {
-      (filteredProducts.length === 0 || filteredByOptions.length === 0)
+      (filteredProducts.length === 0 || filteredByFilterOptions.length === 0)
       ? 
       <section 
         className='no-results-container' 

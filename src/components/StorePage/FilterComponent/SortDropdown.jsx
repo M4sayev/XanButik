@@ -15,7 +15,7 @@ function SortDropdown({ sortOptions, openDropdown, toggleDropDown, isDropDownOve
                 ref={(el) => { dropdownRefs.current["Sort"] = el }}
             >
                 <ul className='rl-dropdown-sort-options-list'onClick={handleOptionsDelegation}>
-                    {["Recommended", "What's new", "Price high to low", "Price low to high"].map((option, index) => {
+                    {["Recommended", "What's new", "Price low to high", "Price high to low"].map((option, index) => {
                         return (
                                 <li 
                                 className={`rl-dropdown-sort-option ${sortOptions === option ? "rl-dropdown-sort-option--selected" : ""}`}
