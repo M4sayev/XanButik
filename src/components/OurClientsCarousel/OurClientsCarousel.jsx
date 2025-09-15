@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./OurClientsCarousel.css";
 import { ourBrandCompanies } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,14 +6,13 @@ import { Pagination, Autoplay, A11y } from "swiper/modules";
 import { useInView } from "react-intersection-observer";
 
 import "swiper/swiper-bundle.css";
-import { StoreContext } from "../../context/StoreContext";
+import { handleAnimation } from "../../utils/utils";
 
 function OurClientsCarousel({bg}) {
   const { ref: carouselSecRef, inView: carouselSecInView } = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className="carousel-section" data-type={bg} aria-labelledby="our-clients-heading">

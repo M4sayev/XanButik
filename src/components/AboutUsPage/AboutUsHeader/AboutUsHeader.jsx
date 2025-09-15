@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
 import "./AboutUsHeader.css";
-import { StoreContext } from '../../../context/StoreContext';
+import { handleAnimation } from '../../../utils/utils';
 
 function AboutUsHeader() {
 
@@ -12,7 +12,6 @@ function AboutUsHeader() {
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <header className="header-about-us" aria-label="About Us Intro Section">

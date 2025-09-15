@@ -1,7 +1,8 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer';
+import { handleAnimation } from '../../../utils/utils';
 
-function ServiceItem({img, name, description, handleAnimation}) {
+function ServiceItem({img, name, description }) {
     const {ref: serviceItemRef, inView: serviceItemInView} = useInView({
       threshold: 0.2,
       triggerOnce: true

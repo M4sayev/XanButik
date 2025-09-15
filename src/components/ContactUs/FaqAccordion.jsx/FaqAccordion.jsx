@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./FaqAccordion.css";
 import { askedQuestions } from "../../../assets/assets";
 import QuestionItem from "./QuestionItem";
 import { useInView } from "react-intersection-observer";
 import { StoreContext } from "../../../context/StoreContext"
+import { handleAnimation } from "../../../utils/utils";
 
 function FaqAccordion() {
   const [accordionItems, setAccordionItems] = useState(askedQuestions);
@@ -11,7 +12,6 @@ function FaqAccordion() {
   const [isFiltered, setIsFiltered] = useState(false);
 
   const { ref: headingRef, inView: headingInView } = useInView();
-  const { handleAnimation } = useContext(StoreContext);
 
   const allCategories = [
     "All Questions",
@@ -145,7 +145,6 @@ function FaqAccordion() {
                   id={`question-item-${index}`}
                   {...questionItem}
                   isFiltered={isFiltered}
-                  handleAnimation={handleAnimation}
                   handleArrows={handleArrows}
                   index={index}
                 />

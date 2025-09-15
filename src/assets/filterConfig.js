@@ -45,6 +45,8 @@ function extractFiltersByCategory(itemsList) {
 
             if (key.toLowerCase() === "size") {
                 valuesArray.sort((a, b) => SIZE_ORDER_MAP[a] - SIZE_ORDER_MAP[b]);
+            } else {
+                valuesArray.sort();
             }
 
             filtersByCategory[category][key] = valuesArray;

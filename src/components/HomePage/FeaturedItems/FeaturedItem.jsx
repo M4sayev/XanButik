@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useInView } from 'react-intersection-observer';
-import { StoreContext } from '../../../context/StoreContext';
+import { handleAnimation } from '../../../utils/utils';
 
 function FeaturedItem({img, name, price, layoutClass}) {
-  const {handleAnimation} = useContext(StoreContext);
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true

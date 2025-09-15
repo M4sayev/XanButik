@@ -1,14 +1,13 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import "./HeaderStore.css"
 import {assets} from "../../../assets/assets"
 import { IoSearchSharp } from 'react-icons/io5'
-import {StoreContext} from "../../../context/StoreContext"
 import { useInView } from 'react-intersection-observer'
+import { handleAnimation } from '../../../utils/utils'
 
 const SEARCH_DEBOUNCE = 50;
  
 function HeaderStore({setSearchQuery, searchQuery }) {
-  const { handleAnimation } = useContext(StoreContext);
   const { ref: imgRef, inView: imgInView } = useInView({
     threshold: 0.3,
     triggerOnce: true

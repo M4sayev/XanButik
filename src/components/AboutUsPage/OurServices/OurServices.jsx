@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./OurServices.css";
 import { ourServices } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
-import { StoreContext } from "../../../context/StoreContext";
 import ServiceItem from "./ServiceItem";
+import { handleAnimation } from "../../../utils/utils";
 
 function OurServices() { 
 
@@ -11,7 +11,6 @@ function OurServices() {
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
   
   return (
     <section className="our-services" aria-labelledby="services-heading">
@@ -28,7 +27,6 @@ function OurServices() {
                         <ServiceItem
                           key={index}
                           {...serviceItem}
-                          handleAnimation={handleAnimation}
                         />
                     )
                 })

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './TestimonialsReviewsCarousel.css';
 import { clientReviews } from '../../../assets/assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useInView } from 'react-intersection-observer';
-import { StoreContext } from '../../../context/StoreContext';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
+import { handleAnimation } from '../../../utils/utils';
 
 function TestimonialsReviewsCarousel() {
 
@@ -23,7 +23,6 @@ function TestimonialsReviewsCarousel() {
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section 

@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Header.css";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
-import { StoreContext } from "../../../context/StoreContext";
-
+import { handleAnimation } from "../../../utils/utils";
 
 function Header() {
   const { ref: headerContentsRef, inView: headerInView } = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
   
   return (
     <header className="home-page-header">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ComingSoon.css';
 import Countdown, { zeroPad } from 'react-countdown';
 import { videoBg } from '../../../assets/assets';

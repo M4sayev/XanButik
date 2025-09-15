@@ -1,15 +1,14 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import "./Product.css"
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiHeart } from 'react-icons/ci';
-import { StoreContext } from '../../../context/StoreContext';
+import { calculateDiscountPrice } from '../../../utils/utils';
 
 function Product({id, price, category, name, img, description, index, discountPercent, searchQuery }) {
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const { calculateDiscountPrice } = useContext(StoreContext);
 
   function handleMouseEnter() {
     if (img.length < 2) return;

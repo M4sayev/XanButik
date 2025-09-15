@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./ServicesBanner.css";
 import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
-import {StoreContext} from "../../../context/StoreContext";
+import { handleAnimation } from "../../../utils/utils";
 
 function ServicesBanner() {
 
@@ -18,7 +18,6 @@ function ServicesBanner() {
 , label: "premium suit fittings" },
       { icon: assets.services_icon_four, alt: "Tie icon representing shoe care and repair", label: "shoe care and repair" }
     ];
-    const {handleAnimation} = useContext(StoreContext);
     
   return (
     <section className="services-banner" role="region" aria-label="Services Offered">

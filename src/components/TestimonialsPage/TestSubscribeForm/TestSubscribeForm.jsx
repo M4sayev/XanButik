@@ -1,16 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import "./TestSubscribeForm.css";
 import { Parallax } from 'react-scroll-parallax';
 import { useInView } from 'react-intersection-observer';
-import {StoreContext} from '../../../context/StoreContext';
 import { toast, ToastContainer } from 'react-toastify';
+import { handleAnimation } from '../../../utils/utils';
 
 function TestSubscribeForm() {
   const {ref: sFormRef, inView: sFormInView} = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
   const [ validEmail, setValidEmail ] = useState(true);
 
   const [value, setValue] = useState("");

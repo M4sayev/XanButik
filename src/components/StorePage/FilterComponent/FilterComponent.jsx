@@ -16,7 +16,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     const dropdownRefs = useRef({});
 
     
-    const [intitalValues, setInitialValues] = useState(() => filterConfig[currentCategory]);
+    const [initialValues, setInitialValues] = useState(() => filterConfig[currentCategory]);
     
     useEffect(() => {
         const newInitialValues = filterConfig[currentCategory] || {};
@@ -96,7 +96,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     }
 
     function handleSelectAllFilterOptions(filter) {
-        setFilters((prev) => ({...prev, [filter]: intitalValues[filter]}));
+        setFilters((prev) => ({...prev, [filter]: initialValues[filter]}));
     }
 
     function selectFilterOption(filter, option) {
@@ -104,6 +104,9 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
         setFilters((prev) => {
             const currentOptions = prev[filter] || [];
             const isSelected = currentOptions.includes(option);
+
+            // Set the page to the first
+            setCurrentPage(1);
     
             return {
                 ...prev,
@@ -111,15 +114,14 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
                     ? currentOptions.filter(o => o !== option)
                     : [...currentOptions, option] 
             };
-                
-            // Set the page to the first
-            setCurrentPage(1);
         });
     }
 
   return (
     <search className='sort-filter-component'>
-        <SortFilterMobile />
+        <SortFilterMobile 
+            initialValues={initialValues}
+        />
 
         {/*desktop refinements */}
         <ul className='sort-refinements-list'>
@@ -130,11 +132,10 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
                 isDropDownOverflowing={isDropDownOverflowing} 
                 dropdownRefs={dropdownRefs} 
                 handleOptionsDelegation={handleOptionsDelegation}
-                DEFAULT_SORT={DEFAULT_SORT}
             />
 
             {
-            Object.entries(intitalValues).map(([sortCategory, data]) => {
+            Object.entries(initialValues).map(([sortCategory, data]) => {
                 if (!data.length) return;
                 return <FilterButtonDesktop 
                             sortCategory={sortCategory}

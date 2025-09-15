@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Welcome.css";
 import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
-import { StoreContext } from "../../../context/StoreContext";
+import { handleAnimation } from "../../../utils/utils";
 
 function Welcome() {
   const { ref: welcomeTextAreaRef, inView: welcomeTextInView } = useInView({
@@ -13,7 +13,6 @@ function Welcome() {
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className="about-us-welcome-section" aria-labelledby="welcome-heading">

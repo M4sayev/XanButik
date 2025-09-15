@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import './QuestionForm.css'
 import { assets } from '../../../assets/assets'
 import { useInView } from 'react-intersection-observer'
-import {StoreContext} from "../../../context/StoreContext"
 import useForm from '../../../hooks/useForm'
 import { toast } from 'react-toastify'
+import { handleAnimation } from '../../../utils/utils'
 
 function QuestionForm() {
 
@@ -16,7 +16,6 @@ function QuestionForm() {
         threshold: 0.3,
         triggerOnce: true
     });
-    const { handleAnimation } = useContext(StoreContext);
     const formData = {
         firstName: "",
         lastName: "",

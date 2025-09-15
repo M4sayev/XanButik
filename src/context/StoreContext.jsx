@@ -1,23 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { DEFAULT_PRICE_RANGE_MAX, DEFAULT_PRICE_RANGE_MIN, DEFAULT_RESET_FILTER, DEFAULT_SORT } from "../constants/constants";
 
 export const StoreContext = createContext(null); 
-
-const DEFAULT_SORT = "Recommended";
-const DEFAULT_RESET_FILTER = {
-        "size": [],
-        "productType": [],
-        "color": [],
-        "fit": [],
-        "sleeveLength": [],
-        "material": [],
-        "design": [],
-        "season": [],
-        "neckline": [],
-        "style": []
-    };
-const DEFAULT_PRICE_RANGE_MIN = 0;
-const DEFAULT_PRICE_RANGE_MAX = 1500;
 
 function StoreContextProvider(props) {
     const [ showLogin, setShowLogin ] = useState(false);
@@ -47,31 +32,19 @@ function StoreContextProvider(props) {
     useEffect(() => {
         sessionStorage.setItem("menu", currentPage);
     }, [currentPage]);
-
-    function handleAnimation(inView) {
-        return inView ? "animate-in" : "";
-    }
-
-    function calculateDiscountPrice(price, discountPercent) {
-        return price * (1 - (discountPercent || 0) / 100);
-    }
+   
 
     const contextValue = {
         currentPage,
         setCurrentPage,
         showLogin,
         setShowLogin,
-        handleAnimation,
         sortOptions,
         setSortOptions,
-        DEFAULT_SORT,
         filters,
         setFilters,
-        calculateDiscountPrice,
         priceRange,
-        setPriceRange,
-        DEFAULT_PRICE_RANGE_MIN,
-        DEFAULT_PRICE_RANGE_MAX
+        setPriceRange
     };
 
   return (

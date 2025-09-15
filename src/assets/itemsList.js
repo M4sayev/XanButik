@@ -726,9 +726,9 @@ export const itemsList = [
         price: 45,
         discountPercent: 20,
         img: [
-[            designs_dark_gray_jeans_one,]
-[            designs_dark_gray_jeans_two
-        ]],
+            designs_dark_gray_jeans_one,
+            designs_dark_gray_jeans_two,
+        ],
         category: "Jeans",
         description: "coming soon...",
         productType: ["Outerwear"],

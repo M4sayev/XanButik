@@ -1,17 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './TestimonialsHeader.css'
 import Button from '../../Button/Button'
 import { Link } from 'react-router-dom'
 import { ourResults } from '../../../assets/assets'
 import { useInView } from 'react-intersection-observer'
-import { StoreContext } from '../../../context/StoreContext'
+import { handleAnimation } from '../../../utils/utils'
 
 function TestimonialsHeader() {
   const {ref: testHeaderRef, inView: testHeaderInView} = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
   return (
     <header 
       ref={testHeaderRef} 
@@ -30,16 +29,17 @@ function TestimonialsHeader() {
                 ourResults.map((item, index) => {
                   const {ref: resultRef, inView: resultInView} = useInView({
                   })
+                  const {achievement, result} = item;
                   return (
                     <article 
                       ref={resultRef} 
                       key={index} 
                       className={`result-widget ${handleAnimation(resultInView)}`}
                       role="listitem"
-                      aria-label={`Achievement: ${item.achievement}, Result: ${item.result}`}
+                      aria-label={`Achievement: ${achievement}, Result: ${result}`}
                     >
-                      <h1 className="result-widget-heading std-heading">{item.achievement}</h1>
-                      <p className="result-widget-name">{item.result}</p>
+                      <h1 className="result-widget-heading std-heading">{achievement}</h1>
+                      <p className="result-widget-name">{result}</p>
                     </article>
                   );
                 })

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./FeaturedItems.css";
 import { favoriteItems } from "../../../assets/assets.js";
 import { useInView } from 'react-intersection-observer';
@@ -6,10 +6,10 @@ import Button from '../../Button/Button.jsx';
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../../context/StoreContext.jsx';
 import FeaturedItem from './FeaturedItem.jsx';
+import { handleAnimation } from '../../../utils/utils.js';
 
 function FeaturedItems() {
-  const {handleAnimation} = useContext(StoreContext);
-  
+
   const {ref: titleRef, inView: titleInView} = useInView({
     threshold: 0.2,
     triggerOnce: true

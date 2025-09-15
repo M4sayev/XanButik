@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './TestimonialsOurClients.css';
 import { ourBrandCompanies } from '../../../assets/assets';
 import { useInView } from 'react-intersection-observer';
-import { StoreContext } from '../../../context/StoreContext';
+import { handleAnimation } from '../../../utils/utils';
 
 function TestimonialsOurClients() {
     const {ref: tOurClientsTextRef, inView: tOurClientsTexInView} = useInView();
-    const { handleAnimation } = useContext(StoreContext);
   return (
     <section className="testimonials-our-clients" aria-labelledby='our-clients-heading' role='region'>
         <div className="t-our-client-contents"> 

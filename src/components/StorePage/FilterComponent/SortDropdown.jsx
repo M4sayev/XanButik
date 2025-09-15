@@ -1,6 +1,7 @@
 import React from 'react'
+import { DEFAULT_SORT } from '../../../constants/constants'
 
-function SortDropdown({ sortOptions, openDropdown, toggleDropDown, isDropDownOverflowing, dropdownRefs, handleOptionsDelegation, DEFAULT_SORT }) {
+function SortDropdown({ sortOptions, openDropdown, toggleDropDown, isDropDownOverflowing, dropdownRefs, handleOptionsDelegation }) {
   return (
     <li className={`refinement-list-element ${sortOptions !== DEFAULT_SORT ? "refinement-head-btn--selected" : ""}`}>
         <div className={`refinement-dropdown-container ${openDropdown === "Sort" ? "rl-dropdown--active" : ""}`}>

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import ReactRangeSliderInput from 'react-range-slider-input'
 import 'react-range-slider-input/dist/style.css';
+import { DEFAULT_PRICE_RANGE_MAX, DEFAULT_PRICE_RANGE_MIN } from '../../../constants/constants';
 import { StoreContext } from '../../../context/StoreContext';
 
 function PriceRangeDropdown({toggleDropDown, isDropDownOverflowing, openDropdown, dropdownRefs }) {
-    const { priceRange, setPriceRange, DEFAULT_PRICE_RANGE_MAX, DEFAULT_PRICE_RANGE_MIN } = useContext(StoreContext);
+    const {priceRange, setPriceRange} = useContext(StoreContext);
   return (
     <li 
         className={`refinement-list-element 

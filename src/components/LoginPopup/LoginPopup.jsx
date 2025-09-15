@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./LoginPopup.css";
 import { IoClose } from "react-icons/io5";
 import { BiShow, BiHide } from "react-icons/bi";

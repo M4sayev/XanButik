@@ -1,8 +1,9 @@
 import React, { useEffect, useId, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { useInView } from "react-intersection-observer";
+import { handleAnimation } from "../../../utils/utils";
 
-function QuestionItem({ question, ans, isFiltered, handleAnimation, handleArrows, index}) {
+function QuestionItem({ question, ans, isFiltered, handleArrows, index}) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { ref: accordionItemRef, inView: accordionItemInView } = useInView();
   const id = useId();

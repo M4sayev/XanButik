@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./OurResultsBanner.css";
 import { useInView } from "react-intersection-observer";
 import { ourResults } from "../../../assets/assets";
-import { StoreContext } from "../../../context/StoreContext";
+import { handleAnimation } from "../../../utils/utils";
 
 function OurResultsBanner() {
 
@@ -10,7 +10,6 @@ function OurResultsBanner() {
     threshold: 0.2,
     triggerOnce: true
   });
-  const {handleAnimation} = useContext(StoreContext);
   
   return (
     <section 
@@ -29,14 +28,15 @@ function OurResultsBanner() {
           >
             {
               ourResults.map((item, index) => {
+                const {achievement, result}  = item;
                 return (
                   <article 
                     key={index} 
                     role="listitem"
-                    aria-label={`Achievement: ${item.achievement}, Result: ${item.result}`}
+                    aria-label={`Achievement: ${achievement}, Result: ${result}`}
                   >
-                    <h2>{item.achievement}</h2>
-                    <p>{item.result}</p>
+                    <h2>{achievement}</h2>
+                    <p>{result}</p>
                   </article> 
                 )
               })

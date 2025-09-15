@@ -7,8 +7,8 @@ import {itemsList} from '../../assets/itemsList.js';
 import Pagination from '../../components/StorePage/Pagination/Pagination.jsx'
 import CategoryButtons from '../../components/StorePage/CategoryButtons/CategoryButtons.jsx'
 import { StoreContext } from '../../context/StoreContext.jsx'
-
-const ITEMS_PER_PAGE = 8;
+import { calculateDiscountPrice } from '../../utils/utils.js'
+import { ITEMS_PER_PAGE } from '../../constants/constants.js'
 
 function Store() {
   const [ searchQuery, setSearchQuery ] = useState("");
@@ -17,7 +17,7 @@ function Store() {
   const [ currentCategory, setCurrentCategory ] = useState("All");
   const [ products, setProducts ] = useState(itemsList);
 
-  const {sortOptions, filters, calculateDiscountPrice, priceRange} = useContext(StoreContext);
+  const {sortOptions, filters, priceRange} = useContext(StoreContext);
 
   // Create categoryMap
   const categoryMap = useMemo(() => {
@@ -160,7 +160,7 @@ function Store() {
       >
         <div className='no-results-text'>
           <h1>No Results</h1>
-          <p>We couldn't find anything matching "<strong>{searchQuery}</strong>"</p>
+          <p>We couldn't find anything matching <strong>{searchQuery !== "" ? `"${searchQuery}"` : 'this selection'}</strong></p>
         </div>
       </section>
       : 

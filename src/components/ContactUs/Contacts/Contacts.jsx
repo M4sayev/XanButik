@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./Contacts.css";
 import { useInView } from 'react-intersection-observer';
-import {StoreContext} from "../../../context/StoreContext";
+import { handleAnimation } from '../../../utils/utils';
 
 const workingHours = {
   Monday: ['09:00', '19:30'],
@@ -17,7 +17,6 @@ const workingHours = {
 function Contacts() {
     const {ref: contactRef, inView: contactInView} = useInView();
     const {ref: WhRef, inView: WhInView} = useInView();
-    const {handleAnimation} = useContext(StoreContext);
 
   return (
     <section className="contacts-section"  aria-labelledby="contacts-heading">

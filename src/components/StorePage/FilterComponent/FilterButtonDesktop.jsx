@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImCheckmark } from 'react-icons/im';
 import FilterButtonDesktopOption from './FilterButtonDesktopOption';
+import { camelCaseToLabel } from '../../../utils/utils';
 
 function FilterButtonDesktop({ 
     sortCategory, 
@@ -14,12 +15,6 @@ function FilterButtonDesktop({
     selectFilterOption,
     data
     }) {
-
-    function camelCaseToLabel(str) {
-        return str
-        .replace(/([A-Z])/g, " $1")     // insert space before capital letters
-        .replace(/^./, s => s.toUpperCase()); // capitalize first letter
-    }
 
   return (
         <li 
