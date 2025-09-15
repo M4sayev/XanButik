@@ -271,6 +271,36 @@
     cursor: pointer;
 }
 
+.mr-secondary-filter-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.mr-secondary-filter-btn.selected {
+    font-weight: var(--fw-bold);
+}
+[data-option="color"].mr-secondary-filter-btn p {
+    padding-left: calc(30px + var(--spacing-md));
+}
+[data-option="color"].mr-secondary-filter-btn {
+    position: relative;
+}
+[data-option="color"].mr-secondary-filter-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--menu-before-clr);
+}
+
+.mobile.range-slider-dropdown-container {
+    width: 100%;
+    height: 120px;
+}
+
 /* desktop styles */
 
 .sort-refinements-list {
@@ -331,7 +361,6 @@
 }
 
 /* sort/filter dropdown desktop */
-
 
 /* special sort button */
 .refinement-dropdown-container {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { DEFAULT_SORT } from '../../../constants/constants'
+import { DEFAULT_SORT } from '../../../../constants/constants'
 
 function SortDropdown({ sortOptions, openDropdown, toggleDropDown, isDropDownOverflowing, dropdownRefs, handleOptionsDelegation }) {
   return (

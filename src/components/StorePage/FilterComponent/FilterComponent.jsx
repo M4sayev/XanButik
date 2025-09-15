@@ -2,17 +2,17 @@ import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 
 import "./FilterComponent.css"
 
 import { filterConfig } from '../../../assets/filterConfig'
-import SortDropdown from './SortDropdown'
-import PriceRangeDropdown from './PriceRangeDropdown'
-import SortFilterMobile from './SortFilterMobile'
-import FilterButtonDesktop from './FilterButtonDesktop';
+import SortDropdown from './Desktop/SortDropdown'
+import PriceRangeDropdown from './Desktop/PriceRangeDropdown'
+import SortFilterMobile from './Mobile/SortFilterMobile'
+import FilterButtonDesktop from './Desktop/FilterButtonDesktop';
 
 import { StoreContext } from "../../../context/StoreContext";
 
 function FilterComponent({ currentCategory, setCurrentPage }) {
     const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
-    const { sortOptions, setSortOptions, DEFAULT_SORT, filters, setFilters } = useContext(StoreContext);
+    const { sortOptions, setSortOptions, filters, setFilters } = useContext(StoreContext);
     const dropdownRefs = useRef({});
 
     
