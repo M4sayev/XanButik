@@ -17,6 +17,7 @@ function PriceRangeSliderMobile({
         step={1}
         value={secondaryPriceRange}
         onInput={setSecondaryPriceRange}
+        aria-labelledby="price-range-labels"
       />
     </div>
   );

@@ -1,44 +1,51 @@
 import { useEffect } from "react";
 
-export function useFocusTrap(containerRef, active = true, initialFocusRef = null) {
-    useEffect(() => {
-        if (!active || !containerRef.current) return;
+export function useFocusTrap(
+  containerRef,
+  active = true,
+  initialFocusRef = null
+) {
+  useEffect(() => {
+    if (!active || !containerRef.current) return;
 
-        const focusableSelectors = [
-            'a[href]',
-            'button:not([disabled])',
-            'input:not([disabled])',
-            'select:not([disabled])',
-            'textarea:not([disabled])',
-            '[tabindex]:not([tabindex="-1"])',
-        ];
+    const focusableSelectors = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      '[tabindex]:not([tabindex="-1"])',
+    ];
 
-        const focusableElements = containerRef.current.querySelectorAll(focusableSelectors.join(","));
-        const firstEl = initialFocusRef?.current || focusableElements[0];
-        const lastEl = focusableElements[focusableElements.length - 1];
+    const focusableElements = containerRef.current.querySelectorAll(
+      focusableSelectors.join(",")
+    );
+    const firstEl = initialFocusRef?.current || focusableElements[0];
+    const lastEl = focusableElements[focusableElements.length - 1];
 
-        firstEl?.focus();
+    console.log({ firstEl, lastEl });
 
-        function handleKeyDown(e) {
-            if(e.key !== "Tab") return;
+    firstEl?.focus();
 
-            const activeEl = document.activeElement;
+    function handleKeyDown(e) {
+      if (e.key !== "Tab") return;
 
-            if(e.shiftKey) {
-                if (activeEl === firstEl) {
-                    e.preventDefault();
-                    lastEl?.focus();
-                }
-            } else {
-                if (activeEl === lastEl) {
-                    e.preventDefault();
-                    firstEl?.focus();
-                }
-            }
+      const activeEl = document.activeElement;
+
+      if (e.shiftKey) {
+        if (activeEl === firstEl) {
+          e.preventDefault();
+          lastEl?.focus();
         }
-        document.addEventListener("keydown", handleKeyDown);
+      } else {
+        if (activeEl === lastEl) {
+          e.preventDefault();
+          firstEl?.focus();
+        }
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
 
-
-        return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [containerRef, active, initialFocusRef])
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [containerRef, active, initialFocusRef]);
 }

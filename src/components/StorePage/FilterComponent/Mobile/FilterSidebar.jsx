@@ -1,6 +1,8 @@
 import { IoMdClose } from "react-icons/io";
 import FilterSecondaryMenu from "./FilterSecondaryMenu";
 import FilterMainMenu from "./FilterMainMenu";
+import { useFocusTrap } from "../../../../hooks/useTrapFocus";
+import { useEffect, useRef } from "react";
 
 function FilterSidebar({
   sideFilterMenuOpen,
@@ -20,16 +22,43 @@ function FilterSidebar({
   initialValues,
   secondaryFilters,
 }) {
+  const mainMenuRef = useRef(null);
+  const secondaryMenuRef = useRef(null);
+  const firstEl = useRef(null);
+  useFocusTrap(
+    isSecondaryNav ? secondaryMenuRef : mainMenuRef,
+    sideFilterMenuOpen,
+    firstEl
+  );
+
+  useEffect(() => {
+    const logFocus = () => {
+      console.log("Focused element:", document.activeElement);
+    };
+
+    document.addEventListener("focusin", logFocus);
+
+    return () => {
+      document.removeEventListener("focusin", logFocus);
+    };
+  }, []);
+
   return (
     <aside
       role="dialog"
       className={`mr-menu-container ${
         sideFilterMenuOpen ? "mr-menu-container--active" : ""
       }`}
+      aria-hidden={!sideFilterMenuOpen}
+      inert={sideFilterMenuOpen ? undefined : ""}
+      aria-labelledby="filter-sidebar-label"
+      aria-modal="true"
     >
       <button
         className="close-mr-btn"
+        aria-label="Close filter menu"
         onClick={() => setSideFilterMenuOpen(false)}
+        ref={firstEl}
       >
         <IoMdClose
           aria-hidden="true"
@@ -40,6 +69,10 @@ function FilterSidebar({
         />
       </button>
 
+      <h2 id="filter-sidebar-label" className="visually-hidden">
+        Filter Menu
+      </h2>
+
       <div className="menus-container">
         <FilterMainMenu
           handleClearAll={handleClearAll}
@@ -49,6 +82,8 @@ function FilterSidebar({
           initialValues={initialValues}
           secondaryFilters={secondaryFilters}
           secondaryPriceRange={secondaryPriceRange}
+          isSecondaryNav={isSecondaryNav}
+          mainMenuRef={mainMenuRef}
         />
         <FilterSecondaryMenu
           isSecondaryNav={isSecondaryNav}
@@ -61,6 +96,9 @@ function FilterSidebar({
           setSecondaryPriceRange={setSecondaryPriceRange}
           handleSelectSecendorayOption={handleSelectSecendorayOption}
           handleOptionsSelected={handleOptionsSelected}
+          secondaryFilters={secondaryFilters}
+          initialValues={initialValues}
+          secondaryMenuRef={secondaryMenuRef}
         />
       </div>
     </aside>

@@ -1,62 +1,75 @@
-import React, { useContext } from 'react'
-import ReactRangeSliderInput from 'react-range-slider-input'
-import 'react-range-slider-input/dist/style.css';
-import { DEFAULT_PRICE_RANGE_MAX, DEFAULT_PRICE_RANGE_MIN } from '../../../../constants/constants';
-import { StoreContext } from '../../../../context/StoreContext';
+import React, { useContext } from "react";
+import ReactRangeSliderInput from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
+import {
+  DEFAULT_PRICE_RANGE_MAX,
+  DEFAULT_PRICE_RANGE_MIN,
+} from "../../../../constants/constants";
+import { StoreContext } from "../../../../context/StoreContext";
 
-function PriceRangeDropdown({toggleDropDown, isDropDownOverflowing, openDropdown, dropdownRefs }) {
-    const {priceRange, setPriceRange} = useContext(StoreContext);
+function PriceRangeDropdown({
+  toggleDropDown,
+  isDropDownOverflowing,
+  openDropdown,
+  dropdownRefs,
+}) {
+  const { priceRange, setPriceRange } = useContext(StoreContext);
   return (
-    <li 
-        className={`refinement-list-element 
-            ${(priceRange[0] !== DEFAULT_PRICE_RANGE_MIN ||
-                priceRange[1] !== DEFAULT_PRICE_RANGE_MAX) 
-                ? "refinement-head-btn--selected" : ""
+    <li
+      className={`refinement-list-element 
+            ${
+              priceRange[0] !== DEFAULT_PRICE_RANGE_MIN ||
+              priceRange[1] !== DEFAULT_PRICE_RANGE_MAX
+                ? "refinement-head-btn--selected"
+                : ""
             }
             `}
     >
-        <div className={`refinement-dropdown-container price-range ${openDropdown === "Price Range" ? "rl-dropdown--active" : ""}`}>
-            <button 
-                className='refinement-head-btn' 
-                onClick={() => toggleDropDown("Price Range")}
-            >
-                <span>Price Range</span>
-            </button>
-            <div 
-                className={`rl-dropdown ${isDropDownOverflowing ? "dropdown-left" : ""}`}
-                ref={(el) => { dropdownRefs.current["Price Range"] = el }}
-            >
-                <header className='rl-dropdown-header'>
-                    <p>Price Range Selected </p>
-                    <p className='rl-dropdown-header-preview'>
-                        ${priceRange[0]} - ${priceRange[1]}
-                    </p>
-                </header>
-                <div className='range-slider-dropdown'>
-                    <div className='range-slider-dropdown-container'>
-                        <div className='thumb-label-container'>
-                            <div className="thumb-label-left-label">
-                                ${priceRange[0]}
-                            </div>
-                            <div className="thumb-label-right-label">
-                                ${priceRange[1]}
-                            </div>
-                        </div>
-                        <ReactRangeSliderInput 
-                            id="price-range-slider"
-                            min={0}
-                            max={1500}
-                            step={1}
-                            value={priceRange}
-                            onInput={setPriceRange}
-                        />
-
-                    </div>
-                </div>
+      <div
+        className={`refinement-dropdown-container price-range ${
+          openDropdown === "Price Range" ? "rl-dropdown--active" : ""
+        }`}
+      >
+        <button
+          className="refinement-head-btn"
+          onClick={() => toggleDropDown("Price Range")}
+        >
+          <span>Price Range</span>
+        </button>
+        <div
+          className={`rl-dropdown ${
+            isDropDownOverflowing ? "dropdown-left" : ""
+          }`}
+          ref={(el) => {
+            dropdownRefs.current["Price Range"] = el;
+          }}
+        >
+          <header className="rl-dropdown-header">
+            <p>Price Range Selected </p>
+            <p className="rl-dropdown-header-preview">
+              ${priceRange[0]} - ${priceRange[1]}
+            </p>
+          </header>
+          <div className="range-slider-dropdown">
+            <div className="range-slider-dropdown-container">
+              <div className="thumb-label-container">
+                <div className="thumb-label-left-label">${priceRange[0]}</div>
+                <div className="thumb-label-right-label">${priceRange[1]}</div>
+              </div>
+              <ReactRangeSliderInput
+                id="price-range-slider"
+                min={0}
+                max={1500}
+                step={1}
+                value={priceRange}
+                onInput={setPriceRange}
+              />
             </div>
+          </div>
         </div>
+      </div>
     </li>
-  )
+  );
 }
 
-export default PriceRangeDropdown
+export default PriceRangeDropdown;

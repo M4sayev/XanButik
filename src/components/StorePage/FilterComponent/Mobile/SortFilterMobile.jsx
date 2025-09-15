@@ -79,7 +79,10 @@ function SortFilterMobile({ initialValues }) {
           sortOptions={sortOptions}
           setSortOptions={setSortOptions}
         />
-        <MobileFilterButton setSideFilterMenuOpen={setSideFilterMenuOpen} />
+        <MobileFilterButton
+          setSideFilterMenuOpen={setSideFilterMenuOpen}
+          sideFilterMenuOpen={sideFilterMenuOpen}
+        />
       </div>
       <FilterSidebar
         sideFilterMenuOpen={sideFilterMenuOpen}

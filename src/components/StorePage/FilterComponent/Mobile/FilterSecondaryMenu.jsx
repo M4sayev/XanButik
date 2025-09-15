@@ -13,19 +13,27 @@ function FilterSecondaryMenu({
   setSecondaryPriceRange,
   handleSelectSecendorayOption,
   handleOptionsSelected,
+  secondaryFilters,
+  initialValues,
+  secondaryMenuRef,
 }) {
   return (
-    <div
+    <nav
       className={`mr-menu secondary-sort-menu ${
         isSecondaryNav ? "secondary--active" : ""
       }`}
+      ref={secondaryMenuRef}
+      aria-label="Filter secondary menu"
     >
       <header className="mr-header">
         <button
           className="mr-header-go-back"
           onClick={() => setIsSecondaryNav(false)}
+          aria-label={`Go back from ${camelCaseToLabel(currentFilter)} filter`}
         >
           <FaArrowLeftLong
+            aria-hidden="true"
+            focusable="false"
             style={{
               height: "25px",
               width: "20px",
@@ -40,8 +48,11 @@ function FilterSecondaryMenu({
           <button
             className="mr-all-btn"
             onClick={() => handleSelectAllBtn(currentFilter)}
+            aria-pressed="true"
           >
             <GiCheckMark
+              aria-hidden="true"
+              focusable="false"
               style={{
                 height: "12px",
                 paddingBottom: "3px",
@@ -53,6 +64,7 @@ function FilterSecondaryMenu({
           <button
             className="mr-all-btn"
             onClick={() => handleClearAllPerFilter(currentFilter)}
+            aria-pressed="false"
           >
             clear
           </button>
@@ -78,6 +90,7 @@ function FilterSecondaryMenu({
                 }`}
                 onClick={() => handleSelectSecendorayOption(option)}
                 data-option={currentFilter}
+                aria-pressed={isSelected}
                 style={
                   currentFilter === "color"
                     ? {
@@ -103,7 +116,7 @@ function FilterSecondaryMenu({
           view items
         </button>
       </footer>
-    </div>
+    </nav>
   );
 }
 
