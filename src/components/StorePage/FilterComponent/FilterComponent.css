@@ -138,7 +138,7 @@
   transition: transform 300ms ease-in-out;
 }
 .close-mr-btn:hover svg,
-.close-mr-btn:focus svg {
+.close-mr-btn:focus-visible svg {
   transform: rotate(360deg);
 }
 
