@@ -16,6 +16,10 @@ function PriceRangeDropdown({
   const { priceRange, setPriceRange } = useContext(StoreContext);
   return (
     <li
+      aria-current={openDropdown === "priceRange"}
+      aria-haspopup="dialog"
+      aria-expanded={openDropdown === "priceRange"}
+      aria-controls="price-range-dropdown"
       className={`refinement-list-element 
             ${
               priceRange[0] !== DEFAULT_PRICE_RANGE_MIN ||
@@ -27,12 +31,12 @@ function PriceRangeDropdown({
     >
       <div
         className={`refinement-dropdown-container price-range ${
-          openDropdown === "Price Range" ? "rl-dropdown--active" : ""
+          openDropdown === "priceRange" ? "rl-dropdown--active" : ""
         }`}
       >
         <button
           className="refinement-head-btn"
-          onClick={() => toggleDropDown("Price Range")}
+          onClick={() => toggleDropDown("priceRange")}
         >
           <span>Price Range</span>
         </button>
@@ -41,12 +45,15 @@ function PriceRangeDropdown({
             isDropDownOverflowing ? "dropdown-left" : ""
           }`}
           ref={(el) => {
-            dropdownRefs.current["Price Range"] = el;
+            dropdownRefs.current["priceRange"] = el;
           }}
+          id="price-range-dropdown"
+          role="region"
+          aria-labelledby="price-range-label"
         >
           <header className="rl-dropdown-header">
-            <p>Price Range Selected </p>
-            <p className="rl-dropdown-header-preview">
+            <p id="price-range-label">Price Range Selected </p>
+            <p className="rl-dropdown-header-preview" aria-live="polite">
               ${priceRange[0]} - ${priceRange[1]}
             </p>
           </header>
@@ -63,6 +70,7 @@ function PriceRangeDropdown({
                 step={1}
                 value={priceRange}
                 onInput={setPriceRange}
+                aria-labelledby="price-range-label"
               />
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GiCheckMark } from "react-icons/gi";
 import { COLOR_MAP } from "../../../../constants/constants";
+import PriceRangeSliderMobile from "./PriceRangeSliderMobile.jsx";
 
 function FilterSecondaryMenu({
   isSecondaryNav,

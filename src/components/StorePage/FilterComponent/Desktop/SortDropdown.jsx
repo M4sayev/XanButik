@@ -11,18 +11,22 @@ function SortDropdown({
 }) {
   return (
     <li
+      aria-current={openDropdown === "sort"}
       className={`refinement-list-element ${
         sortOptions !== DEFAULT_SORT ? "refinement-head-btn--selected" : ""
       }`}
     >
       <div
         className={`refinement-dropdown-container ${
-          openDropdown === "Sort" ? "rl-dropdown--active" : ""
+          openDropdown === "sort" ? "rl-dropdown--active" : ""
         }`}
       >
         <button
           className="refinement-head-btn"
-          onClick={() => toggleDropDown("Sort")}
+          onClick={() => toggleDropDown("sort")}
+          aria-haspopup="listbox"
+          aria-expanded={openDropdown === "sort"}
+          aria-controls="sort-dropdown"
         >
           <span>Sort</span>
         </button>
@@ -31,9 +35,15 @@ function SortDropdown({
             isDropDownOverflowing ? "dropdown-left" : ""
           }`}
           ref={(el) => {
-            dropdownRefs.current["Sort"] = el;
+            dropdownRefs.current["sort"] = el;
           }}
+          id="sort-dropdown"
+          role="listbox"
+          aria-labelledby="sort-label"
         >
+          <h2 id="sort-label" className="visually-hidden">
+            Sort Options
+          </h2>
           <ul
             className="rl-dropdown-sort-options-list"
             onClick={handleOptionsDelegation}
@@ -46,6 +56,8 @@ function SortDropdown({
             ].map((option, index) => {
               return (
                 <li
+                  role="option"
+                  aria-selected={sortOptions === option}
                   className={`rl-dropdown-sort-option ${
                     sortOptions === option
                       ? "rl-dropdown-sort-option--selected"
@@ -54,7 +66,7 @@ function SortDropdown({
                   data-option={option}
                   key={index}
                 >
-                  {option}
+                  <button>{option}</button>
                 </li>
               );
             })}

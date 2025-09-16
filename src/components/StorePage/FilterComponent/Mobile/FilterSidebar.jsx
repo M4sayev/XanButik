@@ -31,18 +31,6 @@ function FilterSidebar({
     firstEl
   );
 
-  useEffect(() => {
-    const logFocus = () => {
-      console.log("Focused element:", document.activeElement);
-    };
-
-    document.addEventListener("focusin", logFocus);
-
-    return () => {
-      document.removeEventListener("focusin", logFocus);
-    };
-  }, []);
-
   return (
     <aside
       role="dialog"

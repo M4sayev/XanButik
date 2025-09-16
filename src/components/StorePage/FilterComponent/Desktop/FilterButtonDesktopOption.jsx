@@ -12,15 +12,20 @@ function FilterButtonDesktopOption({
       className={`rl-dropdown-sort-option ${
         isSelected ? "rl-dropdown-sort-option--selected" : ""
       }`}
-      data-option={option}
-      style={
-        sortCategory === "color"
-          ? { "--before-color": COLOR_MAP[option] || "transparent" }
-          : {}
-      }
-      onClick={() => selectFilterOption(sortCategory, option)}
+      role="option"
+      aria-selected={isSelected}
     >
-      {option}
+      <button
+        data-option={option}
+        style={
+          sortCategory === "color"
+            ? { "--before-color": COLOR_MAP[option] || "transparent" }
+            : {}
+        }
+        onClick={() => selectFilterOption(sortCategory, option)}
+      >
+        {option}
+      </button>
     </li>
   );
 }

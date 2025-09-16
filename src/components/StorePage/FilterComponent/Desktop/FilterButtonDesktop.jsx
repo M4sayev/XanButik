@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ImCheckmark } from "react-icons/im";
 import FilterButtonDesktopOption from "./FilterButtonDesktopOption";
 import { camelCaseToLabel } from "../../../../utils/utils";
+import { useFocusTrap } from "../../../../hooks/useTrapFocus";
 
 function FilterButtonDesktop({
   sortCategory,
@@ -21,6 +22,7 @@ function FilterButtonDesktop({
         filters[sortCategory].length ? "refinement-head-btn--selected" : ""
       }`}
       data-type={sortCategory}
+      aria-current={sortCategory === openDropdown}
     >
       <div
         className={`refinement-dropdown-container ${
@@ -30,13 +32,20 @@ function FilterButtonDesktop({
         <button
           className="refinement-head-btn"
           onClick={() => toggleDropDown(sortCategory)}
+          aria-haspopup="listbox"
+          aria-expanded={openDropdown === sortCategory}
+          aria-controls={`${sortCategory}-dropdown`}
         >
           <span>{camelCaseToLabel(sortCategory)}</span>
         </button>
         <div
+          id={`${sortCategory}-dropdown`}
+          role="listbox"
+          aria-multiselectable="true"
           className={`rl-dropdown ${
             isDropDownOverflowing ? "dropdown-left" : ""
-          }`}
+          }
+          `}
           ref={(el) => {
             dropdownRefs.current[sortCategory] = el;
           }}
@@ -52,6 +61,9 @@ function FilterButtonDesktop({
               <button
                 className="std-button rl-dropdown-header-btn"
                 onClick={() => handleSelectAllFilterOptions(sortCategory)}
+                aria-label={`Select all ${camelCaseToLabel(
+                  sortCategory
+                )} options`}
               >
                 <ImCheckmark style={{ height: "10px" }} />
                 ALL
@@ -60,6 +72,9 @@ function FilterButtonDesktop({
               <button
                 className="std-button rl-dropdown-header-btn"
                 onClick={() => handleClearFilterOptions(sortCategory)}
+                aria-label={`Clear selected ${camelCaseToLabel(
+                  sortCategory
+                )} options`}
               >
                 CLEAR
               </button>
