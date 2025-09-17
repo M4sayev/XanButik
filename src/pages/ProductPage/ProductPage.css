@@ -1,3 +1,9 @@
+.pp-contents {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
 .pp-info-container {
   padding: var(--spacing-md) var(--spacing-sm);
   margin: var(--spacing-md);
@@ -16,9 +22,111 @@
 
 /* desktop images */
 
+.pp-image-gallery {
+  padding-left: var(--spacing-md);
+  padding-top: var(--spacing-md);
+}
+.main-image img {
+  aspect-ratio: 1;
+  max-width: 500px;
+  width: 100%;
+}
+.gallery-thumbs {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-sm);
+  gap: var(--spacing-md);
+}
+.gallery-thumb {
+  background-color: transparent;
+  border: none;
+  aspect-ratio: 1;
+  cursor: pointer;
+
+  transition: all var(--std-transition);
+}
+.gallery-thumb img {
+  width: 80px;
+  height: 80px;
+  opacity: 0.7;
+  transition: opacity var(--std-transition);
+}
+.gallery-thumb:hover img,
+.gallery-thumb:focus img {
+  opacity: 1;
+}
+
+.gallery-thumb--active {
+  border: 2px solid var(--clr-primary-900);
+  opacity: 1;
+}
+
+.pp-image-gallery {
+  display: none;
+}
 /* change mobile img display to desktop */
+
 @media screen and (min-width: 554px) {
+  .pp-contents {
+    align-items: center;
+    max-width: 535px;
+  }
+  .pp-image-gallery {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-left: 0;
+  }
+  .gallery-thumbs {
+    flex-direction: column;
+    flex-shrink: 0;
+    position: absolute;
+    left: var(--spacing-md);
+    top: var(--spacing-md);
+  }
+  .gallery-thumb img {
+    width: 100px;
+    height: 100px;
+  }
   .imgs-swiper-wrapper {
     display: none;
+  }
+}
+@media screen and (min-width: 777px) {
+  .pp-contents {
+    flex-direction: row;
+    max-width: var(--cnts-mx-width);
+    align-items: start;
+  }
+  .pp-image-gallery {
+    padding-left: var(--spacing-md);
+    flex-direction: column;
+    align-items: start;
+  }
+  .gallery-thumbs {
+    position: static;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 999px) {
+  .pp-contents {
+    flex-direction: row;
+    align-items: start;
+  }
+  .pp-details {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .pp-info-container {
+    border: none;
+  }
+  .pp-image-gallery {
+    padding-top: var(--spacing-md);
+    align-items: center;
   }
 }

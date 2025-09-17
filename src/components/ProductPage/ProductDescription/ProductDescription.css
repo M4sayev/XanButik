@@ -18,15 +18,28 @@
 }
 
 /* handle read more/show less  */
-.expanded .pp-description {
+.collapsed .pp-description {
   max-height: 3em;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.collapsed .pp-description {
+.expanded .pp-description {
   max-height: 10em;
   -webkit-line-clamp: unset;
   line-clamp: unset;
+}
+
+@media screen and (min-width: 999px) {
+  /* always show the description on desktop size */
+  .pp-description-heading,
+  .pp-read-more-btn {
+    display: none;
+  }
+  .collapsed .pp-description {
+    max-height: 10em;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
 }

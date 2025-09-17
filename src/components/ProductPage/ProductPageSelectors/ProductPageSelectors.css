@@ -22,7 +22,6 @@
 
 .pp-size-btn--active {
   background-color: var(--clr-primary-900);
-  opacity: 0.7;
   color: var(--clr-neutral-100);
 }
 
@@ -40,4 +39,15 @@
 
 .pp-color-btn--active {
   box-shadow: 0 0 0 1px var(--clr-neutral-100), 0 0 0 3px var(--clr-primary-900);
+}
+
+@media screen and (min-width: 999px) {
+  .pp-size-btn {
+    border-radius: 0.2rem;
+    min-width: 3rem;
+  }
+  .pp-color-btn {
+    width: 35px;
+    height: 35px;
+  }
 }
