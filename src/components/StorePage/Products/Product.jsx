@@ -4,6 +4,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiHeart } from "react-icons/ci";
 import { calculateDiscountPrice } from "../../../utils/utils";
 import { StoreContext } from "../../../context/StoreContext";
+import ProductPrice from "./ProductPrice";
 
 function Product({
   id,
@@ -97,24 +98,7 @@ function Product({
           <p className="str-product-name">
             {getHighlightedText(name, searchQuery)}
           </p>
-          {discountPercent === 0 ? (
-            <span className="str-product-price">{price.toFixed(2)}$</span>
-          ) : (
-            <div className="str-discount-price-container">
-              <span
-                className="str-product-price"
-                style={{ textDecoration: "line-through" }}
-              >
-                {price.toFixed(2)}$
-              </span>
-              <span
-                className="str-product-price"
-                style={{ color: "var(--clr-validation-err)" }}
-              >
-                {calculateDiscountPrice(price, discountPercent).toFixed(2)}$
-              </span>
-            </div>
-          )}
+          <ProductPrice discountPercent={discountPercent} price={price} />
         </div>
         <HiOutlineShoppingBag className="shopping-bag" />
       </div>

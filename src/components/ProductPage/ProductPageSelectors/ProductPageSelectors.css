@@ -1,0 +1,43 @@
+/* size selector */
+.pp-size-selector {
+  margin-bottom: var(--spacing-md);
+}
+.pp-size-btns-container,
+.pp-size-btns-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+.pp-size-btn {
+  min-width: 2.25rem;
+  background-color: transparent;
+  font-family: var(--ff-secondary);
+  border-radius: 1.25rem;
+  padding: var(--spacing-sm);
+
+  border: 1px solid var(--clr-neutral-200);
+  transition: all var(--std-transition);
+  cursor: pointer;
+}
+
+.pp-size-btn--active {
+  background-color: var(--clr-primary-900);
+  opacity: 0.7;
+  color: var(--clr-neutral-100);
+}
+
+/* color selector */
+
+.pp-color-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: all var(--std-transition);
+}
+
+.pp-color-btn--active {
+  box-shadow: 0 0 0 1px var(--clr-neutral-100), 0 0 0 3px var(--clr-primary-900);
+}

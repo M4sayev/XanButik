@@ -8,11 +8,11 @@ function ProductDescription({ description }) {
 
   return (
     <article
-      className={`pp-description-container ${
+      className={`pp-info-container ${
         !isDescCollapsed ? "expanded" : "collapsed"
       }`}
     >
-      <h1 className="pp-desription-heading">description</h1>
+      <h1 className="pp-heading">description</h1>
       <p className="std-paragraph pp-description">{description}</p>
       <button className="pp-read-more-btn" onClick={toggleDesc}>
         {isDescCollapsed ? "Read More" : "Show Less"}

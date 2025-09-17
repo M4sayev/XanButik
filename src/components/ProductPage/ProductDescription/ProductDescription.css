@@ -1,18 +1,3 @@
-.pp-description-container {
-  padding: var(--spacing-md) var(--spacing-sm);
-  margin: var(--spacing-md);
-
-  border: 1px solid var(--clr-neutral-200);
-}
-.pp-desription-heading {
-  /* use clamp later */
-  font-size: var(--fs-450);
-  font-family: var(--ff-secondary);
-  text-transform: capitalize;
-  font-weight: var(--fw-bold);
-
-  margin-bottom: var(--spacing-sm);
-}
 .pp-description {
   overflow: hidden;
   transition: all 300ms ease;

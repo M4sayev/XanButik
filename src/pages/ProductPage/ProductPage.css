@@ -1,3 +1,19 @@
+.pp-info-container {
+  padding: var(--spacing-md) var(--spacing-sm);
+  margin: var(--spacing-md);
+
+  border: 1px solid var(--clr-neutral-200);
+}
+.pp-heading {
+  /* use clamp later */
+  font-size: var(--fs-450);
+  font-family: var(--ff-secondary);
+  text-transform: capitalize;
+  font-weight: var(--fw-bold);
+
+  margin-bottom: var(--spacing-sm);
+}
+
 /* desktop images */
 
 /* change mobile img display to desktop */

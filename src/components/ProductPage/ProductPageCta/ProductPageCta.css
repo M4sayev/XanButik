@@ -1,0 +1,48 @@
+.pp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  gap: var(--spacing-sm);
+
+  border: 1px solid var(--clr-primary-900);
+}
+.pp-btn svg {
+  transition: all var(--std-transition);
+}
+/* reset std focus hover  */
+.pp-btn:hover,
+.pp-btn:focus {
+  transform: scale(1);
+}
+.pp-btn:hover svg,
+.pp-btn:focus svg {
+  color: #90ee90ff;
+}
+.pp-btn[data-type="inverted"]:hover svg,
+.pp-btn[data-type="inverted"]:focus svg {
+  color: #b23939ff;
+}
+.pp-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.pp-btn span {
+  padding-top: 3px;
+  display: inline-block;
+  line-height: 1;
+}
+.reviews-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  font-family: var(--ff-secondary);
+  margin-top: var(--spacing-sm);
+}
+.reviews-container span {
+  padding-top: 3px;
+}
