@@ -3,24 +3,26 @@ import { SIZE_ORDER_MAP } from "../../../constants/constants";
 
 function SizeSelector({ size, handleSelectSize, currentSize }) {
   return (
-    <div className="pp-size-selector">
-      <h1 className="pp-heading">Size</h1>
-      <div className="pp-size-btns-container">
+    <fieldset className="pp-size-selector">
+      <legend className="pp-heading">Size</legend>
+      <div className="pp-size-btns-container" role="group" aria-label="Sizes">
         {size
           .toSorted((a, b) => SIZE_ORDER_MAP[a] - SIZE_ORDER_MAP[b])
           .map((item, index) => (
             <button
+              type="button"
               className={`pp-size-btn ${
                 item === currentSize && "pp-size-btn--active"
               }`}
               key={index}
               onClick={() => handleSelectSize(item)}
+              aria-pressed={(item = currentSize)}
             >
               {item}
             </button>
           ))}
       </div>
-    </div>
+    </fieldset>
   );
 }
 
