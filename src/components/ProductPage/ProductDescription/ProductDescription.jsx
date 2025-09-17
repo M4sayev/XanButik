@@ -14,7 +14,12 @@ function ProductDescription({ description }) {
     >
       <h1 className="pp-heading pp-description-heading">description</h1>
       <p className="std-paragraph pp-description">{description}</p>
-      <button className="pp-read-more-btn" onClick={toggleDesc}>
+      <button
+        className="pp-read-more-btn"
+        onClick={toggleDesc}
+        aria-expanded={!isDescCollapsed}
+        aria-controls="product-description"
+      >
         {isDescCollapsed ? "Read More" : "Show Less"}
       </button>
     </article>
