@@ -21,7 +21,14 @@ function StarRating({ rating, maxRating = 5 }) {
     }
   }
 
-  return <div style={{ display: "inline-flex", gap: "4px" }}>{stars}</div>;
+  return (
+    <div
+      aria-label={`Rated ${rating} out of 5 stars from ${maxRating} reviews`}
+      style={{ display: "inline-flex", gap: "4px" }}
+    >
+      {stars}
+    </div>
+  );
 }
 
 export default StarRating;

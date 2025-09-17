@@ -18,12 +18,12 @@ function ProductPageCta({ name, price, discountPercent }) {
           <span>(128 Reviews)</span>
         </div>
       </div>
-      <button className="std-button pp-btn">
-        <PiShoppingBagLight />
+      <button className="std-button pp-btn" type="button">
+        <PiShoppingBagLight aria-hidden="true" />
         <span>Add to Cart</span>
       </button>
-      <button className="std-button pp-btn" data-type="inverted">
-        <AiOutlineHeart />
+      <button className="std-button pp-btn" data-type="inverted" type="button">
+        <AiOutlineHeart aria-hidden="true" />
         <span>Add to Wishlist</span>
       </button>
     </div>
