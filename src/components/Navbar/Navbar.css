@@ -54,7 +54,7 @@
   width: 0%;
 
   position: absolute;
-  
+
   bottom: 0;
 
   background-color: var(--clr-primary-900);
@@ -66,7 +66,7 @@
 }
 .navbar nav ul li .link:not(.active):hover::before,
 .navbar nav ul li .link:not(.active):focus-visible::before {
-    width: 100%;
+  width: 100%;
 }
 
 /* navbar right side  */
@@ -285,7 +285,6 @@
   opacity: 1;
 }
 
-
 /* side navbar */
 .sidebar-menu {
   position: fixed;
@@ -310,6 +309,9 @@
 }
 
 @media (max-width: 994px) {
+  .navbar {
+    padding-inline: var(--spacing-md);
+  }
   .navbar nav ul {
     padding-left: 2em;
     flex-direction: column;
@@ -355,7 +357,6 @@
     transition: opacity var(--std-transition);
   }
 }
-
 
 @media (max-width: 554px) {
   .sidebar-icon-btns {

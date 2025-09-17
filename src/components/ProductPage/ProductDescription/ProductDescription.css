@@ -1,0 +1,47 @@
+.pp-description-container {
+  padding: var(--spacing-md) var(--spacing-sm);
+  margin: var(--spacing-md);
+
+  border: 1px solid var(--clr-neutral-200);
+}
+.pp-desription-heading {
+  /* use clamp later */
+  font-size: var(--fs-450);
+  font-family: var(--ff-secondary);
+  text-transform: capitalize;
+  font-weight: var(--fw-bold);
+
+  margin-bottom: var(--spacing-sm);
+}
+.pp-description {
+  overflow: hidden;
+  transition: all 300ms ease;
+  position: relative;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+}
+.pp-read-more-btn {
+  background-color: transparent;
+  border: none;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-300);
+
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* handle read more/show less  */
+.expanded .pp-description {
+  max-height: 3em;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.collapsed .pp-description {
+  max-height: 10em;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
