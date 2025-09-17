@@ -1,2 +1,8 @@
-/* mobile slider */
-.imgs-swiper-wrapper/* desktop images */;
+/* desktop images */
+
+/* change mobile img display to desktop */
+@media screen and (min-width: 554px) {
+  .imgs-swiper-wrapper {
+    display: none;
+  }
+}
