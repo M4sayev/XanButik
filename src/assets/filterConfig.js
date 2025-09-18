@@ -1,18 +1,7 @@
-import { SIZE_ORDER_MAP } from "../constants/constants";
+import { excludedKeys, SIZE_ORDER_MAP } from "../constants/constants";
 import { itemsList } from "./itemsList";
 
 function extractFiltersByCategory(itemsList) {
-  const excludedKeys = [
-    "id",
-    "name",
-    "price",
-    "discountPercent",
-    "description",
-    "img",
-    "isNewArrival",
-    "releaseDate",
-    "category",
-  ];
   const filtersByCategory = { All: {} };
 
   itemsList.forEach((item) => {
