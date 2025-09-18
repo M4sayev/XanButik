@@ -42,6 +42,9 @@
 
   font-family: var(--ff-secondary);
   margin-top: var(--spacing-sm);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .reviews-container span {
   padding-top: 3px;

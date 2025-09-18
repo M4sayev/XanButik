@@ -1,0 +1,20 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-sidebar) + 1);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+
+  background-color: rgba(0 0 0 / 0.2);
+}
+
+.modal-content {
+  background-color: var(--clr-neutral-100);
+  max-width: 400px;
+  padding: var(--spacing-md);
+  margin-inline: var(--spacing-md);
+  border-radius: 0.25rem;
+
+  font-family: var(--ff-secondary);
+}

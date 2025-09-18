@@ -1,0 +1,32 @@
+.pr-modal-heading {
+  margin-bottom: var(--spacing-sm);
+  font-size: clamp(var(--fs-450), 4.5vw, var(--fs-500));
+}
+.pr-paragraph-container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  opacity: 0.5;
+}
+.pr-modal-paragraph {
+  font-size: clamp(var(--fs-300), 1.5vw, var(--fs-400));
+}
+.product-review {
+  padding-block: var(--spacing-md);
+  border-bottom: 1px solid var(--clr-accent);
+}
+.product-review:last-child {
+  border: none;
+}
+
+.product-review-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-review-date {
+  opacity: 0.7;
+}
+.product-review-author {
+  font-weight: var(--fw-bold);
+}
