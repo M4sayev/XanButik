@@ -5,6 +5,7 @@ import { CiHeart } from "react-icons/ci";
 import { calculateDiscountPrice } from "../../../utils/utils";
 import { StoreContext } from "../../../context/StoreContext";
 import ProductPrice from "./ProductPrice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Product({
   id,
@@ -16,12 +17,16 @@ function Product({
   index,
   discountPercent,
   searchQuery,
+  size,
+  color,
 }) {
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const { setCurrentProduct } = useContext(StoreContext);
+  const { currentProduct, setCurrentProduct, setCurrentPage } =
+    useContext(StoreContext);
+  const navigate = useNavigate();
 
   function handleMouseEnter() {
     if (img.length < 2) return;
@@ -65,6 +70,13 @@ function Product({
       img,
       description,
       discountPercent,
+      size,
+      color,
+    });
+    console.log(currentProduct);
+    navigate("/Store/ProductPage");
+    window.scrollTo({
+      top: 64,
     });
   }
 
@@ -74,6 +86,7 @@ function Product({
       style={{ animationDelay }}
       role="group"
       aria-label={name}
+      onKeyDown={(e) => e.key === "Enter" && openProductPage()}
       tabIndex={0}
       id={id}
       onClick={openProductPage}

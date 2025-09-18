@@ -29,33 +29,8 @@ function StoreContextProvider(props) {
 
   const [filters, setFilters] = useState(DEFAULT_RESET_FILTER);
 
-  // Dummy product
-  const [currentProduct, setCurrentProduct] = useState({
-    id: 40,
-    name: "Brown Striped Shirt",
-    price: 20,
-    discountPercent: 5,
-    img: [
-      black_down_jacket_one,
-      black_down_jacket_two,
-      black_down_jacket_three,
-    ],
-    category: "Shirts",
-    description:
-      "Upgrade your wardrobe with the UrbanVibe Classic Tee! Crafted from ultra-soft, breathable cotton, this shirt delivers all-day comfort without sacrificing style. Its versatile fit makes it perfect for layering or wearing solo, whether you’re hitting the streets, the office, or just lounging at home. Available in a range of colors to",
-    productType: ["Outerwear"],
-    fit: ["Regular"],
-    color: ["Gray", "Black", "Burgundy"],
-    size: ["XS", "M", "L", "XL", "XXL", "XXXL", "XXXXL"],
-    sleeveLength: ["Short Sleeve"],
-    design: ["Striped"],
-    neckline: ["Band Neck"],
-    season: ["Summer", "Spring"],
-    isNewArrival: true,
-    releaseDate: "2025-08-26",
-    style: ["Casual"],
-    material: ["Linen"],
-  });
+  // current product for the product page
+  const [currentProduct, setCurrentProduct] = useState("");
 
   const routePageMap = {
     "/": "Home",

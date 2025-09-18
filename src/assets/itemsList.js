@@ -175,7 +175,8 @@ export const itemsList = [
       black_down_jacket_three,
     ],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -200,7 +201,8 @@ export const itemsList = [
       omon_faux_leather_jacket_three,
     ],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -225,7 +227,8 @@ export const itemsList = [
       terra_black_puffer_jacket_three,
     ],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -246,7 +249,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [cardigan_one, cardigan_two, cardigan_three],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black", "Beige"],
@@ -272,7 +276,8 @@ export const itemsList = [
       white_turtleneck,
     ],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black", "White", "Red", "Mustard", "Dark Green"],
@@ -298,7 +303,8 @@ export const itemsList = [
       sweater_three_color_four,
     ],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black", "Brown"],
@@ -319,7 +325,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [zipup_sweater_rx_one, zipup_sweater_rx_two],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black", "White"],
@@ -340,7 +347,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [dark_blue_zipup_sweater_logo],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Blue"],
@@ -361,7 +369,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [five_color_linen_shirts],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Blue", "Navy", "Gray"],
@@ -382,7 +391,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [turant_lightbrown_polo_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Baggy"],
     color: ["Light Brown"],
@@ -403,7 +413,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [four_color_plain_tshirts],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Slim"],
     color: ["White", "Mustard", "Light Green", "Black"],
@@ -424,7 +435,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [four_color_polo_tshirts, four_color_polo_white_polo],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White", "Red", "Dark Green", "Light Blue"],
@@ -445,7 +457,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [hog_tshirt_darkgray],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Loose"],
     color: ["Gray"],
@@ -466,7 +479,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mado_murkyblue_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Dark Blue"],
@@ -487,7 +501,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mado_two_color_lightbrown_creamy_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Brown", "White"],
@@ -508,7 +523,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mado_two_color_white_paisley_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Brown", "Black"],
@@ -529,7 +545,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mado_white_collar_black_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White", "Black"],
@@ -550,7 +567,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [white_polo_sport],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -571,7 +589,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [black_drawstring_pants],
     category: "Pants",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Baggy"],
     color: ["Black"],
@@ -592,7 +611,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [blue_drawstring_pants],
     category: "Pants",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Baggy"],
     color: ["Dark Blue"],
@@ -613,7 +633,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [lightdark_drawstring_pants],
     category: "Pants",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Loose"],
     color: ["Black"],
@@ -634,7 +655,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [three_color_drawstring_pants_one],
     category: "Pants",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Skinny"],
     color: ["Black", "Dark Blue", "Gray"],
@@ -655,7 +677,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [armani_gray_blue_jeans_one, armani_gray_blue_jeans_two],
     category: "Jeans",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Murky Blue"],
@@ -676,7 +699,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [boyfriend_light_blue_jeans_one, boyfriend_light_blue_jeans_two],
     category: "Jeans",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Light Blue"],
@@ -697,7 +721,8 @@ export const itemsList = [
     discountPercent: 20,
     img: [designs_dark_gray_jeans_one, designs_dark_gray_jeans_two],
     category: "Jeans",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Light Gray"],
@@ -721,7 +746,8 @@ export const itemsList = [
       elastic_waist_black_cargo_pants_two,
     ],
     category: "Pants",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Loose"],
     color: ["Black"],
@@ -742,7 +768,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [paris_murky_blue_jeans_one, paris_murky_blue_jeans_two],
     category: "Jeans",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Murky Blue"],
@@ -768,7 +795,8 @@ export const itemsList = [
       black_brown_sole_sneakers_three,
     ],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Narrow"],
     color: ["Black"],
@@ -789,7 +817,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [fuzzy_ankle_boots_one, fuzzy_ankle_boots_two],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Wide"],
     color: ["Black"],
@@ -810,7 +839,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mustard_color_loafers_one, mustard_color_loafers_two],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Narrow"],
     color: ["Mustard"],
@@ -831,7 +861,8 @@ export const itemsList = [
     discountPercent: 5,
     img: [black_loafers_white_soles],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Narrow"],
     color: ["Black", "White"],
@@ -852,7 +883,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [creamy_n_sneakers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Wide"],
     color: ["Mustard", "Black"],
@@ -873,7 +905,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [dark_brown_sneakers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["True to size"],
     color: ["Gray"],
@@ -894,7 +927,8 @@ export const itemsList = [
     discountPercent: 1,
     img: [dolumdia_sneakers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["True to size"],
     color: ["Brown", "White", "Black"],
@@ -915,7 +949,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [double_stripe_sneakers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["True to size"],
     color: ["White", "Black"],
@@ -936,7 +971,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mesh_black_loafers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Narrow"],
     color: ["Brown", "White", "Black"],
@@ -957,7 +993,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [mesh_gray_sneakers],
     category: "Shoes",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Wide"],
     color: ["Gray"],
@@ -978,7 +1015,8 @@ export const itemsList = [
     discountPercent: 20,
     img: [black_leather_jacket_one, black_leather_jacket_two],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Baggy"],
     color: ["Black"],
@@ -999,7 +1037,8 @@ export const itemsList = [
     discountPercent: 10,
     img: [light_gray_denim_jean_one, light_gray_denim_jeans_two],
     category: "Jeans",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Baggy"],
     color: ["Gray"],
@@ -1020,7 +1059,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [brown_striped_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Gray"],
@@ -1041,7 +1081,8 @@ export const itemsList = [
     discountPercent: 10,
     img: [white_striped_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1062,7 +1103,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [brownish_short_sleeve_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Gray"],
@@ -1083,7 +1125,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [solid_white_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1104,7 +1147,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [solid_black_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -1125,7 +1169,8 @@ export const itemsList = [
     discountPercent: 5,
     img: [white_plain_skull_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1146,7 +1191,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [teal_sack_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Slim"],
     color: ["Teal"],
@@ -1167,7 +1213,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [plain_white_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Slim"],
     color: ["White"],
@@ -1188,7 +1235,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [burgundy_sack_tshirt],
     category: "T-Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Slim"],
     color: ["Burgundy"],
@@ -1209,7 +1257,8 @@ export const itemsList = [
     discountPercent: 2,
     img: [white_striped_long_sleeve_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1230,7 +1279,8 @@ export const itemsList = [
     discountPercent: 5,
     img: [white_tight_striped_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1251,7 +1301,8 @@ export const itemsList = [
     discountPercent: 15,
     img: [denim_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Gray"],
@@ -1272,7 +1323,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [full_black_shirt],
     category: "Shirts",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -1293,7 +1345,8 @@ export const itemsList = [
     discountPercent: 10,
     img: [black_gray_red_puffer_jacket],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black", "Gray", "Red"],
@@ -1314,7 +1367,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [black_long_jacket],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -1335,7 +1389,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [black_plain_jacket],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -1356,7 +1411,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [gray_puffer_jacket],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Black"],
@@ -1377,7 +1433,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [light_brown_puffer_jacket],
     category: "Jackets",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Light Brown"],
@@ -1398,7 +1455,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [simpleton_beige_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Loose"],
     color: ["Beige", "White"],
@@ -1419,7 +1477,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [plain_beige_polo_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Loose"],
     color: ["Beige"],
@@ -1440,7 +1499,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [seven_gray_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Gray"],
@@ -1461,7 +1521,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [white_zipup_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["White"],
@@ -1482,7 +1543,8 @@ export const itemsList = [
     discountPercent: 0,
     img: [dark_gray_plain_sweater],
     category: "Sweaters",
-    description: "coming soon...",
+    description:
+      "Stay at the forefront of style with this fashion-forward design. Bold and eye-catching yet effortlessly wearable, it adds a modern edge to any wardrobe. Perfect for creating statement looks or elevating everyday outfits, this piece blends contemporary trends with versatile style for a dynamic, confident appearance.",
     productType: ["Outerwear"],
     fit: ["Regular"],
     color: ["Dark Gray"],

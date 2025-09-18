@@ -33,7 +33,7 @@ export const COLOR_MAP = {
   Teal: "#008080ff",
   "Light Gray": "#e6e4e4ff",
   "Murky Blue": "#4a646cff",
-  White: "#ffffffff",
+  White: "#fcf5f5ff",
 };
 
 export const SIZE_ORDER_MAP = {

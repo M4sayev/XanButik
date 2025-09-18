@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ProductDescription.css";
 
 function ProductDescription({ description }) {
-  const [isDescCollapsed, setIsDescCollapsed] = useState(false);
+  const [isDescCollapsed, setIsDescCollapsed] = useState(true);
 
   const toggleDesc = () => setIsDescCollapsed((prev) => !prev);
 

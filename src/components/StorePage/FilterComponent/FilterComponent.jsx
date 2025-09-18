@@ -125,29 +125,12 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     });
   }
 
-  console.log({
-    ref: dropdownRefs.current[openDropdown],
-    bool: openDropdown,
-  });
-
   useFocusTrap(
     { current: dropdownRefs.current[openDropdown] },
     openDropdown !== null
   );
 
   useEscapeKey(() => setOpenDropdown(null));
-
-  useEffect(() => {
-    const logFocus = () => {
-      console.log("Focused element:", document.activeElement);
-    };
-
-    document.addEventListener("focusin", logFocus);
-
-    return () => {
-      document.removeEventListener("focusin", logFocus);
-    };
-  }, []);
 
   return (
     <search className="sort-filter-component">
