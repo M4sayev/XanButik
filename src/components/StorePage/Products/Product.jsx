@@ -62,7 +62,7 @@ function Product({
   };
 
   function openProductPage() {
-    setCurrentProduct({
+    const productData = {
       id,
       price,
       category,
@@ -73,11 +73,13 @@ function Product({
       size,
       color,
       reviews,
-    });
+    };
+    setCurrentProduct(productData);
     navigate("/Store/ProductPage");
     window.scrollTo({
       top: 64,
     });
+    localStorage.setItem("currentProduct", JSON.stringify(productData));
   }
 
   return (

@@ -7,11 +7,6 @@ import {
   DEFAULT_SORT,
 } from "../constants/constants";
 
-// dummy image
-import black_down_jacket_one from "../assets/top/jackets/black_down_jacket/black_down_jacket_one.jpg";
-import black_down_jacket_two from "../assets/top/jackets/black_down_jacket/black_down_jacket_two.jpg";
-import black_down_jacket_three from "../assets/top/jackets/black_down_jacket/black_down_jacket_three.jpg";
-
 export const StoreContext = createContext(null);
 
 function StoreContextProvider(props) {
@@ -30,7 +25,10 @@ function StoreContextProvider(props) {
   const [filters, setFilters] = useState(DEFAULT_RESET_FILTER);
 
   // current product for the product page
-  const [currentProduct, setCurrentProduct] = useState("");
+  const [currentProduct, setCurrentProduct] = useState(() => {
+    const storedProduct = localStorage.getItem("currentProduct");
+    return storedProduct ? JSON.parse(storedProduct) : null;
+  });
 
   const routePageMap = {
     "/": "Home",
