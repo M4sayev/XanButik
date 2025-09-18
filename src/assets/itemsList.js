@@ -189,20 +189,7 @@ export const itemsList = [
     releaseDate: "2025-05-15",
     style: ["Casual", "Streetwear"],
     material: ["Cotton", "Faux Leather"],
-    reviews: [
-      {
-        username: "Alice",
-        rating: 5,
-        comment: "Loved this jacket! Fits perfectly and looks great.",
-        date: "2025-08-15",
-      },
-      {
-        username: "Bob",
-        rating: 4,
-        comment: "Very comfortable, but the sleeves are a bit long.",
-        date: "2025-08-18",
-      },
-    ],
+    reviews: [],
   },
   {
     id: 2,
@@ -2105,20 +2092,7 @@ export const itemsList = [
     releaseDate: "2025-08-30",
     style: ["Casual"],
     material: ["Linen"],
-    reviews: [
-      {
-        username: "Alice",
-        rating: 5,
-        comment: "Loved this jacket! Fits perfectly and looks great.",
-        date: "2025-08-15",
-      },
-      {
-        username: "Bob",
-        rating: 4,
-        comment: "Very comfortable, but the sleeves are a bit long.",
-        date: "2025-08-18",
-      },
-    ],
+    reviews: [],
   },
   {
     id: 50,
@@ -2213,20 +2187,7 @@ export const itemsList = [
     releaseDate: "2025-09-1",
     style: ["Casual"],
     material: ["Linen"],
-    reviews: [
-      {
-        username: "Alice",
-        rating: 5,
-        comment: "Loved this jacket! Fits perfectly and looks great.",
-        date: "2025-08-15",
-      },
-      {
-        username: "Bob",
-        rating: 4,
-        comment: "Very comfortable, but the sleeves are a bit long.",
-        date: "2025-08-18",
-      },
-    ],
+    reviews: [],
   },
   {
     id: 53,

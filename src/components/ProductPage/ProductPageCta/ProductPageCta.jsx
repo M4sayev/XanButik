@@ -5,7 +5,12 @@ import StarRating from "../StarRating/StarRating";
 import ProductPrice from "../../StorePage/Products/ProductPrice";
 import "./ProductPageCta.css";
 
-function ProductPageCta({ name, price, discountPercent }) {
+function ProductPageCta({ name, price, discountPercent, reviews }) {
+  const calculateRating = (rs) => {
+    if (!rs.length) return 0;
+    const avg = rs.reduce((acc, item) => acc + item.rating, 0) / rs.length;
+    return Math.round(avg * 2) / 2;
+  };
   return (
     <div className="pp-info-container">
       <h1 className="std-heading" style={{ marginBottom: "var(--spacing-sm)" }}>
@@ -14,8 +19,10 @@ function ProductPageCta({ name, price, discountPercent }) {
       <ProductPrice discountPercent={discountPercent} price={price} />
       <div>
         <div className="reviews-container">
-          <StarRating rating={3.5} />
-          <span>(128 Reviews)</span>
+          <StarRating rating={calculateRating(reviews)} />
+          <span>
+            {!reviews.length ? "No reviews" : `(${reviews.length} Reviews)`}
+          </span>
         </div>
       </div>
       <button className="std-button pp-btn" type="button">

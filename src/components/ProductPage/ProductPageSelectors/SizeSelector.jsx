@@ -2,7 +2,6 @@ import React from "react";
 import { SIZE_ORDER_MAP } from "../../../constants/constants";
 
 function SizeSelector({ size, handleSelectSize, currentSize }) {
-  console.log({ size });
   return (
     <fieldset className="pp-size-selector">
       <legend className="pp-heading">Size</legend>

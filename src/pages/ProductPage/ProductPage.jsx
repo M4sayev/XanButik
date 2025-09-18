@@ -72,6 +72,7 @@ function ProductPage() {
               name={currentProduct.name}
               price={currentProduct.price}
               discountPercent={currentProduct.discountPercent}
+              reviews={currentProduct.reviews}
             />
           </section>
         </div>

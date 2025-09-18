@@ -19,13 +19,13 @@ function Product({
   searchQuery,
   size,
   color,
+  reviews,
 }) {
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const { currentProduct, setCurrentProduct, setCurrentPage } =
-    useContext(StoreContext);
+  const { currentProduct, setCurrentProduct } = useContext(StoreContext);
   const navigate = useNavigate();
 
   function handleMouseEnter() {
@@ -72,8 +72,8 @@ function Product({
       discountPercent,
       size,
       color,
+      reviews,
     });
-    console.log(currentProduct);
     navigate("/Store/ProductPage");
     window.scrollTo({
       top: 64,
