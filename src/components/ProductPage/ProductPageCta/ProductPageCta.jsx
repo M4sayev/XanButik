@@ -10,16 +10,29 @@ import "./ProductPageCta.css";
 import "./ReviewModal.css";
 import ReviewsModal from "./ReviewsModal.jsx";
 
-function ProductPageCta({ name, price, discountPercent, reviews }) {
+function ProductPageCta({
+  name,
+  price,
+  discountPercent,
+  reviews,
+  setCurrentRating,
+}) {
   const [showReviews, setShowReviews] = useState(false);
+  const [openAddReview, setOpenAddReview] = useState(false);
   const calculateRating = (rs) => {
     if (!rs.length) return 0;
     const avg = rs.reduce((acc, item) => acc + item.rating, 0) / rs.length;
     return Math.round(avg * 2) / 2;
   };
 
+  // trap focus in the open review modal
   const reviewsModalRef = useRef(null);
-  useFocusTrap(reviewsModalRef, showReviews);
+  const addReviewModalRef = useRef(null);
+
+  useFocusTrap(
+    openAddReview ? addReviewModalRef : reviewsModalRef,
+    showReviews
+  );
 
   return (
     <div className="pp-info-container">
@@ -34,17 +47,22 @@ function ProductPageCta({ name, price, discountPercent, reviews }) {
           aria-label="Open product reviews"
           onClick={() => setShowReviews(true)}
         >
-          <StarRating rating={calculateRating(reviews)} />
+          <StarRating
+            rating={calculateRating(reviews)}
+            onClick={(value) => setCurrentRating(value)}
+          />
           <span>
             {!reviews.length ? "No reviews" : `(${reviews.length} Reviews)`}
           </span>
         </button>
         {showReviews && (
-          <Modal>
+          <Modal reviewsModalRef={reviewsModalRef}>
             <ReviewsModal
               setShowReviews={setShowReviews}
               reviews={reviews}
-              reviewsModalRef={reviewsModalRef}
+              openAddReview={openAddReview}
+              setOpenAddReview={setOpenAddReview}
+              addReviewModalRef={addReviewModalRef}
             />
           </Modal>
         )}

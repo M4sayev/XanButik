@@ -1,13 +1,14 @@
 import { createPortal } from "react-dom";
 import "./Modal.css";
 
-function Modal({ children, onClose }) {
+function Modal({ children, onClose, reviewsModalRef }) {
   return createPortal(
     <div
       className="modal-backdrop"
       onClick={onClose}
       role="presentation"
       aria-hidden="true"
+      ref={reviewsModalRef}
     >
       <div
         className="modal-content"
