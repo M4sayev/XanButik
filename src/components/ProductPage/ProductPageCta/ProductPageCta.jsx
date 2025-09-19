@@ -1,24 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { PiShoppingBagLight } from "react-icons/pi";
 import StarRating from "../StarRating/StarRating";
 import ProductPrice from "../../StorePage/Products/ProductPrice";
 import Modal from "../../../components/Modal/Modal.jsx";
-import { useFocusTrap } from "../../../hooks/useTrapFocus";
+import { useFocusTrap } from "../../../hooks/useTrapFocus.js";
+import { useEscapeKey } from "../../../hooks/useEscapeKey.js";
 import "./ProductPageCta.css";
 
 import "./ReviewModal.css";
 import ReviewsModal from "./ReviewsModal.jsx";
 
-function ProductPageCta({
-  name,
-  price,
-  discountPercent,
-  reviews,
-  setCurrentRating,
-}) {
+function ProductPageCta({ name, price, discountPercent, reviews }) {
   const [showReviews, setShowReviews] = useState(false);
   const [openAddReview, setOpenAddReview] = useState(false);
+
+  const reviewsModalRef = useRef(null);
+  const addReviewModalRef = useRef(null);
+
   const calculateRating = (rs) => {
     if (!rs.length) return 0;
     const avg = rs.reduce((acc, item) => acc + item.rating, 0) / rs.length;
@@ -26,13 +25,36 @@ function ProductPageCta({
   };
 
   // trap focus in the open review modal
-  const reviewsModalRef = useRef(null);
-  const addReviewModalRef = useRef(null);
 
   useFocusTrap(
     openAddReview ? addReviewModalRef : reviewsModalRef,
     showReviews
   );
+
+  useEscapeKey(() => {
+    setShowReviews(false);
+    setOpenAddReview(false);
+  });
+
+  useEffect(() => {
+    let timeoutId;
+    const handleClickOutside = (event) => {
+      if (
+        reviewsModalRef.current &&
+        !reviewsModalRef.current.contains(event.target)
+      ) {
+        setShowReviews(false);
+        setOpenAddReview(false);
+      }
+    };
+    timeoutId = setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showReviews]);
 
   return (
     <div className="pp-info-container">
@@ -47,10 +69,7 @@ function ProductPageCta({
           aria-label="Open product reviews"
           onClick={() => setShowReviews(true)}
         >
-          <StarRating
-            rating={calculateRating(reviews)}
-            onClick={(value) => setCurrentRating(value)}
-          />
+          <StarRating rating={calculateRating(reviews)} />
           <span>
             {!reviews.length ? "No reviews" : `(${reviews.length} Reviews)`}
           </span>

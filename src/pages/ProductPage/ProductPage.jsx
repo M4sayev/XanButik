@@ -16,7 +16,6 @@ function ProductPage() {
   const [currentSize, setCurrentSize] = useState("");
   const [currentColor, setCurrentColor] = useState("transparent");
   const [currentImg, setCurrentImg] = useState(() => currentProduct.img[0]);
-  const [currentRating, setCurrentRating] = useState(0);
 
   function handleSelectSize(size) {
     setCurrentSize(() => (size === currentSize ? "" : size));
@@ -74,7 +73,6 @@ function ProductPage() {
               price={currentProduct.price}
               discountPercent={currentProduct.discountPercent}
               reviews={currentProduct.reviews}
-              setCurrentRating={setCurrentRating}
             />
           </section>
         </div>

@@ -6,6 +6,7 @@ import { StoreContext } from "../../context/StoreContext";
 import { useFocusTrap } from "../../hooks/useTrapFocus";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
 import useForm from "../../hooks/useForm";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,12 +20,15 @@ function LoginPopup({ formRef }) {
     password: "",
     agreeToTerms: false,
   };
-  const { form, errors, setForm, setErrors, handleChange} = useForm(formSchema, {})  
-  
+  const { form, errors, setForm, setErrors, handleChange } = useForm(
+    formSchema,
+    {}
+  );
+
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    const validationErrors = validate();  
+    const validationErrors = validate();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
@@ -34,12 +38,12 @@ function LoginPopup({ formRef }) {
         password: "",
         agreeToTerms: false,
       });
-  
+
       setShowLogin(false);
     }
   }
 
-  useFocusTrap(popupRef, true, firstPopupElRef)
+  useFocusTrap(popupRef, true, firstPopupElRef);
 
   // Close modal on escape
   useEscapeKey(() => setShowLogin(false));
@@ -50,61 +54,50 @@ function LoginPopup({ formRef }) {
     const newErrors = {};
 
     if (!form.name.trim()) {
-      newErrors.name="Name is required";
+      newErrors.name = "Name is required";
     }
     if (!form.password.trim()) {
-      newErrors.password="Password is required";
+      newErrors.password = "Password is required";
     }
 
     if (!form.email.trim()) {
-      newErrors.email="Email is required";
-    } else if ((!/\S+@\S+\.\S+/.test(form.email))) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
       newErrors.email = "Email is invalid";
     }
 
     if (currentState === "Sign Up" && !form.agreeToTerms) {
       newErrors.agreeToTerms = "You must agree to the terms";
     }
-    
+
     return newErrors;
   }
 
-  // Render errors
-  function renderError(fieldName) {
-    if (!errors[fieldName]) return null;
-    return (
-      <p id={`${fieldName}-error`} role="alert" style={{ color:  "var(--clr-validation-err)" }} aria-live="assertive">
-        {errors[fieldName]}
-      </p>
-    );
-  }
-
-
   return (
-    <div 
+    <div
       className="login-popup"
       aria-modal="true"
       role="dialog"
       aria-labelledby="loginPopupTitle"
       ref={popupRef}
     >
-      <form 
-        onSubmit={handleOnSubmit} 
-        ref={formRef} 
+      <form
+        onSubmit={handleOnSubmit}
+        ref={formRef}
         className="login-popup-container"
         aria-describedby="loginPopupDesc"
         noValidate
       >
         <div className="login-popup-title">
           <h2 id="loginPopupTitle">{currentState}</h2>
-          <button 
+          <button
             className="icon-btn cross-icon"
             type="button"
             onClick={() => setShowLogin(false)}
             aria-label="Close login popup"
             ref={firstPopupElRef}
           >
-            <IoClose className="cross"/>
+            <IoClose className="cross" />
           </button>
         </div>
         <div className="login-popup-inputs">
@@ -112,49 +105,46 @@ function LoginPopup({ formRef }) {
             <></>
           ) : (
             <div>
-              <label 
-                htmlFor="name" 
-                className="visually-hidden"
-              >Name</label>
-              <input  
-                type="text" 
+              <label htmlFor="name" className="visually-hidden">
+                Name
+              </label>
+              <input
+                type="text"
                 id="name"
                 name="name"
-                placeholder="Your name" 
-                required 
-                value={form.name} 
+                placeholder="Your name"
+                required
+                value={form.name}
                 onChange={handleChange}
                 autoFocus
                 aria-invalid={errors.name ? "true" : "false"}
                 aria-describedby={errors.name ? "name-error" : undefined}
               />
-              {renderError("name")}
+              <ErrorMessage message={errors.name} fieldName="name" />
             </div>
           )}
           <div>
-            <label 
-              htmlFor="email" 
-              className="visually-hidden"
-            >Email</label>
-            <input 
-              type="email" 
+            <label htmlFor="email" className="visually-hidden">
+              Email
+            </label>
+            <input
+              type="email"
               name="email"
               id="email"
-              placeholder="Your email" 
-              required 
-              value={form.email} 
+              placeholder="Your email"
+              required
+              value={form.email}
               onChange={handleChange}
               autoFocus={currentState === "Login"}
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
             />
-            {renderError("email")}
+            <ErrorMessage message={errors.email} fieldName="email" />
           </div>
           <div className="password-input-container">
-            <label 
-              htmlFor="password" 
-              className="visually-hidden"
-            >Password</label>
+            <label htmlFor="password" className="visually-hidden">
+              Password
+            </label>
             <div>
               <div className="password-input-h-s-btn">
                 <input
@@ -167,44 +157,49 @@ function LoginPopup({ formRef }) {
                   value={form.password}
                   onChange={handleChange}
                   aria-invalid={errors.password ? "true" : "false"}
-                  aria-describedby={errors.password ? "password-error" : undefined}
+                  aria-describedby={
+                    errors.password ? "password-error" : undefined
+                  }
                 />
                 <button
                   type="button"
                   className="icon-btn show-hide-icon"
-                  onClick={() => setShowPassword(prev => !prev)}
+                  onClick={() => setShowPassword((prev) => !prev)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
-                  >
-                  {showPassword ? <BiShow/> : <BiHide/>}
+                >
+                  {showPassword ? <BiShow /> : <BiHide />}
                 </button>
               </div>
             </div>
-            {renderError("password")}
-            </div>
+            <ErrorMessage message={errors.password} fieldName="password" />
+          </div>
         </div>
         {currentState === "Sign Up" && (
           <>
-          <div className="login-popup-condition">
-            <div className="login-popup-condition-container">
-              <input 
-                id="agreeWithConds"
-                type="checkbox"
-                name="agreeToTerms"
-                checked={form.agreeToTerms}
-                onChange={(e) => setForm({ ...form, agreeToTerms: e.target.checked })}
-                required
+            <div className="login-popup-condition">
+              <div className="login-popup-condition-container">
+                <input
+                  id="agreeWithConds"
+                  type="checkbox"
+                  name="agreeToTerms"
+                  checked={form.agreeToTerms}
+                  onChange={(e) =>
+                    setForm({ ...form, agreeToTerms: e.target.checked })
+                  }
+                  required
+                />
+                <label htmlFor="agreeWithConds">
+                  By continuing, I agree to the terms of use & privacy policy
+                </label>
+              </div>
+              <ErrorMessage
+                message={errors.agreeToTerms}
+                fieldName="agreeToTerms"
               />
-              <label htmlFor="agreeWithConds">
-                By continuing, I agree to the terms of use & privacy policy
-              </label>
             </div>
-            {renderError("agreeToTerms")}
-          </div>
           </>
         )}
-        <button 
-          type="submit"
-          className="std-button">
+        <button type="submit" className="std-button">
           {currentState === "Sign Up" ? "Create account" : "Login"}
         </button>
         <p className="suggestion-text">

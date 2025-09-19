@@ -8,13 +8,13 @@ function Modal({ children, onClose, reviewsModalRef }) {
       onClick={onClose}
       role="presentation"
       aria-hidden="true"
-      ref={reviewsModalRef}
     >
       <div
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        ref={reviewsModalRef}
       >
         {children}
       </div>

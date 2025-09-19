@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import StarRating from "../StarRating/StarRating";
 import { IoMdAdd } from "react-icons/io";
 import StarRatingInput from "../StarRating/StarRatingInput";
+import { Controller, useForm } from "react-hook-form";
+import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import { StoreContext } from "../../../context/StoreContext.jsx";
 
 function ReviewsModal({
   setShowReviews,
@@ -10,9 +13,33 @@ function ReviewsModal({
   setOpenAddReview,
   openAddReview,
   addReviewModalRef,
-  firstElRef,
   reviewsModalRef,
 }) {
+  const { currentProduct, setCurrentProduct } = useContext(StoreContext);
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const today = new Date();
+    const formattedDate = today.toISOString().split("T")[0];
+    const newReview = {
+      rating: data.rating,
+      comment: data.review,
+      username: data.name,
+      date: formattedDate,
+    };
+
+    setCurrentProduct((prev) => ({
+      ...prev,
+      reviews: [...prev.reviews, newReview],
+    }));
+    setOpenAddReview(false);
+  };
+
   return (
     <>
       <div
@@ -25,7 +52,6 @@ function ReviewsModal({
           type="button"
           aria-label="Add a new review"
           onClick={() => setOpenAddReview(true)}
-          ref={firstElRef}
         >
           <span className="btn-text">Add a Review</span>
           <IoMdAdd aria-hidden="true" className="btn-icon" />
@@ -34,6 +60,7 @@ function ReviewsModal({
           ref={addReviewModalRef}
           className={`add-review-form-container`}
           aria-labelledby="reviews-heading"
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h1
@@ -58,21 +85,36 @@ function ReviewsModal({
           <div className="form-field">
             <label htmlFor="name">Name </label>
             <input
+              {...register("name", {
+                required: true,
+              })}
               id="name"
               type="text"
               name="name"
-              required
               aria-required="true"
               tabIndex={openAddReview ? 0 : -1}
               disabled={!openAddReview}
             />
+            <ErrorMessage message={errors.name} fieldName="name" />
           </div>
           <div className="form-field" style={{ marginTop: "var(--spacing-sm" }}>
-            <StarRatingInput onClick={(value) => console.log(value)} />
+            <Controller
+              name="rating"
+              control={control}
+              render={({ field }) => (
+                <StarRatingInput
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
           </div>
           <div className="form-field">
             <label htmlFor="review">Review</label>
             <textarea
+              {...register("review", {
+                required: true,
+              })}
               className="add-review-textarea no-resize"
               id="review"
               name="review"
@@ -82,6 +124,7 @@ function ReviewsModal({
               tabIndex={openAddReview ? 0 : -1}
               disabled={!openAddReview}
             />
+            <ErrorMessage message={errors.review} fieldName="review" />
           </div>
           <button
             type="submit"
@@ -128,7 +171,7 @@ function ReviewsModal({
               No reviews yet
             </div>
           ) : (
-            reviews.map((review, i) => (
+            currentProduct.reviews.map((review, i) => (
               <div
                 className="product-review"
                 key={i}
