@@ -23,6 +23,7 @@
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.28.0",
     "react-scroll-parallax": "^3.4.5",
+    "react-spinners": "^0.17.0",
     "react-toastify": "^10.0.6",
     "swiper": "^11.1.15",
     "use-debounce": "^10.0.6"

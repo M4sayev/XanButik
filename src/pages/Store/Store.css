@@ -27,6 +27,21 @@ body {
   font-size: var(--fs-400);
 }
 
+/* loading */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--clr-neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+
 @media screen and (min-width: 777px) {
   .str-products-grid {
     grid-template-columns: repeat(3, 1fr);

@@ -1,17 +1,41 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  lazy,
+  Suspense,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import "./Store.css";
 import HeaderStore from "../../components/StorePage/HeaderStore/HeaderStore";
-import FilterComponent from "../../components/StorePage/FilterComponent/FilterComponent";
-import Product from "../../components/StorePage/Products/Product";
 import { itemsList } from "../../assets/itemsList.js";
-import Pagination from "../../components/StorePage/Pagination/Pagination.jsx";
-import CategoryButtons from "../../components/StorePage/CategoryButtons/CategoryButtons.jsx";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import { calculateDiscountPrice } from "../../utils/utils.js";
 import { ITEMS_PER_PAGE } from "../../constants/constants.js";
 import { useDebounce } from "use-debounce";
+import { ClipLoader } from "react-spinners";
+
+const FilterComponent = lazy(() =>
+  import("../../components/StorePage/FilterComponent/FilterComponent")
+);
+const Product = lazy(() =>
+  import("../../components/StorePage/Products/Product")
+);
+const CategoryButtons = lazy(() =>
+  import("../../components/StorePage/CategoryButtons/CategoryButtons")
+);
+const Pagination = lazy(() =>
+  import("../../components/StorePage/Pagination/Pagination.jsx")
+);
 
 function Store() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timeout);
+  }, []);
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const [debouncedSearchQuery] = useDebounce(searchQuery, 200);
@@ -160,51 +184,76 @@ function Store() {
   return (
     <main>
       <HeaderStore setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
-      <CategoryButtons
-        categoryMap={categoryMap}
-        handleCategoryBtn={handleCategoryBtn}
-        currentCategory={currentCategory}
-      />
-      <FilterComponent
-        currentCategory={currentCategory}
-        setCurrentPage={setCurrentPage}
-      />
-      {filteredProducts.length === 0 || filteredByFilterOptions.length === 0 ? (
-        <section
-          className="no-results-container"
-          role="status"
-          aria-live="polite"
-        >
-          <div className="no-results-text">
-            <h1>No Results</h1>
-            <p>
-              We couldn't find anything matching{" "}
-              <strong>
-                {searchQuery !== "" ? `"${searchQuery}"` : "this selection"}
-              </strong>
-            </p>
-          </div>
-        </section>
+
+      {loading ? (
+        <div className="loading-overlay">
+          <ClipLoader
+            loading={loading}
+            size={50}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       ) : (
-        <section className="str-products-grid">
-          {paginatedProducts.map((product, index) => {
-            return (
-              <Product
-                key={product.id}
-                {...product}
-                index={index}
-                searchQuery={searchQuery}
-              />
-            );
-          })}
-        </section>
+        <>
+          <Suspense fallback={<div>Loading categories...</div>}>
+            <CategoryButtons
+              categoryMap={categoryMap}
+              handleCategoryBtn={handleCategoryBtn}
+              currentCategory={currentCategory}
+            />
+          </Suspense>
+
+          <Suspense fallback={<div>Loading filters...</div>}>
+            <FilterComponent
+              currentCategory={currentCategory}
+              setCurrentPage={setCurrentPage}
+            />
+          </Suspense>
+
+          {filteredProducts.length === 0 ||
+          filteredByFilterOptions.length === 0 ? (
+            <section
+              className="no-results-container"
+              role="status"
+              aria-live="polite"
+            >
+              <div className="no-results-text">
+                <h1>No Results</h1>
+                <p>
+                  We couldn't find anything matching{" "}
+                  <strong>
+                    {searchQuery !== "" ? `"${searchQuery}"` : "this selection"}
+                  </strong>
+                </p>
+              </div>
+            </section>
+          ) : (
+            <Suspense fallback={<div>Loading products...</div>}>
+              <section className="str-products-grid">
+                {paginatedProducts.map((product, index) => {
+                  return (
+                    <Product
+                      key={product.id}
+                      {...product}
+                      index={index}
+                      searchQuery={searchQuery}
+                    />
+                  );
+                })}
+              </section>
+            </Suspense>
+          )}
+          <Suspense fallback={null}>
+            <Pagination
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              goToPage={goToPage}
+            />
+          </Suspense>
+        </>
       )}
-      <Pagination
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        goToPage={goToPage}
-      />
     </main>
   );
 }
