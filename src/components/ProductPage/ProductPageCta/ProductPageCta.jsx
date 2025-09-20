@@ -30,7 +30,7 @@ function ProductPageCta({
   const [openAddReview, setOpenAddReview] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { setWishListItems, wishListItems } = useContext(StoreContext);
+  const { handleAddToWishlist } = useContext(StoreContext);
 
   const reviewsModalRef = useRef(null);
   const addReviewModalRef = useRef(null);
@@ -73,29 +73,32 @@ function ProductPageCta({
     };
   }, [showReviews]);
 
-  const handleSumbitSelection = () => {
+  // Add to cart
+  const handleAddToCart = () => {
     if (!currentSize && !currentColor) {
       setErrorMessage(
         "Please select from the available colour and size options"
       );
     } else {
       setErrorMessage("");
-      setCurrentColor("");
-      setCurrentSize("");
-      const newWishListItem = {
-        productId,
-        name,
-        fullPrice: calculateDiscountPrice(price, discountPercent),
-        color: currentColor,
-        size: currentSize,
-      };
-      setWishListItems((prev) => [...prev, newWishListItem]);
-      localStorage.setItem(
-        "wishlistItems",
-        JSON.stringify([...wishListItems, newWishListItem])
-      );
+      handleAddToWishlist();
     }
   };
+
+  // Add to wishlist
+
+  function handleAddToWishlistWithSelectors() {
+    const newWishListItem = {
+      productId,
+      name,
+      fullPrice: calculateDiscountPrice(price, discountPercent),
+      color: currentColor,
+      size: currentSize,
+    };
+    handleAddToWishlist(newWishListItem);
+    setCurrentColor("");
+    setCurrentSize("");
+  }
 
   return (
     <div className="pp-info-container">
@@ -140,7 +143,7 @@ function ProductPageCta({
         className="std-button pp-btn"
         data-type="inverted"
         type="button"
-        onClick={handleSumbitSelection}
+        onClick={handleAddToWishlistWithSelectors}
       >
         <AiOutlineHeart aria-hidden="true" />
         <span>Add to Wishlist</span>

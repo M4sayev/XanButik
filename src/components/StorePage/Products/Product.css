@@ -4,70 +4,70 @@
   animation: fadeIn 0.5s ease forwards;
 }
 .str-preview-img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 .str-product-info-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .str-product-name-price {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding-block: .375rem;
+  padding-block: 0.375rem;
 }
 .str-product-name {
-    font-family: var(--ff-secondary);
-    font-weight: var(--fw-bold);
-    font-size: clamp(var(--fs-300), 2.2vw, var(--fs-400));
-    color: var(--clr-accent);
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-bold);
+  font-size: clamp(var(--fs-300), 2.2vw, var(--fs-400));
+  color: var(--clr-accent);
 }
 .str-product-price {
-    font-family: var(--ff-secondary);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-450);
-    color: var(--clr-primary-900);
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-450);
+  color: var(--clr-primary-900);
 }
 .str-discount-price-container {
-    display: flex;
-    gap: var(--spacing-sm);
+  display: flex;
+  gap: var(--spacing-sm);
 }
 
 .str-product-info-container .shopping-bag {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 .product-sale {
-    font-family: var(--ff-primary);
-    font-size: var(--fs-450);
-    color: var(--clr-primary-100);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-450);
+  color: var(--clr-primary-100);
 
-    position: absolute;
-    top: var(--spacing-sm);
-    left: var(--spacing-sm);
-    padding-inline:  var(--spacing-md);
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  padding-inline: var(--spacing-md);
 
-    background-color: var(--clr-primary-900);
+  background-color: var(--clr-primary-900);
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .add-to-wishlist-btn {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
 
-    padding: var(--spacing-sm);
-    border-radius: 50%;
+  padding: var(--spacing-sm);
+  border-radius: 50%;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .add-to-wishlist-btn svg {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }

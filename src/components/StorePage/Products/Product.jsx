@@ -6,6 +6,10 @@ import { calculateDiscountPrice } from "../../../utils/utils";
 import { StoreContext } from "../../../context/StoreContext";
 import ProductPrice from "./ProductPrice";
 import { Navigate, useNavigate } from "react-router-dom";
+import Modal from "../../Modal/Modal";
+import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
+import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
+import { toast } from "react-toastify";
 
 function Product({
   id,
@@ -23,9 +27,15 @@ function Product({
 }) {
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
+
+  // const [selectorsModalOpen, setSelectorsModaOpen] = useState(false);
+  // const [selectedColor, setSelectedColor] = useState("");
+  // const [selectedSize, setSelectedSize] = useState("");
+
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const { currentProduct, setCurrentProduct } = useContext(StoreContext);
+  const { currentProduct, setCurrentProduct, handleAddToWishlist } =
+    useContext(StoreContext);
   const navigate = useNavigate();
 
   function handleMouseEnter() {
@@ -61,7 +71,13 @@ function Product({
     );
   };
 
-  function openProductPage() {
+  function openProductPage(e) {
+    if (
+      e.target.closest(".add-to-wishlist-btn") ||
+      e.target.closest(".shopping-bag")
+    ) {
+      return;
+    }
     const productData = {
       id,
       price,
@@ -81,6 +97,18 @@ function Product({
     });
     localStorage.setItem("currentProduct", JSON.stringify(productData));
   }
+
+  // function handleSelectSize(size) {
+  //   setSelectedSize(() => (size === selectedSize ? "" : size));
+  // }
+
+  // function handleSelectColor(color) {
+  //   setSelectedColor(() => (color === selectedColor ? "" : color));
+  // }
+
+  // function handleSelectorModal() {
+  //   setSelectorsModaOpen(true);
+  // }
 
   return (
     <article
@@ -108,7 +136,15 @@ function Product({
           type="button"
           className="std-button add-to-wishlist-btn"
           aria-label="Add to wishlist"
-          onClick={() => setWishListItems}
+          onClick={() =>
+            handleAddToWishlist({
+              productId: id,
+              name,
+              fullPrice: calculateDiscountPrice(price, discountPercent),
+              color: "",
+              size: "",
+            })
+          }
         >
           <CiHeart aria-hidden="true" />
         </button>
@@ -120,6 +156,7 @@ function Product({
           </p>
           <ProductPrice discountPercent={discountPercent} price={price} />
         </div>
+
         <HiOutlineShoppingBag className="shopping-bag" />
       </div>
     </article>

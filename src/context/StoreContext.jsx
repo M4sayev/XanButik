@@ -6,6 +6,7 @@ import {
   DEFAULT_RESET_FILTER,
   DEFAULT_SORT,
 } from "../constants/constants";
+import { toast } from "react-toastify";
 
 export const StoreContext = createContext(null);
 
@@ -35,6 +36,20 @@ function StoreContextProvider(props) {
     const products = localStorage.getItem("wishlistItems");
     return products ? JSON.parse(products) : [];
   });
+
+  useEffect(() => console.log({ wishListItems }), [wishListItems]);
+
+  // handle add to wishlist
+
+  function handleAddToWishlist(newWishListItem) {
+    const notify = () => toast.success("Item added to the wishlist");
+    setWishListItems((prev) => [...prev, newWishListItem]);
+    localStorage.setItem(
+      "wishlistItems",
+      JSON.stringify([...wishListItems, newWishListItem])
+    );
+    notify();
+  }
 
   const routePageMap = {
     "/": "Home",
@@ -69,6 +84,7 @@ function StoreContextProvider(props) {
     setCurrentProduct,
     wishListItems,
     setWishListItems,
+    handleAddToWishlist,
   };
 
   return (
