@@ -30,6 +30,12 @@ function StoreContextProvider(props) {
     return storedProduct ? JSON.parse(storedProduct) : null;
   });
 
+  // wishlistItems
+  const [wishListItems, setWishListItems] = useState(() => {
+    const products = localStorage.getItem("wishlistItems");
+    return products ? JSON.parse(products) : [];
+  });
+
   const routePageMap = {
     "/": "Home",
     "/About": "About Us",
@@ -61,6 +67,8 @@ function StoreContextProvider(props) {
     setPriceRange,
     currentProduct,
     setCurrentProduct,
+    wishListItems,
+    setWishListItems,
   };
 
   return (

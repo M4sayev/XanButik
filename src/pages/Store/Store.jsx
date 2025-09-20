@@ -32,7 +32,7 @@ function Store() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 800);
+    const timeout = setTimeout(() => setLoading(false), 850);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -70,7 +70,7 @@ function Store() {
 
   // Filter products by search bar input
   const filteredProducts = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+    const query = debouncedSearchQuery.trim().toLowerCase();
     return products.filter((item) => item.name.toLowerCase().includes(query));
   }, [debouncedSearchQuery, products]);
 

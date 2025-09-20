@@ -104,7 +104,12 @@ function Product({
           <span className="product-sale">Sale</span>
         )}
         <img className="str-preview-img" src={image} alt={name} />
-        <button className="std-button add-to-wishlist-btn">
+        <button
+          type="button"
+          className="std-button add-to-wishlist-btn"
+          aria-label="Add to wishlist"
+          onClick={() => setWishListItems}
+        >
           <CiHeart aria-hidden="true" />
         </button>
       </div>

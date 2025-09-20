@@ -10,10 +10,27 @@ import "./ProductPageCta.css";
 
 import "./ReviewModal.css";
 import ReviewsModal from "./ReviewsModal.jsx";
+import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
+import { StoreContext } from "../../../context/StoreContext.jsx";
+import { calculateDiscountPrice } from "../../../utils/utils.js";
+import Wishlist from "../../../pages/Wishlist/Wishlist.jsx";
 
-function ProductPageCta({ name, price, discountPercent, reviews }) {
+function ProductPageCta({
+  name,
+  price,
+  discountPercent,
+  reviews,
+  productId,
+  currentSize,
+  currentColor,
+  setCurrentSize,
+  setCurrentColor,
+}) {
   const [showReviews, setShowReviews] = useState(false);
   const [openAddReview, setOpenAddReview] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const { setWishListItems, wishListItems } = useContext(StoreContext);
 
   const reviewsModalRef = useRef(null);
   const addReviewModalRef = useRef(null);
@@ -56,6 +73,30 @@ function ProductPageCta({ name, price, discountPercent, reviews }) {
     };
   }, [showReviews]);
 
+  const handleSumbitSelection = () => {
+    if (!currentSize && !currentColor) {
+      setErrorMessage(
+        "Please select from the available colour and size options"
+      );
+    } else {
+      setErrorMessage("");
+      setCurrentColor("");
+      setCurrentSize("");
+      const newWishListItem = {
+        productId,
+        name,
+        fullPrice: calculateDiscountPrice(price, discountPercent),
+        color: currentColor,
+        size: currentSize,
+      };
+      setWishListItems((prev) => [...prev, newWishListItem]);
+      localStorage.setItem(
+        "wishlistItems",
+        JSON.stringify([...wishListItems, newWishListItem])
+      );
+    }
+  };
+
   return (
     <div className="pp-info-container">
       <h1 className="std-heading" style={{ marginBottom: "var(--spacing-sm)" }}>
@@ -86,11 +127,21 @@ function ProductPageCta({ name, price, discountPercent, reviews }) {
           </Modal>
         )}
       </div>
+      {!currentColor || !currentSize ? (
+        <ErrorMessage message={errorMessage} fieldName={"color-size"} />
+      ) : (
+        ""
+      )}
       <button className="std-button pp-btn" type="button">
         <PiShoppingBagLight aria-hidden="true" />
         <span>Add to Cart</span>
       </button>
-      <button className="std-button pp-btn" data-type="inverted" type="button">
+      <button
+        className="std-button pp-btn"
+        data-type="inverted"
+        type="button"
+        onClick={handleSumbitSelection}
+      >
         <AiOutlineHeart aria-hidden="true" />
         <span>Add to Wishlist</span>
       </button>
