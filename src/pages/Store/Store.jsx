@@ -9,9 +9,13 @@ import CategoryButtons from "../../components/StorePage/CategoryButtons/Category
 import { StoreContext } from "../../context/StoreContext.jsx";
 import { calculateDiscountPrice } from "../../utils/utils.js";
 import { ITEMS_PER_PAGE } from "../../constants/constants.js";
+import { useDebounce } from "use-debounce";
 
 function Store() {
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 200);
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const [currentCategory, setCurrentCategory] = useState("All");
@@ -44,7 +48,7 @@ function Store() {
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     return products.filter((item) => item.name.toLowerCase().includes(query));
-  }, [searchQuery, products]);
+  }, [debouncedSearchQuery, products]);
 
   // Price range filter
   const productsWithinRange = useMemo(() => {
