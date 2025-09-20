@@ -171,21 +171,28 @@ function ReviewsModal({
               No reviews yet
             </div>
           ) : (
-            currentProduct.reviews.map((review, i) => (
-              <div
-                className="product-review"
-                key={i}
-                role="listitem"
-                tabIndex={0}
-              >
-                <header className="product-review-header">
-                  <StarRating rating={review.rating} />
-                  <span className="product-review-date">{review.date}</span>
-                </header>
-                <p className="product-review-comment">{review.comment}</p>
-                <span className="product-review-author">{review.username}</span>
-              </div>
-            ))
+            currentProduct.reviews
+              .toSorted(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .map((review, i) => (
+                <div
+                  className="product-review"
+                  key={i}
+                  role="listitem"
+                  tabIndex={0}
+                >
+                  <header className="product-review-header">
+                    <StarRating rating={review.rating} />
+                    <span className="product-review-date">{review.date}</span>
+                  </header>
+                  <p className="product-review-comment">{review.comment}</p>
+                  <span className="product-review-author">
+                    {review.username}
+                  </span>
+                </div>
+              ))
           )}
         </div>
       </div>
