@@ -143,6 +143,7 @@ function Product({
               fullPrice: calculateDiscountPrice(price, discountPercent),
               color: "",
               size: "",
+              preview: img[0],
             })
           }
         >

@@ -17,6 +17,7 @@ import Wishlist from "../../../pages/Wishlist/Wishlist.jsx";
 
 function ProductPageCta({
   name,
+  preview,
   price,
   discountPercent,
   reviews,
@@ -91,6 +92,7 @@ function ProductPageCta({
     const newWishListItem = {
       productId,
       name,
+      preview,
       fullPrice: calculateDiscountPrice(price, discountPercent),
       color: currentColor,
       size: currentSize,

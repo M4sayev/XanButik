@@ -87,6 +87,7 @@ function ProductPage() {
 
             <section>
               <ProductPageCta
+                preview={currentProduct.img[0]}
                 productId={currentProduct.id}
                 name={currentProduct.name}
                 price={currentProduct.price}
