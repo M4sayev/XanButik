@@ -21,8 +21,7 @@ function Navbar() {
     if (!link) return;
 
     const pageName = link.textContent.trim();
-    if (currentPage !== pageName) 
-      setCurrentPage(pageName);
+    if (currentPage !== pageName) setCurrentPage(pageName);
   }
 
   function handleLogoClick() {
@@ -32,7 +31,7 @@ function Navbar() {
 
   function toggleHamburger() {
     setIsHamActive((prev) => !prev);
-    document.body.classList.toggle("body-menu-scroll")
+    document.body.classList.toggle("body-menu-scroll");
   }
 
   // Trap focus inside the sideBar when its open
@@ -42,14 +41,19 @@ function Navbar() {
   useEscapeKey(() => setIsHamActive(false));
 
   useEffect(() => {
-  if (sidebarRef.current) {
-    if (!isHamActive) {
-      sidebarRef.current.setAttribute("inert", "true");
-    } else {
-      sidebarRef.current.removeAttribute("inert");
+    if (sidebarRef.current) {
+      if (!isHamActive) {
+        sidebarRef.current.setAttribute("inert", "true");
+      } else {
+        sidebarRef.current.removeAttribute("inert");
+      }
     }
-  }
-}, [isHamActive]);
+  }, [isHamActive]);
+
+  const navigateWishlist = () => {
+    navigate("/Wishlist");
+    setIsHamActive(false);
+  };
 
   return (
     <div className="navigation">
@@ -75,7 +79,7 @@ function Navbar() {
         {/* Rigth section - icons and hamburger */}
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
-            <BtnsContainer />
+            <BtnsContainer navigateWishlist={navigateWishlist} />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
@@ -102,7 +106,7 @@ function Navbar() {
                 />
               </ul>
               <div className="navbar-right-side-btns sidebar-icon-btns">
-                <BtnsContainer />
+                <BtnsContainer navigateWishlist={navigateWishlist} />
               </div>
             </nav>
           </div>

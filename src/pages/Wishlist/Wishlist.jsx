@@ -1,13 +1,21 @@
 import React, { useContext } from "react";
-import "./Wishlist.css";
-import black_loafers_white_soles from "./black_loafers_white_soles.jpg";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { StoreContext } from "../../context/StoreContext";
+import "./Wishlist.css";
+import { toast } from "react-toastify";
 
 function Wishlist() {
   const { wishListItems, setWishListItems } = useContext(StoreContext);
+
+  function handleRemoveWishlistItem(id) {
+    const notify = () => toast.success("Item removed from the wishlist");
+    const newItems = wishListItems.filter((item) => item.productId !== id);
+    setWishListItems(newItems);
+    localStorage.setItem("wishlistItems", JSON.stringify(newItems));
+    notify();
+  }
 
   return (
     <main>
@@ -39,34 +47,44 @@ function Wishlist() {
             </h1>
             <div className="products-grid-wrapper">
               <div className="products-grid" role="list">
-                {wishListItems.map(({ name, fullPrice, preview }, index) => (
-                  <div className="wishlist-item" key={index} role="listitem">
-                    <div className="wi-img-container">
-                      <img src={preview} alt={name} />
-                    </div>
-                    <div className="wishlist-item-info">
-                      <p className="wishlist-item-name">{name}</p>
-                      <p className="wishlist-item-price">
-                        {fullPrice.toFixed(2)}$
-                      </p>
-                    </div>
-                    <div className="wishlist-item-controls">
-                      <button
-                        className="std-button wi-add-to-cart"
-                        aria-label={`Add ${name} to cart`}
+                {wishListItems.map(
+                  ({ productId, name, fullPrice, preview }, index) => {
+                    console.log({ productId, fullPrice });
+                    return (
+                      <div
+                        className="wishlist-item"
+                        key={index}
+                        role="listitem"
                       >
-                        Add to cart
-                      </button>
-                      <button
-                        data-type="inverted"
-                        className="std-button wi-remove-from-wishlist"
-                        aria-label={`Remove ${name} from wishlist`}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                        <div className="wi-img-container">
+                          <img src={preview} alt={name} />
+                        </div>
+                        <div className="wishlist-item-info">
+                          <p className="wishlist-item-name">{name}</p>
+                          <p className="wishlist-item-price">
+                            {fullPrice.toFixed(2)}$
+                          </p>
+                        </div>
+                        <div className="wishlist-item-controls">
+                          <button
+                            className="std-button wi-add-to-cart"
+                            aria-label={`Add ${name} to cart`}
+                          >
+                            Add to cart
+                          </button>
+                          <button
+                            data-type="inverted"
+                            className="std-button wi-remove-from-wishlist"
+                            aria-label={`Remove ${name} from wishlist`}
+                            onClick={() => handleRemoveWishlistItem(productId)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  }
+                )}
               </div>
             </div>
           </>
