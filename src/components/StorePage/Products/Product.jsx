@@ -10,6 +10,7 @@ import Modal from "../../Modal/Modal";
 import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
 import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import { toast } from "react-toastify";
+import { useWishlist } from "../../../hooks/useWishlist";
 
 function Product({
   id,
@@ -32,11 +33,16 @@ function Product({
   // const [selectedColor, setSelectedColor] = useState("");
   // const [selectedSize, setSelectedSize] = useState("");
 
+  const { isInWishlist, toggleWishlist } = useWishlist(id);
+
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const { currentProduct, setCurrentProduct, handleAddToWishlist } =
-    useContext(StoreContext);
-  const navigate = useNavigate();
+  const {
+    currentProduct,
+    setCurrentProduct,
+    handleAddToWishlist,
+    openProductPage,
+  } = useContext(StoreContext);
 
   function handleMouseEnter() {
     if (img.length < 2) return;
@@ -71,33 +77,6 @@ function Product({
     );
   };
 
-  function openProductPage(e) {
-    if (
-      e.target.closest(".add-to-wishlist-btn") ||
-      e.target.closest(".shopping-bag")
-    ) {
-      return;
-    }
-    const productData = {
-      id,
-      price,
-      category,
-      name,
-      img,
-      description,
-      discountPercent,
-      size,
-      color,
-      reviews,
-    };
-    setCurrentProduct(productData);
-    navigate("/Store/ProductPage");
-    window.scrollTo({
-      top: 64,
-    });
-    localStorage.setItem("currentProduct", JSON.stringify(productData));
-  }
-
   // function handleSelectSize(size) {
   //   setSelectedSize(() => (size === selectedSize ? "" : size));
   // }
@@ -119,7 +98,20 @@ function Product({
       onKeyDown={(e) => e.key === "Enter" && openProductPage()}
       tabIndex={0}
       id={id}
-      onClick={openProductPage}
+      onClick={(e) =>
+        openProductPage(e, {
+          id,
+          price,
+          category,
+          name,
+          img,
+          description,
+          discountPercent,
+          size,
+          color,
+          reviews,
+        })
+      }
     >
       <div
         className="str-product-img-wrapper"
@@ -137,17 +129,22 @@ function Product({
           className="std-button add-to-wishlist-btn"
           aria-label="Add to wishlist"
           onClick={() =>
-            handleAddToWishlist({
+            toggleWishlist({
               productId: id,
               name,
-              fullPrice: calculateDiscountPrice(price, discountPercent),
-              color: "",
-              size: "",
-              preview: img[0],
+              price,
+              discountPercent,
+              currentColor: "",
+              currentSize: "",
+              img,
+              color,
+              size,
+              reviews,
+              description,
             })
           }
         >
-          <CiHeart aria-hidden="true" />
+          <CiHeart aria-hidden="true" color={isInWishlist && "#e53935"} />
         </button>
       </div>
       <div className="str-product-info-container">

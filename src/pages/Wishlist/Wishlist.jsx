@@ -5,9 +5,11 @@ import { FaCartPlus } from "react-icons/fa";
 import { StoreContext } from "../../context/StoreContext";
 import "./Wishlist.css";
 import { toast } from "react-toastify";
+import { calculateDiscountPrice } from "../../utils/utils";
 
 function Wishlist() {
-  const { wishListItems, setWishListItems } = useContext(StoreContext);
+  const { wishListItems, setWishListItems, openProductPage } =
+    useContext(StoreContext);
 
   function handleRemoveWishlistItem(id) {
     const notify = () => toast.success("Item removed from the wishlist");
@@ -48,21 +50,50 @@ function Wishlist() {
             <div className="products-grid-wrapper">
               <div className="products-grid" role="list">
                 {wishListItems.map(
-                  ({ productId, name, fullPrice, preview }, index) => {
-                    console.log({ productId, fullPrice });
+                  (
+                    {
+                      productId,
+                      name,
+                      price,
+                      discountPercent,
+                      img,
+                      size,
+                      color,
+                      reviews,
+                      description,
+                    },
+                    index
+                  ) => {
                     return (
                       <div
                         className="wishlist-item"
                         key={index}
                         role="listitem"
+                        onClick={(e) =>
+                          openProductPage(e, {
+                            id: productId,
+                            name,
+                            price,
+                            discountPercent,
+                            img,
+                            size,
+                            color,
+                            reviews,
+                            description,
+                          })
+                        }
                       >
                         <div className="wi-img-container">
-                          <img src={preview} alt={name} />
+                          <img src={img[0]} alt={name} />
                         </div>
                         <div className="wishlist-item-info">
                           <p className="wishlist-item-name">{name}</p>
                           <p className="wishlist-item-price">
-                            {fullPrice.toFixed(2)}$
+                            {calculateDiscountPrice(
+                              price,
+                              discountPercent
+                            ).toFixed(2)}
+                            $
                           </p>
                         </div>
                         <div className="wishlist-item-controls">

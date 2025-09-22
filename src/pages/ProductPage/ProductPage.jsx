@@ -87,7 +87,9 @@ function ProductPage() {
 
             <section>
               <ProductPageCta
-                preview={currentProduct.img[0]}
+                color={currentProduct.color}
+                size={currentProduct.size}
+                img={currentProduct.img}
                 productId={currentProduct.id}
                 name={currentProduct.name}
                 price={currentProduct.price}
@@ -97,6 +99,7 @@ function ProductPage() {
                 currentSize={currentSize}
                 setCurrentSize={setCurrentSize}
                 setCurrentColor={setCurrentColor}
+                description={currentProduct.description}
               />
             </section>
           </div>

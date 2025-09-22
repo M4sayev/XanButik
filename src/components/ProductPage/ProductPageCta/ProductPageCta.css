@@ -24,6 +24,9 @@
 .pp-btn[data-type="inverted"]:focus svg {
   color: #b23939ff;
 }
+.pp-btn[data-type="inverted"].active {
+  color: #b23939ff;
+}
 .pp-btn svg {
   display: block;
   width: 20px;

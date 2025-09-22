@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   DEFAULT_PRICE_RANGE_MAX,
   DEFAULT_PRICE_RANGE_MIN,
@@ -23,6 +23,7 @@ function StoreContextProvider(props) {
     DEFAULT_PRICE_RANGE_MAX,
   ]);
 
+  const navigate = useNavigate();
   const [filters, setFilters] = useState(DEFAULT_RESET_FILTER);
 
   // current product for the product page
@@ -41,13 +42,17 @@ function StoreContextProvider(props) {
 
   // handle add to wishlist
 
-  function handleAddToWishlist(newWishListItem) {
-    const notify = () => toast.success("Item added to the wishlist");
-    setWishListItems((prev) => [...prev, newWishListItem]);
-    localStorage.setItem(
-      "wishlistItems",
-      JSON.stringify([...wishListItems, newWishListItem])
-    );
+  function handleAddToWishlist(newWishListItem, isInTheWishlist) {
+    let notify = () => toast.success("Item added to the wishlist");
+    if (isInTheWishlist) {
+      notify = () => toast.error("The item is already in the wishlist.");
+    } else {
+      setWishListItems((prev) => [...prev, newWishListItem]);
+      localStorage.setItem(
+        "wishlistItems",
+        JSON.stringify([...wishListItems, newWishListItem])
+      );
+    }
     notify();
   }
 
@@ -59,6 +64,19 @@ function StoreContextProvider(props) {
     "/Store": "Store",
     "/Store/ProductPage": "Store",
   };
+
+  function openProductPage(e, productData = {}) {
+    if (e.target.closest("button")) {
+      return;
+    }
+
+    setCurrentProduct(productData);
+    navigate("/Store/ProductPage");
+    window.scrollTo({
+      top: 64,
+    });
+    localStorage.setItem("currentProduct", JSON.stringify(productData));
+  }
 
   useEffect(() => {
     const page = routePageMap[location.pathname] || "Other";
@@ -85,6 +103,7 @@ function StoreContextProvider(props) {
     wishListItems,
     setWishListItems,
     handleAddToWishlist,
+    openProductPage,
   };
 
   return (

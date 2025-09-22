@@ -12,13 +12,17 @@ import "./ReviewModal.css";
 import ReviewsModal from "./ReviewsModal.jsx";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
 import { StoreContext } from "../../../context/StoreContext.jsx";
-import { calculateDiscountPrice } from "../../../utils/utils.js";
-import Wishlist from "../../../pages/Wishlist/Wishlist.jsx";
+import { WiShowers } from "react-icons/wi";
+import { toast } from "react-toastify";
+import { useWishlist } from "../../../hooks/useWishlist.js";
 
 function ProductPageCta({
   name,
-  preview,
+  img,
+  size,
+  color,
   price,
+  description,
   discountPercent,
   reviews,
   productId,
@@ -31,7 +35,9 @@ function ProductPageCta({
   const [openAddReview, setOpenAddReview] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { handleAddToWishlist } = useContext(StoreContext);
+  const { handleAddToWishlist, wishListItems } = useContext(StoreContext);
+
+  const { isInWishlist, toggleWishlist } = useWishlist(productId);
 
   const reviewsModalRef = useRef(null);
   const addReviewModalRef = useRef(null);
@@ -88,16 +94,22 @@ function ProductPageCta({
 
   // Add to wishlist
 
+  //color size check
   function handleAddToWishlistWithSelectors() {
     const newWishListItem = {
       productId,
       name,
-      preview,
-      fullPrice: calculateDiscountPrice(price, discountPercent),
-      color: currentColor,
-      size: currentSize,
+      img,
+      price,
+      discountPercent,
+      currentColor,
+      currentSize,
+      size,
+      color,
+      reviews,
+      description,
     };
-    handleAddToWishlist(newWishListItem);
+    toggleWishlist(newWishListItem);
     setCurrentColor("");
     setCurrentSize("");
   }
@@ -142,7 +154,7 @@ function ProductPageCta({
         <span>Add to Cart</span>
       </button>
       <button
-        className="std-button pp-btn"
+        className={`std-button pp-btn ${isInWishlist ? "active" : ""}`}
         data-type="inverted"
         type="button"
         onClick={handleAddToWishlistWithSelectors}

@@ -53,6 +53,7 @@ function Navbar() {
   const navigateWishlist = () => {
     navigate("/Wishlist");
     setIsHamActive(false);
+    document.body.classList.remove("body-menu-scroll");
   };
 
   return (

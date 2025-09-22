@@ -165,11 +165,11 @@
 
   box-shadow: -2px -2px 5px 0.5px rgb(0 0 0 / 0.2);
 
-  transform: scaleY(0.1);
+  transform: translateY(-10%);
   transform-origin: top center;
   opacity: 0;
   pointer-events: none;
-  transition: transform var(--std-transition);
+  transition: all var(--std-transition);
   z-index: var(--z-dropdown);
 }
 /* dropdown appear on hover  */
