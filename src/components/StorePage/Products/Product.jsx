@@ -11,6 +11,7 @@ import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector"
 import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import { toast } from "react-toastify";
 import { useWishlist } from "../../../hooks/useWishlist";
+import SelectorsDropdown from "./SelectorsDropdown";
 
 function Product({
   id,
@@ -29,20 +30,16 @@ function Product({
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
 
-  // const [selectorsModalOpen, setSelectorsModaOpen] = useState(false);
-  // const [selectedColor, setSelectedColor] = useState("");
-  // const [selectedSize, setSelectedSize] = useState("");
+  const [selectorsModalOpen, setSelectorsModalOpen] = useState(false);
 
   const { isInWishlist, toggleWishlist } = useWishlist(id);
 
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+
   const intervalRef = useRef(null);
   const imgIndexRef = useRef(0);
-  const {
-    currentProduct,
-    setCurrentProduct,
-    handleAddToWishlist,
-    openProductPage,
-  } = useContext(StoreContext);
+  const { addToCart, openProductPage } = useContext(StoreContext);
 
   function handleMouseEnter() {
     if (img.length < 2) return;
@@ -77,17 +74,26 @@ function Product({
     );
   };
 
-  // function handleSelectSize(size) {
-  //   setSelectedSize(() => (size === selectedSize ? "" : size));
-  // }
+  function handleAddToCart(product) {
+    if (!selectedColor || !selectedSize) {
+      const notify = toast.error(
+        "Please select a color and a size of the product."
+      );
+      notify();
+      return;
+    } else {
+      addToCart(product);
+      setSelectorsModalOpen(false);
+    }
+  }
 
-  // function handleSelectColor(color) {
-  //   setSelectedColor(() => (color === selectedColor ? "" : color));
-  // }
+  function handleSelectSize(size) {
+    setSelectedSize(() => (size === selectedSize ? "" : size));
+  }
 
-  // function handleSelectorModal() {
-  //   setSelectorsModaOpen(true);
-  // }
+  function handleSelectColor(color) {
+    setSelectedColor(() => (color === selectedColor ? "" : color));
+  }
 
   return (
     <article
@@ -154,8 +160,29 @@ function Product({
           </p>
           <ProductPrice discountPercent={discountPercent} price={price} />
         </div>
-
-        <HiOutlineShoppingBag className="shopping-bag" />
+        <div className="product-add-to-cart">
+          <button
+            className="product-add-to-cart-btn"
+            onClick={() => setSelectorsModalOpen((prev) => !prev)}
+          >
+            <HiOutlineShoppingBag className="shopping-bag " />
+          </button>
+          <SelectorsDropdown
+            selectorsModalOpen={selectorsModalOpen}
+            color={color}
+            size={size}
+            price={price}
+            discountPercent={discountPercent}
+            img={img}
+            handleAddToCart={handleAddToCart}
+            name={name}
+            id={id}
+            handleSelectSize={handleSelectSize}
+            handleSelectColor={handleSelectColor}
+            selectedColor={selectedColor}
+            selectedSize={selectedSize}
+          />
+        </div>
       </div>
     </article>
   );

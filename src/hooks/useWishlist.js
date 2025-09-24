@@ -8,7 +8,6 @@ export function useWishlist(productId) {
     () => wishListItems.some((item) => item.productId === productId),
     [wishListItems, productId]
   );
-  console.log(isInWishlist);
 
   function toggleWishlist(product) {
     handleAddToWishlist(product, isInWishlist);

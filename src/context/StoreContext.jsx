@@ -32,16 +32,13 @@ function StoreContextProvider(props) {
     return storedProduct ? JSON.parse(storedProduct) : null;
   });
 
-  // wishlistItems
+  // retrieve wishlist items from localStorage
   const [wishListItems, setWishListItems] = useState(() => {
     const products = localStorage.getItem("wishlistItems");
     return products ? JSON.parse(products) : [];
   });
 
-  useEffect(() => console.log({ wishListItems }), [wishListItems]);
-
   // handle add to wishlist
-
   function handleAddToWishlist(newWishListItem, isInTheWishlist) {
     let notify = () => toast.success("Item added to the wishlist");
     if (isInTheWishlist) {
@@ -56,6 +53,60 @@ function StoreContextProvider(props) {
     notify();
   }
 
+  // retrieve cart items from localStorage
+  const [cartItems, setCartItems] = useState(() => {
+    const items = localStorage.getItem("cartItems");
+    return items ? JSON.parse(items) : [];
+  });
+
+  useEffect(() => console.log({ cartItems }), [cartItems]);
+
+  // handle add to cart
+  const addToCart = (item) => {
+    const notify = () => toast.success("Item added to cart");
+    setCartItems((prev) => {
+      const foundProduct = prev.find((cartItem) => cartItem.id === item.id);
+
+      let updatedCart;
+      if (!foundProduct) {
+        updatedCart = [
+          ...prev,
+          {
+            ...item,
+            count: 1,
+            currentColor: [item.currentColor],
+            currentSize: [item.currentSize],
+          },
+        ];
+      } else {
+        updatedCart = prev.map((cartItem) =>
+          cartItem.id === item.id
+            ? {
+                ...cartItem,
+                count: cartItem.count + 1,
+                currentColor: [
+                  ...new Set([
+                    ...(cartItem.currentColor || []),
+                    item.currentColor,
+                  ]),
+                ],
+                currentSize: [
+                  ...new Set([
+                    ...(cartItem.currentSize || []),
+                    item.currentSize,
+                  ]),
+                ],
+              }
+            : cartItem
+        );
+      }
+
+      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+    notify();
+  };
+
   const routePageMap = {
     "/": "Home",
     "/About": "About Us",
@@ -66,7 +117,10 @@ function StoreContextProvider(props) {
   };
 
   function openProductPage(e, productData = {}) {
-    if (e.target.closest("button")) {
+    if (
+      e.target.closest("button") ||
+      e.target.closest(".product-add-to-cart")
+    ) {
       return;
     }
 
@@ -104,6 +158,7 @@ function StoreContextProvider(props) {
     setWishListItems,
     handleAddToWishlist,
     openProductPage,
+    addToCart,
   };
 
   return (

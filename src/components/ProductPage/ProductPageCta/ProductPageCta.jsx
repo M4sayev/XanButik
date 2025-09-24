@@ -6,14 +6,14 @@ import ProductPrice from "../../StorePage/Products/ProductPrice";
 import Modal from "../../../components/Modal/Modal.jsx";
 import { useFocusTrap } from "../../../hooks/useTrapFocus.js";
 import { useEscapeKey } from "../../../hooks/useEscapeKey.js";
-import "./ProductPageCta.css";
 
+import "./ProductPageCta.css";
+import "./../../StorePage/Products/Product.css";
 import "./ReviewModal.css";
+
 import ReviewsModal from "./ReviewsModal.jsx";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
 import { StoreContext } from "../../../context/StoreContext.jsx";
-import { WiShowers } from "react-icons/wi";
-import { toast } from "react-toastify";
 import { useWishlist } from "../../../hooks/useWishlist.js";
 
 function ProductPageCta({
@@ -35,7 +35,7 @@ function ProductPageCta({
   const [openAddReview, setOpenAddReview] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { handleAddToWishlist, wishListItems } = useContext(StoreContext);
+  const { addToCart } = useContext(StoreContext);
 
   const { isInWishlist, toggleWishlist } = useWishlist(productId);
 
@@ -88,13 +88,26 @@ function ProductPageCta({
       );
     } else {
       setErrorMessage("");
-      handleAddToWishlist();
+      const product = {
+        id: productId,
+        name,
+        price,
+        discountPercent,
+        currentColor,
+        currentSize,
+        img,
+        description,
+        reviews,
+        size,
+        color,
+      };
+      addToCart(product);
+      setCurrentColor("");
+      setCurrentSize("");
     }
   };
 
   // Add to wishlist
-
-  //color size check
   function handleAddToWishlistWithSelectors() {
     const newWishListItem = {
       productId,
@@ -149,7 +162,12 @@ function ProductPageCta({
       ) : (
         ""
       )}
-      <button className="std-button pp-btn" type="button">
+      <button
+        className="std-button pp-btn"
+        type="button"
+        aria-label="Add an item to your cart"
+        onClick={handleAddToCart}
+      >
         <PiShoppingBagLight aria-hidden="true" />
         <span>Add to Cart</span>
       </button>
@@ -158,6 +176,7 @@ function ProductPageCta({
         data-type="inverted"
         type="button"
         onClick={handleAddToWishlistWithSelectors}
+        aria-label="Add an item to your wishlist"
       >
         <AiOutlineHeart aria-hidden="true" />
         <span>Add to Wishlist</span>
