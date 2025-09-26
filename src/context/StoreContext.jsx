@@ -60,12 +60,20 @@ function StoreContextProvider(props) {
   });
 
   useEffect(() => console.log({ cartItems }), [cartItems]);
+  useEffect(() => console.log({ wishListItems }), [wishListItems]);
 
   // handle add to cart
   const addToCart = (item) => {
     const notify = () => toast.success("Item added to cart");
     setCartItems((prev) => {
       const foundProduct = prev.find((cartItem) => cartItem.id === item.id);
+
+      // Remove the item from the wishlist
+      const newItems = wishListItems.filter(
+        (wishlistItem) => wishlistItem.productId !== item.id
+      );
+      setWishListItems(newItems);
+      localStorage.setItem("wishlistItems", JSON.stringify(newItems));
 
       let updatedCart;
       if (!foundProduct) {
@@ -119,7 +127,8 @@ function StoreContextProvider(props) {
   function openProductPage(e, productData = {}) {
     if (
       e.target.closest("button") ||
-      e.target.closest(".product-add-to-cart")
+      e.target.closest(".product-add-to-cart") ||
+      e.target.closest(".selectors-dropdown")
     ) {
       return;
     }

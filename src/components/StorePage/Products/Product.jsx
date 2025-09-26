@@ -30,7 +30,7 @@ function Product({
   const animationDelay = `${index * 0.2}s`;
   const [image, setImage] = useState(img[0]);
 
-  const [selectorsModalOpen, setSelectorsModalOpen] = useState(false);
+  const [selectorsDropdownOpen, setSelectorsDropdownOpen] = useState(false);
 
   const { isInWishlist, toggleWishlist } = useWishlist(id);
 
@@ -83,7 +83,7 @@ function Product({
       return;
     } else {
       addToCart(product);
-      setSelectorsModalOpen(false);
+      setSelectorsDropdownOpen(false);
     }
   }
 
@@ -163,12 +163,13 @@ function Product({
         <div className="product-add-to-cart">
           <button
             className="product-add-to-cart-btn"
-            onClick={() => setSelectorsModalOpen((prev) => !prev)}
+            onClick={() => setSelectorsDropdownOpen((prev) => !prev)}
           >
             <HiOutlineShoppingBag className="shopping-bag " />
           </button>
           <SelectorsDropdown
-            selectorsModalOpen={selectorsModalOpen}
+            setSelectorsDropdownOpen={setSelectorsDropdownOpen}
+            selectorsDropdownOpen={selectorsDropdownOpen}
             color={color}
             size={size}
             price={price}

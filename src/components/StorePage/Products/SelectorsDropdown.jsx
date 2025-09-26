@@ -1,9 +1,12 @@
 import { useState } from "react";
 import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
 import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
+import "./SelectorsDropdown.css";
+import { IoClose } from "react-icons/io5";
 
 function SelectorsDropdown({
-  selectorsModalOpen,
+  selectorsDropdownOpen,
+  setSelectorsDropdownOpen,
   color,
   handleSelectColor,
   size,
@@ -19,10 +22,19 @@ function SelectorsDropdown({
 }) {
   return (
     <div
-      className={`shopping-bag-dropdown ${
-        selectorsModalOpen && "shopping-bag-dropdown--active"
+      className={`selectors-dropdown ${
+        selectorsDropdownOpen && "selectors-dropdown--active"
       }`}
     >
+      <button
+        className="icon-btn cross-icon"
+        style={{ position: "absolute", right: "var(--spacing-sm)" }}
+        type="button"
+        onClick={() => setSelectorsDropdownOpen(false)}
+        aria-label="Close dropdown popup"
+      >
+        <IoClose className="cross" />
+      </button>
       <ColorSelector
         color={color}
         currentColor={selectedColor}
