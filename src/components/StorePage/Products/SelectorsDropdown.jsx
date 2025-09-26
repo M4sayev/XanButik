@@ -4,6 +4,7 @@ import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import "./SelectorsDropdown.css";
 import { IoClose } from "react-icons/io5";
 import { useFocusTrap } from "../../../hooks/useTrapFocus";
+import { useEscapeKey } from "../../../hooks/useEscapeKey";
 
 function SelectorsDropdown({
   selectorsDropdownOpen,
@@ -23,6 +24,8 @@ function SelectorsDropdown({
 }) {
   const dropdownRef = useRef(null);
   useFocusTrap(dropdownRef, selectorsDropdownOpen);
+
+  useEscapeKey(() => setSelectorsDropdownOpen(false));
   return (
     <div
       className={`selectors-dropdown ${
