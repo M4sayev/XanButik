@@ -59,9 +59,6 @@ function StoreContextProvider(props) {
     return items ? JSON.parse(items) : [];
   });
 
-  useEffect(() => console.log({ cartItems }), [cartItems]);
-  useEffect(() => console.log({ wishListItems }), [wishListItems]);
-
   // handle add to cart
   const addToCart = (item) => {
     const notify = () => toast.success("Item added to cart");
@@ -168,6 +165,8 @@ function StoreContextProvider(props) {
     handleAddToWishlist,
     openProductPage,
     addToCart,
+    cartItems,
+    setCartItems,
   };
 
   return (

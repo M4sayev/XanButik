@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
 import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import "./SelectorsDropdown.css";
 import { IoClose } from "react-icons/io5";
+import { useFocusTrap } from "../../../hooks/useTrapFocus";
 
 function SelectorsDropdown({
   selectorsDropdownOpen,
@@ -20,11 +21,14 @@ function SelectorsDropdown({
   selectedSize,
   handleAddToCart,
 }) {
+  const dropdownRef = useRef(null);
+  useFocusTrap(dropdownRef, selectorsDropdownOpen);
   return (
     <div
       className={`selectors-dropdown ${
         selectorsDropdownOpen && "selectors-dropdown--active"
       }`}
+      ref={dropdownRef}
     >
       <button
         className="icon-btn cross-icon"
@@ -32,19 +36,28 @@ function SelectorsDropdown({
         type="button"
         onClick={() => setSelectorsDropdownOpen(false)}
         aria-label="Close dropdown popup"
+        tabIndex={selectorsDropdownOpen ? 0 : -1}
+        disabled={!selectorsDropdownOpen}
       >
         <IoClose className="cross" />
       </button>
-      <ColorSelector
-        color={color}
-        currentColor={selectedColor}
-        handleSelectColor={handleSelectColor}
-      />
-      <SizeSelector
-        size={size}
-        currentSize={selectedSize}
-        handleSelectSize={handleSelectSize}
-      />
+      {!selectorsDropdownOpen ? (
+        ""
+      ) : (
+        <>
+          <ColorSelector
+            color={color}
+            currentColor={selectedColor}
+            handleSelectColor={handleSelectColor}
+          />
+          <SizeSelector
+            size={size}
+            currentSize={selectedSize}
+            handleSelectSize={handleSelectSize}
+          />
+        </>
+      )}
+
       <div
         style={{
           display: "flex",
@@ -52,6 +65,8 @@ function SelectorsDropdown({
         }}
       >
         <button
+          tabIndex={selectorsDropdownOpen ? 0 : -1}
+          disabled={!selectorsDropdownOpen}
           className="std-button"
           onClick={() =>
             handleAddToCart({

@@ -11,6 +11,9 @@ import { useEscapeKey } from "../../hooks/useEscapeKey.js";
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
+
+  const logoRef = useRef(null);
+
   const sidebarRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -44,6 +47,7 @@ function Navbar() {
     if (sidebarRef.current) {
       if (!isHamActive) {
         sidebarRef.current.setAttribute("inert", "true");
+        hamburgerRef.current.focus();
       } else {
         sidebarRef.current.removeAttribute("inert");
       }
@@ -52,6 +56,12 @@ function Navbar() {
 
   const navigateWishlist = () => {
     navigate("/Wishlist");
+    setIsHamActive(false);
+    document.body.classList.remove("body-menu-scroll");
+  };
+
+  const navigateCart = () => {
+    navigate("./Cart");
     setIsHamActive(false);
     document.body.classList.remove("body-menu-scroll");
   };
@@ -65,6 +75,7 @@ function Navbar() {
           src={assets.logo_no_frame}
           alt="Xan Butik Logo"
           className="logo"
+          ref={logoRef}
         />
         {/* Top menu links */}
         <nav className="navbar-top-menu" aria-label="Main navigation">
@@ -80,7 +91,10 @@ function Navbar() {
         {/* Rigth section - icons and hamburger */}
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
-            <BtnsContainer navigateWishlist={navigateWishlist} />
+            <BtnsContainer
+              navigateCart={navigateCart}
+              navigateWishlist={navigateWishlist}
+            />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
@@ -107,7 +121,10 @@ function Navbar() {
                 />
               </ul>
               <div className="navbar-right-side-btns sidebar-icon-btns">
-                <BtnsContainer navigateWishlist={navigateWishlist} />
+                <BtnsContainer
+                  navigateCart={navigateCart}
+                  navigateWishlist={navigateWishlist}
+                />
               </div>
             </nav>
           </div>

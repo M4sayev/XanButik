@@ -24,6 +24,8 @@ function WishlistItem({
   const [selectorsDropdownOpen, setSelectorsDropdownOpen] = useState(false);
   const { addToCart } = useContext(StoreContext);
 
+  console.log(color);
+
   function handleSelectSize(size) {
     setSelectedSize(() => (size === selectedSize ? "" : size));
   }
@@ -44,11 +46,29 @@ function WishlistItem({
     }
   }
 
+  function handleOnKeyDown(e) {
+    if (e.key === "Enter") {
+      openProductPage(e, {
+        id: productId,
+        name,
+        price,
+        discountPercent,
+        img,
+        size,
+        color,
+        reviews,
+        description,
+      });
+    }
+  }
+
   return (
     <div
       className="wishlist-item"
       key={index}
       role="listitem"
+      tabIndex={0}
+      onKeyDown={handleOnKeyDown}
       onClick={(e) =>
         openProductPage(e, {
           id: productId,

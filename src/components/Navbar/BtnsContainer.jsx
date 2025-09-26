@@ -8,8 +8,8 @@ import { FiPhone } from "react-icons/fi";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
 import { useLocation } from "react-router-dom";
 
-function BtnsContainer({ navigateWishlist }) {
-  const { setShowLogin } = useContext(StoreContext);
+function BtnsContainer({ navigateWishlist, navigateCart }) {
+  const { setShowLogin, cartItems } = useContext(StoreContext);
   const [copied, setCopied] = useState(false);
   const location = useLocation();
 
@@ -38,18 +38,25 @@ function BtnsContainer({ navigateWishlist }) {
 
   return (
     <>
-      <button className="icon-btn" aria-label="wishlist">
+      <button
+        className="icon-btn"
+        aria-label="wishlist"
+        onClick={navigateWishlist}
+      >
         <CiHeart
           aria-label="wishlist"
           className="btns-icon"
-          onClick={navigateWishlist}
           color={location.pathname === "/Wishlist" ? "#e53935" : ""}
         />
       </button>
-      <button className="icon-btn shopping-cart-icon">
-        <PiShoppingBagLight aria-label="shopping bag" className="btns-icon" />
+      <button className="icon-btn shopping-cart-icon" onClick={navigateCart}>
+        <PiShoppingBagLight
+          color={location.pathname === "/Cart" ? "#387638ff" : ""}
+          aria-label="shopping bag"
+          className="btns-icon"
+        />
         <span aria-live="polite" className="shopping-cart-item-count">
-          0
+          {cartItems.length}
         </span>
       </button>
       <div className="contact-us-dropdown-container">
