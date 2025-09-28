@@ -12,11 +12,13 @@ function Cart() {
   return (
     <main>
       <div className="cart-contents">
-        <OrderSummary cartItems={cartItems} />
         {cartItems.length === 0 ? (
           <EmptyCartMEssage />
         ) : (
-          <CartItemsList cartItems={cartItems} />
+          <>
+            <OrderSummary cartItems={cartItems} />
+            <CartItemsList cartItems={cartItems} />
+          </>
         )}
       </div>
     </main>
