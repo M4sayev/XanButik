@@ -1,8 +1,10 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 
 import OrderSummary from "../../components/Cart/OrderSummary/OrderSummary";
+import EmptyCartMEssage from "../../components/Cart/EmptyCartMessage/EmptyCartMEssage";
+import CartItemsList from "../../components/Cart/CartItemsList/CartItemsList";
 
 function Cart() {
   const { cartItems } = useContext(StoreContext);
@@ -11,6 +13,11 @@ function Cart() {
     <main>
       <div className="cart-contents">
         <OrderSummary cartItems={cartItems} />
+        {cartItems.length === 0 ? (
+          <EmptyCartMEssage />
+        ) : (
+          <CartItemsList cartItems={cartItems} />
+        )}
       </div>
     </main>
   );

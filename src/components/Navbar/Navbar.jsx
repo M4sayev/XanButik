@@ -47,7 +47,6 @@ function Navbar() {
     if (sidebarRef.current) {
       if (!isHamActive) {
         sidebarRef.current.setAttribute("inert", "true");
-        hamburgerRef.current.focus();
       } else {
         sidebarRef.current.removeAttribute("inert");
       }
