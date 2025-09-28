@@ -12,7 +12,13 @@ function Cart() {
   return (
     <main>
       <div className="cart-contents">
-        {cartItems.length === 0 ? (
+        <h2
+          className="std-heading std-heading-cta"
+          style={{ textAlign: "center" }}
+        >
+          Your Cart
+        </h2>
+        {cartItems.length !== 0 ? (
           <EmptyCartMEssage />
         ) : (
           <>
