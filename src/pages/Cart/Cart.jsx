@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
-
 import OrderSummary from "../../components/Cart/OrderSummary/OrderSummary";
-import EmptyCartMEssage from "../../components/Cart/EmptyCartMessage/EmptyCartMEssage";
+import EmptyCartMessage from "../../components/Cart/EmptyCartMessage/EmptyCartMessage";
 import CartItemsList from "../../components/Cart/CartItemsList/CartItemsList";
 
 function Cart() {
@@ -12,16 +11,16 @@ function Cart() {
   return (
     <main>
       <div className="cart-contents">
-        <h2
-          className="std-heading std-heading-cta"
-          style={{ textAlign: "center" }}
-        >
-          Your Cart
-        </h2>
-        {cartItems.length !== 0 ? (
-          <EmptyCartMEssage />
+        {cartItems.length === 0 ? (
+          <EmptyCartMessage />
         ) : (
           <>
+            <h2
+              className="std-heading std-heading-cta"
+              style={{ textAlign: "center" }}
+            >
+              Your Cart
+            </h2>
             <OrderSummary cartItems={cartItems} />
             <CartItemsList cartItems={cartItems} />
           </>
