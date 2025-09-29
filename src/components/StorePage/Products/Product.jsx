@@ -84,6 +84,8 @@ function Product({
     } else {
       addToCart(product);
       setSelectorsDropdownOpen(false);
+      setSelectedColor("");
+      setSelectedSize("");
     }
   }
 

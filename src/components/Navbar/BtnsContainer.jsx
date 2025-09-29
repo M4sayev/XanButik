@@ -56,7 +56,7 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
           className="btns-icon"
         />
         <span aria-live="polite" className="shopping-cart-item-count">
-          {cartItems.length}
+          {cartItems.map((item) => item.count).reduce((a, b) => a + b, 0)}
         </span>
       </button>
       <div className="contact-us-dropdown-container">

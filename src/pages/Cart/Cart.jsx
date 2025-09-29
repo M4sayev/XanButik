@@ -6,7 +6,7 @@ import EmptyCartMessage from "../../components/Cart/EmptyCartMessage/EmptyCartMe
 import CartItemsList from "../../components/Cart/CartItemsList/CartItemsList";
 
 function Cart() {
-  const { cartItems } = useContext(StoreContext);
+  const { cartItems, setCartItems } = useContext(StoreContext);
 
   return (
     <main>
@@ -23,7 +23,10 @@ function Cart() {
             </h2>
             <div className="items-summary-container">
               <OrderSummary cartItems={cartItems} />
-              <CartItemsList cartItems={cartItems} />
+              <CartItemsList
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
             </div>
           </>
         )}
