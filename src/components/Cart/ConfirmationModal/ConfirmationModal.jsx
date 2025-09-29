@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ModalCartItem from "./ModalCartItem";
 import { useEscapeKey } from "../../../hooks/useEscapeKey.js";
 import { StoreContext } from "../../../context/StoreContext.jsx";
+import { formatPrice } from "../../../utils/utils.js";
 
 function ConfirmationModal({
   setConfirmationModalOpen,
@@ -40,7 +41,7 @@ function ConfirmationModal({
         ))}
         <div className="modal-total-price">
           <span>Order Total</span>
-          <span>${totalPrice.toFixed(2)}</span>
+          <span>${formatPrice(toFixed(2))}</span>
         </div>
       </ul>
       <button

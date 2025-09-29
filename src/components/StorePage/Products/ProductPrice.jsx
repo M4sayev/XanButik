@@ -1,5 +1,5 @@
 import React from "react";
-import { calculateDiscountPrice } from "../../../utils/utils";
+import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 
 function ProductPrice({ discountPercent, price }) {
   if (discountPercent === 0) {
@@ -11,13 +11,13 @@ function ProductPrice({ discountPercent, price }) {
         className="str-product-price"
         style={{ textDecoration: "line-through" }}
       >
-        {price.toFixed(2)}$
+        {formatPrice(price)}
       </span>
       <span
         className="str-product-price"
         style={{ color: "var(--clr-validation-err)" }}
       >
-        {calculateDiscountPrice(price, discountPercent).toFixed(2)}$
+        {formatPrice(calculateDiscountPrice(price, discountPercent))}
       </span>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import "./CartItemsList.css";
 import { FaTrashCan } from "react-icons/fa6";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { calculateDiscountPrice } from "../../../utils/utils";
+import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 
 function CartItemsList({ cartItems, setCartItems }) {
   function handleDeleteCartItem(id) {
@@ -63,7 +63,9 @@ function CartItemsList({ cartItems, setCartItems }) {
                   Size: {currentSize.join(", ")} | Color:{" "}
                   {currentColor.join(", ")}
                 </p>
-                <p className="cart-item-price">${totalPrice.toFixed(2)} each</p>
+                <p className="cart-item-price">
+                  {formatPrice(totalPrice)} each
+                </p>
               </div>
             </div>
             <div className="cart-item-controls">
@@ -100,7 +102,7 @@ function CartItemsList({ cartItems, setCartItems }) {
                 </button>
               </div>
               <p className="cart-item-total-price" aria-label="Price per item">
-                ${(totalPrice * count).toFixed(2)}
+                {formatPrice(totalPrice * count)}
               </p>
               <button
                 className="remove-cart-item"

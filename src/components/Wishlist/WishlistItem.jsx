@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import Modal from "../Modal/Modal";
 import SelectorsDropdown from "../StorePage/Products/SelectorsDropdown";
-import { calculateDiscountPrice } from "../../utils/utils";
+import { calculateDiscountPrice, formatPrice } from "../../utils/utils";
 import { toast } from "react-toastify";
 import { StoreContext } from "./../../context/StoreContext";
 
@@ -89,7 +89,7 @@ function WishlistItem({
       <div className="wishlist-item-info">
         <p className="wishlist-item-name">{name}</p>
         <p className="wishlist-item-price">
-          {calculateDiscountPrice(price, discountPercent).toFixed(2)}$
+          {formatPrice(calculateDiscountPrice(price, discountPercent))}
         </p>
       </div>
       <div className="wishlist-item-controls">

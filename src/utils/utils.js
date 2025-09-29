@@ -11,3 +11,7 @@ export function calculateDiscountPrice(price, discountPercent) {
 export function handleAnimation(inView) {
   return inView ? "animate-in" : "";
 }
+
+export function formatPrice(price) {
+  return `$${price.toFixed(2)}`;
+}

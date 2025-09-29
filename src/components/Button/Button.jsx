@@ -4,8 +4,6 @@ import { StoreContext } from "../../context/StoreContext";
 const Button = ({ onClick, children, as: Component = "button", ...rest }) => {
   const { setCurrentPage } = useContext(StoreContext);
 
-  console.log(onClick);
-
   function handleMenuItemChange(event) {
     const id = event.target.id;
     if (!id) return;
