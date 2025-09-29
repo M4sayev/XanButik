@@ -1,8 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import "./OrderSummary.css";
 import { calculateDiscountPrice } from "../../../utils/utils";
+import Modal from "../../Modal/Modal";
+
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 function OrderSummary({ cartItems }) {
+  const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const subTotalPrice = useMemo(
     () =>
       cartItems
@@ -10,6 +14,11 @@ function OrderSummary({ cartItems }) {
         .reduce((a, b) => a + b, 0),
     [cartItems]
   );
+
+  function checkout() {
+    setConfirmationModalOpen(true);
+    console.log({ cartItems, totalPrice, shippingCost });
+  }
 
   const shippingCost = 5.0;
   const totalPrice = subTotalPrice + shippingCost;
@@ -39,9 +48,19 @@ function OrderSummary({ cartItems }) {
         aria-label="Proceed to checkout"
         className="std-button checkout-btn"
         style={{ width: "100%" }}
+        onClick={checkout}
       >
         Proceed to Checkout
       </button>
+      {confirmationModalOpen && (
+        <Modal>
+          <ConfirmationModal
+            setConfirmationModalOpen={setConfirmationModalOpen}
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+          />
+        </Modal>
+      )}
     </aside>
   );
 }

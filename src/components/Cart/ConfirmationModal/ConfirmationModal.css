@@ -1,0 +1,15 @@
+.confirmation-modal {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--spacing-lg);
+}
+.modal-total-price {
+  display: flex;
+  justify-content: space-between;
+  margin-block: var(--spacing-lg);
+  font-weight: var(--fw-bold-bold);
+  font-size: var(--fs-450);
+}
+.start-new-order-button {
+  width: 100% !important;
+}
