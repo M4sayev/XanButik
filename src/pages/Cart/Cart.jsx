@@ -21,8 +21,10 @@ function Cart() {
             >
               Your Cart
             </h2>
-            <OrderSummary cartItems={cartItems} />
-            <CartItemsList cartItems={cartItems} />
+            <div className="items-summary-container">
+              <OrderSummary cartItems={cartItems} />
+              <CartItemsList cartItems={cartItems} />
+            </div>
           </>
         )}
       </div>

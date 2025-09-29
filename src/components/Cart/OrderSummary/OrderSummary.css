@@ -12,7 +12,7 @@
   text-transform: capitalize;
   font-weight: var(--fw-bold);
 
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 .summary-item {
   display: flex;
@@ -48,4 +48,13 @@
   font-size: clamp(var(--fs-450), 3vw, var(--fs-600));
   opacity: 0.9;
   font-weight: var(--fw-bold-bold);
+}
+@media screen and (min-width: 777px) {
+  .order-summary {
+    margin-inline: 0;
+    margin-left: var(--spacing-lg);
+    margin-top: 0;
+    max-width: none;
+    flex: 3;
+  }
 }

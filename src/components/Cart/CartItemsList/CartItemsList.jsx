@@ -1,13 +1,13 @@
 import React from "react";
 import "./CartItemsList.css";
 import { FaTrashCan } from "react-icons/fa6";
+import { FiMinus, FiPlus } from "react-icons/fi";
 
 function CartItemsList({ cartItems }) {
   return (
-    <ul role="region" aria-label="Cart Items List">
+    <ul className="cart-items-list" role="region" aria-label="Cart Items List">
       {cartItems.map((item) => {
-        const { id, img, name, selectedSize, count, price, selectedColor } =
-          item;
+        const { id, img, name, currentSize, count, price, currentColor } = item;
         return (
           <li key={id} role="listitem" className="cart-item">
             <div className="cart-item-info-container">
@@ -17,7 +17,8 @@ function CartItemsList({ cartItems }) {
               <div className="cart-item-details">
                 <h3 className="cart-item-name">{item.name}</h3>
                 <p className="cart-item-selectors">
-                  Size: {selectedSize} | Color: {selectedColor}
+                  Size: {currentSize.join(", ")} | Color:{" "}
+                  {currentColor.join(", ")}
                 </p>
                 <p className="cart-item-price">${price.toFixed(2)} each</p>
               </div>
@@ -30,7 +31,7 @@ function CartItemsList({ cartItems }) {
                   aria-label={`Decrease quantity of ${name}`}
                   aria-controls={`item-count-${id}`}
                 >
-                  -
+                  <FiMinus aria-hidden="true" />
                 </button>
                 <span
                   className="item-count"
@@ -46,7 +47,7 @@ function CartItemsList({ cartItems }) {
                   aria-label={`Increase quantity of ${name}`}
                   aria-controls={`item-count-${id}`}
                 >
-                  +
+                  <FiPlus aria-hidden="true" />
                 </button>
               </div>
               <p className="cart-item-total-price" aria-label="Price per item">

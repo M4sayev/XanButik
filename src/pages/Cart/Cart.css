@@ -1,3 +1,24 @@
 .cart-contents {
   padding: var(--spacing-md);
+
+  margin: auto;
+  display: inline;
+
+  margin: auto;
+}
+
+.items-summary-container {
+  padding-inline: var(--spacing-md);
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 777px) {
+  .items-summary-container {
+    display: flex;
+    align-items: start;
+    flex-direction: row-reverse;
+    justify-content: center;
+    max-width: var(--cnts-mx-width);
+    margin: auto;
+  }
 }
