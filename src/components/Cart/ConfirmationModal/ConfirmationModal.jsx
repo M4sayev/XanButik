@@ -14,13 +14,17 @@ function ConfirmationModal({
   const { setCartItems } = useContext(StoreContext);
   const navigate = useNavigate();
   function handleStartNewOrder() {
-    setConfirmationModalOpen(false);
     navigate("/Store");
+    clearCartItems();
+  }
+
+  function clearCartItems() {
+    setConfirmationModalOpen(false);
     localStorage.removeItem("cartItems");
     setCartItems([]);
   }
 
-  useEscapeKey(() => setConfirmationModalOpen(false));
+  useEscapeKey(() => clearCartItems());
   return (
     <div className="confirmation-modal">
       <h2 className="std-heading confirmation-modal-heading">
