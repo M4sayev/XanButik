@@ -7,6 +7,7 @@ import { useFocusTrap } from "../../hooks/useTrapFocus";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
 import useForm from "../../hooks/useForm";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { toast } from "react-toastify";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,6 +41,12 @@ function LoginPopup({ formRef }) {
       });
 
       setShowLogin(false);
+
+      if (currentState === "Sign Up") {
+        toast("Account created successfully!");
+      } else {
+        toast("Logged in successfully!");
+      }
     }
   }
 
@@ -58,6 +65,8 @@ function LoginPopup({ formRef }) {
     }
     if (!form.password.trim()) {
       newErrors.password = "Password is required";
+    } else if (form.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
     }
 
     if (!form.email.trim()) {

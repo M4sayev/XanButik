@@ -6,6 +6,35 @@ import useForm from "../../../hooks/useForm";
 import { toast } from "react-toastify";
 import { handleAnimation } from "../../../utils/utils";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import QuestionFormInput from "./QuestionFormInput";
+import QuestionFormTextarea from "./QuestionFormTextarea";
+
+const inputFields = [
+  {
+    name: "firstName",
+    label: "First Name",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "lastName",
+    label: "Last Name",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "email",
+    label: "Email address",
+    type: "email",
+    required: true,
+  },
+  {
+    name: "phone",
+    label: "Phone",
+    type: "tel",
+    required: false,
+  },
+];
 
 function QuestionForm() {
   const { ref: qfTextRef, inView: qfTextInView } = useInView({
@@ -53,17 +82,28 @@ function QuestionForm() {
     const newErrors = {};
 
     const nameRegex = /^[a-zA-ZÀ-ÿ' -]+$/;
-    if (!nameRegex.test(form.firstName.trim())) {
+    if (
+      !nameRegex.test(form.firstName.trim()) &&
+      form.firstName.trim() !== ""
+    ) {
       newErrors.firstName =
         "Please enter a valid first name using letters only";
-    } else if (form.firstName.length < 2 || form.firstName.length > 50) {
+    } else if (
+      (form.firstName.length < 2 || form.firstName.length > 50) &&
+      form.firstName.trim() !== ""
+    ) {
       newErrors.firstName =
         "Please enter a valid first name using 2–50 letters";
     }
 
-    if (!nameRegex.test(form.lastName.trim())) {
+    if (form.lastName.trim() === "") {
+    }
+    if (!nameRegex.test(form.lastName.trim()) && form.lastName.trim() !== "") {
       newErrors.lastName = "Please enter a valid last name using letters only";
-    } else if (form.lastName.length < 2 || form.lastName.length > 50) {
+    } else if (
+      (form.lastName.length < 2 || form.lastName.length > 50) &&
+      form.lastName.trim() !== ""
+    ) {
       newErrors.lastName = "Please enter a valid last name using 2–50 letters";
     }
 
@@ -75,7 +115,7 @@ function QuestionForm() {
     }
 
     const phoneRegex = /^\+?[0-9\s\-().]{7,20}$/;
-    if (!phoneRegex.test(form.phone.trim())) {
+    if (!phoneRegex.test(form.phone.trim()) && form.phone.trim() !== "") {
       newErrors.phone = "Please enter a valid phone number using digits only";
     }
 
@@ -107,85 +147,24 @@ function QuestionForm() {
               className="qf-contact-form"
               noValidate
             >
-              <div>
-                <label htmlFor="firstName">First Name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  aria-invalid={errors.firstName ? "true" : "false"}
-                  aria-describedby={
-                    errors.firstName ? "firstName-error" : undefined
-                  }
+              {inputFields.map((field) => (
+                <QuestionFormInput
+                  errors={errors}
+                  form={form}
+                  handleChange={handleChange}
+                  name={field.name}
+                  label={field.label}
+                  type={field.type}
+                  required={field.required}
+                  key={field.name}
                 />
-                <ErrorMessage
-                  message={errors.firstName}
-                  fieldName={"firstName"}
-                />
-              </div>
-              <div>
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  aria-invalid={errors.lastName ? "true" : "false"}
-                  aria-describedby={
-                    errors.lastName ? "lastName-error" : undefined
-                  }
-                />
-                <ErrorMessage
-                  message={errors.lastName}
-                  fieldName={"lastName"}
-                />
-              </div>
-              <div>
-                <label className="qf-email-input-lbl" htmlFor="qfEmail">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="qfEmail"
-                  value={form.email}
-                  required
-                  onChange={handleChange}
-                  aria-required="true"
-                  aria-invalid={errors.email ? "true" : "false"}
-                  aria-describedby={errors.email ? "email-error" : undefined}
-                />
-                <ErrorMessage message={errors.email} fieldName={"email"} />
-              </div>
-              <div>
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="name"
-                  value={form.phone}
-                  onChange={handleChange}
-                  aria-invalid={errors.phone ? "true" : "false"}
-                  aria-describedby={errors.phone ? "phone-error" : undefined}
-                />
-                <ErrorMessage message={errors.phone} fieldName={"phone"} />
-              </div>
-              <div>
-                <label htmlFor="notes">Notes</label>
-                <textarea
-                  name="notes"
-                  id="notes"
-                  required
-                  value={form.notes}
-                  onChange={handleChange}
-                  aria-invalid={errors.notes ? "true" : "false"}
-                  aria-describedby={errors.notes ? "notes-error" : undefined}
-                />
-                <ErrorMessage message={errors.notes} fieldName={"notes"} />
-              </div>
+              ))}
+
+              <QuestionFormTextarea
+                form={form}
+                handleChange={handleChange}
+                errors={errors}
+              />
               <button className="qf-btn std-button">Submit</button>
             </form>
           </div>
