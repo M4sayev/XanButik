@@ -222,10 +222,11 @@
 
 .hamburger-menu {
   width: 25px;
-  height: 25px;
+  height: 24px;
 
   left: 50%;
-  transform: translate(-50%, 3%);
+
+  transform: translateX(-50%);
 
   border: none;
   appearance: none;

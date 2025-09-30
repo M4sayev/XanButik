@@ -32,6 +32,10 @@
   overflow: hidden;
   transition: background-color 0.3s ease;
 }
+.add-btn {
+  background-color: transparent;
+  border: 0;
+}
 .add-product-review-btn .btn-text {
   display: inline-block;
   transition: transform 0.4s ease, opacity 0.4s ease;

@@ -141,7 +141,7 @@ function ProductPageCta({
           onClick={() => setShowReviews(true)}
         >
           <StarRating rating={calculateRating(reviews)} />
-          <span>
+          <span style={{ color: "var(--clr-primary-900", opacity: 0.8 }}>
             {!reviews.length ? "No reviews" : `(${reviews.length} Reviews)`}
           </span>
         </button>

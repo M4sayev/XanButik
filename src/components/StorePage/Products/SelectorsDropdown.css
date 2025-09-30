@@ -3,7 +3,7 @@
   right: 0;
 
   position: absolute;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(1rem);
   padding: var(--spacing-md) var(--spacing-sm);
   margin-right: 0;
@@ -13,11 +13,15 @@
   opacity: 0;
   transform-origin: bottom right;
   transition: 200ms ease-in-out all;
-
-  z-index: var(--z-navbar);
 }
 
 .selectors-dropdown--active {
   transform: scale(1);
   opacity: 1;
+}
+
+@media screen and (min-width: 1024px) {
+  .selectors-dropdown {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }

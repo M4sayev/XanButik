@@ -12,6 +12,7 @@
   border: none;
   font-family: var(--ff-secondary);
   font-size: var(--fs-300);
+  color: var(--clr-primary-900);
 
   opacity: 0.6;
   cursor: pointer;

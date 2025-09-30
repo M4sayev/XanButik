@@ -47,15 +47,21 @@ function ReviewsModal({
           openAddReview && "add-review--active"
         }`}
       >
-        <button
-          className="add-product-review-btn"
-          type="button"
-          aria-label="Add a new review"
-          onClick={() => setOpenAddReview(true)}
-        >
+        <div className="add-product-review-btn">
           <span className="btn-text">Add a Review</span>
-          <IoMdAdd aria-hidden="true" className="btn-icon" />
-        </button>
+          <button
+            type="button"
+            className="add-btn"
+            aria-label="Add a new review"
+            onClick={() => setOpenAddReview(true)}
+          >
+            <IoMdAdd
+              aria-hidden="true"
+              className="btn-icon"
+              style={{ color: "var(--clr-primary-900)" }}
+            />
+          </button>
+        </div>
         <form
           ref={addReviewModalRef}
           className={`add-review-form-container`}
