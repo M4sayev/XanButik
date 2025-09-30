@@ -118,6 +118,7 @@ function WishlistItem({
             selectedColor={selectedColor}
             selectedSize={selectedSize}
             selectorsDropdownOpen={selectorsDropdownOpen}
+            reviews={reviews}
           />
         </div>
 

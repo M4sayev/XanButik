@@ -21,6 +21,8 @@ function SelectorsDropdown({
   selectedColor,
   selectedSize,
   handleAddToCart,
+  reviews,
+  description,
 }) {
   const dropdownRef = useRef(null);
   useFocusTrap(dropdownRef, selectorsDropdownOpen);
@@ -82,6 +84,8 @@ function SelectorsDropdown({
               currentSize: selectedSize,
               color,
               size,
+              reviews,
+              description,
             })
           }
         >

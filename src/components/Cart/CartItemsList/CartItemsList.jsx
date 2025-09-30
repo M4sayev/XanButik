@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CartItemsList.css";
 import { FaTrashCan } from "react-icons/fa6";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
+import { StoreContext } from "../../../context/StoreContext";
 
 function CartItemsList({ cartItems, setCartItems }) {
+  const { openProductPage } = useContext(StoreContext);
+
   function handleDeleteCartItem(id) {
     const newItems = cartItems.filter((item) => item.id !== id);
     setCartItems(newItems);
@@ -24,7 +27,6 @@ function CartItemsList({ cartItems, setCartItems }) {
 
   function handleDecreaseItemCount(id, currentCount) {
     if (currentCount <= 1) {
-      console.log(currentCount);
       handleDeleteCartItem(id);
       return;
     } else {
@@ -39,7 +41,6 @@ function CartItemsList({ cartItems, setCartItems }) {
     }
   }
 
-  function handleCartItemKeyDown(event) {}
   return (
     <ul className="cart-items-list" role="region" aria-label="Cart Items List">
       {cartItems.map((item) => {
@@ -52,10 +53,32 @@ function CartItemsList({ cartItems, setCartItems }) {
           price,
           discountPercent,
           currentColor,
+          reviews,
+          description,
+          size,
+          color,
         } = item;
         const totalPrice = calculateDiscountPrice(price, discountPercent);
         return (
-          <li tabIndex={0} key={id} role="listitem" className="cart-item">
+          <li
+            onClick={(e) =>
+              openProductPage(e, {
+                id,
+                name,
+                price,
+                discountPercent,
+                img,
+                size,
+                color,
+                reviews,
+                description,
+              })
+            }
+            tabIndex={0}
+            key={id}
+            role="listitem"
+            className="cart-item"
+          >
             <div className="cart-item-info-container">
               <div className="img-wrapper">
                 <img src={img[0]} alt="" />

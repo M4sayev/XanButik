@@ -184,6 +184,8 @@ function Product({
             handleSelectColor={handleSelectColor}
             selectedColor={selectedColor}
             selectedSize={selectedSize}
+            description={description}
+            reviews={reviews}
           />
         </div>
       </div>
