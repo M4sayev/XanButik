@@ -28,7 +28,7 @@
 }
 .welcome-section-text-title {
   display: inline;
-  
+
   padding-bottom: 1rem;
   padding-top: 0.25em;
 
@@ -59,6 +59,7 @@
 }
 .welcome-section-img {
   margin-inline: clamp(1rem, 10vw, 12rem);
+  aspect-ratio: 1 / 1;
 }
 
 @media (min-width: 994px) {

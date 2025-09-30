@@ -1,88 +1,87 @@
 .coming-soon {
-    position: relative;
-    height: 60vh;
-    overflow-y:hidden;
+  position: relative;
+  height: 60vh;
+  overflow-y: hidden;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 }
 .coming-soon-bg-video {
-    position: absolute;
-    top: -20%;
-    /* top 0 */
-    z-index: -10000;
+  pointer-events: none !important;
+  position: absolute;
+  top: -20%;
+  /* top 0 */
+  z-index: -10000;
 
-    width: 100%;
-    height: 100vh;
-/* height 100% */
-    object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  /* height 100% */
+  object-fit: cover;
 
-    filter: grayscale(0.5);
+  filter: grayscale(0.5);
 }
 .coming-soon-contents {
-    padding-inline: 1rem;
+  padding-inline: 1rem;
 }
 .coming-soon-text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .coming-soon-paragraph {
-    font-family: var(--ff-secondary);
-    font-size: clamp(var(--fs-300), 2.2vw, var(--fs-500));
+  font-family: var(--ff-secondary);
+  font-size: clamp(var(--fs-300), 2.2vw, var(--fs-500));
 }
 @media (min-width: 777px) {
-    .coming-soon {
-        height: 70vh;
-    }
-    .coming-soon-bg-video {
-        top: 0;
-    }
+  .coming-soon {
+    height: 70vh;
+  }
+  .coming-soon-bg-video {
+    top: 0;
+  }
 }
 @media (min-width: 994px) {
-    .coming-soon {
-        height: 80vh;
-    }
+  .coming-soon {
+    height: 80vh;
+  }
 }
 @media (min-width: 1200px) {
-    .coming-soon {
-        height: 100vh;
-    }
+  .coming-soon {
+    height: 100vh;
+  }
 }
 .progress-bar {
-    width: 100%;
-    height: 50px;
+  width: 100%;
+  height: 50px;
 
-
-    accent-color: var(--clr-accent);
+  accent-color: var(--clr-accent);
 }
 
 .coming-soon-countdown {
-    font-family: var(--ff-primary);
-    font-size: var(--fs-900);
-    letter-spacing: .125rem;
-    
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-900);
+  letter-spacing: 0.125rem;
 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
 
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 .coming-soon-countdown span {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 }
 .coming-soon-countdown span::before {
-    content: "";
-    width: 100%;
-    height: 100%;
+  content: "";
+  width: 100%;
+  height: 100%;
 
-    box-shadow: 5px 5px 10px hsl(0 0 0 / 0.5);
+  box-shadow: 5px 5px 10px hsl(0 0 0 / 0.5);
 
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

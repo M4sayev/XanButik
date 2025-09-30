@@ -101,6 +101,7 @@
   place-items: center;
 
   font-size: calc(var(--fs-400) / 2);
+  color: var(--clr-primary-900);
 
   width: 15px;
   height: 15px;
@@ -224,7 +225,7 @@
   height: 25px;
 
   left: 50%;
-  transform: translate(-50%, 10%);
+  transform: translate(-50%, 5%);
 
   border: none;
   appearance: none;

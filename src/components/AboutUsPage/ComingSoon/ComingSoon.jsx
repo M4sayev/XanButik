@@ -43,6 +43,7 @@ function ComingSoon() {
         </div>
       </div>
       <video
+        playsInline
         autoPlay
         loop
         muted
