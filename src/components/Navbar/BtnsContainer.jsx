@@ -46,12 +46,20 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
         <CiHeart
           aria-label="wishlist"
           className="btns-icon"
-          color={location.pathname === "/Wishlist" ? "#e53935" : ""}
+          color={
+            location.pathname === "/Wishlist"
+              ? "#e53935"
+              : "var(--clr-primary-900)"
+          }
         />
       </button>
       <button className="icon-btn shopping-cart-icon" onClick={navigateCart}>
         <PiShoppingBagLight
-          color={location.pathname === "/Cart" ? "#387638ff" : ""}
+          color={
+            location.pathname === "/Cart"
+              ? "#387638ff"
+              : "var(--clr-primary-900)"
+          }
           aria-label="shopping bag"
           className="btns-icon"
         />
@@ -66,14 +74,21 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
           className="mail-phone-icon-container"
           tabIndex={0}
         >
-          <CiMail className="btns-icon" />
-          <MdLocalPhone className="phone-icon" />
+          <CiMail
+            className="btns-icon"
+            style={{ color: "var(--clr-primary-900)" }}
+          />
+          <MdLocalPhone
+            className="phone-icon"
+            style={{ color: "var(--clr-primary-900)" }}
+          />
         </span>
         <span className="dropdown-arrow">
           <IoIosArrowUp
             aria-label="Arrow up"
             aria-hidden="true"
             className="dropdown-arrow-icon"
+            style={{ color: "var(--clr-primary-900)" }}
           />
         </span>
         <div role="dropdown" className="active dropdown-contact-us">
@@ -82,6 +97,7 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
               aria-label="Phone icon"
               aria-hidden="true"
               className="dropdown-phone-icon"
+              style={{ color: "var(--clr-primary-900)" }}
             />
           </span>
           <div
@@ -99,7 +115,11 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
             <p className="dropdown-phone-number">
               0554584886
               <span className="copy-icon" aria-hidden="true">
-                {copied ? <LuCopyCheck /> : <LuCopy />}
+                {copied ? (
+                  <LuCopyCheck style={{ color: "var(--clr-primary-900)" }} />
+                ) : (
+                  <LuCopy style={{ color: "var(--clr-primary-900)" }} />
+                )}
               </span>
               <span className="visually-hidden">
                 {copied ? "Copied" : "Click to copy"}

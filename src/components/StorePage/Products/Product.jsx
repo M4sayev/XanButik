@@ -152,7 +152,10 @@ function Product({
             })
           }
         >
-          <CiHeart aria-hidden="true" color={isInWishlist ? "#e53935" : ""} />
+          <CiHeart
+            aria-hidden="true"
+            color={isInWishlist ? "#e53935" : "var(--clr-primary-900)"}
+          />
         </button>
       </div>
       <div className="str-product-info-container">
@@ -167,7 +170,10 @@ function Product({
             className="product-add-to-cart-btn"
             onClick={() => setSelectorsDropdownOpen((prev) => !prev)}
           >
-            <HiOutlineShoppingBag className="shopping-bag " />
+            <HiOutlineShoppingBag
+              className="shopping-bag "
+              style={{ color: "var(--clr-primary-900)" }}
+            />
           </button>
           <SelectorsDropdown
             setSelectorsDropdownOpen={setSelectorsDropdownOpen}

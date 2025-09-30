@@ -2,6 +2,7 @@
   padding: var(--spacing-md);
   max-width: var(--cnts-mx-width);
   margin: auto;
+  min-height: 70vh;
 }
 .products-grid {
   display: grid;

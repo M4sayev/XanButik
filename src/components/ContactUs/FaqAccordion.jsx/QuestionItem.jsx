@@ -3,17 +3,17 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";
 
-function QuestionItem({ question, ans, isFiltered, handleArrows, index}) {
+function QuestionItem({ question, ans, isFiltered, handleArrows, index }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { ref: accordionItemRef, inView: accordionItemInView } = useInView();
   const id = useId();
 
   // collapsing every question on category change
-    useEffect(() => setIsCollapsed(true), [isFiltered]);
-    
+  useEffect(() => setIsCollapsed(true), [isFiltered]);
+
   return (
-    <article 
-      ref={accordionItemRef} 
+    <article
+      ref={accordionItemRef}
       className={`faq-accordion-item ${handleAnimation(accordionItemInView)}`}
       id={`article-${index}`}
     >
@@ -25,9 +25,13 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index}) {
         aria-expanded={!isCollapsed}
         aria-controls={`faq-content-${id}`}
         onKeyDown={(e) => {
-          const articles = Array.from(document.querySelectorAll(".faq-accordion-item"));
-          const currentIndex = articles.findIndex(el => el.id === `article-${index}`);
-          handleArrows(e, currentIndex)
+          const articles = Array.from(
+            document.querySelectorAll(".faq-accordion-item")
+          );
+          const currentIndex = articles.findIndex(
+            (el) => el.id === `article-${index}`
+          );
+          handleArrows(e, currentIndex);
         }}
       >
         <h2 className="std-subtitle-fs faq-accordion-question">{question}</h2>
@@ -37,6 +41,7 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index}) {
               !isCollapsed ? "arrow-is-active" : ""
             }`}
             aria-hidden="true"
+            style={{ color: "var(--clr-primary-900)" }}
           />
         </i>
       </button>
@@ -44,7 +49,9 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index}) {
         role="region"
         id={`faq-content-${id}`}
         aria-labelledby={`faq-button-${id}`}
-        className={`faq-accordion-body ${!isCollapsed ? "faq-accordion-body-show" : ""}`}
+        className={`faq-accordion-body ${
+          !isCollapsed ? "faq-accordion-body-show" : ""
+        }`}
         hidden={isCollapsed}
       >
         <p className="faq-accordion-ans">{ans}</p>
