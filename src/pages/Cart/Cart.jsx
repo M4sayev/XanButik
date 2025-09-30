@@ -22,11 +22,11 @@ function Cart() {
               Your Cart
             </h2>
             <div className="items-summary-container">
-              <OrderSummary cartItems={cartItems} />
               <CartItemsList
                 cartItems={cartItems}
                 setCartItems={setCartItems}
               />
+              <OrderSummary cartItems={cartItems} />
             </div>
           </>
         )}

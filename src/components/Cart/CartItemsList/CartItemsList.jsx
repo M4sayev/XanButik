@@ -10,6 +10,7 @@ function CartItemsList({ cartItems, setCartItems }) {
     setCartItems(newItems);
     localStorage.setItem("cartItems", JSON.stringify(newItems));
   }
+
   function handleIncreaseItemCount(id) {
     const newItems = cartItems.map((item) => {
       if (item.id === id) {
@@ -37,6 +38,8 @@ function CartItemsList({ cartItems, setCartItems }) {
       localStorage.setItem("cartItems", JSON.stringify(newItems));
     }
   }
+
+  function handleCartItemKeyDown(event) {}
   return (
     <ul className="cart-items-list" role="region" aria-label="Cart Items List">
       {cartItems.map((item) => {
@@ -52,7 +55,7 @@ function CartItemsList({ cartItems, setCartItems }) {
         } = item;
         const totalPrice = calculateDiscountPrice(price, discountPercent);
         return (
-          <li key={id} role="listitem" className="cart-item">
+          <li tabIndex={0} key={id} role="listitem" className="cart-item">
             <div className="cart-item-info-container">
               <div className="img-wrapper">
                 <img src={img[0]} alt="" />
