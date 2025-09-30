@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./Cart.css";
-import { StoreContext } from "../../context/StoreContext";
-import OrderSummary from "../../components/Cart/OrderSummary/OrderSummary";
-import EmptyCartMessage from "../../components/Cart/EmptyCartMessage/EmptyCartMessage";
-import CartItemsList from "../../components/Cart/CartItemsList/CartItemsList";
+import { StoreContext } from "../../context/StoreContext.jsx";
+import OrderSummary from "../../components/Cart/OrderSummary/OrderSummary.jsx";
+import CartItemsList from "../../components/Cart/CartItemsList/CartItemsList.jsx";
+import EmptyCartMessage from "../../components/Cart/EmptyCart/EmptyCartMEssage.jsx";
 
 function Cart() {
   const { cartItems, setCartItems } = useContext(StoreContext);
