@@ -37,11 +37,12 @@ function ConfirmationModal({
             count={item.count}
             price={item.price}
             img={item.img}
+            dicountPercent={item.discountPercent}
           />
         ))}
         <div className="modal-total-price">
           <span>Order Total</span>
-          <span>${formatPrice(toFixed(2))}</span>
+          <span>{formatPrice(totalPrice)}</span>
         </div>
       </ul>
       <button

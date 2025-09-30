@@ -1,7 +1,9 @@
 import React from "react";
 import "./ModalCartItem.css";
+import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 
-function ModalCartItem({ name, count, price, img }) {
+function ModalCartItem({ name, count, price, img, dicountPercent }) {
+  const discountPrice = calculateDiscountPrice(price, dicountPercent);
   return (
     <li className="modal-cart-item">
       <div className="modal-cart-item-img-info-container">
@@ -12,11 +14,13 @@ function ModalCartItem({ name, count, price, img }) {
           <p className="modal-cart-item-name">{name}</p>
           <span className="modal-cart-item-count">{count}x</span>
           <span className="modal-cart-item-price">
-            ${price.toFixed(2)} each
+            {formatPrice(discountPrice)} each
           </span>
         </div>
       </div>
-      <span class="modal-subtotal-price">${(price * count).toFixed(2)}</span>
+      <span className="modal-subtotal-price">
+        {formatPrice(discountPrice * count)}
+      </span>
     </li>
   );
 }
