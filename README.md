@@ -89,7 +89,7 @@ Leaflet
 
 Clone the repo:
 
-git clone https://github.com/yourusername/ecommerce-app.git
+git clone https://github.com/M4sayev/ecommerce-app.git
 cd ecommerce-app
 
 
