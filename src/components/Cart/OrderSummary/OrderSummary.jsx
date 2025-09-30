@@ -17,6 +17,8 @@ function OrderSummary({ cartItems }) {
 
   function checkout() {
     setConfirmationModalOpen(true);
+
+    // For demonstration purposes, we'll just log the cart items and total price
     console.log({ cartItems, totalPrice, shippingCost });
   }
 

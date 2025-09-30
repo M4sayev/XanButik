@@ -152,7 +152,7 @@ function Product({
             })
           }
         >
-          <CiHeart aria-hidden="true" color={isInWishlist && "#e53935"} />
+          <CiHeart aria-hidden="true" color={isInWishlist ? "#e53935" : ""} />
         </button>
       </div>
       <div className="str-product-info-container">
