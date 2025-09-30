@@ -106,7 +106,10 @@ function LoginPopup({ formRef }) {
             aria-label="Close login popup"
             ref={firstPopupElRef}
           >
-            <IoClose className="cross" />
+            <IoClose
+              className="cross"
+              style={{ color: "var(--clr-primary-900)" }}
+            />
           </button>
         </div>
         <div className="login-popup-inputs">

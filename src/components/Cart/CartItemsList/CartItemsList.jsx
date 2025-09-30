@@ -107,7 +107,10 @@ function CartItemsList({ cartItems, setCartItems }) {
                   aria-controls={`item-count-${id}`}
                   onClick={() => handleDecreaseItemCount(id, count)}
                 >
-                  <FiMinus aria-hidden="true" />
+                  <FiMinus
+                    aria-hidden="true"
+                    style={{ color: "var(--clr-primary-900)" }}
+                  />
                 </button>
                 <span
                   className="item-count"
@@ -124,7 +127,10 @@ function CartItemsList({ cartItems, setCartItems }) {
                   aria-controls={`item-count-${id}`}
                   onClick={() => handleIncreaseItemCount(id)}
                 >
-                  <FiPlus aria-hidden="true" />
+                  <FiPlus
+                    aria-hidden="true"
+                    style={{ color: "var(--clr-primary-900)" }}
+                  />
                 </button>
               </div>
               <p className="cart-item-total-price" aria-label="Price per item">

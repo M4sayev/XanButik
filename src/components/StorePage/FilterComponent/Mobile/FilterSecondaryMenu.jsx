@@ -39,9 +39,12 @@ function FilterSecondaryMenu({
               height: "25px",
               width: "20px",
               paddingTop: "3px",
+              color: "var(--clr-primary-900)",
             }}
           />
-          <p>{camelCaseToLabel(currentFilter)}</p>
+          <p style={{ color: "var(--clr-primary-900)" }}>
+            {camelCaseToLabel(currentFilter)}
+          </p>
         </button>
 
         {currentFilter === "Price Range" ? null : currentFilter &&

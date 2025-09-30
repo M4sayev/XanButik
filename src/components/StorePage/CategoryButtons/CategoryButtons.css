@@ -1,145 +1,144 @@
 .category-btns-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .category-btns-container {
-    max-width: var(--cnts-mx-width);
-    display: flex;
-    gap: calc(var(--spacing-lg) / 1.3);
+  max-width: var(--cnts-mx-width);
+  display: flex;
+  gap: calc(var(--spacing-lg) / 1.3);
 
-    padding-block: var(--spacing-md);
-    padding-inline: calc(var(--spacing-lg) / 1.3);
+  padding-block: var(--spacing-md);
+  padding-inline: calc(var(--spacing-lg) / 1.3);
 
-    overflow-x: scroll;
+  overflow-x: scroll;
 }
 .category-btns-container::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 .category-btns-container::-webkit-scrollbar-thumb {
-
-    color: var(--clr-accent);
-    background-color: var(--clr-primary-200);
-
+  color: var(--clr-accent);
+  background-color: var(--clr-primary-200);
 }
 
 .category-btn {
-    background-color: transparent;
-    border: none;
-    position: relative;
+  background-color: transparent;
+  border: none;
+  position: relative;
 
-    cursor: pointer;
-    flex-shrink: 0;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .category-btn:hover .category-preview-img {
-    border-color: var(--clr-primary-900);
+  border-color: var(--clr-primary-900);
 }
-.category-btn--active .category-preview-img{
-    transform: scale(1.5) translateY(var(--spacing-sm));
-    border-color: var(--clr-primary-900);
+.category-btn--active .category-preview-img {
+  transform: scale(1.5) translateY(var(--spacing-sm));
+  border-color: var(--clr-primary-900);
 }
 .category-btn-overlay {
-    transition: var(--std-transition);
+  transition: var(--std-transition);
+  color: var(--clr-primary-900);
 }
 .category-btn--active .category-btn-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-    transform: translate(-50%, -50%);
-    width: 100%;
-    padding: var(--spacing-sm);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: var(--spacing-sm);
 
-    color: var(--clr-neutral-100);
-    font-weight: var(--fw-bold);
-    backdrop-filter: blur(3px);
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+  backdrop-filter: blur(3px);
 }
 
 /* To show the picture beneath the selected category mobiles */
 .category-btn--active {
-    z-index: 5;
-    /* to add spacing when a catery is selected */
-    padding-bottom: 20px;
+  z-index: 5;
+  /* to add spacing when a catery is selected */
+  padding-bottom: 20px;
 }
 .category-preview-img {
-    overflow: hidden;
-    width: 70px;
-    aspect-ratio: 1 /1 ;
-    object-fit: cover;
+  overflow: hidden;
+  width: 70px;
+  aspect-ratio: 1 /1;
+  object-fit: cover;
 
-    border-radius: 30px;
-    border: 2px solid var(--clr-accent);
+  border-radius: 30px;
+  border: 2px solid var(--clr-accent);
 
-    transition: var(--std-transition);
-    margin-bottom: calc(var(--spacing-sm) / 2); 
+  transition: var(--std-transition);
+  margin-bottom: calc(var(--spacing-sm) / 2);
 }
 
 .category-btn-overlay h1 {
-   font-family: var(--ff-secondary); 
+  font-family: var(--ff-secondary);
 }
 
 @media screen and (min-width: 576px) {
-    .category-preview-img {
-        width: 80px;
-    }
+  .category-preview-img {
+    width: 80px;
+  }
 }
 
 @media screen and (min-width: 777px) {
-    .category-btns-container {
-        padding-inline: 0;
-    }
-    .category-btn {
-        padding-bottom: 0;
-    }
-    .category-preview-img {
-        border: none;
-        border-radius: 0;
-        margin: 0;
+  .category-btns-container {
+    padding-inline: 0;
+  }
+  .category-btn {
+    padding-bottom: 0;
+  }
+  .category-preview-img {
+    border: none;
+    border-radius: 0;
+    margin: 0;
 
-        width: clamp(150px, 15vw, 220px);
-        aspect-ratio: 3 / 4;
-    }
-    /* remove mobile active, hover effect */
-    .category-btn:hover .category-preview-img,
-    .category-btn--active .category-preview-img{
-        transform: scale(1) translateY(0)
-    }
+    width: clamp(150px, 15vw, 220px);
+    aspect-ratio: 3 / 4;
+  }
+  /* remove mobile active, hover effect */
+  .category-btn:hover .category-preview-img,
+  .category-btn--active .category-preview-img {
+    transform: scale(1) translateY(0);
+  }
 
-    .category-btn-overlay {
-        position: absolute;
-        display: grid;
-        place-items: center;
-        
-        inset: 0;
-        background-color: rgba(206, 206, 206, 0.5);
-        transition: var(--std-transition);
-    }
+  .category-btn-overlay {
+    position: absolute;
+    display: grid;
+    place-items: center;
 
-    /* remove mobile active class effect */
-    .category-btn--active .category-btn-overlay {
-        font-weight: normal;
-        backdrop-filter: none;
-        padding: 0;
+    inset: 0;
+    background-color: rgba(206, 206, 206, 0.5);
+    transition: var(--std-transition);
+  }
 
-        inset: 0;
-        transform: translate(0, 0);
+  /* remove mobile active class effect */
+  .category-btn--active .category-btn-overlay {
+    font-weight: normal;
+    backdrop-filter: none;
+    padding: 0;
 
-        color: var(--clr-neutral-100);
-        backdrop-filter: blur(0);
-    }
-    .category-btn-overlay h1 {
-        font-size: var(--fs-600);
-        color: var(--clr-neutral-100);
-        text-shadow: 2px 2px rgba(88, 81, 81, 0.8);
-    }
+    inset: 0;
+    transform: translate(0, 0);
 
-    .category-btn-overlay:hover,
-    .category-btn--active .category-btn-overlay {
-        background-color: rgba(206, 206, 206, 0.1);
-    }
-    
-    .category-btns-container::-webkit-scrollbar-thumb  {
-        background-color: var(--clr-accent);
-    }
+    color: var(--clr-neutral-100);
+    backdrop-filter: blur(0);
+  }
+  .category-btn-overlay h1 {
+    font-size: var(--fs-600);
+    color: var(--clr-neutral-100);
+    text-shadow: 2px 2px rgba(88, 81, 81, 0.8);
+  }
+
+  .category-btn-overlay:hover,
+  .category-btn--active .category-btn-overlay {
+    background-color: rgba(206, 206, 206, 0.1);
+  }
+
+  .category-btns-container::-webkit-scrollbar-thumb {
+    background-color: var(--clr-accent);
+  }
 }

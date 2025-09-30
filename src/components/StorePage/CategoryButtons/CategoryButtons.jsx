@@ -28,7 +28,7 @@ function CategoryButtons({ categoryMap, handleCategoryBtn, currentCategory }) {
                 />
               </div>
               <div className="category-btn-overlay">
-                <h1 style={{ style: "var(--clr-primary-900)" }}>{category}</h1>
+                <h1>{category}</h1>
               </div>
             </button>
           );

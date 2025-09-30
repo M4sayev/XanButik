@@ -63,6 +63,7 @@
 .store-search-input {
   overflow-y: hidden;
   white-space: nowrap;
+  border-radius: 0;
 }
 
 .search-bar-container .search-icon {

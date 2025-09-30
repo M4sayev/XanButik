@@ -115,7 +115,7 @@
 .faq-accordion-question {
   font-family: var(--ff-secondary);
   font-weight: var(--fw-bold);
-  color: var(--clr-primary);
+  color: var(--clr-primary-900);
 
   padding-right: 1rem;
   margin-block: 1.5rem;

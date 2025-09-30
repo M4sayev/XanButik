@@ -44,7 +44,10 @@ function SelectorsDropdown({
         tabIndex={selectorsDropdownOpen ? 0 : -1}
         disabled={!selectorsDropdownOpen}
       >
-        <IoClose className="cross" />
+        <IoClose
+          className="cross"
+          style={{ color: "var(--clr-primary-900)" }}
+        />
       </button>
       {!selectorsDropdownOpen ? (
         ""
@@ -73,6 +76,7 @@ function SelectorsDropdown({
           tabIndex={selectorsDropdownOpen ? 0 : -1}
           disabled={!selectorsDropdownOpen}
           className="std-button"
+          style={{ width: "100%" }}
           onClick={() =>
             handleAddToCart({
               id,

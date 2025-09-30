@@ -13,6 +13,7 @@
   background-color: transparent;
   font-family: var(--ff-secondary);
   border-radius: 1.25rem;
+  color: var(--clr-primary-900);
   padding: var(--spacing-sm);
 
   border: 1px solid var(--clr-neutral-200);

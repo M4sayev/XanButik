@@ -13,7 +13,11 @@ function EmptyCartMessage() {
       <h2 id="empty-cart-heading" className="std-heading">
         Your cart is empty
       </h2>
-      <FaCartPlus className="cart-icon" aria-hidden="true" />
+      <FaCartPlus
+        className="cart-icon"
+        aria-hidden="true"
+        style={{ color: "var(--clr-primary-900)" }}
+      />
       <p>Looks like you haven't added any items to your cart yet.</p>
       <p className="wishlist-cta-text">
         Browse our products and start shopping!

@@ -13,6 +13,8 @@
   opacity: 0;
   transform-origin: bottom right;
   transition: 200ms ease-in-out all;
+
+  z-index: var(--z-navbar);
 }
 
 .selectors-dropdown--active {

@@ -154,7 +154,7 @@ function Product({
         >
           <CiHeart
             aria-hidden="true"
-            color={isInWishlist ? "#e53935" : "var(--clr-primary-900)"}
+            color={isInWishlist ? "#e53935" : "var(--clr-neutral-100)"}
           />
         </button>
       </div>
