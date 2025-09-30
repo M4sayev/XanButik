@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../components/Button/Button";
+import Button from "../../Button/Button";
 import "./EmptyCartMessage.css";
 import { FaCartPlus } from "react-icons/fa";
 
