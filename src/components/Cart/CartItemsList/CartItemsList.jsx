@@ -8,15 +8,24 @@ import { StoreContext } from "../../../context/StoreContext";
 function CartItemsList({ cartItems, setCartItems }) {
   const { openProductPage } = useContext(StoreContext);
 
-  function handleDeleteCartItem(id) {
-    const newItems = cartItems.filter((item) => item.id !== id);
+  function handleDeleteCartItem(id, currentColor, currentSize) {
+    const newItems = cartItems.filter(
+      (item) =>
+        item.id !== id ||
+        item.currentColor !== currentColor ||
+        item.currentSize !== currentSize
+    );
     setCartItems(newItems);
     localStorage.setItem("cartItems", JSON.stringify(newItems));
   }
 
-  function handleIncreaseItemCount(id) {
+  function handleIncreaseItemCount(id, currentColor, currentSize) {
     const newItems = cartItems.map((item) => {
-      if (item.id === id) {
+      if (
+        item.id === id &&
+        item.currentColor === currentColor &&
+        item.currentSize === currentSize
+      ) {
         return { ...item, count: item.count + 1 };
       }
       return item;
@@ -25,13 +34,22 @@ function CartItemsList({ cartItems, setCartItems }) {
     localStorage.setItem("cartItems", JSON.stringify(newItems));
   }
 
-  function handleDecreaseItemCount(id, currentCount) {
+  function handleDecreaseItemCount(
+    id,
+    currentCount,
+    currentColor,
+    currentSize
+  ) {
     if (currentCount <= 1) {
-      handleDeleteCartItem(id);
+      handleDeleteCartItem(id, currentColor, currentSize);
       return;
     } else {
       const newItems = cartItems.map((item) => {
-        if (item.id === id) {
+        if (
+          item.id === id &&
+          item.currentColor === currentColor &&
+          item.currentSize === currentSize
+        ) {
           return { ...item, count: item.count - 1 };
         }
         return item;
@@ -75,7 +93,7 @@ function CartItemsList({ cartItems, setCartItems }) {
               })
             }
             tabIndex={0}
-            key={id}
+            key={id + currentColor + currentSize}
             role="listitem"
             className="cart-item"
           >
@@ -104,7 +122,14 @@ function CartItemsList({ cartItems, setCartItems }) {
                   type="button"
                   aria-label={`Decrease quantity of ${name}`}
                   aria-controls={`item-count-${id}`}
-                  onClick={() => handleDecreaseItemCount(id, count)}
+                  onClick={() =>
+                    handleDecreaseItemCount(
+                      id,
+                      count,
+                      currentColor,
+                      currentSize
+                    )
+                  }
                 >
                   <FiMinus
                     aria-hidden="true"
@@ -124,7 +149,9 @@ function CartItemsList({ cartItems, setCartItems }) {
                   type="button"
                   aria-label={`Increase quantity of ${name}`}
                   aria-controls={`item-count-${id}`}
-                  onClick={() => handleIncreaseItemCount(id)}
+                  onClick={() =>
+                    handleIncreaseItemCount(id, currentColor, currentSize)
+                  }
                 >
                   <FiPlus
                     aria-hidden="true"
@@ -139,7 +166,9 @@ function CartItemsList({ cartItems, setCartItems }) {
                 className="remove-cart-item"
                 type="button"
                 aria-label={`Remove ${name} from cart`}
-                onClick={() => handleDeleteCartItem(id)}
+                onClick={() =>
+                  handleDeleteCartItem(id, currentColor, currentSize)
+                }
               >
                 <FaTrashCan aria-hidden="true" />
               </button>
