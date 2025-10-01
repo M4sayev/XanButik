@@ -18,7 +18,7 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
     if (e.type === "keydown" && e.key !== "Enter") return;
 
     const phoneNum = e.currentTarget
-      .querySelector(".dropdown-phone-number")
+      .querySelector(".dp-number")
       ?.textContent?.trim();
 
     if (phoneNum) {
@@ -113,7 +113,7 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
             }
           >
             <p className="dropdown-phone-number">
-              0554584886
+              <span className="dp-number">0554584886</span>
               <span className="copy-icon" aria-hidden="true">
                 {copied ? (
                   <LuCopyCheck style={{ color: "var(--clr-primary-900)" }} />

@@ -269,6 +269,9 @@ textarea:not([rows]) {
 }
 
 /* Apply focus visible to key interactive elements */
+button:focus {
+  outline: none;
+}
 input:focus-visible,
 button:focus-visible,
 a:focus-visible,
@@ -312,7 +315,7 @@ textarea:focus-visible,
 }
 
 .std-button:hover,
-.std-button:focus {
+.std-button:focus-visible {
   transform: scale(1.05);
 }
 

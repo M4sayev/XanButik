@@ -73,14 +73,16 @@ function StoreContextProvider(props) {
       localStorage.setItem("wishlistItems", JSON.stringify(newItems));
 
       let updatedCart;
-      if (!foundProduct) {
+      if (
+        !foundProduct ||
+        foundProduct.currentSize !== item.currentSize ||
+        foundProduct.currentColor !== item.currentColor
+      ) {
         updatedCart = [
           ...prev,
           {
             ...item,
             count: 1,
-            currentColor: [item.currentColor],
-            currentSize: [item.currentSize],
           },
         ];
       } else {
@@ -89,18 +91,6 @@ function StoreContextProvider(props) {
             ? {
                 ...cartItem,
                 count: cartItem.count + 1,
-                currentColor: [
-                  ...new Set([
-                    ...(cartItem.currentColor || []),
-                    item.currentColor,
-                  ]),
-                ],
-                currentSize: [
-                  ...new Set([
-                    ...(cartItem.currentSize || []),
-                    item.currentSize,
-                  ]),
-                ],
               }
             : cartItem
         );

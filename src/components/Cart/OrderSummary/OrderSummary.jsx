@@ -10,7 +10,9 @@ function OrderSummary({ cartItems }) {
   const subTotalPrice = useMemo(
     () =>
       cartItems
-        .map((item) => calculateDiscountPrice(item.price, item.discountPercent))
+        .map((item) =>
+          calculateDiscountPrice(item.price * item.count, item.discountPercent)
+        )
         .reduce((a, b) => a + b, 0),
     [cartItems]
   );

@@ -1,179 +1,177 @@
 .testimonials-reviews-carousel {
-    background-color: var(--clr-accent);
+  background-color: var(--clr-accent);
 
-    padding-block: 2.25rem;
+  padding-block: var(--spacing-lg);
 }
 .testimonials-reviews-carousel-contents {
-    padding-inline: 1.25rem;
+  padding-inline: 1.25rem;
 
-    max-width: var(--bnrs-mx-width);
-    margin: auto;
+  max-width: var(--bnrs-mx-width);
+  margin: auto;
 }
 .review-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    padding-top: 2rem;
-    padding-inline: 1rem;
+  padding-top: 2rem;
+  padding-inline: 1rem;
 
-    position: relative;
-
+  position: relative;
 }
 .review-item::after {
-    content: "";
-    width: 30px;
-    height: 2px;
+  content: "";
+  width: 30px;
+  height: 2px;
 
-    position: absolute;
-    top: 0;
-    left: 1rem;
+  position: absolute;
+  top: 0;
+  left: 1rem;
 
-    background-color: var(--clr-primary-900);
+  background-color: var(--clr-primary-900);
 }
 .reviewer-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    text-align: center;
+  text-align: center;
 }
 @media (min-width: 777px) {
-    .review-item {
-        height: 100%;
-        padding-bottom: 1.5rem;
-    }
-    .reviewer-info-container {
-        flex-direction: row;
-        gap: 2.25rem;
+  .review-item {
+    height: 100%;
+    padding-bottom: 1.5rem;
+  }
+  .reviewer-info-container {
+    flex-direction: row;
+    gap: 2.25rem;
 
-        text-align: start;
-    }
-    .reviews-carousel-container {
-        height: 340px;
-    }
+    text-align: start;
+  }
+  .reviews-carousel-container {
+    height: 340px;
+  }
 }
 @media (min-width: 1000px) {
-    .reviews-carousel-container {
-        height: 300px;
-    }
+  .reviews-carousel-container {
+    height: 300px;
+  }
 }
 .reviewer-pp {
-    border-radius: 50%;
-    max-width: 87px;
-    max-height: 87px;
+  border-radius: 50%;
+  max-width: 87px;
+  max-height: 87px;
 }
 .reviewer-name-job-container {
-    margin-top: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: var(--spacing-md);
 }
 .reviewer-name {
-    font-family: var(--ff-secondary);
-    font-size: clamp(var(--fs-450), 5vw, var(--fs-500));
-    font-weight: var(--fw-bold-bold);
+  font-family: var(--ff-secondary);
+  font-size: clamp(var(--fs-450), 5vw, var(--fs-500));
+  font-weight: var(--fw-bold-bold);
 }
 
 /* swiper  */
 
 .reviews-carousel-container {
-    padding-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 /* swiper pagination */
 
 .reviews-carousel-container .swiper-pagination-bullets {
-    bottom: 0px !important;
-  }
+  bottom: 0px !important;
+  padding-bottom: calc(var(--spacing-md) * -1) !important;
+}
 .reviews-carousel-container {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .swiper-pagination-bullets {
-    bottom: 0px !important;
-  }
+  bottom: 0px !important;
+}
 .swiper-pagination-bullet {
-    width: 12px !important;
-    height: 12px !important;
-    margin-right: 0.75rem !important;
-    }
+  width: 12px !important;
+  height: 12px !important;
+  margin-right: 0.75rem !important;
+}
 .swiper-pagination-bullet-active {
-    background-color: var(--clr-primary-900) !important;
+  background-color: var(--clr-primary-900) !important;
 }
 
 /* swiper navigation  */
 
 .swiper-button-next,
 .swiper-button-prev {
-    display: none !important;
+  display: none !important;
 
-    will-change: transform;
-    transition: transform var(--std-transitiaon);
+  will-change: transform;
+  transition: transform var(--std-transitiaon);
 }
 .swiper-button-next:active {
-    transform: translateX(1px);
+  transform: translateX(1px);
 }
 .swiper-button-prev:active {
-    transform: translateX(-1px);
+  transform: translateX(-1px);
 }
 /* navigation btns arrows */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    content: "";
-    width: 0;
-    height: 0;
-    padding: 3px;
+  content: "";
+  width: 0;
+  height: 0;
+  padding: 3px;
 
-    display: inline-block;
+  display: inline-block;
 
-    position: absolute;
+  position: absolute;
 
-    border: solid var(--clr-accent);
-    border-width: 0 3px 3px 0;
+  border: solid var(--clr-accent);
+  border-width: 0 3px 3px 0;
 }
 .swiper-button-prev::after {
-    left: 42%;
-    transform: rotate(135deg);
+  left: 42%;
+  transform: rotate(135deg);
 }
 .swiper-button-next::after {
-    right: 42%;
-    transform: rotate(-45deg);
+  right: 42%;
+  transform: rotate(-45deg);
 }
 
-
 @media (min-width: 1120px) {
-    /* to move navigation btns more on sides  */
-    .reviews-carousel-container .swiper-slide-active {
-        padding-left: 3rem !important;
-    }
-    .reviews-carousel-container .swiper-slide-next {
-        padding-right: 3rem !important;
-    }
-    /* avoid cascading dissappearing pagination in other swiper-pagination using css files  */
+  /* to move navigation btns more on sides  */
+  .reviews-carousel-container .swiper-slide-active {
+    padding-left: 3rem !important;
+  }
+  .reviews-carousel-container .swiper-slide-next {
+    padding-right: 3rem !important;
+  }
+  /* avoid cascading dissappearing pagination in other swiper-pagination using css files  */
 
-    .review-carousel-container .swiper-pagination {
-        display: none !important;
-    }
-    /* alternative: 
+  .review-carousel-container .swiper-pagination {
+    display: none !important;
+  }
+  /* alternative: 
         .swiper-pagination:not(.carousel > .swiper-pagination) {
             display: none !important;
         }  
     */
 
-    .reviews-carousel-container .swiper-pagination {
-        display: none !important;
-    }
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: flex !important;
-        width: 40px !important;
-        height: 40px !important;
+  .reviews-carousel-container .swiper-pagination {
+    display: none !important;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex !important;
+    width: 40px !important;
+    height: 40px !important;
 
-        top: 45% !important;
+    top: 45% !important;
 
-        border-radius: 50%;
-        background-color: var(--clr-primary-900);
+    border-radius: 50%;
+    background-color: var(--clr-primary-900);
 
-        position: relative;
-    }
+    position: relative;
+  }
 }
-
-
