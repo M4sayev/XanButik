@@ -2,7 +2,6 @@
 .pp-size-selector {
   margin-bottom: var(--spacing-md);
 }
-.pp-size-btns-container,
 .pp-size-btns-container {
   display: flex;
   flex-wrap: wrap;

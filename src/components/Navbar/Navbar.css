@@ -228,10 +228,12 @@
   appearance: none;
   background: none;
 
+  left: 1px;
+
   cursor: pointer;
 
   position: relative;
-  z-index: calc(var(--z-sidebar) + 1);
+  z-index: calc(var(--z-sidebar) + 2);
 }
 
 .hamburger-menu span {

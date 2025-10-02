@@ -1,11 +1,5 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
-import { CiHeart, CiMail } from "react-icons/ci";
-import { PiShoppingBagLight } from "react-icons/pi";
-import { MdLocalPhone } from "react-icons/md";
-import { IoIosArrowUp } from "react-icons/io";
-import { FiPhone } from "react-icons/fi";
-import { LuCopy, LuCopyCheck } from "react-icons/lu";
 import { useLocation } from "react-router-dom";
 import WishlistButton from "./WishlistButton";
 import CartButton from "./CartButton";

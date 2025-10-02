@@ -1,12 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import "./LoginPopup.css";
-import { IoClose } from "react-icons/io5";
-import { BiShow, BiHide } from "react-icons/bi";
 import { StoreContext } from "../../context/StoreContext";
 import { useFocusTrap } from "../../hooks/useTrapFocus";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
 import useForm from "../../hooks/useForm";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { toast } from "react-toastify";
 import LoginForm from "./LoginForm";
 import SingUpForm from "./SingUpForm";

@@ -52,7 +52,7 @@ function SelectorsDropdown({
       {!selectorsDropdownOpen ? (
         ""
       ) : (
-        <>
+        <div className="selectors-container">
           <ColorSelector
             color={color}
             currentColor={selectedColor}
@@ -63,7 +63,7 @@ function SelectorsDropdown({
             currentSize={selectedSize}
             handleSelectSize={handleSelectSize}
           />
-        </>
+        </div>
       )}
 
       <div
@@ -75,7 +75,7 @@ function SelectorsDropdown({
         <button
           tabIndex={selectorsDropdownOpen ? 0 : -1}
           disabled={!selectorsDropdownOpen}
-          className="std-button"
+          className="std-button selectors-add-to-cart-btn"
           style={{ width: "100%" }}
           onClick={() =>
             handleAddToCart({

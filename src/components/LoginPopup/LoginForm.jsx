@@ -1,6 +1,5 @@
 import React from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import { BiHide, BiShow } from "react-icons/bi";
 import PasswordInput from "./PasswordInput";
 
 function LoginForm({
