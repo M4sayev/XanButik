@@ -3,11 +3,11 @@ import "./OurResultsBanner.css";
 import { useInView } from "react-intersection-observer";
 import { ourResults } from "../../../assets/assets";
 import { handleAnimation } from "../../../utils/utils";
-import CountUp from "react-countup";
+import ClientSideCountUp from "./ClientSideCountUp";
 
 function OurResultsBanner() {
   const { ref: ourResultsRef, inView: resultsInView } = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: true,
   });
 
@@ -42,14 +42,7 @@ function OurResultsBanner() {
                   aria-label={`Achievement: ${achievement}, Result: ${result}`}
                 >
                   {resultsInView ? (
-                    <CountUp
-                      start={0}
-                      end={achievement}
-                      duration={2.75}
-                      suffix={suffix}
-                    >
-                      {({ countUpRef }) => <h2 ref={countUpRef}></h2>}
-                    </CountUp>
+                    <ClientSideCountUp end={achievement} suffix={suffix} />
                   ) : (
                     "0"
                   )}

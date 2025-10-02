@@ -7,6 +7,7 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { ref: accordionItemRef, inView: accordionItemInView } = useInView({
     threshold: 0.3,
+    triggerOnce: true,
   });
   const id = useId();
 

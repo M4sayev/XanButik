@@ -1,28 +1,31 @@
-import React from 'react'
-import { useInView } from 'react-intersection-observer';
-import { handleAnimation } from '../../../utils/utils';
+import React from "react";
+import { useInView } from "react-intersection-observer";
+import { handleAnimation } from "../../../utils/utils";
 
-function FeaturedItem({img, name, price, layoutClass}) {
+function FeaturedItem({ img, name, price, layoutClass }) {
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true
-  })
+    triggerOnce: true,
+  });
 
   return (
-    <article 
+    <article
       tabIndex={0}
-      role='group'
+      role="group"
       aria-label={`Product: ${name}, price ${price} AZN`}
       className={`${handleAnimation(inView)} ${layoutClass}`}
       ref={ref}
     >
-        <img src={img} alt={`Featured item: ${name}`} aria-hidden="true"/>
-        <span className='price-popup'>
-            <p className='item-name'>{name}</p>
-            <p className='item-price-usd'>{price}<span>AZN</span></p>
-        </span>
+      <img src={img} alt={`Featured item: ${name}`} aria-hidden="true" />
+      <span className="price-popup">
+        <p className="item-name">{name}</p>
+        <p className="item-price-usd">
+          {price}
+          <span>AZN</span>
+        </p>
+      </span>
     </article>
-  )
+  );
 }
 
-export default FeaturedItem
+export default FeaturedItem;
