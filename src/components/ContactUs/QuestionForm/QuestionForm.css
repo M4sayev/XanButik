@@ -101,7 +101,6 @@ textarea:focus-visible {
   max-height: 20%;
 }
 .qf-img-container img {
-  height: 80%;
   object-fit: contain;
 }
 @media (min-width: 479px) {
@@ -114,6 +113,10 @@ textarea:focus-visible {
   .qf-heading::after {
     left: 3%;
     transform: translateX(-10%);
+  }
+  .qf-img-container img {
+    width: 100%;
+    object-fit: contain;
   }
 }
 @media (min-width: 959px) {

@@ -177,6 +177,13 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+/* remove border radius of inputs  */
+
+input,
+textarea {
+  border-radius: 0 !important;
+}
+
 /* Standard animation for components contents  */
 
 .animate-in {

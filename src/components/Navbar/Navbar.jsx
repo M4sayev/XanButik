@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { useFocusTrap } from "../../hooks/useTrapFocus.js";
 import { useEscapeKey } from "../../hooks/useEscapeKey.js";
 
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+
 function Navbar() {
   const [isHamActive, setIsHamActive] = useState(false);
   const { currentPage, setCurrentPage } = useContext(StoreContext);
@@ -34,7 +36,6 @@ function Navbar() {
 
   function toggleHamburger() {
     setIsHamActive((prev) => !prev);
-    document.body.classList.toggle("body-menu-scroll");
   }
 
   // Trap focus inside the sideBar when its open
@@ -56,14 +57,26 @@ function Navbar() {
   const navigateWishlist = () => {
     navigate("/Wishlist");
     setIsHamActive(false);
-    document.body.classList.remove("body-menu-scroll");
   };
 
   const navigateCart = () => {
     navigate("./Cart");
     setIsHamActive(false);
-    document.body.classList.remove("body-menu-scroll");
   };
+
+  useEffect(() => {
+    const sidebarEl = sidebarRef.current;
+
+    if (isHamActive && sidebarEl) {
+      disableBodyScroll(sidebarEl);
+    } else if (sidebarEl) {
+      enableBodyScroll(sidebarEl);
+    }
+
+    return () => {
+      if (sidebarEl) enableBodyScroll(sidebarEl);
+    };
+  }, [isHamActive]);
 
   return (
     <div className="navigation">

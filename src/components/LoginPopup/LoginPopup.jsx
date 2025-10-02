@@ -179,7 +179,11 @@ function LoginPopup({ formRef }) {
                   onClick={() => setShowPassword((prev) => !prev)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  {showPassword ? <BiShow /> : <BiHide />}
+                  {showPassword ? (
+                    <BiShow style={{ color: "var(--clr-primary-900)" }} />
+                  ) : (
+                    <BiHide style={{ color: "var(--clr-primary-900)" }} />
+                  )}
                 </button>
               </div>
             </div>
