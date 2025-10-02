@@ -94,6 +94,9 @@
   cursor: pointer;
 }
 
+#agreeWithConds {
+  width: 10%;
+}
 /* end */
 .login-popup-container button {
   border: none;
@@ -153,5 +156,12 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .login-popup-container {
+    max-height: 60vh;
+    overflow: auto;
   }
 }

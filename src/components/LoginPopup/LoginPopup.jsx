@@ -8,6 +8,10 @@ import { useEscapeKey } from "../../hooks/useEscapeKey";
 import useForm from "../../hooks/useForm";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { toast } from "react-toastify";
+import LoginForm from "./LoginForm";
+import SingUpForm from "./SingUpForm";
+import FormFooter from "./FormFooter";
+import FormHeader from "./FormHeader";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -97,152 +101,33 @@ function LoginPopup({ formRef }) {
         aria-describedby="loginPopupDesc"
         noValidate
       >
-        <div className="login-popup-title">
-          <h2 id="loginPopupTitle">{currentState}</h2>
-          <button
-            className="icon-btn cross-icon"
-            type="button"
-            onClick={() => setShowLogin(false)}
-            aria-label="Close login popup"
-            ref={firstPopupElRef}
-          >
-            <IoClose
-              className="cross"
-              style={{ color: "var(--clr-primary-900)" }}
-            />
-          </button>
-        </div>
-        <div className="login-popup-inputs">
-          {currentState === "Login" ? (
-            <></>
-          ) : (
-            <div>
-              <label htmlFor="name" className="visually-hidden">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your name"
-                required
-                value={form.name}
-                onChange={handleChange}
-                autoFocus
-                aria-invalid={errors.name ? "true" : "false"}
-                aria-describedby={errors.name ? "name-error" : undefined}
-              />
-              <ErrorMessage message={errors.name} fieldName="name" />
-            </div>
-          )}
-          <div>
-            <label htmlFor="email" className="visually-hidden">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your email"
-              required
-              value={form.email}
-              onChange={handleChange}
-              autoFocus={currentState === "Login"}
-              aria-invalid={errors.email ? "true" : "false"}
-              aria-describedby={errors.email ? "email-error" : undefined}
-            />
-            <ErrorMessage message={errors.email} fieldName="email" />
-          </div>
-          <div className="password-input-container">
-            <label htmlFor="password" className="visually-hidden">
-              Password
-            </label>
-            <div>
-              <div className="password-input-h-s-btn">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  className="input-password"
-                  required
-                  value={form.password}
-                  onChange={handleChange}
-                  aria-invalid={errors.password ? "true" : "false"}
-                  aria-describedby={
-                    errors.password ? "password-error" : undefined
-                  }
-                />
-                <button
-                  type="button"
-                  className="icon-btn show-hide-icon"
-                  onClick={() => setShowPassword((prev) => !prev)}
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                >
-                  {showPassword ? (
-                    <BiShow style={{ color: "var(--clr-primary-900)" }} />
-                  ) : (
-                    <BiHide style={{ color: "var(--clr-primary-900)" }} />
-                  )}
-                </button>
-              </div>
-            </div>
-            <ErrorMessage message={errors.password} fieldName="password" />
-          </div>
-        </div>
-        {currentState === "Sign Up" && (
-          <>
-            <div className="login-popup-condition">
-              <div className="login-popup-condition-container">
-                <input
-                  id="agreeWithConds"
-                  type="checkbox"
-                  name="agreeToTerms"
-                  checked={form.agreeToTerms}
-                  onChange={(e) =>
-                    setForm({ ...form, agreeToTerms: e.target.checked })
-                  }
-                  required
-                />
-                <label htmlFor="agreeWithConds">
-                  By continuing, I agree to the terms of use & privacy policy
-                </label>
-              </div>
-              <ErrorMessage
-                message={errors.agreeToTerms}
-                fieldName="agreeToTerms"
-              />
-            </div>
-          </>
+        <FormHeader
+          currentState={currentState}
+          setShowLogin={setShowLogin}
+          firstPopupElRef={firstPopupElRef}
+        />
+        {currentState === "Login" ? (
+          <LoginForm
+            form={form}
+            errors={errors}
+            handleChange={handleChange}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
+          />
+        ) : (
+          <SingUpForm
+            form={form}
+            errors={errors}
+            handleChange={handleChange}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
+          />
         )}
-        <button type="submit" className="std-button">
-          {currentState === "Sign Up" ? "Create account" : "Login"}
-        </button>
-        <p className="suggestion-text">
-          {currentState === "Login" ? (
-            <>
-              Create a new account?{" "}
-              <button
-                type="button"
-                className="icon-btn link-button"
-                onClick={() => setCurrentState("Sign Up")}
-              >
-                Click here
-              </button>
-            </>
-          ) : (
-            <>
-              Already have an account?{" "}
-              <button
-                type="button"
-                className="icon-btn link-button"
-                onClick={() => setCurrentState("Login")}
-              >
-                Login here
-              </button>
-            </>
-          )}
-        </p>
+
+        <FormFooter
+          currentState={currentState}
+          setCurrentState={setCurrentState}
+        />
       </form>
     </div>
   );
