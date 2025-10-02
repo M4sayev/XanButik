@@ -53,10 +53,40 @@
   }
 }
 .progress-bar {
+  margin-top: var(--spacing-md);
   width: 100%;
-  height: 2.5rem;
+  height: 1rem;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border: none;
 
   accent-color: var(--clr-accent);
+}
+@media screen and (min-width: 777px) {
+  .progress-bar {
+    height: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .progress-bar {
+    height: 2rem;
+  }
+}
+
+.progress-bar::-webkit-progress-bar {
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 4rem;
+  overflow: hidden;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: var(--clr-accent);
+}
+
+.progress-bar::-moz-progress-bar {
+  background-color: var(--clr-accent);
 }
 
 .coming-soon-countdown {

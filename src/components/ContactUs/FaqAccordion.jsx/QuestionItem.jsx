@@ -5,7 +5,9 @@ import { handleAnimation } from "../../../utils/utils";
 
 function QuestionItem({ question, ans, isFiltered, handleArrows, index }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { ref: accordionItemRef, inView: accordionItemInView } = useInView();
+  const { ref: accordionItemRef, inView: accordionItemInView } = useInView({
+    threshold: 0.3,
+  });
   const id = useId();
 
   // collapsing every question on category change

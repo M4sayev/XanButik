@@ -277,7 +277,7 @@ textarea {
 
 /* Apply focus visible to key interactive elements */
 button:focus {
-  outline: none;
+  outline: none !important;
 }
 input:focus-visible,
 button:focus-visible,
