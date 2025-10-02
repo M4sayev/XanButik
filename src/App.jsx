@@ -33,7 +33,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("bebra");
     if (showLogin && loginPopupRef.current) {
       disableBodyScroll(document.body);
       window.addEventListener("mousedown", handleClickOutside);
