@@ -224,10 +224,6 @@
   width: 25px;
   height: 24px;
 
-  left: 50%;
-
-  transform: translateX(-50%);
-
   border: none;
   appearance: none;
   background: none;
@@ -237,12 +233,7 @@
   position: relative;
   z-index: calc(var(--z-sidebar) + 1);
 }
-/* .body-menu-scroll {
-  height: 100%;
-  overflow-y: hidden;
-  position: fixed;
-  width: 100%;
-} */
+
 .hamburger-menu span {
   display: block;
   width: 100%;
@@ -395,5 +386,11 @@
   }
   .sidebar-menu ul {
     width: 100%;
+  }
+}
+
+@media screen and (max-height: 350px) {
+  .sidebar-menu {
+    padding-top: var(--spacing-md);
   }
 }

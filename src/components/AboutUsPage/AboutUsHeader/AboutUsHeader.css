@@ -1,20 +1,20 @@
 .header-about-us {
-    min-height: 720px;
-    
-    display: grid;
-    place-items: center;
+  min-height: 720px;
 
-    position: relative;
+  display: grid;
+  place-items: center;
 
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .header-about-us .header-parallax-bg {
-    height: 110%;
-    background-size: cover;
-    background: url("../../../assets/header_imgs/header_about_us.png") no-repeat;
-    background-position: 10% 20%;
-    will-change: transform;
+  height: 110%;
+  background-size: cover;
+  background: url("../../../assets/header_imgs/header_about_us.png") no-repeat;
+  background-position: 10% 20%;
+
+  will-change: transform;
 }
 @media (min-width: 1500px) {
   .header-about-us .header-parallax-bg {
@@ -23,35 +23,34 @@
   }
 }
 .header-contents-about-us {
-    max-width: var(--cnts-mx-width);
-    width: 100%;
+  max-width: var(--cnts-mx-width);
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    text-align: center;
+  text-align: center;
 
-    padding-inline: 1.75rem;
-    margin: 0 auto;
+  padding-inline: 1.75rem;
+  margin: 0 auto;
 }
 .about-us-header-paragraph {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 @media (min-width: 560px) {
-    .header-about-us {
-        place-items: center start;
-    }
-    .header-contents-about-us {
-        align-items: flex-start;
-        text-align: start;
-    }
-
+  .header-about-us {
+    place-items: center start;
+  }
+  .header-contents-about-us {
+    align-items: flex-start;
+    text-align: start;
+  }
 }
 @media (min-width: 1080px) {
-    .header-contents-about-us {
-        padding-inline: 3rem;
-    }
+  .header-contents-about-us {
+    padding-inline: 3rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

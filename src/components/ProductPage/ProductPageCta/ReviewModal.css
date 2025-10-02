@@ -181,3 +181,21 @@
 .product-review-author {
   font-weight: var(--fw-bold);
 }
+
+@media screen and (max-height: 666px) {
+  .reviews-modal-component {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .pr-reviews-container {
+    max-height: 60vh !important;
+  }
+  .add-review-form-container {
+    max-height: 60vh !important;
+    min-height: auto;
+    overflow-y: auto;
+    top: 92px;
+  }
+}

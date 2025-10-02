@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 export const StoreContext = createContext(null);
 
 function StoreContextProvider(props) {
+  const [isHamActive, setIsHamActive] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [currentPage, setCurrentPage] = useState(() => {
     if (!sessionStorage.getItem("menu")) return "Home";
@@ -157,6 +158,8 @@ function StoreContextProvider(props) {
     addToCart,
     cartItems,
     setCartItems,
+    isHamActive,
+    setIsHamActive,
   };
 
   return (

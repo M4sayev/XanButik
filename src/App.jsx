@@ -16,9 +16,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+
 function App() {
   const loginPopupRef = useRef(null);
-  const { showLogin, setShowLogin } = useContext(StoreContext);
+  const { showLogin, setShowLogin, isHamActive } = useContext(StoreContext);
   const [showScrollTopBtn, setShowScrollTopBtn] = useState(false);
 
   function handleClickOutside(event) {
@@ -31,15 +33,21 @@ function App() {
   }
 
   useEffect(() => {
-    if (showLogin) {
-      document.body.style.overflow = "hidden";
+    console.log("bebra");
+    if (showLogin && loginPopupRef.current) {
+      disableBodyScroll(document.body);
       window.addEventListener("mousedown", handleClickOutside);
+    } else if (!isHamActive) {
+      enableBodyScroll(document.body);
+      window.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("mousedown", handleClickOutside);
+      if (!isHamActive) {
+        enableBodyScroll(document.body);
+        window.removeEventListener("mousedown", handleClickOutside);
+      }
     };
-  }, [showLogin]);
+  }, [showLogin, isHamActive]);
 
   useEffect(() => {
     function showTopBtn() {

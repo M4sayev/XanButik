@@ -11,8 +11,8 @@ import { useEscapeKey } from "../../hooks/useEscapeKey.js";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 function Navbar() {
-  const [isHamActive, setIsHamActive] = useState(false);
-  const { currentPage, setCurrentPage } = useContext(StoreContext);
+  const { currentPage, setCurrentPage, isHamActive, setIsHamActive } =
+    useContext(StoreContext);
 
   const logoRef = useRef(null);
 

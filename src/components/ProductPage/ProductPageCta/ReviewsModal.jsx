@@ -41,7 +41,7 @@ function ReviewsModal({
   };
 
   return (
-    <>
+    <div className="reviews-modal-component">
       <div
         className={`add-product-review-container ${
           openAddReview && "add-review--active"
@@ -206,7 +206,7 @@ function ReviewsModal({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -138,3 +138,23 @@
     padding: var(--spacing-md);
   }
 }
+
+/* Change the selectors dropdown for wishlist item only  */
+/* .wishlist-item .selectors-dropdown {
+  top: 100%;
+  z-index: 1;
+} */
+/* .wishlist-item .selectors-container .pp-color-selector {
+  border-right: 1px solid var(--clr-neutral-300);
+  margin-right: var(--spacing-sm);
+}
+@media screen and (min-width: 554px) {
+  .wishlist-item .selectors-container {
+    display: block;
+    padding-inline: 0;
+  }
+  .wishlist-item .selectors-container .pp-color-selector {
+    border-right: none;
+    margin-right: 0;
+  }
+} */
