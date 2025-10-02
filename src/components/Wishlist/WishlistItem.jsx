@@ -24,8 +24,6 @@ function WishlistItem({
   const [selectorsDropdownOpen, setSelectorsDropdownOpen] = useState(false);
   const { addToCart } = useContext(StoreContext);
 
-  console.log(color);
-
   function handleSelectSize(size) {
     setSelectedSize(() => (size === selectedSize ? "" : size));
   }

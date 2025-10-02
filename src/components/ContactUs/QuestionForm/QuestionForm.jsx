@@ -23,7 +23,7 @@ const inputFields = [
     required: false,
   },
   {
-    name: "email",
+    name: "emailC",
     label: "Email address",
     type: "email",
     required: true,

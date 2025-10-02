@@ -34,15 +34,15 @@ function App() {
 
   useEffect(() => {
     if (showLogin && loginPopupRef.current) {
-      disableBodyScroll(document.body);
+      document.body.classList.add("body-menu-scroll");
       window.addEventListener("mousedown", handleClickOutside);
     } else if (!isHamActive) {
-      enableBodyScroll(document.body);
+      document.body.classList.remove("body-menu-scroll");
       window.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
       if (!isHamActive) {
-        enableBodyScroll(document.body);
+        document.body.classList.remove("body-menu-scroll");
         window.removeEventListener("mousedown", handleClickOutside);
       }
     };

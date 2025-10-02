@@ -66,16 +66,13 @@ function Navbar() {
 
   useEffect(() => {
     const sidebarEl = sidebarRef.current;
-
     if (isHamActive && sidebarEl) {
-      disableBodyScroll(sidebarEl);
+      document.body.classList.add("body-menu-scroll");
     } else if (sidebarEl) {
-      enableBodyScroll(sidebarEl);
+      document.body.classList.remove("body-menu-scroll");
     }
 
-    return () => {
-      if (sidebarEl) enableBodyScroll(sidebarEl);
-    };
+    return () => document.body.classList.remove("body-menu-scroll");
   }, [isHamActive]);
 
   return (

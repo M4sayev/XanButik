@@ -118,6 +118,7 @@ function LoginPopup({ formRef }) {
             handleChange={handleChange}
             showPassword={showPassword}
             setShowPassword={setShowPassword}
+            setForm={setForm}
           />
         )}
 

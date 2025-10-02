@@ -8,6 +8,7 @@ function SingUpForm({
   handleChange,
   showPassword,
   setShowPassword,
+  setForm,
 }) {
   return (
     <div className="login-popup-inputs">
