@@ -7,19 +7,19 @@ import SingUpButton from "./SingUpButton";
 import ContactDropdown from "./ContactDropdown";
 import NavbarCoin from "./NavbarCoin";
 
-function BtnsContainer({ navigateWishlist, navigateCart }) {
+function BtnsContainer({ navigateTo }) {
   const { setShowLogin, cartItems } = useContext(StoreContext);
   const location = useLocation();
 
   return (
     <>
-      <NavbarCoin />
+      <NavbarCoin navigate={() => navigateTo("/Game")} />
       <WishlistButton
-        navigate={navigateWishlist}
+        navigate={() => navigateTo("/Wishlist")}
         active={location.pathname === "/Wishlist"}
       />
       <CartButton
-        navigate={navigateCart}
+        navigate={() => navigateTo("/Cart")}
         cartItems={cartItems}
         active={location.pathname === "/Cart"}
       />

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Button from "../Button/Button";
+import "./NavbarCoin.css";
 
 import GoldenCoin from "../../assets/game/xn_coin_gold.svg?react";
-import { Link } from "react-router-dom";
 
-function NavbarCoin() {
+function NavbarCoin({ navigate }) {
   const [shine, setShine] = useState(false);
 
   useEffect(() => {
@@ -17,10 +16,15 @@ function NavbarCoin() {
   }, []);
 
   return (
-    <Button as={Link} to="/Game" className="navbar-coin-btn">
+    <button
+      className="navbar-coin-btn"
+      type="button"
+      aria-label="Go to tap-to-earn game page"
+      onClick={navigate}
+    >
       <GoldenCoin width="30px" height="30px" className="navbar-coin" />
       {shine && <div className="coin-shine"></div>}
-    </Button>
+    </button>
   );
 }
 
