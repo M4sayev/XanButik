@@ -153,3 +153,9 @@
     font-size: var(--fs-500) !important;
   }
 }
+
+@media (max-height: 730px) {
+  .header-store-text-container {
+    margin-bottom: var(--spacing-lg);
+  }
+}

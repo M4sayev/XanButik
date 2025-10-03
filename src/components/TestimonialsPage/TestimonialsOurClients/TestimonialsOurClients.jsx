@@ -6,7 +6,8 @@ import { handleAnimation } from "../../../utils/utils";
 
 function TestimonialsOurClients() {
   const { ref: tOurClientsTextRef, inView: tOurClientsTexInView } = useInView({
-    threshold: 0.3,
+    threshold: 0.5,
+    triggerOnce: true,
   });
   return (
     <section
@@ -36,6 +37,7 @@ function TestimonialsOurClients() {
           {ourBrandCompanies.map((clientItem, index) => {
             const { ref: clientItemRef, inView: clientItemInView } = useInView({
               threshold: 0.5,
+              triggerOnce: true,
             });
             const { img, brandName } = clientItem;
             return (

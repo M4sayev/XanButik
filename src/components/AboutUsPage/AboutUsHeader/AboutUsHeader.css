@@ -58,3 +58,13 @@
     background-attachment: scroll !important;
   }
 }
+
+@media (max-height: 730px) {
+  .header-about-us {
+    /* subtract navbar height for smaller devices */
+    min-height: calc(100vh - 6.5rem);
+  }
+  .header-contents-about-us {
+    margin-bottom: var(--spacing-lg);
+  }
+}

@@ -16,7 +16,7 @@ body {
   width: 105%;
 
   background: url("../../../assets/header_imgs/header_image.jpg") no-repeat;
-  background-position: center;
+  background-position: 80%;
 
   position: absolute;
   z-index: -100;
@@ -44,12 +44,23 @@ body {
   }
 }
 @media (min-width: 690px) {
+  .home-page-header {
+    min-height: 720px;
+  }
   .header-parallax-bg {
     filter: blur(0);
+    background-position: center;
   }
 }
 @media (min-width: 1800px) {
   .header-parallax-bg {
     background-size: cover;
+  }
+}
+
+@media (max-height: 730px) {
+  .home-page-header {
+    /* subtract navbar height for smaller devices */
+    min-height: calc(100vh - 6.5rem);
   }
 }

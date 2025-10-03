@@ -16,8 +16,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-
 function App() {
   const loginPopupRef = useRef(null);
   const { showLogin, setShowLogin, isHamActive } = useContext(StoreContext);
@@ -32,20 +30,20 @@ function App() {
     }
   }
 
+  function closeLoginPopup() {
+    document.body.classList.remove("body-menu-scroll");
+    window.removeEventListener("mousedown", handleClickOutside);
+    window.scrollTo({ top: 0 });
+  }
+
   useEffect(() => {
     if (showLogin && loginPopupRef.current) {
       document.body.classList.add("body-menu-scroll");
       window.addEventListener("mousedown", handleClickOutside);
     } else if (!isHamActive) {
-      document.body.classList.remove("body-menu-scroll");
-      window.removeEventListener("mousedown", handleClickOutside);
+      closeLoginPopup();
     }
-    return () => {
-      if (!isHamActive) {
-        document.body.classList.remove("body-menu-scroll");
-        window.removeEventListener("mousedown", handleClickOutside);
-      }
-    };
+    return () => !isHamActive && closeLoginPopup();
   }, [showLogin, isHamActive]);
 
   useEffect(() => {
