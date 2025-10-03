@@ -222,7 +222,7 @@
 
 .hamburger-menu {
   width: 25px;
-  height: 24px;
+  height: 25px;
 
   border: none;
   appearance: none;
@@ -321,6 +321,7 @@
   }
   .hamburger-menu-sidebar-container {
     display: block;
+    display: grid;
   }
   .sidebar-icon-btns {
     display: none;
