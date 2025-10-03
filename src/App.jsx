@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollTop/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Game from "./pages/Game/Game";
 
 function App() {
   const loginPopupRef = useRef(null);
@@ -81,6 +82,7 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Store/ProductPage" element={<ProductPage />} />
           <Route path="/Wishlist" element={<Wishlist />} />
+          <Route path="/Game" element={<Game />} />
         </Routes>
         <ScrollToTop showScrollTopBtn={showScrollTopBtn} />
         <Footer />

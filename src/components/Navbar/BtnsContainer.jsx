@@ -5,6 +5,7 @@ import WishlistButton from "./WishlistButton";
 import CartButton from "./CartButton";
 import SingUpButton from "./SingUpButton";
 import ContactDropdown from "./ContactDropdown";
+import NavbarCoin from "./NavbarCoin";
 
 function BtnsContainer({ navigateWishlist, navigateCart }) {
   const { setShowLogin, cartItems } = useContext(StoreContext);
@@ -12,6 +13,7 @@ function BtnsContainer({ navigateWishlist, navigateCart }) {
 
   return (
     <>
+      <NavbarCoin />
       <WishlistButton
         navigate={navigateWishlist}
         active={location.pathname === "/Wishlist"}
