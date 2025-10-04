@@ -1,17 +1,17 @@
+.hud-timer {
+  cursor: auto;
+}
 .hud-timer span {
   height: 21px;
   margin-right: 2px;
 }
 .hud-timer .st0 {
-  fill: #d3cb69 !important;
+  fill: var(--svg-clr-bg) !important;
+  transition: all var(--std-transition);
 }
 
 .hud-timer.started .hourglass-icon {
   animation: flip 2s infinite ease-in-out;
-}
-
-.hud-timer {
-  cursor: auto;
 }
 
 @keyframes flip {

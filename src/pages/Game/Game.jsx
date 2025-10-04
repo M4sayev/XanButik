@@ -9,6 +9,7 @@ import BuyCoinsBtn from "../../components/GamePage/BuyCoinsBtn/BuyCoinsBtn";
 import Spinner from "../../components/Spinner/Spinner";
 
 function Game() {
+  const [startTime, setStartTime] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,10 +25,10 @@ function Game() {
           <div className="game-contents">
             <nav className="game-nav">
               <GoBackButton />
-              <Timer />
+              <Timer startTime={startTime} setStartTime={setStartTime} />
               <BuyCoinsBtn />
             </nav>
-            <StartMenu />
+            <StartMenu setStartTime={setStartTime} />
           </div>
         </main>
       )}

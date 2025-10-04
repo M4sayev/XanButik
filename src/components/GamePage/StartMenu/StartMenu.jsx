@@ -1,11 +1,10 @@
 import React from "react";
-import PlayButton from "../PlayIcon/PlayButton";
+import PlayButton from "../PlayButton/PlayButton";
 import { LuTrophy } from "react-icons/lu";
 import backgroundImage from "../../../assets/game/game_bg.png";
 import "./StartMenu.css";
-import GoBackButton from "../GoBackButton/GoBackButton";
 
-function StartMenu() {
+function StartMenu({ setStartTime }) {
   return (
     <div
       className="game-start-menu-container"
@@ -22,7 +21,7 @@ function StartMenu() {
         <p className="std-paragraph coin-balance-preview">
           Gold coins give you more
         </p>
-        <PlayButton />
+        <PlayButton setStartTime={setStartTime} />
       </div>
     </div>
   );

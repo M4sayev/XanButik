@@ -55,4 +55,7 @@
   .game-contents {
     padding: 0;
   }
+  .game-nav {
+    margin-top: 0;
+  }
 }
