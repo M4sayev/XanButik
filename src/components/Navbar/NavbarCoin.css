@@ -17,6 +17,9 @@
 .navbar-coin {
   width: 30px;
   height: 30px;
+
+  transition: transform 300ms ease-out;
+  transform-style: preserve-3d;
 }
 
 .coin-shine {
@@ -32,4 +35,17 @@
     rgba(255, 255, 255, 0) 100%
   );
   animation: moveShine 2s linear;
+}
+
+.navbar-coin-btn:hover .navbar-coin {
+  animation: spinCoin 0.6s linear;
+}
+
+@keyframes spinCoin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }

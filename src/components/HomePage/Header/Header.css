@@ -61,6 +61,6 @@ body {
 @media (max-height: 730px) and (max-width: 777px) {
   .home-page-header {
     /* subtract navbar height for smaller devices */
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 25px);
   }
 }

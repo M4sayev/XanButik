@@ -1,0 +1,10 @@
+.game-page {
+  width: 100vw;
+  height: 100dvh;
+}
+.game-contents {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding-block: var(--spacing-lg);
+}

@@ -1,0 +1,74 @@
+.start-game-btn {
+  width: 100%;
+  border-radius: 1.375rem;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  text-transform: capitalize;
+  cursor: pointer;
+  min-height: 45px;
+}
+.play-btn-text {
+  margin-left: var(--spacing-sm);
+  height: 15px;
+
+  transform: translateX(-15px);
+  transition: transform 300ms ease-out;
+}
+
+/* remove std btn hover  */
+.game-start-menu .start-game-btn:hover,
+.game-start-menu .start-game-btn:focus {
+  transform: none;
+}
+
+.start-game-btn .play-icon {
+  height: 25px;
+  transform: translateX(15px);
+  opacity: 0;
+
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+.play-icon path {
+  stroke-dasharray: 200 1300;
+  stroke-dashoffset: 0;
+  animation: glow-stroke 3s linear infinite, fade 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px #ffd700);
+}
+
+/* hover effect  */
+.game-start-menu .start-game-btn:hover .play-icon,
+.game-start-menu .start-game-btn:focus-visible .play-icon {
+  transform: translateX(0);
+  opacity: 1;
+}
+.game-start-menu .start-game-btn:hover .play-btn-text,
+.game-start-menu .start-game-btn:focus-visible .play-btn-text {
+  transform: translateX(0);
+}
+
+@keyframes glow-stroke {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1300;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
