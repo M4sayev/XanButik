@@ -3,6 +3,7 @@ import PlayButton from "../PlayIcon/PlayButton";
 import { LuTrophy } from "react-icons/lu";
 import backgroundImage from "../../../assets/game/game_bg.png";
 import "./StartMenu.css";
+import GoBackButton from "../GoBackButton/GoBackButton";
 
 function StartMenu() {
   return (
@@ -11,6 +12,7 @@ function StartMenu() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="game-contents-overlay"></div>
+      <GoBackButton />
       <div className="game-start-menu">
         <LuTrophy
           aria-hidden="true"
