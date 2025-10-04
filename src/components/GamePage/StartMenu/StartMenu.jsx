@@ -12,19 +12,15 @@ function StartMenu() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="game-contents-overlay"></div>
-      <GoBackButton />
       <div className="game-start-menu">
-        <LuTrophy
-          aria-hidden="true"
-          style={{ width: "50px", height: "50px", fontWeight: "bold" }}
-        />
+        <LuTrophy aria-hidden="true" className="trophy-icon" />
         <h1 className="std-heading">The ultimate tapping challenge</h1>
         <p className="std-paragraph mi-auto">
           <span className="warning-span">Avoid bombs! </span>
-          Tapping a bomb will const you a life
+          Tapping a bomb will cost you coins
         </p>
         <p className="std-paragraph coin-balance-preview">
-          You have 100 XaN coins
+          Gold coins give you more
         </p>
         <PlayButton />
       </div>

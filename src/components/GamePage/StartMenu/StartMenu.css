@@ -4,13 +4,15 @@
 
   width: 90%;
   max-width: 958px;
-  height: 498px;
+
+  max-height: 480px;
 
   background-position: center;
   position: relative;
   z-index: 0;
 
   display: grid;
+
   place-items: center;
 }
 .game-contents-overlay {
@@ -34,6 +36,12 @@
   z-index: 2;
 }
 
+.game-start-menu .trophy-icon {
+  width: 50px;
+  height: 50px;
+  font-weight: var(--fw-bold);
+}
+
 .game-start-menu .warning-span {
   font-weight: bold;
   color: var(--clr-validation-err);
@@ -42,6 +50,17 @@
 .game-start-menu .coin-balance-preview {
   color: #c1a83dff;
   font-weight: var(--fw-bold-bold);
+}
+
+@media screen and (max-height: 450px) {
+  .game-start-menu {
+    margin: 0;
+    padding-block: var(--spacing-sm);
+  }
+  .game-start-menu .trophy-icon {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 @media screen and (min-width: 777px) {

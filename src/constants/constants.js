@@ -61,3 +61,9 @@ export const excludedKeys = [
   "category",
   "reviews",
 ];
+
+const HOURGLASS_COLORS = {
+  green: "#83b993",
+  orange: "#d3cb69",
+  red: "#ad3434",
+};

@@ -9,7 +9,10 @@ function GoBackButton() {
     navigate(-1);
   }
   return (
-    <button className="start-menu-go-back-btn" onClick={handleGoBack}>
+    <button
+      className="start-menu-go-back-btn std-hud-btn"
+      onClick={handleGoBack}
+    >
       <IoIosArrowRoundBack aria-hidden="true" className="arrow-icon" />
       <span>Go back</span>
     </button>

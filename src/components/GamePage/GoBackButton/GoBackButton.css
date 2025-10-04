@@ -1,35 +1,7 @@
-.start-menu-go-back-btn {
-  position: absolute;
-  left: var(--spacing-md);
-  top: var(--spacing-md);
-
-  padding: calc(var(--spacing-sm) / 1.4) var(--spacing-md);
-  border-radius: 1.25rem;
-  border: 1px solid var(--clr-neutral-300);
-  background: transparent;
-
-  z-index: 2;
-  cursor: pointer;
-  font-family: var(--ff-secondary);
-  color: var(--clr-accent);
-  opacity: 0.8;
-
-  display: flex;
-  align-items: center;
-
-  transition: all 300ms ease;
-}
-
-.start-menu-go-back-btn:hover,
-.start-menu-go-back-btn:focus-visible {
-  border-color: var(--clr-primary);
-  color: var(--clr-primary);
-  opacity: 0.8;
-}
-
 .arrow-icon {
   transition: inherit;
   opacity: 0.8;
+  color: inherit;
 }
 
 .start-menu-go-back-btn:hover .arrow-icon,
@@ -44,4 +16,11 @@
 
 .start-menu-go-back-btn span {
   height: 15px;
+  display: none;
+}
+
+@media screen and (min-width: 450px) {
+  .start-menu-go-back-btn span {
+    display: block;
+  }
 }

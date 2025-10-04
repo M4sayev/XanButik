@@ -1,0 +1,27 @@
+.hud-timer span {
+  height: 21px;
+  margin-right: 2px;
+}
+.hud-timer .st0 {
+  fill: #d3cb69 !important;
+}
+
+.hud-timer.started .hourglass-icon {
+  animation: flip 2s infinite ease-in-out;
+}
+
+.hud-timer {
+  cursor: auto;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
