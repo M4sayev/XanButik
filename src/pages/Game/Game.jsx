@@ -5,7 +5,7 @@ import StartMenu from "../../components/GamePage/StartMenu/StartMenu";
 import GoBackButton from "../../components/GamePage/GoBackButton/GoBackButton";
 
 import Timer from "../../components/GamePage/Timer/Timer";
-import BuyCoinsBtn from "../../components/GamePage/BuyCoinsBtn/BuyCoinsBtn";
+import ExchangeCoinsBtn from "../../components/GamePage/ExchangeCoinsBtn/ExchangeCoinsBtn";
 import Spinner from "../../components/Spinner/Spinner";
 
 function Game() {
@@ -26,7 +26,7 @@ function Game() {
             <nav className="game-nav">
               <GoBackButton />
               <Timer startTime={startTime} setStartTime={setStartTime} />
-              <BuyCoinsBtn />
+              <ExchangeCoinsBtn />
             </nav>
             <StartMenu setStartTime={setStartTime} />
           </div>
