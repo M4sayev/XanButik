@@ -1,11 +1,14 @@
 import React from "react";
-import XanCoin from "../../../assets/game/xn_coin.svg?react";
-import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
+import XanCoin from "../../../../assets/game/xn_coin.svg?react";
+import GoldXanCoin from "../../../../assets/game/xn_coin_gold.svg?react";
+import "./ExchangeOption.css";
 
-function ExchangeOption({ price, offer, coinAttrbs }) {
+function ExchangeOption({ isDropDownOpen, price, offer, coinAttrbs }) {
   return (
     <li>
       <button
+        tabIndex={isDropDownOpen ? 0 : -1}
+        disabled={!isDropDownOpen}
         type="button"
         className={`exchange-option-btn ${price.coinValue}`}
         aria-label={`Exchange ${price.value} ${price.coinValue} Xan coins for ${offer.value} ${offer.text}`}

@@ -1,42 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import XanCoin from "../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeCoinsBtn.css";
-import { MdOpacity } from "react-icons/md";
-import ExchangeOption from "./ExchangeOption";
-
-const coupons = [
-  {
-    price: {
-      value: 100,
-      coinValue: "silver",
-    },
-    offer: {
-      value: "5%",
-      text: "OFF",
-    },
-  },
-  {
-    price: {
-      value: 10,
-      coinValue: "gold",
-    },
-    offer: {
-      value: 10,
-      text: "Voucher",
-    },
-  },
-  {
-    price: {
-      value: 20,
-      coinValue: "gold",
-    },
-    offer: {
-      value: "20%",
-      text: "OFF",
-    },
-  },
-];
+import ExchangeDropdown from "./ExchangeDropdown/ExchangeDropdown";
+import { useEscapeKey } from "../../../hooks/useEscapeKey";
+import { useFocusTrap } from "../../../hooks/useTrapFocus";
 
 const coinAttrbs = {
   "aria-hidden": "true",
@@ -47,31 +15,62 @@ const coinAttrbs = {
 };
 
 function ExchangeCoinsBtn() {
+  const balanceButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropDownOpen((prev) => !prev);
+    setIsTouched(true);
+  };
+
+  const dropdownClass = isTouched
+    ? isDropDownOpen
+      ? "dropdown-active"
+      : "dropdown-disabled"
+    : "";
+
+  function handleClickOutside(event) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      !balanceButtonRef.current.contains(event.target)
+    ) {
+      setIsDropDownOpen(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, [isDropDownOpen]);
+
+  useEscapeKey(() => (!isDropDownOpen ? undefined : setIsDropDownOpen(false)));
+  useFocusTrap(dropdownRef, isDropDownOpen);
+
   return (
     <div style={{ position: "relative" }}>
       <button
+        aria-haspopup="dialog"
+        aria-controls="exchange-coins-dropdown-wrapper"
         className="std-hud-btn buy-coins-btn"
         type="button"
         aria-label="you have 100 silver coins and 0 gold coins"
+        onClick={toggleDropdown}
+        ref={balanceButtonRef}
       >
         <span>100</span>
         <XanCoin {...coinAttrbs} className="hud-silver-coin" />
         <span>0</span>
         <GoldXanCoin {...coinAttrbs} />
       </button>
-      <div
-        className="exchange-coins-dropdown"
-        style={{ position: "absolute", right: 0 }}
-      >
-        <p className="std-paragraph exchange-dropdown-text">
-          Exchange your Xan coins for coupons
-        </p>
-
-        <ul className="coupouns-container">
-          {coupons.map((coupon, index) => (
-            <ExchangeOption {...coupon} key={index} coinAttrbs={coinAttrbs} />
-          ))}
-        </ul>
+      <div id="exchange-coins-dropdown-wrapper">
+        <ExchangeDropdown
+          dropdownRef={dropdownRef}
+          coinAttrbs={coinAttrbs}
+          dropdownClass={dropdownClass}
+          isDropDownOpen={isDropDownOpen}
+        />
       </div>
     </div>
   );

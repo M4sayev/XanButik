@@ -1,0 +1,59 @@
+.exchange-coins-dropdown {
+  margin-top: var(--spacing-md);
+  border: 1px solid var(--clr-neutral-200);
+  border-radius: 0.375rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--clr-neutral-100);
+
+  padding: var(--spacing-md);
+  z-index: 3;
+  min-width: 310px;
+
+  overflow-y: auto;
+
+  transform: scaleY(0);
+}
+
+.coupouns-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.dropdown-active {
+  animation: scaleDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+.dropdown-disabled {
+  pointer-events: none;
+  animation: scaleDownClose 250ms ease-in-out forwards;
+  transform-origin: top center;
+}
+@keyframes scaleDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes scaleDownClose {
+  0% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
