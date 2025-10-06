@@ -17,6 +17,8 @@ const coinAttrbs = {
 function ExchangeCoinsBtn() {
   const balanceButtonRef = useRef(null);
   const dropdownRef = useRef(null);
+  const confiramtionPopupRef = useRef(null);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
@@ -35,7 +37,9 @@ function ExchangeCoinsBtn() {
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target) &&
-      !balanceButtonRef.current.contains(event.target)
+      !balanceButtonRef.current.contains(event.target) &&
+      confiramtionPopupRef.current &&
+      confiramtionPopupRef.current.contains(event.target)
     ) {
       setIsDropDownOpen(false);
     }
@@ -45,7 +49,11 @@ function ExchangeCoinsBtn() {
     return () => window.removeEventListener("click", handleClickOutside);
   }, [isDropDownOpen]);
 
-  useEscapeKey(() => (!isDropDownOpen ? undefined : setIsDropDownOpen(false)));
+  function closeDropdowns() {
+    setIsConfirmationOpen(false);
+    setIsDropDownOpen(false);
+  }
+  useEscapeKey(() => (!isDropDownOpen ? undefined : closeDropdowns()));
   useFocusTrap(dropdownRef, isDropDownOpen);
 
   return (
@@ -70,6 +78,9 @@ function ExchangeCoinsBtn() {
           coinAttrbs={coinAttrbs}
           dropdownClass={dropdownClass}
           isDropDownOpen={isDropDownOpen}
+          confiramtionPopupRef={confiramtionPopupRef}
+          isConfirmationOpen={isConfirmationOpen}
+          setIsConfirmationOpen={setIsConfirmationOpen}
         />
       </div>
     </div>

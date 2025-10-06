@@ -3,10 +3,17 @@ import XanCoin from "../../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeOption.css";
 
-function ExchangeOption({ isDropDownOpen, price, offer, coinAttrbs }) {
+function ExchangeOption({
+  isDropDownOpen,
+  price,
+  offer,
+  coinAttrbs,
+  setIsConfirmationOpen,
+}) {
   return (
     <li>
       <button
+        onClick={() => setIsConfirmationOpen(true)}
         tabIndex={isDropDownOpen ? 0 : -1}
         disabled={!isDropDownOpen}
         type="button"

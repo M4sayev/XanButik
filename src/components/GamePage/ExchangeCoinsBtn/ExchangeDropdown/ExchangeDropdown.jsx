@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ExchangeDropdown.css";
 import ExchangeOption from "./ExchangeOption";
+import ConfirmationPopup from "./ConfirmationPopup";
 
 const coupons = [
   {
     price: {
-      value: 100,
+      value: 1000,
       coinValue: "silver",
     },
     offer: {
@@ -40,6 +41,9 @@ function ExchangeDropdown({
   isDropDownOpen,
   dropdownClass,
   coinAttrbs,
+  confiramtionPopupRef,
+  setIsConfirmationOpen,
+  isConfirmationOpen,
 }) {
   return (
     <div
@@ -57,6 +61,7 @@ function ExchangeDropdown({
       <ul className="coupouns-container">
         {coupons.map((coupon, index) => (
           <ExchangeOption
+            setIsConfirmationOpen={setIsConfirmationOpen}
             {...coupon}
             key={index}
             coinAttrbs={coinAttrbs}
@@ -64,6 +69,12 @@ function ExchangeDropdown({
           />
         ))}
       </ul>
+      {isConfirmationOpen && (
+        <ConfirmationPopup
+          confiramtionPopupRef={confiramtionPopupRef}
+          setIsConfirmationOpen={setIsConfirmationOpen}
+        />
+      )}
     </div>
   );
 }
