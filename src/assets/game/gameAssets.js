@@ -1,5 +1,6 @@
 export const coupons = [
   {
+    id: 123124241,
     price: {
       value: 1000,
       coinValue: "silver",
@@ -10,6 +11,7 @@ export const coupons = [
     },
   },
   {
+    id: 142532124241,
     price: {
       value: 10,
       coinValue: "gold",
@@ -20,11 +22,13 @@ export const coupons = [
     },
   },
   {
+    id: 196500460,
     price: {
       value: 20,
       coinValue: "gold",
     },
     offer: {
+      id: 4,
       value: "20%",
       text: "OFF",
     },

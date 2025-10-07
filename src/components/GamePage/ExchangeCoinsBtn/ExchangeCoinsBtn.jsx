@@ -19,12 +19,18 @@ function ExchangeCoinsBtn() {
   const balanceButtonRef = useRef(null);
   const dropdownRef = useRef(null);
   const confiramtionPopupRef = useRef(null);
-  const { isConfirmationOpen, setIsConfirmationOpen } = useContext(GameContext);
+  const { isConfirmationOpen, setIsConfirmationOpen, balance } =
+    useContext(GameContext);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
   const toggleDropdown = () => {
-    setIsDropDownOpen((prev) => !prev);
+    if (isDropDownOpen) {
+      setIsDropDownOpen(false);
+      setIsConfirmationOpen(false);
+    } else {
+      setIsDropDownOpen(true);
+    }
     setIsTouched(true);
   };
 
@@ -51,8 +57,8 @@ function ExchangeCoinsBtn() {
     }
   }
   useEffect(() => {
-    window.addEventListener("click", handleClickOutside);
-    return () => window.removeEventListener("click", handleClickOutside);
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("mousedown", handleClickOutside);
   }, [isDropDownOpen]);
 
   function closeDropdowns() {
@@ -73,9 +79,9 @@ function ExchangeCoinsBtn() {
         onClick={toggleDropdown}
         ref={balanceButtonRef}
       >
-        <span>100</span>
+        <span>{balance.silver}</span>
         <XanCoin {...coinAttrbs} className="hud-silver-coin" />
-        <span>0</span>
+        <span>{balance.gold}</span>
         <GoldXanCoin {...coinAttrbs} />
       </button>
       <div id="exchange-coins-dropdown-wrapper">
@@ -86,7 +92,6 @@ function ExchangeCoinsBtn() {
           isDropDownOpen={isDropDownOpen}
           confiramtionPopupRef={confiramtionPopupRef}
           isConfirmationOpen={isConfirmationOpen}
-          setIsConfirmationOpen={setIsConfirmationOpen}
         />
       </div>
     </div>

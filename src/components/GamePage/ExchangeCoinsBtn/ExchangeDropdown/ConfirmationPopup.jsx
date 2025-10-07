@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ConfirmationPopup.css";
-import { useEscapeKey } from "../../../../hooks/useEscapeKey";
+import { GameContext } from "../../../../context/GameContext";
+import { coupons } from "../../../../assets/game/gameAssets";
+import { toast } from "react-toastify";
 
-function ConfirmationPopup({ setIsConfirmationOpen, confiramtionPopupRef }) {
+function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
+  const { setIsConfirmationOpen, setBalance, couponSelected } =
+    useContext(GameContext);
   const handleBuyCoupon = () => {
-    // to be implemented
+    setBalance((prevBalance) => {
+      const { price } = coupons.find((coupon) => coupon.id === couponSelected);
+      const newBalance = {
+        ...prevBalance,
+        [price.coinValue]: prevBalance[price.coinValue] - price.value,
+      };
+      localStorage.setItem("balance", JSON.stringify(newBalance));
+      return newBalance;
+    });
+
+    // add a new coupon
+    addCoupon(couponSelected);
+
+    const notify = () => toast.success("Coupon successfully bought");
+    notify();
     setIsConfirmationOpen(false);
   };
+
+  function addCoupon(id) {
+    setBoughtCoupons((prevCoupons) => {
+      const exists = prevCoupons.some((c) => c.id == id);
+      let updatedCoupons;
+
+      if (exists) {
+        updatedCoupons = prevCoupons.map((coupon) =>
+          coupon.id == id ? { ...coupon, count: coupon.count + 1 } : coupon
+        );
+      } else {
+        const newCoupon = coupons.find((coupon) => coupon.id == id);
+        if (!newCoupon) return prevCoupons;
+        updatedCoupons = [...prevCoupons, { ...newCoupon, count: 1 }];
+      }
+      localStorage.setItem("boughtCoupons", JSON.stringify(updatedCoupons));
+      return updatedCoupons;
+    });
+  }
 
   return (
     <div

@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import XanCoin from "../../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeOption.css";
+import { GameContext } from "../../../../context/GameContext";
+import { toast } from "react-toastify";
 
-function ExchangeOption({
-  isDropDownOpen,
-  price,
-  offer,
-  coinAttrbs,
-  setIsConfirmationOpen,
-}) {
+function ExchangeOption({ isDropDownOpen, price, offer, coinAttrbs, id }) {
+  const { balance, setIsConfirmationOpen, setCouponSelected } =
+    useContext(GameContext);
+
+  function handleSelectOption() {
+    if (price.value > balance[price.coinValue]) {
+      const notify = () => toast.error("Not enough coins on balance");
+      notify();
+    } else {
+      setIsConfirmationOpen(true);
+      setCouponSelected(id);
+    }
+  }
   return (
     <li>
       <button
-        onClick={() => setIsConfirmationOpen(true)}
+        onClick={handleSelectOption}
         tabIndex={isDropDownOpen ? 0 : -1}
         disabled={!isDropDownOpen}
         type="button"

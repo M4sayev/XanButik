@@ -9,11 +9,22 @@ function GameContextProvider(props) {
 
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
+  const [balance, setBalance] = useState(() => {
+    const storedBalance = localStorage.getItem("balance");
+    return storedBalance ? JSON.parse(storedBalance) : { silver: 0, gold: 0 };
+  });
+
+  const [couponSelected, setCouponSelected] = useState();
+
   const contextValue = {
     timeRemaining,
     setTimeRemaining,
     isConfirmationOpen,
     setIsConfirmationOpen,
+    balance,
+    setBalance,
+    couponSelected,
+    setCouponSelected,
   };
   return (
     <GameContext.Provider value={contextValue}>
