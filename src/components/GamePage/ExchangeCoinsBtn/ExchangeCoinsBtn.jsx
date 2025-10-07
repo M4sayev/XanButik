@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import XanCoin from "../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeCoinsBtn.css";
 import ExchangeDropdown from "./ExchangeDropdown/ExchangeDropdown";
 import { useEscapeKey } from "../../../hooks/useEscapeKey";
 import { useFocusTrap } from "../../../hooks/useTrapFocus";
+import { GameContext } from "../../../context/GameContext";
 
 const coinAttrbs = {
   "aria-hidden": "true",
@@ -18,7 +19,7 @@ function ExchangeCoinsBtn() {
   const balanceButtonRef = useRef(null);
   const dropdownRef = useRef(null);
   const confiramtionPopupRef = useRef(null);
-  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const { isConfirmationOpen, setIsConfirmationOpen } = useContext(GameContext);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
@@ -34,14 +35,19 @@ function ExchangeCoinsBtn() {
     : "";
 
   function handleClickOutside(event) {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target) &&
-      !balanceButtonRef.current.contains(event.target) &&
-      confiramtionPopupRef.current &&
-      confiramtionPopupRef.current.contains(event.target)
-    ) {
-      setIsDropDownOpen(false);
+    const dropdownEl = dropdownRef.current;
+    const buttonEl = balanceButtonRef.current;
+    const confirmEl = confiramtionPopupRef.current;
+
+    if (isDropDownOpen) {
+      if (
+        !dropdownEl.contains(event.target) &&
+        !buttonEl.contains(event.target) &&
+        (!confirmEl || !confirmEl.contains(event.target))
+      ) {
+        setIsConfirmationOpen(false);
+        setIsDropDownOpen(false);
+      }
     }
   }
   useEffect(() => {

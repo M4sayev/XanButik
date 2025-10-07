@@ -7,6 +7,7 @@ import GoBackButton from "../../components/GamePage/GoBackButton/GoBackButton";
 import Timer from "../../components/GamePage/Timer/Timer";
 import ExchangeCoinsBtn from "../../components/GamePage/ExchangeCoinsBtn/ExchangeCoinsBtn";
 import Spinner from "../../components/Spinner/Spinner";
+import GameContextProvider from "../../context/GameContext";
 
 function Game() {
   const [startTime, setStartTime] = useState("");
@@ -18,7 +19,7 @@ function Game() {
   }, []);
 
   return (
-    <>
+    <GameContextProvider>
       <Spinner loading={loading} />
       {!loading && (
         <main className="game-page">
@@ -32,7 +33,7 @@ function Game() {
           </div>
         </main>
       )}
-    </>
+    </GameContextProvider>
   );
 }
 

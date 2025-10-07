@@ -5,7 +5,6 @@ import {
   DEFAULT_PRICE_RANGE_MIN,
   DEFAULT_RESET_FILTER,
   DEFAULT_SORT,
-  TIMER,
 } from "../constants/constants";
 import { toast } from "react-toastify";
 
@@ -24,9 +23,6 @@ function StoreContextProvider(props) {
     DEFAULT_PRICE_RANGE_MIN,
     DEFAULT_PRICE_RANGE_MAX,
   ]);
-
-  // timer remaining time for the game page
-  const [timeRemaining, setTimeRemaining] = useState(TIMER);
 
   const navigate = useNavigate();
   const [filters, setFilters] = useState(DEFAULT_RESET_FILTER);
@@ -164,8 +160,6 @@ function StoreContextProvider(props) {
     setCartItems,
     isHamActive,
     setIsHamActive,
-    timeRemaining,
-    setTimeRemaining,
   };
 
   return (

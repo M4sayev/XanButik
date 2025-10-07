@@ -4,10 +4,10 @@ import "./Timer.css";
 import { formatTime } from "../../../utils/utils";
 import { HOURGLASS_COLORS, TIMER } from "../../../constants/constants";
 import { toast } from "react-toastify";
-import { StoreContext } from "../../../context/StoreContext";
+import { GameContext } from "../../../context/GameContext";
 
 function Timer({ startTime, setStartTime }) {
-  const { timeRemaining, setTimeRemaining } = useContext(StoreContext);
+  const { timeRemaining, setTimeRemaining } = useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
   const notify = () => toast("Your time has ended!");
   useEffect(() => {
