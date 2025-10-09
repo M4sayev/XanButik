@@ -34,8 +34,7 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
   };
 
   function addCoupon(id) {
-    setCoupons((prevCoupons) => prevCoupons.filter((c) => c.id !== id));
-    // setCoupons((prevCoupons) => prevCoupons.filter((c) => c !== id));
+    setCoupons((prevCoupons) => prevCoupons.filter((c) => c !== id));
 
     setBoughtCoupons((prevCoupons) => {
       const exists = prevCoupons.some((c) => c.id == id);

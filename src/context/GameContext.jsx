@@ -18,7 +18,7 @@ function GameContextProvider(props) {
 
   const [couponSelected, setCouponSelected] = useState();
   const [coupons, setCoupons] = useTimedResetState(
-    defaultCoupons,
+    () => defaultCoupons.map((coupon) => coupon.id),
     {
       interval: "week",
       dayOfWeek: 1,
@@ -27,10 +27,6 @@ function GameContextProvider(props) {
     },
     "coupons"
   );
-
-  useEffect(() => {
-    console.log({ coupons });
-  }, [coupons]);
 
   const contextValue = {
     timeRemaining,

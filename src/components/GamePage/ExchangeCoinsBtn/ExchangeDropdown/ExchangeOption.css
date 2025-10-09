@@ -75,6 +75,7 @@
 
 .bought {
   opacity: 0.4;
+  cursor: not-allowed;
 }
 .bought:hover .coupon-offer,
 .bought:focus-visible .coupon-offer {

@@ -37,7 +37,7 @@ function ExchangeDropdown({
 
       <ul className="coupouns-container">
         {defaultCoupons.map((coupon) => {
-          const isBought = !coupons.find((c) => c.id == coupon.id);
+          const isBought = !coupons.includes(coupon.id);
           return (
             <ExchangeOption
               isBought={isBought}
