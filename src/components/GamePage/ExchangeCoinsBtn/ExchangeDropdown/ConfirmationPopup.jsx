@@ -5,8 +5,13 @@ import { defaultCoupons } from "../../../../assets/game/gameAssets";
 import { toast } from "react-toastify";
 
 function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
-  const { setIsConfirmationOpen, setBalance, couponSelected } =
-    useContext(GameContext);
+  const {
+    setIsConfirmationOpen,
+    setBalance,
+    couponSelected,
+    setCoupons,
+    coupons,
+  } = useContext(GameContext);
   const handleBuyCoupon = () => {
     setBalance((prevBalance) => {
       const { price } = defaultCoupons.find(
@@ -29,6 +34,9 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
   };
 
   function addCoupon(id) {
+    setCoupons((prevCoupons) => prevCoupons.filter((c) => c.id !== id));
+    // setCoupons((prevCoupons) => prevCoupons.filter((c) => c !== id));
+
     setBoughtCoupons((prevCoupons) => {
       const exists = prevCoupons.some((c) => c.id == id);
       let updatedCoupons;

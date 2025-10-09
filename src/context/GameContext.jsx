@@ -1,5 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { TIMER } from "../constants/constants";
+import useTimedResetState from "use-timed-reset-state";
+import { defaultCoupons } from "../assets/game/gameAssets";
 
 export const GameContext = createContext(null);
 
@@ -15,6 +17,20 @@ function GameContextProvider(props) {
   });
 
   const [couponSelected, setCouponSelected] = useState();
+  const [coupons, setCoupons] = useTimedResetState(
+    defaultCoupons,
+    {
+      interval: "week",
+      dayOfWeek: 1,
+      resetAtHours: 0,
+      resetAtMinutes: 0,
+    },
+    "coupons"
+  );
+
+  useEffect(() => {
+    console.log({ coupons });
+  }, [coupons]);
 
   const contextValue = {
     timeRemaining,
@@ -25,6 +41,8 @@ function GameContextProvider(props) {
     setBalance,
     couponSelected,
     setCouponSelected,
+    setCoupons,
+    coupons,
   };
   return (
     <GameContext.Provider value={contextValue}>

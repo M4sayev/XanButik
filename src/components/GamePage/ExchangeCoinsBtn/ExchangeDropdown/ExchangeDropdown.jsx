@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ExchangeDropdown.css";
 import ExchangeOption from "./ExchangeOption";
 import ConfirmationPopup from "./ConfirmationPopup";
+
+import { GameContext } from "../../../../context/GameContext";
 import { defaultCoupons } from "../../../../assets/game/gameAssets";
 
 function ExchangeDropdown({
@@ -12,6 +14,7 @@ function ExchangeDropdown({
   confiramtionPopupRef,
   isConfirmationOpen,
 }) {
+  const { coupons } = useContext(GameContext);
   // to be implemented
   // When this game page is finished (save coupons in the global context and add)
   const [boughtCoupons, setBoughtCoupons] = useState(() => {
@@ -33,15 +36,19 @@ function ExchangeDropdown({
       </p>
 
       <ul className="coupouns-container">
-        {defaultCoupons.map((coupon) => (
-          <ExchangeOption
-            {...coupon}
-            key={coupon.id}
-            coinAttrbs={coinAttrbs}
-            isDropDownOpen={isDropDownOpen}
-            boughtCoupons={boughtCoupons}
-          />
-        ))}
+        {defaultCoupons.map((coupon) => {
+          const isBought = !coupons.find((c) => c.id == coupon.id);
+          return (
+            <ExchangeOption
+              isBought={isBought}
+              {...coupon}
+              key={coupon.id}
+              coinAttrbs={coinAttrbs}
+              isDropDownOpen={isDropDownOpen}
+              boughtCoupons={boughtCoupons}
+            />
+          );
+        })}
       </ul>
       {isConfirmationOpen && (
         <ConfirmationPopup

@@ -28,7 +28,8 @@
     "react-spinners": "^0.17.0",
     "react-toastify": "^10.0.6",
     "swiper": "^11.1.15",
-    "use-debounce": "^10.0.6"
+    "use-debounce": "^10.0.6",
+    "use-timed-reset-state": "^0.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

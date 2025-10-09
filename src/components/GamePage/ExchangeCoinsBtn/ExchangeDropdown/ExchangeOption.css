@@ -72,3 +72,11 @@
 .exchange-option-btn:focus-visible .coupon-offer {
   left: 50%;
 }
+
+.bought {
+  opacity: 0.4;
+}
+.bought:hover .coupon-offer,
+.bought:focus-visible .coupon-offer {
+  left: 0;
+}
