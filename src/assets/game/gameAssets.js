@@ -1,4 +1,4 @@
-export const coupons = [
+export const defaultCoupons = [
   {
     id: 123124241,
     price: {

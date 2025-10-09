@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./ExchangeDropdown.css";
 import ExchangeOption from "./ExchangeOption";
 import ConfirmationPopup from "./ConfirmationPopup";
-import { coupons } from "../../../../assets/game/gameAssets";
+import { defaultCoupons } from "../../../../assets/game/gameAssets";
 
 function ExchangeDropdown({
   dropdownRef,
@@ -16,11 +16,9 @@ function ExchangeDropdown({
   // When this game page is finished (save coupons in the global context and add)
   const [boughtCoupons, setBoughtCoupons] = useState(() => {
     const storedBoughtCoupons = localStorage.getItem("boughtCoupons");
-    console.log({ storedBoughtCoupons });
     return storedBoughtCoupons ? JSON.parse(storedBoughtCoupons) : [];
   });
 
-  useEffect(() => console.log(boughtCoupons), [boughtCoupons]);
   return (
     <div
       role="dialog"
@@ -35,7 +33,7 @@ function ExchangeDropdown({
       </p>
 
       <ul className="coupouns-container">
-        {coupons.map((coupon) => (
+        {defaultCoupons.map((coupon) => (
           <ExchangeOption
             {...coupon}
             key={coupon.id}

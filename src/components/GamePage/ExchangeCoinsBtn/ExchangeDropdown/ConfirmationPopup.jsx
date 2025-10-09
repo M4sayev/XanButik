@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./ConfirmationPopup.css";
 import { GameContext } from "../../../../context/GameContext";
-import { coupons } from "../../../../assets/game/gameAssets";
+import { defaultCoupons } from "../../../../assets/game/gameAssets";
 import { toast } from "react-toastify";
 
 function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
@@ -9,7 +9,9 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
     useContext(GameContext);
   const handleBuyCoupon = () => {
     setBalance((prevBalance) => {
-      const { price } = coupons.find((coupon) => coupon.id === couponSelected);
+      const { price } = defaultCoupons.find(
+        (coupon) => coupon.id === couponSelected
+      );
       const newBalance = {
         ...prevBalance,
         [price.coinValue]: prevBalance[price.coinValue] - price.value,
