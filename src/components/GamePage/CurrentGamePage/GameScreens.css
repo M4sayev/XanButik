@@ -1,4 +1,4 @@
-.game-start-menu-container {
+.game-screen-container {
   border: 1px solid var(--clr-neutral-200);
   border-radius: 0.375rem;
 
@@ -24,7 +24,7 @@
 
 /* start menu */
 
-.game-start-menu {
+.game-screen {
   background-color: var(--clr-neutral-100);
   border-radius: inherit;
   padding: var(--spacing-lg);
@@ -36,35 +36,35 @@
   z-index: 2;
 }
 
-.game-start-menu .trophy-icon {
+.game-screen .trophy-icon {
   width: 50px;
   height: 50px;
   font-weight: var(--fw-bold);
 }
 
-.game-start-menu .warning-span {
+.game-screen .warning-span {
   font-weight: bold;
   color: var(--clr-validation-err);
 }
 
-.game-start-menu .coin-balance-preview {
+.game-screen .coin-balance-preview {
   color: #c1a83dff;
   font-weight: var(--fw-bold-bold);
 }
 
 @media screen and (max-height: 450px) {
-  .game-start-menu {
+  .game-screen {
     margin: 0;
     padding-block: var(--spacing-sm);
   }
-  .game-start-menu .trophy-icon {
+  .game-screen .trophy-icon {
     width: 25px;
     height: 25px;
   }
 }
 
 @media screen and (min-width: 777px) {
-  .game-start-menu {
+  .game-screen {
     height: 100%;
     border-radius: 0;
     border: none;
