@@ -68,4 +68,4 @@ export const HOURGLASS_COLORS = {
   red: "#ad3434",
 };
 
-export const TIMER = 60000; // 2 minutes in milliseconds
+export const TIMER = 30000; // 2 minutes in milliseconds

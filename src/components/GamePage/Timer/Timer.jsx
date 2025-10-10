@@ -37,9 +37,9 @@ function Timer({ startTime, setStartTime }) {
 
   function changeHourglassColor(time) {
     console.log({ time });
-    if (time >= TIMER - 10000) {
+    if (time >= TIMER - 5000) {
       setHourglassColor("red");
-    } else if (time >= TIMER - 20000) {
+    } else if (time >= TIMER - 10000) {
       setHourglassColor("orange");
     } else {
       setHourglassColor("green");
