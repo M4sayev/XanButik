@@ -6,6 +6,13 @@ import { defaultCoupons } from "../assets/game/gameAssets";
 export const GameContext = createContext(null);
 
 function GameContextProvider(props) {
+  const [isGameGoing, setIsGameGoing] = useState(false);
+
+  const [isGamePlayedToday, setIsGamePlayedToday] = useTimedResetState(
+    false,
+    { interval: "day" },
+    "gameplayed"
+  );
   // timer remaining time for the game page
   const [timeRemaining, setTimeRemaining] = useState(TIMER);
 
@@ -39,6 +46,12 @@ function GameContextProvider(props) {
     setCouponSelected,
     setCoupons,
     coupons,
+
+    isGameGoing,
+    setIsGameGoing,
+
+    isGamePlayedToday,
+    setIsGamePlayedToday,
   };
   return (
     <GameContext.Provider value={contextValue}>

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css";
-import { ClipLoader } from "react-spinners";
-import StartMenu from "../../components/GamePage/StartMenu/StartMenu";
 import GoBackButton from "../../components/GamePage/GoBackButton/GoBackButton";
 
 import Timer from "../../components/GamePage/Timer/Timer";
 import ExchangeCoinsBtn from "../../components/GamePage/ExchangeCoinsBtn/ExchangeCoinsBtn";
 import Spinner from "../../components/Spinner/Spinner";
 import GameContextProvider from "../../context/GameContext";
+import CurrentGamePage from "../../components/GamePage/CurrentGamePage/CurrentGamePage";
 
 function Game() {
   const [startTime, setStartTime] = useState("");
@@ -29,7 +28,7 @@ function Game() {
               <Timer startTime={startTime} setStartTime={setStartTime} />
               <ExchangeCoinsBtn />
             </nav>
-            <StartMenu setStartTime={setStartTime} />
+            <CurrentGamePage setStartTime={setStartTime} />
           </div>
         </main>
       )}

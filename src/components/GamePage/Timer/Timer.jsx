@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 import { GameContext } from "../../../context/GameContext";
 
 function Timer({ startTime, setStartTime }) {
-  const { timeRemaining, setTimeRemaining } = useContext(GameContext);
+  const { timeRemaining, setTimeRemaining, setIsGameGoing } =
+    useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
   const notify = () => toast("Your time has ended!");
   useEffect(() => {
@@ -20,6 +21,7 @@ function Timer({ startTime, setStartTime }) {
           setStartTime("");
           setTimeRemaining(TIMER);
           clearInterval(intervalID);
+          setIsGameGoing(false);
           notify();
           // reset timer color
           changeHourglassColor(0);
