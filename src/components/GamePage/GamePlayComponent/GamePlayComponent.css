@@ -18,6 +18,29 @@
   background-color: transparent;
 
   padding: 0 !important;
+  transition: all 300ms ease;
+  cursor: pointer;
+  animation: 400ms appear;
+}
+@keyframes appear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 @media (min-width: 777px) {
