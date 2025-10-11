@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import HourGlass from "../../../assets/game/hourglass.svg?react";
 import "./Timer.css";
 import { formatTime } from "../../../utils/utils";
-import { HOURGLASS_COLORS, TIMER } from "../../../constants/constants";
+import { HOURGLASS_COLORS, TIMER } from "../../../constants/gameConstants";
 import { toast } from "react-toastify";
 import { GameContext } from "../../../context/GameContext";
 

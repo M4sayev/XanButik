@@ -1,0 +1,12 @@
+export const coinSize = 48;
+export const maxCoins = 8;
+export const spawInterval = 1000;
+export const coinLifetime = 3000;
+
+export const HOURGLASS_COLORS = {
+  green: "#83b993",
+  orange: "#d3cb69",
+  red: "#ad3434",
+};
+
+export const TIMER = 30000; // 2 minutes in milliseconds

@@ -1,3 +1,5 @@
+import { coinSize } from "../constants/gameConstants";
+
 export function camelCaseToLabel(str) {
   return str
     .replace(/([A-Z])/g, " $1") // insert space before capital letters
@@ -24,4 +26,8 @@ export function formatTime(ms) {
     .toString()
     .padStart(2, "0");
   return `${minutes}:${seconds}`;
+}
+
+export function randomInBetween(lower, upper) {
+  return Math.floor(Math.random() * (upper - lower - coinSize)) + lower;
 }

@@ -61,11 +61,3 @@ export const excludedKeys = [
   "category",
   "reviews",
 ];
-
-export const HOURGLASS_COLORS = {
-  green: "#83b993",
-  orange: "#d3cb69",
-  red: "#ad3434",
-};
-
-export const TIMER = 30000; // 2 minutes in milliseconds

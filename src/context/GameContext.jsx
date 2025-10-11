@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { TIMER } from "../constants/constants";
+import { TIMER } from "../constants/gameConstants";
 import useTimedResetState from "use-timed-reset-state";
 import { defaultCoupons } from "../assets/game/gameAssets";
 
@@ -34,6 +34,8 @@ function GameContextProvider(props) {
     },
     "coupons"
   );
+
+  const coins = new Set();
 
   const contextValue = {
     timeRemaining,
