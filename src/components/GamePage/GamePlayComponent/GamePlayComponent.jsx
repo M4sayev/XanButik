@@ -21,7 +21,8 @@ function GamePlayComponent() {
     const newCoin = {
       top: randomInBetween(0, sectionHeight),
       left: randomInBetween(0, sectionWidth),
-      id: Date.now(),
+      date: Date.now(),
+      id: Date.now() + Math.random(),
     };
     if (updateState) setCoins((prev) => [...prev, newCoin]);
     return newCoin;
@@ -45,10 +46,20 @@ function GamePlayComponent() {
     };
   }, []);
 
+  function removeCoin(id) {
+    setCoins((prev) => prev.filter((c) => c.id !== id));
+    // remove the items from the seen set also later
+  }
+
   return (
     <section className="game-play-section" ref={gameSectionRef}>
       {coins.map(({ id, ...coordinates }) => (
-        <CoinButton key={id} coordinates={coordinates} />
+        <CoinButton
+          key={id}
+          coordinates={coordinates}
+          removeCoin={removeCoin}
+          id={id}
+        />
       ))}
     </section>
   );

@@ -4,17 +4,17 @@ import { GameContext } from "../../../context/GameContext";
 import { coinSize } from "../../../constants/gameConstants";
 import { randomInBetween } from "../../../utils/utils";
 
-function CoinButton({ coordinates }) {
+function CoinButton({ coordinates, removeCoin, id }) {
   const { setBalance } = useContext(GameContext);
 
   function handleCoinClicked(event) {
     const type = event.currentTarget.dataset.type;
     setBalance((prev) => ({ ...prev, [type]: prev[type] + 1 }));
 
+    removeCoin(id);
     // remove coin from the seen set and the coins array
   }
 
-  console.log(coordinates);
   return (
     <button
       data-type="silver"
