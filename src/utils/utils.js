@@ -31,3 +31,5 @@ export function formatTime(ms) {
 export function randomInBetween(lower, upper) {
   return Math.floor(Math.random() * (upper - lower - coinSize)) + lower;
 }
+
+export const getCoordinateKey = (x, y) => x + "|" + y;

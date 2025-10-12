@@ -3,6 +3,8 @@ export const maxCoins = 8;
 export const spawInterval = 1000;
 export const coinLifetime = 2000;
 
+export const coinSpawnRate = 300;
+
 export const HOURGLASS_COLORS = {
   green: "#83b993",
   orange: "#d3cb69",

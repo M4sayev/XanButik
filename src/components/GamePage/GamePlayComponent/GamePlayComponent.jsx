@@ -1,8 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./GamePlayComponent.css";
 import CoinButton from "./CoinButton";
-import { randomInBetween } from "../../../utils/utils";
-import { coinLifetime } from "../../../constants/gameConstants";
+import { getCoordinateKey, randomInBetween } from "../../../utils/utils";
+import {
+  coinLifetime,
+  coinSpawnRate,
+  coinSize,
+} from "../../../constants/gameConstants";
+
+const seen = new Map();
 
 function GamePlayComponent() {
   const initialSpawned = useRef(false);
@@ -13,33 +19,72 @@ function GamePlayComponent() {
   };
   const [coins, setCoins] = useState([]);
 
-  function addCoin(updateState = true) {
+  function addCoin() {
     if (!gameSectionRef.current) return;
 
     const rect = gameSectionRef.current.getBoundingClientRect();
     const sectionWidth = rect.width;
     const sectionHeight = rect.height;
 
-    const newCoin = {
-      top: randomInBetween(0, sectionHeight),
-      left: randomInBetween(0, sectionWidth),
-      date: Date.now(),
-      id: Date.now() + Math.random(),
-    };
-    if (updateState) setCoins((prev) => [...prev, newCoin]);
-    return newCoin;
+    // ten tries to place the coin
+    for (let tries = 0; tries < 10; tries++) {
+      const top = randomInBetween(0, sectionHeight - coinSize);
+      const left = randomInBetween(0, sectionWidth - coinSize);
+
+      const newRect = {
+        top,
+        left,
+        bottom: top + coinSize,
+        right: left + coinSize,
+      };
+
+      const overlapping = Array.from(seen.values()).some(([t, l]) => {
+        const existing = {
+          top: t,
+          left: l,
+          bottom: t + coinSize,
+          right: l + coinSize,
+        };
+
+        return !(
+          newRect.right < existing.left ||
+          newRect.top > existing.bottom ||
+          newRect.bottom < existing.top ||
+          newRect.left > existing.right
+        );
+      });
+      if (!overlapping) {
+        const key = getCoordinateKey(top, left);
+        const newCoin = {
+          top,
+          left,
+          date: Date.now(),
+          id: key,
+        };
+        setCoins((prev) => [...prev, newCoin]);
+
+        seen.set(key, [top, left]);
+
+        setTimeout(() => {
+          setCoins((prev) =>
+            prev.filter(({ date }) => Date.now() - date <= coinLifetime)
+          );
+          seen.delete(key);
+        }, coinLifetime);
+
+        // stop trying
+        return;
+      }
+    }
   }
 
   useEffect(() => {
     if (!gameSectionRef.current || initialSpawned.current) return;
 
-    for (let i = 0; i < 3; i++) {
-      setTimeout(() => {
-        const newCoin = addCoin(false);
-        newCoin.date = Date.now() + i * coinLifetime;
-        setCoins((prev) => [...prev, newCoin]);
-      }, i * 500);
+    for (let i = 0; i < 4; i++) {
+      setTimeout(addCoin, i * 400);
     }
+
     initialSpawned.current = true;
   }, []);
 
@@ -51,34 +96,18 @@ function GamePlayComponent() {
     };
   }, []);
 
+  function removeCoin(id) {
+    setCoins((prev) => prev.filter((c) => id !== c.id));
+  }
+
   useEffect(() => {
-    console.log("coins:", coins);
+    console.log(seen);
   }, [coins]);
 
-  function removeExpiredCoin() {
-    setCoins((prev) =>
-      prev.filter(({ date }) => Date.now() - date <= coinLifetime)
-    );
-  }
-  // Remove the coins passed the lifetime add a coin
   useEffect(() => {
-    let removeIntervalId;
-    const timeout = setTimeout(() => {
-      removeIntervalId = setInterval(removeExpiredCoin, coinLifetime);
-    }, coinLifetime);
-    return () => {
-      clearInterval(removeIntervalId);
-      clearTimeout(timeout);
-    };
-  }, []);
-
-  function removeCoin(id) {
-    setCoins((prev) => prev.filter((c) => c.id !== id));
-    // remove the items from the seen set also later
-  }
-
-  useEffect(() => {
-    const intervalId = setInterval(() => addCoin(), coinLifetime / 4);
+    const intervalId = setInterval(() => {
+      addCoin();
+    }, coinSpawnRate);
     return () => clearInterval(intervalId);
   }, []);
 
