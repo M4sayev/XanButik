@@ -71,7 +71,7 @@
 
 .wishlist-empty-grid {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   display: grid;
   place-items: center;
 
@@ -186,5 +186,12 @@
   .wishlist-item .selectors-add-to-cart-btn {
     padding-block: 0.675rem;
     font-size: var(--fs-400);
+  }
+}
+
+@media (max-height: 730px) and (max-width: 777px) {
+  .wishlist-empty-grid {
+    /* subtract navbar height for smaller devices */
+    height: calc(100vh - 160px);
   }
 }

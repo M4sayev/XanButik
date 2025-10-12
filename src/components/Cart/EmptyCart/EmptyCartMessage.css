@@ -6,11 +6,18 @@
   justify-content: center;
   font-family: var(--ff-secondary);
   padding: var(--spacing-md);
-  height: 100vh;
+  height: 80vh;
 }
 
 .empty-cart-message .cart-icon {
   width: 50px;
   height: 50px;
   margin-bottom: var(--spacing-md);
+}
+
+@media (max-height: 730px) and (max-width: 777px) {
+  .empty-cart-message {
+    /* subtract navbar height for smaller devices */
+    height: calc(90vh - 100px);
+  }
 }

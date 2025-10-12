@@ -3,7 +3,7 @@ import "./FaqAccordion.css";
 import { askedQuestions } from "../../../assets/assets";
 import QuestionItem from "./QuestionItem";
 import { useInView } from "react-intersection-observer";
-import { StoreContext } from "../../../context/StoreContext"
+import { StoreContext } from "../../../context/StoreContext";
 import { handleAnimation } from "../../../utils/utils";
 
 function FaqAccordion() {
@@ -11,7 +11,10 @@ function FaqAccordion() {
   const [activeCategory, setActiveCategory] = useState("All Questions");
   const [isFiltered, setIsFiltered] = useState(false);
 
-  const { ref: headingRef, inView: headingInView } = useInView();
+  const { ref: headingRef, inView: headingInView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
 
   const allCategories = [
     "All Questions",
@@ -46,34 +49,36 @@ function FaqAccordion() {
         const prev = (index - 1 + allCategories.length) % allCategories.length;
         const prevStr = `tab-${prev}`;
         document.getElementById(prevStr).focus();
-      } 
+      }
       if (string === "next") {
         const next = (index + 1) % allCategories.length;
         const nextStr = `tab-${next}`;
         document.getElementById(nextStr).focus();
       }
       if (string === "first-question") {
-        const firstQuestion = document.querySelector(`.faq-accordion-item button`);
+        const firstQuestion = document.querySelector(
+          `.faq-accordion-item button`
+        );
         if (firstQuestion) {
           firstQuestion.focus();
-          firstQuestion.click(); 
+          firstQuestion.click();
         }
       }
-    }
-    
+    };
+
     const isWideScreen = window.innerWidth > 777;
 
     if (e.key === "ArrowRight") {
       if (!isWideScreen) {
         focusAccordionEl("next");
       } else {
-        focusAccordionEl("first-question")
+        focusAccordionEl("first-question");
       }
     }
     if (e.key === "ArrowLeft" && !isWideScreen) {
-      focusAccordionEl('prev');
+      focusAccordionEl("prev");
     }
-    if (e.key === 'ArrowDown') {
+    if (e.key === "ArrowDown") {
       e.preventDefault();
       if (!isWideScreen) {
         focusAccordionEl("first-question");
@@ -88,33 +93,39 @@ function FaqAccordion() {
   }
 
   function handleArrows(e, index) {
-      const len = accordionItems.length
+    const len = accordionItems.length;
 
-      let targetIndex;
+    let targetIndex;
 
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        targetIndex = (index + 1) % len;
-      }
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        targetIndex = (index - 1 + len) % len;
-      }
-      const targetEl = document.querySelector(`[data-tab-index="article-button-${targetIndex}"]`);
-
-      if (targetEl) {
-        targetEl.focus();
-        targetEl.click();
-      }
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      targetIndex = (index + 1) % len;
     }
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      targetIndex = (index - 1 + len) % len;
+    }
+    const targetEl = document.querySelector(
+      `[data-tab-index="article-button-${targetIndex}"]`
+    );
+
+    if (targetEl) {
+      targetEl.focus();
+      targetEl.click();
+    }
+  }
 
   return (
     <section className="faq-accordion-section">
       <div className="faq-accordion-contents">
-        <h1 
+        <h1
           ref={headingRef}
-          className={`std-heading faq-heading ${handleAnimation(headingInView)}`}
-        >Frequently asked questions</h1>
+          className={`std-heading faq-heading ${handleAnimation(
+            headingInView
+          )}`}
+        >
+          Frequently asked questions
+        </h1>
         <div className="faq-accordion-container">
           <ul className="faq-question-categories" role="tablist">
             {allCategories.map((category, index) => {
