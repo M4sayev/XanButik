@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import "./GamePlayComponent.css";
 import CoinButton from "./CoinButton";
 import { randomInBetween } from "../../../utils/utils";
+import { coinLifetime } from "../../../constants/gameConstants";
 
 function GamePlayComponent() {
+  const initialSpawned = useRef(false);
   const gameSectionRef = useRef(null);
   const handleBeforeUnload = (e) => {
     e.preventDefault();
@@ -29,13 +31,16 @@ function GamePlayComponent() {
   }
 
   useEffect(() => {
-    if (!gameSectionRef.current) return;
+    if (!gameSectionRef.current || initialSpawned.current) return;
 
-    const initialCoins = Array(3)
-      .fill(0)
-      .map(() => addCoin(false));
-
-    setCoins(initialCoins);
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const newCoin = addCoin(false);
+        newCoin.date = Date.now() + i * coinLifetime;
+        setCoins((prev) => [...prev, newCoin]);
+      }, i * 500);
+    }
+    initialSpawned.current = true;
   }, []);
 
   useEffect(() => {
@@ -46,10 +51,36 @@ function GamePlayComponent() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log("coins:", coins);
+  }, [coins]);
+
+  function removeExpiredCoin() {
+    setCoins((prev) =>
+      prev.filter(({ date }) => Date.now() - date <= coinLifetime)
+    );
+  }
+  // Remove the coins passed the lifetime add a coin
+  useEffect(() => {
+    let removeIntervalId;
+    const timeout = setTimeout(() => {
+      removeIntervalId = setInterval(removeExpiredCoin, coinLifetime);
+    }, coinLifetime);
+    return () => {
+      clearInterval(removeIntervalId);
+      clearTimeout(timeout);
+    };
+  }, []);
+
   function removeCoin(id) {
     setCoins((prev) => prev.filter((c) => c.id !== id));
     // remove the items from the seen set also later
   }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => addCoin(), coinLifetime / 4);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section className="game-play-section" ref={gameSectionRef}>
