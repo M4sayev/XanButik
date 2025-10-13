@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./GamePlayComponent.css";
 import CoinButton from "./CoinButton";
 import { getCoordinateKey, randomInBetween } from "../../../utils/utils";
@@ -7,7 +7,10 @@ import {
   coinSpawnRate,
   coinSize,
   goldCoinSpawnPercent,
+  bombSize,
+  bombSpawnRate,
 } from "../../../constants/gameConstants";
+import Bomb from "./Bomb";
 
 const seen = new Map();
 
@@ -19,6 +22,8 @@ function GamePlayComponent() {
     e.returnValue = "";
   };
   const [coins, setCoins] = useState([]);
+
+  const [bombs, setBombs] = useState([]);
 
   function spawnObject({
     objectSize,
@@ -81,7 +86,7 @@ function GamePlayComponent() {
     }
   }
 
-  function addCoin() {
+  const addCoin = useCallback(() => {
     const isSilver = Math.random() < 1 - goldCoinSpawnPercent / 100;
     spawnObject({
       objectSize: coinSize,
@@ -97,7 +102,24 @@ function GamePlayComponent() {
         type: isSilver ? "silver" : "gold",
       }),
     });
-  }
+  }, [gameSectionRef, setCoins]);
+
+  const addBomb = useCallback(() => {
+    spawnObject({
+      objectSize: bombSize,
+      lifetime: coinLifeTime,
+      setObjects: setBombs,
+      objectMap: seen,
+      gameSectionRef,
+      createObjectFn: (top, left, key) => ({
+        top,
+        left,
+        date: Date.now(),
+        id: key,
+        type: "bomb",
+      }),
+    });
+  }, [gameSectionRef, setBombs]);
 
   useEffect(() => {
     if (!gameSectionRef.current || initialSpawned.current) return;
@@ -117,18 +139,27 @@ function GamePlayComponent() {
     };
   }, []);
 
-  function removeCoin(id) {
-    setCoins((prev) => prev.filter((c) => id !== c.id));
+  function removeObject(id, type = "coin") {
+    if (type === "coin") setCoins((prev) => prev.filter((c) => id !== c.id));
+    else if (type === "bomb")
+      setBombs((prev) => prev.filter((c) => id !== c.id));
+    else console.log("No such object found");
   }
 
-  // useEffect(() => {
-  //   console.log(seen);
-  // }, [coins]);
+  function useSpawnInterval(callback, interval) {
+    useEffect(() => {
+      const id = setInterval(callback, interval);
+      return () => clearInterval(id);
+    }, [callback, interval]);
+  }
+
+  useSpawnInterval(addCoin, coinSpawnRate);
+  useSpawnInterval(addBomb, bombSpawnRate);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      addCoin();
-    }, coinSpawnRate);
+      addBomb();
+    }, bombSpawnRate);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -139,8 +170,15 @@ function GamePlayComponent() {
           key={id}
           type={type}
           coordinates={coordinates}
-          removeCoin={removeCoin}
-          id={id}
+          removeCoin={() => removeObject(id, "coin")}
+        />
+      ))}
+      {bombs.map(({ id, type, ...coordinates }) => (
+        <Bomb
+          key={id}
+          type={type}
+          coordinates={coordinates}
+          removeBomb={() => removeObject(id, "bomb")}
         />
       ))}
     </section>

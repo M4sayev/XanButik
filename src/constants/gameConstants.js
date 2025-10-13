@@ -4,10 +4,12 @@ export const spawInterval = 1000;
 
 export const coinLifeTime = 2000;
 
-export const coinSpawnRate = 300;
+export const coinSpawnRate = 350;
 export const goldCoinSpawnPercent = 5;
 
 export const bombSize = 50;
+export const bombSpawnRate = 1400;
+export const bombFine = 3;
 
 export const HOURGLASS_COLORS = {
   green: "#83b993",
