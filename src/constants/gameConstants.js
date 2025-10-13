@@ -1,9 +1,11 @@
 export const coinSize = 48;
 export const maxCoins = 8;
 export const spawInterval = 1000;
-export const coinLifetime = 2000;
+
+export const coinLifeTime = 2000;
 
 export const coinSpawnRate = 300;
+export const goldCoinSpawnPercent = 5;
 
 export const bombSize = 50;
 

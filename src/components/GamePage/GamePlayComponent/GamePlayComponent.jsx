@@ -3,9 +3,10 @@ import "./GamePlayComponent.css";
 import CoinButton from "./CoinButton";
 import { getCoordinateKey, randomInBetween } from "../../../utils/utils";
 import {
-  coinLifetime,
+  coinLifeTime,
   coinSpawnRate,
   coinSize,
+  goldCoinSpawnPercent,
 } from "../../../constants/gameConstants";
 
 const seen = new Map();
@@ -81,9 +82,10 @@ function GamePlayComponent() {
   }
 
   function addCoin() {
+    const isSilver = Math.random() < 1 - goldCoinSpawnPercent / 100;
     spawnObject({
       objectSize: coinSize,
-      lifetime: coinLifetime,
+      lifetime: coinLifeTime,
       setObjects: setCoins,
       objectMap: seen,
       gameSectionRef,
@@ -92,7 +94,7 @@ function GamePlayComponent() {
         left,
         date: Date.now(),
         id: key,
-        type: "coin",
+        type: isSilver ? "silver" : "gold",
       }),
     });
   }
@@ -132,9 +134,10 @@ function GamePlayComponent() {
 
   return (
     <section className="game-play-section" ref={gameSectionRef}>
-      {coins.map(({ id, ...coordinates }) => (
+      {coins.map(({ id, type, ...coordinates }) => (
         <CoinButton
           key={id}
+          type={type}
           coordinates={coordinates}
           removeCoin={removeCoin}
           id={id}
