@@ -17,10 +17,6 @@ const seen = new Map();
 function GamePlayComponent() {
   const initialSpawned = useRef(false);
   const gameSectionRef = useRef(null);
-  const handleBeforeUnload = (e) => {
-    e.preventDefault();
-    e.returnValue = "";
-  };
   const [coins, setCoins] = useState([]);
 
   const [bombs, setBombs] = useState([]);
@@ -127,11 +123,13 @@ function GamePlayComponent() {
     for (let i = 0; i < 4; i++) {
       setTimeout(addCoin, i * 400);
     }
-
     initialSpawned.current = true;
-  }, []);
 
-  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+
     window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
@@ -155,13 +153,6 @@ function GamePlayComponent() {
 
   useSpawnInterval(addCoin, coinSpawnRate);
   useSpawnInterval(addBomb, bombSpawnRate);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      addBomb();
-    }, bombSpawnRate);
-    return () => clearInterval(intervalId);
-  }, []);
 
   return (
     <section className="game-play-section" ref={gameSectionRef}>
