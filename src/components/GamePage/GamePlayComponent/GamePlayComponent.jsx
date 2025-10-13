@@ -12,9 +12,8 @@ import {
 } from "../../../constants/gameConstants";
 import Bomb from "./Bomb";
 
-const seen = new Map();
-
 function GamePlayComponent() {
+  const seen = useRef(new Map());
   const initialSpawned = useRef(false);
   const gameSectionRef = useRef(null);
   const [coins, setCoins] = useState([]);
@@ -88,7 +87,7 @@ function GamePlayComponent() {
       objectSize: coinSize,
       lifetime: coinLifeTime,
       setObjects: setCoins,
-      objectMap: seen,
+      objectMap: seen.current,
       gameSectionRef,
       createObjectFn: (top, left, key) => ({
         top,
@@ -105,7 +104,7 @@ function GamePlayComponent() {
       objectSize: bombSize,
       lifetime: coinLifeTime,
       setObjects: setBombs,
-      objectMap: seen,
+      objectMap: seen.current,
       gameSectionRef,
       createObjectFn: (top, left, key) => ({
         top,
