@@ -5,6 +5,8 @@ export const coinLifetime = 2000;
 
 export const coinSpawnRate = 300;
 
+export const bombSize = 50;
+
 export const HOURGLASS_COLORS = {
   green: "#83b993",
   orange: "#d3cb69",

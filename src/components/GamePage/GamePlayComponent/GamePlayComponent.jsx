@@ -19,31 +19,38 @@ function GamePlayComponent() {
   };
   const [coins, setCoins] = useState([]);
 
-  function addCoin() {
+  function spawnObject({
+    objectSize,
+    lifetime,
+    setObjects,
+    objectMap,
+    gameSectionRef,
+    createObjectFn,
+    tryCount = 10,
+  }) {
     if (!gameSectionRef.current) return;
 
     const rect = gameSectionRef.current.getBoundingClientRect();
     const sectionWidth = rect.width;
     const sectionHeight = rect.height;
 
-    // ten tries to place the coin
-    for (let tries = 0; tries < 10; tries++) {
-      const top = randomInBetween(0, sectionHeight - coinSize);
-      const left = randomInBetween(0, sectionWidth - coinSize);
+    for (let tries = 0; tries < tryCount; tries++) {
+      const top = randomInBetween(0, sectionHeight - objectSize);
+      const left = randomInBetween(0, sectionWidth - objectSize);
 
       const newRect = {
         top,
         left,
-        bottom: top + coinSize,
-        right: left + coinSize,
+        bottom: top + objectSize,
+        right: left + objectSize,
       };
 
-      const overlapping = Array.from(seen.values()).some(([t, l]) => {
+      const overlapping = Array.from(objectMap.values()).some(([t, l]) => {
         const existing = {
           top: t,
           left: l,
-          bottom: t + coinSize,
-          right: l + coinSize,
+          bottom: t + objectSize,
+          right: l + objectSize,
         };
 
         return !(
@@ -55,27 +62,39 @@ function GamePlayComponent() {
       });
       if (!overlapping) {
         const key = getCoordinateKey(top, left);
-        const newCoin = {
-          top,
-          left,
-          date: Date.now(),
-          id: key,
-        };
-        setCoins((prev) => [...prev, newCoin]);
+        const newObject = createObjectFn(top, left, key);
 
-        seen.set(key, [top, left]);
+        setObjects((prev) => [...prev, newObject]);
+        objectMap.set(key, [top, left]);
 
         setTimeout(() => {
-          setCoins((prev) =>
-            prev.filter(({ date }) => Date.now() - date <= coinLifetime)
+          setObjects((prev) =>
+            prev.filter(({ date }) => Date.now() - date <= lifetime)
           );
-          seen.delete(key);
-        }, coinLifetime);
+          objectMap.delete(key);
+        }, lifetime);
 
         // stop trying
         return;
       }
     }
+  }
+
+  function addCoin() {
+    spawnObject({
+      objectSize: coinSize,
+      lifetime: coinLifetime,
+      setObjects: setCoins,
+      objectMap: seen,
+      gameSectionRef,
+      createObjectFn: (top, left, key) => ({
+        top,
+        left,
+        date: Date.now(),
+        id: key,
+        type: "coin",
+      }),
+    });
   }
 
   useEffect(() => {
@@ -100,9 +119,9 @@ function GamePlayComponent() {
     setCoins((prev) => prev.filter((c) => id !== c.id));
   }
 
-  useEffect(() => {
-    console.log(seen);
-  }, [coins]);
+  // useEffect(() => {
+  //   console.log(seen);
+  // }, [coins]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
