@@ -7,7 +7,7 @@ export const coinLifeTime = 2000;
 export const coinSpawnRate = 350;
 export const goldCoinSpawnPercent = 5;
 
-export const bombSize = 50;
+export const bombSize = 48;
 export const bombSpawnRate = 1400;
 export const bombFine = 3;
 

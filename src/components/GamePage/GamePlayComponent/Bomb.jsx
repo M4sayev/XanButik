@@ -7,9 +7,8 @@ function Bomb({ removeBomb, coordinates, type }) {
   const { setBalance } = useContext(GameContext);
   const handleBombClicked = () => {
     setBalance((prev) => {
-      console.log(prev.silver);
       if (prev.silver <= bombFine) return { ...prev, silver: 0 };
-      return { ...prev, silver: prev - bombFine };
+      return { ...prev, silver: prev.silver - bombFine };
     });
     removeBomb();
   };
