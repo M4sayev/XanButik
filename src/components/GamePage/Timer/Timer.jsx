@@ -5,6 +5,7 @@ import { formatTime } from "../../../utils/utils";
 import { HOURGLASS_COLORS, TIMER } from "../../../constants/gameConstants";
 import { toast } from "react-toastify";
 import { GameContext } from "../../../context/GameContext";
+import SnowFlake from "../../../assets/game/snow_flake.svg?react";
 
 function Timer({ startTime, setStartTime }) {
   const {
@@ -79,6 +80,16 @@ function Timer({ startTime, setStartTime }) {
             HOURGLASS_COLORS[hourglassColor] || HOURGLASS_COLORS["green"],
         }}
       />
+      <div
+        className={`snow-flakes-overlay ${isGameFrozen && "animate-flakes"}`}
+        aria-hidden="true"
+      >
+        {Array.from({ length: 5 }).map((_, index) => (
+          <span key={`timer-sf-${index}`}>
+            <SnowFlake style={{ width: "20px", height: "20px" }} />
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
