@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { GameContext } from "../../../context/GameContext";
 
 function Timer({ startTime, setStartTime }) {
-  const { timeRemaining, setTimeRemaining, setIsGameGoing } =
+  const { timeRemaining, setTimeRemaining, setIsGameGoing, balance } =
     useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
   const notify = () => toast("Your time has ended!");
@@ -25,6 +25,8 @@ function Timer({ startTime, setStartTime }) {
           notify();
           // reset timer color
           changeHourglassColor(0);
+          // save collected from the game balance to localStorage
+          localStorage.setItem("balance", JSON.stringify(balance));
         } else {
           setTimeRemaining(() => TIMER - elapsed);
           changeHourglassColor(elapsed);
@@ -33,10 +35,9 @@ function Timer({ startTime, setStartTime }) {
     }
 
     return () => clearInterval(intervalID);
-  }, [startTime]);
+  }, [startTime, balance]);
 
   function changeHourglassColor(time) {
-    console.log({ time });
     if (time >= TIMER - 5000) {
       setHourglassColor("red");
     } else if (time >= TIMER - 10000) {
