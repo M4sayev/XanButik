@@ -69,6 +69,9 @@ function Timer({ startTime, setStartTime }) {
       className={`hud-timer std-hud-btn ${
         startTime && !isGameFrozen ? "started" : ""
       }`}
+      role="timer"
+      aria-live="polite"
+      aria-label={`Time remaining: ${formatTime(timeRemaining)}`}
     >
       <span>{formatTime(timeRemaining)}</span>
       <HourGlass
@@ -79,6 +82,7 @@ function Timer({ startTime, setStartTime }) {
           "--svg-clr-bg":
             HOURGLASS_COLORS[hourglassColor] || HOURGLASS_COLORS["green"],
         }}
+        aria-label={`Hourglass color: ${hourglassColor}`}
       />
       <div
         className={`snow-flakes-overlay ${isGameFrozen && "animate-flakes"}`}
