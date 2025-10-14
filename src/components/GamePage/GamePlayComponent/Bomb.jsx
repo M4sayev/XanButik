@@ -17,7 +17,12 @@ function Bomb({ removeBomb, coordinates, type }) {
   };
   return (
     <div className="bomb-btn-container" style={{ ...coordinates }}>
-      <button data-type={type} className="coin-btn" onClick={handleBombClicked}>
+      <button
+        data-type={type}
+        className="coin-btn"
+        onClick={handleBombClicked}
+        onTouchStart={handleBombClicked}
+      >
         <BombIcon style={{ width: bombSize, height: bombSize }} />
       </button>
       <span

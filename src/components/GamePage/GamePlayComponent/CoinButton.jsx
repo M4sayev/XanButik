@@ -20,6 +20,7 @@ function CoinButton({ coordinates, removeCoin, type }) {
       className="coin-btn"
       style={{ ...coordinates }}
       onClick={handleCoinClicked}
+      onTouchStart={handleCoinClicked}
     >
       {type === "silver" ? (
         <XanCoin style={{ width: coinSize, height: coinSize }} />
