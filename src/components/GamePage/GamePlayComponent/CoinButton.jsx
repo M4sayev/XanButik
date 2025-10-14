@@ -4,7 +4,8 @@ import { renderCoin } from "../../../utils/renderCoins";
 import { freezeTime } from "../../../constants/gameConstants";
 
 function CoinButton({ coordinates, removeCoin, type }) {
-  const { setBalance, setIsGameFrozen } = useContext(GameContext);
+  const { setBalance, setIsGameFrozen, currentFreezeRef, totalPausedRef } =
+    useContext(GameContext);
   const freezeTimeoutRef = useRef(null);
 
   function handleCoinClicked(event) {
@@ -12,6 +13,11 @@ function CoinButton({ coordinates, removeCoin, type }) {
 
     if (type === "frozen") {
       setIsGameFrozen(true);
+
+      // reset pauseElapsed for Timer
+      totalPausedRef.current += currentFreezeRef.current;
+      currentFreezeRef.current = 0;
+
       if (freezeTimeoutRef.current) clearTimeout(freezeTimeoutRef.current);
 
       freezeTimeoutRef.current = setTimeout(() => {

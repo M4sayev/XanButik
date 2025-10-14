@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import { TIMER } from "../constants/gameConstants";
 import useTimedResetState from "use-timed-reset-state";
 import { defaultCoupons } from "../assets/game/gameAssets";
@@ -36,6 +36,8 @@ function GameContextProvider(props) {
   );
 
   const [isGameFrozen, setIsGameFrozen] = useState(false);
+  const totalPausedRef = useRef(0);
+  const currentFreezeRef = useRef(0);
 
   const contextValue = {
     timeRemaining,
@@ -57,6 +59,8 @@ function GameContextProvider(props) {
 
     isGameFrozen,
     setIsGameFrozen,
+    totalPausedRef,
+    currentFreezeRef,
   };
   return (
     <GameContext.Provider value={contextValue}>

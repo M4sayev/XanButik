@@ -13,22 +13,27 @@ function Timer({ startTime, setStartTime }) {
     setIsGameGoing,
     balance,
     isGameFrozen,
+    totalPausedRef,
+    currentFreezeRef,
   } = useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
   const notify = () => toast("Your time has ended!");
-
-  const pauseElapsedRef = useRef(0);
 
   useEffect(() => {
     if (!startTime) return;
     const intervalID = setInterval(() => {
       // Skip timer updates if frozen
       if (isGameFrozen) {
-        pauseElapsedRef.current += 100;
+        currentFreezeRef.current += 100;
         return;
       }
+
       const currentTime = new Date().getTime();
-      const elapsed = currentTime - startTime - pauseElapsedRef.current;
+      const elapsed =
+        currentTime -
+        startTime -
+        totalPausedRef.current -
+        currentFreezeRef.current;
 
       if (elapsed >= TIMER) {
         setStartTime("");
@@ -59,7 +64,11 @@ function Timer({ startTime, setStartTime }) {
     }
   }
   return (
-    <div className={`hud-timer std-hud-btn ${startTime ? "started" : ""}`}>
+    <div
+      className={`hud-timer std-hud-btn ${
+        startTime && !isGameFrozen ? "started" : ""
+      }`}
+    >
       <span>{formatTime(timeRemaining)}</span>
       <HourGlass
         className="hourglass-icon"
