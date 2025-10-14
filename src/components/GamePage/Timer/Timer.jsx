@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import HourGlass from "../../../assets/game/hourglass.svg?react";
 import "./Timer.css";
 import { formatTime } from "../../../utils/utils";
@@ -7,35 +7,47 @@ import { toast } from "react-toastify";
 import { GameContext } from "../../../context/GameContext";
 
 function Timer({ startTime, setStartTime }) {
-  const { timeRemaining, setTimeRemaining, setIsGameGoing, balance } =
-    useContext(GameContext);
+  const {
+    timeRemaining,
+    setTimeRemaining,
+    setIsGameGoing,
+    balance,
+    isGameFrozen,
+  } = useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
   const notify = () => toast("Your time has ended!");
+
+  const pauseElapsedRef = useRef(0);
+
   useEffect(() => {
-    let intervalID;
-    if (startTime) {
-      intervalID = setInterval(() => {
-        const currentTime = new Date().getTime();
-        const elapsed = currentTime - startTime;
-        if (elapsed >= TIMER) {
-          setStartTime("");
-          setTimeRemaining(TIMER);
-          clearInterval(intervalID);
-          setIsGameGoing(false);
-          notify();
-          // reset timer color
-          changeHourglassColor(0);
-          // save collected from the game balance to localStorage
-          localStorage.setItem("balance", JSON.stringify(balance));
-        } else {
-          setTimeRemaining(() => TIMER - elapsed);
-          changeHourglassColor(elapsed);
-        }
-      }, 100);
-    }
+    if (!startTime) return;
+    const intervalID = setInterval(() => {
+      // Skip timer updates if frozen
+      if (isGameFrozen) {
+        pauseElapsedRef.current += 100;
+        return;
+      }
+      const currentTime = new Date().getTime();
+      const elapsed = currentTime - startTime - pauseElapsedRef.current;
+
+      if (elapsed >= TIMER) {
+        setStartTime("");
+        setTimeRemaining(TIMER);
+        clearInterval(intervalID);
+        setIsGameGoing(false);
+        notify();
+        // reset timer color
+        changeHourglassColor(0);
+        // save collected from the game balance to localStorage
+        localStorage.setItem("balance", JSON.stringify(balance));
+      } else {
+        setTimeRemaining(() => TIMER - elapsed);
+        changeHourglassColor(elapsed);
+      }
+    }, 100);
 
     return () => clearInterval(intervalID);
-  }, [startTime, balance]);
+  }, [startTime, balance, isGameFrozen]);
 
   function changeHourglassColor(time) {
     if (time >= TIMER - 5000) {

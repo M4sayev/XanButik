@@ -33,3 +33,11 @@ export function randomInBetween(lower, upper) {
 }
 
 export const getCoordinateKey = (x, y) => x + "|" + y;
+
+export function getRandomCoinType() {
+  const rand = Math.random();
+
+  if (rand < 0.85) return "silver";
+  if (rand < 0.95) return "gold";
+  return "frozen";
+}

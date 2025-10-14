@@ -1,15 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import XanCoin from "../../../assets/game/xn_coin.svg?react";
-import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
+import React, { useContext, useRef } from "react";
 import { GameContext } from "../../../context/GameContext";
-import { coinSize } from "../../../constants/gameConstants";
+import { renderCoin } from "../../../utils/renderCoins";
+import { freezeTime } from "../../../constants/gameConstants";
 
 function CoinButton({ coordinates, removeCoin, type }) {
-  const { setBalance } = useContext(GameContext);
+  const { setBalance, setIsGameFrozen } = useContext(GameContext);
+  const freezeTimeoutRef = useRef(null);
 
   function handleCoinClicked(event) {
     const type = event.currentTarget.dataset.type;
-    setBalance((prev) => ({ ...prev, [type]: prev[type] + 1 }));
+
+    if (type === "frozen") {
+      setIsGameFrozen(true);
+      if (freezeTimeoutRef.current) clearTimeout(freezeTimeoutRef.current);
+
+      freezeTimeoutRef.current = setTimeout(() => {
+        setIsGameFrozen(false);
+        freezeTimeoutRef.current = null;
+      }, freezeTime);
+    } else {
+      setBalance((prev) => ({ ...prev, [type]: prev[type] + 1 }));
+    }
 
     removeCoin();
   }
@@ -22,11 +33,7 @@ function CoinButton({ coordinates, removeCoin, type }) {
       onClick={handleCoinClicked}
       onTouchStart={handleCoinClicked}
     >
-      {type === "silver" ? (
-        <XanCoin style={{ width: coinSize, height: coinSize }} />
-      ) : (
-        <GoldXanCoin style={{ width: coinSize, height: coinSize }} />
-      )}
+      {renderCoin(type)}
     </button>
   );
 }

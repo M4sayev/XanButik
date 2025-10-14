@@ -19,3 +19,5 @@ export const HOURGLASS_COLORS = {
 };
 
 export const TIMER = 15000; // 2 minutes in milliseconds
+
+export const freezeTime = 3000;

@@ -35,7 +35,7 @@ function GameContextProvider(props) {
     "coupons"
   );
 
-  const coins = new Set();
+  const [isGameFrozen, setIsGameFrozen] = useState(false);
 
   const contextValue = {
     timeRemaining,
@@ -54,6 +54,9 @@ function GameContextProvider(props) {
 
     isGamePlayedToday,
     setIsGamePlayedToday,
+
+    isGameFrozen,
+    setIsGameFrozen,
   };
   return (
     <GameContext.Provider value={contextValue}>

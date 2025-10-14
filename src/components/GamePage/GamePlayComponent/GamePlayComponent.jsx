@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./GamePlayComponent.css";
 import CoinButton from "./CoinButton";
-import { getCoordinateKey, randomInBetween } from "../../../utils/utils";
+import {
+  getCoordinateKey,
+  getRandomCoinType,
+  randomInBetween,
+} from "../../../utils/utils";
 import {
   coinLifeTime,
   coinSpawnRate,
@@ -101,8 +105,7 @@ function GamePlayComponent() {
         left,
         date: Date.now(),
         id: key,
-        type:
-          Math.random() < 1 - goldCoinSpawnPercent / 100 ? "silver" : "gold",
+        type: getRandomCoinType(),
       }),
     });
   }, [gameSectionRef, setCoins]);
