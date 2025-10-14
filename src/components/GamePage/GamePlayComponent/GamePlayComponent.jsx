@@ -9,11 +9,14 @@ import {
   goldCoinSpawnPercent,
   bombSize,
   bombSpawnRate,
+  bombLifeTime,
 } from "../../../constants/gameConstants";
 import Bomb from "./Bomb";
 
 function GamePlayComponent() {
-  const seen = useRef(new Map());
+  const coinMap = useRef(new Map());
+  const bombMap = useRef(new Map());
+
   const initialSpawned = useRef(false);
   const gameSectionRef = useRef(null);
   const [coins, setCoins] = useState([]);
@@ -25,6 +28,7 @@ function GamePlayComponent() {
     lifetime,
     setObjects,
     objectMap,
+    extraCheckMaps = [],
     gameSectionRef,
     createObjectFn,
     tryCount = 10,
@@ -46,27 +50,30 @@ function GamePlayComponent() {
         right: left + objectSize,
       };
 
-      const overlapping = Array.from(objectMap.values()).some(([t, l]) => {
-        const existing = {
-          top: t,
-          left: l,
-          bottom: t + objectSize,
-          right: l + objectSize,
-        };
+      const allMaps = [objectMap, ...extraCheckMaps];
 
-        return !(
-          newRect.right < existing.left ||
-          newRect.top > existing.bottom ||
-          newRect.bottom < existing.top ||
-          newRect.left > existing.right
-        );
-      });
+      const overlapping = allMaps.some((map) =>
+        Array.from(map.values()).some(([t, l, size]) => {
+          const existing = {
+            top: t,
+            left: l,
+            bottom: t + size,
+            right: l + size,
+          };
+          return !(
+            newRect.right < existing.left ||
+            newRect.top > existing.bottom ||
+            newRect.bottom < existing.top ||
+            newRect.left > existing.right
+          );
+        })
+      );
       if (!overlapping) {
         const key = getCoordinateKey(top, left);
         const newObject = createObjectFn(top, left, key);
 
         setObjects((prev) => [...prev, newObject]);
-        objectMap.set(key, [top, left]);
+        objectMap.set(key, [top, left, objectSize]);
 
         setTimeout(() => {
           setObjects((prev) =>
@@ -82,19 +89,20 @@ function GamePlayComponent() {
   }
 
   const addCoin = useCallback(() => {
-    const isSilver = Math.random() < 1 - goldCoinSpawnPercent / 100;
     spawnObject({
       objectSize: coinSize,
       lifetime: coinLifeTime,
       setObjects: setCoins,
-      objectMap: seen.current,
+      objectMap: coinMap.current,
+      extraCheckMaps: [bombMap.current],
       gameSectionRef,
       createObjectFn: (top, left, key) => ({
         top,
         left,
         date: Date.now(),
         id: key,
-        type: isSilver ? "silver" : "gold",
+        type:
+          Math.random() < 1 - goldCoinSpawnPercent / 100 ? "silver" : "gold",
       }),
     });
   }, [gameSectionRef, setCoins]);
@@ -102,9 +110,10 @@ function GamePlayComponent() {
   const addBomb = useCallback(() => {
     spawnObject({
       objectSize: bombSize,
-      lifetime: coinLifeTime,
+      lifetime: bombLifeTime,
       setObjects: setBombs,
-      objectMap: seen.current,
+      objectMap: bombMap.current,
+      extraCheckMaps: [coinMap.current],
       gameSectionRef,
       createObjectFn: (top, left, key) => ({
         top,
@@ -119,7 +128,7 @@ function GamePlayComponent() {
   useEffect(() => {
     if (!gameSectionRef.current || initialSpawned.current) return;
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       setTimeout(addCoin, i * 400);
     }
     initialSpawned.current = true;
