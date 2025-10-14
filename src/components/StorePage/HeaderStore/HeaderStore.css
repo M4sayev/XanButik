@@ -10,6 +10,9 @@
 .header-store-img {
   position: absolute;
   z-index: 0;
+  height: 87vh;
+  width: 100%;
+
   object-fit: cover;
 }
 .header-store-search-text-container {
@@ -22,7 +25,8 @@
   display: grid;
   place-items: center;
 
-  height: 154vw;
+  height: 90vh;
+  width: 100%;
   transition: var(--std-transition);
 }
 .header-store-text-container {
@@ -106,20 +110,18 @@
     display: flex;
     align-items: center;
 
-    max-height: 110vh;
     overflow: hidden;
     object-position: center bottom;
 
     gap: clamp(0.5rem, 1vw, 3rem);
   }
   .store-header-img-wrapper {
-    max-height: 200vh;
-
     flex: 1;
   }
   .header-store-img {
     position: static;
-    aspect-ratio: initial;
+    min-height: 650px;
+    height: calc(100vh - 60px);
   }
   .header-store-search-text-container {
     flex: 1;
@@ -130,6 +132,7 @@
   }
   .header-store-text-wrapper {
     height: auto;
+    place-items: start;
   }
   .header-store-text-container {
     background-color: transparent;
