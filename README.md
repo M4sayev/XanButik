@@ -90,20 +90,24 @@ Example Usage with use-timed-reset-state:
 ```javascript
 import useTimedResetState from "use-timed-reset-state";
 
-// Reset daily game score every day at midnight
-const [gameScore, setGameScore, resetGame] = useTimedResetState(0, {
-  interval: "day",
-  resetAtHours: 0,
-  resetAtMinutes: 0,
-}, "gameScore");
+// Track if game has been played today 
+const [isGamePlayedToday, setIsGamePlayedToday] = useTimedResetState(
+    false,
+    { interval: "day" },
+    "gameplayed"
+  );
 
 // Reset coupons every Monday at 00:00
-const [coupons, setCoupons, resetCoupons] = useTimedResetState(defaultCoupons, {
-  interval: "week",
-  dayOfWeek: 1, // Monday
-  resetAtHours: 0,
-  resetAtMinutes: 0,
-}, "coupons");
+const [coupons, setCoupons] = useTimedResetState(
+    () => defaultCoupons,
+    {
+      interval: "week",
+      dayOfWeek: 1,
+      resetAtHours: 0,
+      resetAtMinutes: 0,
+    },
+    "coupons"
+);
 ```
 
 Benefits
