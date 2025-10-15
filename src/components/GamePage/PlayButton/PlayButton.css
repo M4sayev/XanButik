@@ -19,8 +19,8 @@
 }
 
 /* remove std btn hover  */
-.game-start-menu .start-game-btn:hover,
-.game-start-menu .start-game-btn:focus {
+.game-screen .start-game-btn:hover,
+.game-screen .start-game-btn:focus {
   transform: none;
 }
 
@@ -39,13 +39,22 @@
 }
 
 /* hover effect  */
-.game-start-menu .start-game-btn:hover .play-icon,
-.game-start-menu .start-game-btn:focus-visible .play-icon {
+.game-screen .start-game-btn:hover .play-icon,
+.game-screen .start-game-btn:focus-visible .play-icon {
   transform: translateX(0);
   opacity: 1;
 }
-.game-start-menu .start-game-btn:hover .play-btn-text,
-.game-start-menu .start-game-btn:focus-visible .play-btn-text {
+.game-screen .start-game-btn:hover .play-btn-text,
+.game-screen .start-game-btn:focus-visible .play-btn-text {
+  transform: translateX(0);
+}
+
+.revealed .play-icon {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.revealed .play-btn-text {
   transform: translateX(0);
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import XanCoin from "../../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeOption.css";
@@ -16,15 +16,31 @@ function ExchangeOption({
   const { balance, setIsConfirmationOpen, setCouponSelected } =
     useContext(GameContext);
 
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   function handleSelectOption() {
+    if (isTouchDevice) {
+      if (!isRevealed) {
+        setIsRevealed(true);
+        return;
+      }
+    }
+
     if (price.value > balance[price.coinValue]) {
-      const notify = () => toast.error("Not enough coins on balance");
-      notify();
+      toast.error("Not enough coins on balance");
     } else {
       setIsConfirmationOpen(true);
       setCouponSelected(id);
     }
   }
+
+  useEffect(() => {
+    if (!isDropDownOpen) setIsRevealed(false);
+  }, [isDropDownOpen]);
+
   return (
     <li>
       <button
@@ -34,7 +50,7 @@ function ExchangeOption({
         type="button"
         className={`exchange-option-btn ${price.coinValue} ${
           isBought ? "bought" : ""
-        }`}
+        } ${isRevealed ? "revealed" : ""}`}
         aria-label={`Exchange ${price.value} ${price.coinValue} Xan coins for ${offer.value} ${offer.text}`}
       >
         <span className="exchange-options-price-container">
