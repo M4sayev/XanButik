@@ -17,8 +17,12 @@ function PlayButton({ setStartTime }) {
     });
   };
   return (
-    <button className="std-button start-game-btn" onClick={handlePlayButton}>
-      <PlayIcon />
+    <button
+      className="std-button start-game-btn"
+      onClick={handlePlayButton}
+      aria-label="Start the game"
+    >
+      <PlayIcon aria-hidden="true" />
       <span className="play-btn-text">Start Game</span>
     </button>
   );

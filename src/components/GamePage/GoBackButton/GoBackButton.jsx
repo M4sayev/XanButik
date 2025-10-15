@@ -12,6 +12,7 @@ function GoBackButton() {
     <button
       className="start-menu-go-back-btn std-hud-btn"
       onClick={handleGoBack}
+      aria-label="Navigate back"
     >
       <IoIosArrowRoundBack aria-hidden="true" className="arrow-icon" />
       <span>Go back</span>
