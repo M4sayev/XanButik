@@ -24,7 +24,7 @@ Building this project allowed me to learn React, Vite, React Router, interactive
 
 Check out the gameplay for the tap-to-earn mini-game, including gold & silver coins, bombs, and freeze mechanics:
 
-![Game Demo](./assets/game/game-demo.gif)
+![Game Demo](./src/assets/game/game-demo.gif)
 
 
 ✨ Features
