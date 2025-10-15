@@ -162,8 +162,6 @@ use-debounce
 
 Maps & Location:
 
-@react-google-maps/api
-
 Leaflet
 
 Gamification & State Management:
@@ -221,6 +219,8 @@ npm run preview
 🎨 Design
 
 Full custom design made from scratch
+
+Svg designs for silver/gold/frozen coins, bombs using Boxy Svg, Figma
 
 Responsive layouts for desktop, tablet, and mobile
 
