@@ -28,7 +28,7 @@
 /* navbar center  */
 
 .navbar-top-menu {
-  width: 50vw;
+  width: 50%;
   max-width: 60%;
 }
 
@@ -306,6 +306,15 @@
 .sidebar-menu.is-active {
   width: 40vw;
   transition: width ease-in 500ms;
+}
+
+@keyframes moveShine {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(100px);
+  }
 }
 
 @media (max-width: 994px) {

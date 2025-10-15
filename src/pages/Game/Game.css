@@ -1,0 +1,61 @@
+.game-page {
+  width: 100vw;
+  height: 100dvh;
+}
+.game-contents {
+  max-width: 958px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
+}
+
+.game-nav {
+  width: 90%;
+
+  margin-top: var(--spacing-md);
+  margin-inline: var(--spacing-lg);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+/* game hud buttons */
+
+.std-hud-btn {
+  padding: calc(var(--spacing-sm) / 1.4) var(--spacing-md);
+  border-radius: 1.25rem;
+  border: 1px solid var(--clr-neutral-300);
+  background: transparent;
+
+  z-index: 2;
+  cursor: pointer;
+  font-family: var(--ff-secondary);
+  color: var(--clr-accent);
+  opacity: 0.8;
+
+  display: flex;
+  align-items: center;
+
+  transition: all 300ms ease;
+}
+
+.std-hud-btn:hover,
+.std-hud-btn:focus-visible {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  opacity: 0.8;
+}
+
+@media screen and (max-height: 450px) {
+  .game-contents {
+    padding: 0;
+  }
+  .game-nav {
+    margin-top: 0;
+  }
+}

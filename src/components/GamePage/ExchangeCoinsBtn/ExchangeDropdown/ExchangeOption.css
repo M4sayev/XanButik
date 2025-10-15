@@ -1,0 +1,83 @@
+.exchange-option-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 1.25rem;
+  z-index: 2;
+  cursor: pointer;
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-bold);
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  overflow: hidden;
+
+  opacity: 0.7;
+  color: var(--clr-primary-900);
+
+  background-color: var(--clr-neutral-100);
+
+  position: relative;
+  width: 100%;
+
+  --gradient-silver: linear-gradient(
+    270deg,
+    rgba(156, 156, 157, 1) 11%,
+    rgba(175, 175, 178, 1) 38%,
+    rgba(206, 206, 208, 1) 65%
+  );
+  --gradient-gold: linear-gradient(
+    90deg,
+    rgba(248, 209, 118, 1) 11%,
+    rgba(222, 175, 95, 1) 38%,
+    rgba(198, 153, 73, 1) 65%
+  );
+}
+
+.exchange-options-price-container {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+
+  gap: 2px;
+}
+
+.exchange-option-btn .coupon-offer {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+
+  transition: left 300ms ease-out;
+}
+
+/* render gold button */
+.exchange-option-btn.gold {
+  border: 1px solid rgba(222, 175, 95, 1);
+}
+.exchange-option-btn.gold .coupon-offer {
+  background: var(--gradient-gold);
+}
+/* render silver button */
+.exchange-option-btn.silver {
+  border: 1px solid var(--clr-neutral-300);
+}
+.exchange-option-btn.silver .coupon-offer {
+  background: var(--gradient-silver);
+}
+
+.exchange-option-btn:hover .coupon-offer,
+.exchange-option-btn:focus-visible .coupon-offer {
+  left: 50%;
+}
+
+.bought {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.bought:hover .coupon-offer,
+.bought:focus-visible .coupon-offer {
+  left: 0;
+}

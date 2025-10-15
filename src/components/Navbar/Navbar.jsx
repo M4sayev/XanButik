@@ -54,15 +54,10 @@ function Navbar() {
     }
   }, [isHamActive]);
 
-  const navigateWishlist = () => {
-    navigate("/Wishlist");
+  function navigateTo(path) {
+    navigate(path);
     setIsHamActive(false);
-  };
-
-  const navigateCart = () => {
-    navigate("./Cart");
-    setIsHamActive(false);
-  };
+  }
 
   useEffect(() => {
     const sidebarEl = sidebarRef.current;
@@ -100,10 +95,7 @@ function Navbar() {
         {/* Rigth section - icons and hamburger */}
         <div className="navbar-right-side">
           <div className="navbar-right-side-btns top">
-            <BtnsContainer
-              navigateCart={navigateCart}
-              navigateWishlist={navigateWishlist}
-            />
+            <BtnsContainer navigateTo={navigateTo} />
           </div>
           <div className="hamburger-menu-sidebar-container">
             <button
@@ -130,10 +122,7 @@ function Navbar() {
                 />
               </ul>
               <div className="navbar-right-side-btns sidebar-icon-btns">
-                <BtnsContainer
-                  navigateCart={navigateCart}
-                  navigateWishlist={navigateWishlist}
-                />
+                <BtnsContainer navigateTo={navigateTo} />
               </div>
             </nav>
           </div>

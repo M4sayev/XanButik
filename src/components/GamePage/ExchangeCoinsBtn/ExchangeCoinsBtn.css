@@ -1,0 +1,12 @@
+.buy-coins-btn {
+  gap: 2px;
+}
+.buy-coins-btn span {
+  height: 15px;
+}
+.hud-silver-coin {
+  opacity: 0.8;
+  margin-right: 5px;
+}
+
+/* dropdown */

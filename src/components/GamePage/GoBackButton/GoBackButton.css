@@ -1,0 +1,26 @@
+.arrow-icon {
+  transition: inherit;
+  opacity: 0.8;
+  color: inherit;
+}
+
+.start-menu-go-back-btn:hover .arrow-icon,
+.start-menu-go-back-btn:focus-visible .arrow-icon {
+  transform: translate(-3px);
+}
+
+.start-menu-go-back-btn .arrow-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.start-menu-go-back-btn span {
+  height: 15px;
+  display: none;
+}
+
+@media screen and (min-width: 450px) {
+  .start-menu-go-back-btn span {
+    display: block;
+  }
+}

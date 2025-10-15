@@ -1,5 +1,5 @@
 import { useRef, useEffect, useContext, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import ContactUs from "./pages/ContactUs/ContactUs";
@@ -15,11 +15,16 @@ import ScrollToTop from "./components/ScrollTop/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Game from "./pages/Game/Game";
 
 function App() {
+  const location = useLocation();
   const loginPopupRef = useRef(null);
   const { showLogin, setShowLogin, isHamActive } = useContext(StoreContext);
   const [showScrollTopBtn, setShowScrollTopBtn] = useState(false);
+
+  // Hide Navbar Footer on Game page
+  const hideNavFooter = location.pathname === "/Game";
 
   function handleClickOutside(event) {
     if (
@@ -70,7 +75,7 @@ function App() {
           draggable
           pauseOnHover
         />
-        <Navbar />
+        {!hideNavFooter && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
@@ -81,9 +86,10 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Store/ProductPage" element={<ProductPage />} />
           <Route path="/Wishlist" element={<Wishlist />} />
+          <Route path="/Game" element={<Game />} />
         </Routes>
         <ScrollToTop showScrollTopBtn={showScrollTopBtn} />
-        <Footer />
+        {!hideNavFooter && <Footer />}
       </div>
     </>
   );

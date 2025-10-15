@@ -14,6 +14,7 @@ import { calculateDiscountPrice } from "../../utils/utils.js";
 import { ITEMS_PER_PAGE } from "../../constants/constants.js";
 import { useDebounce } from "use-debounce";
 import { ClipLoader } from "react-spinners";
+import Spinner from "../../components/Spinner/Spinner.jsx";
 
 const FilterComponent = lazy(() =>
   import("../../components/StorePage/FilterComponent/FilterComponent")
@@ -183,18 +184,9 @@ function Store() {
 
   return (
     <main>
+      <Spinner loading={loading} />
       <HeaderStore setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
-
-      {loading ? (
-        <div className="loading-overlay">
-          <ClipLoader
-            loading={loading}
-            size={50}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        </div>
-      ) : (
+      {!loading && (
         <>
           <Suspense fallback={<div>Loading categories...</div>}>
             <CategoryButtons

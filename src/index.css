@@ -350,6 +350,11 @@ textarea:focus-visible,
 
   margin-bottom: 1.75rem;
 }
+@media (max-height: 450px) {
+  .std-heading {
+    font-size: var(--fs-500);
+  }
+}
 @media (min-width: 75rem) {
   .std-heading {
     font-size: var(--fs-900);
