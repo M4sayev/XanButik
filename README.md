@@ -99,7 +99,7 @@ const [isGamePlayedToday, setIsGamePlayedToday] = useTimedResetState(
 
 // Reset coupons every Monday at 00:00
 const [coupons, setCoupons] = useTimedResetState(
-    () => defaultCoupons,
+    defaultCoupons,
     {
       interval: "week",
       dayOfWeek: 1,
@@ -168,7 +168,7 @@ Leaflet
 
 Gamification & State Management:
 
-use-timed-reset-state (daily/weekly automatic resets)
+use-timed-reset-state (any interval and time (daily/weekly in my case) automatic resets)
 
 React state & hooks (coins, bombs, freeze logic)
 
