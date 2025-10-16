@@ -8,11 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { useFocusTrap } from "../../hooks/useTrapFocus.js";
 import { useEscapeKey } from "../../hooks/useEscapeKey.js";
 
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-
 function Navbar() {
-  const { currentPage, setCurrentPage, isHamActive, setIsHamActive } =
-    useContext(StoreContext);
+  const {
+    currentPage,
+    setCurrentPage,
+    isHamActive,
+    setIsHamActive,
+    showLogin,
+  } = useContext(StoreContext);
 
   const logoRef = useRef(null);
 
@@ -42,7 +45,9 @@ function Navbar() {
   useFocusTrap(sidebarRef, isHamActive, hamburgerRef);
 
   // Handle Escape key pressed
-  useEscapeKey(() => setIsHamActive(false));
+  useEscapeKey(() => {
+    if (!showLogin) setIsHamActive(false);
+  });
 
   useEffect(() => {
     if (sidebarRef.current) {

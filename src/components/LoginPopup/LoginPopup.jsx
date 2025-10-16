@@ -54,8 +54,9 @@ function LoginPopup({ formRef }) {
   useFocusTrap(popupRef, true, firstPopupElRef);
 
   // Close modal on escape
-  useEscapeKey(() => setShowLogin(false));
-
+  useEscapeKey(() => {
+    setShowLogin(false);
+  });
   // Validate the form
 
   function validate() {
