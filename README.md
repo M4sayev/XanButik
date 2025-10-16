@@ -1,5 +1,6 @@
 ## 📑 Table of Contents
 - [About the Project](#-about-the-project)
+- [Project Structure](#-project-structure)
 - [Live Demo](#-live-demo)
 - [Features](#-features)
   - [Ecommerce](#-ecommerce)
