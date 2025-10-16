@@ -1,3 +1,20 @@
+## 📑 Table of Contents
+- [About the Project](#-about-the-project)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+  - [Ecommerce](#-ecommerce)
+    - [Product Page Features](#-product-page-features)
+    - [Custom Hooks & Utilities](#-custom-hooks--utilities)
+  - [Gamification & Tap-to-Earn](#-gamification--tap-to-earn-game)
+  - [Fully Custom Design](#-fully-custom-design)
+  - [Accessibility & UX](#-accessibility--ux-enhancements)
+  - [Custom Hooks & Utilities](#-custom-hooks--utilities)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Screenshots](#-screenshots)
+- [Roadmap](#-roadmap)
+- [License](#-license)
+
 # 🛍️ Ecommerce Website + Tap-to-Earn Gamification
 ---
 
@@ -44,6 +61,10 @@ Check out the gameplay for the tap-to-earn mini-game, including gold & silver co
 - 📍 Location features (Google Maps + Leaflet integration)  
 - 🎞️ Product carousels with Swiper  
 - ⏳ Countdown timers for deals  
+- 🖼️ Product page gallery with thumbnails and mobile swiper  
+- 🎨 Size & color selectors with toggle behavior  
+- 🛍️ Dynamic discount calculation and product price display  
+- ⭐ Add & view reviews with focus-trapped modal forms  
 
 ### 🕹️ Store Architecture & UX
 The store page was built to feel like a real modern ecommerce experience — dynamic, responsive, and accessible.  
@@ -73,6 +94,20 @@ The store page was built to feel like a real modern ecommerce experience — dyn
 
 #### 💡 Design Philosophy
 The goal was to create a shopping interface that feels responsive, natural, and smooth — from hover animations and adaptive pagination to accessible filtering interactions.
+
+#### 📦 Product Page Features
+- Image gallery with thumbnail selection and mobile swiper.
+- Size and color selectors with active state.
+- Product CTA with:
+  - Add to cart (with size/color validation)
+  - Add to wishlist
+  - Star rating and reviews modal with add-review form
+
+#### ⚙️ Custom Hooks & Utilities
+- `useTrapFocus` — locks focus inside modals or dropdowns for accessibility
+- `useEscapeKey` — closes popups when Escape key is pressed
+- `useWishlist` — manages wishlist state and toggle functionality
+- `useForm` — handles form state and validation, with automatic error clearing
 
 ---
 
@@ -219,7 +254,7 @@ npm run preview
     <img width="728" height="429" alt="image" src="https://github.com/user-attachments/assets/4c575caa-0f8b-479a-bbf3-b9d46df3b54b" />
     <img width="808" height="757" alt="image" src="https://github.com/user-attachments/assets/d24b92c3-bb01-4f44-8e3d-3f59f0862c81" />
 </p>
-<table>
+<table align="center">
 <tr>
 <td><img height="550" src="https://github.com/user-attachments/assets/a93e97a9-b35c-4f5f-9153-5dfae46f5030" /></td>
 <td><img height="550" src="https://github.com/user-attachments/assets/0d1ba898-706c-4271-ae11-7561293be7e0" /></td>
