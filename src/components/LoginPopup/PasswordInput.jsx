@@ -16,6 +16,7 @@ function PasswordInput({
       </label>
       <div className="password-input-h-s-btn">
         <input
+          key={showPassword ? "text" : "password"}
           type={showPassword ? "text" : "password"}
           id="password"
           name="password"
