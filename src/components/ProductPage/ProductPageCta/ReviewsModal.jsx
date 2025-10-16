@@ -20,6 +20,7 @@ function ReviewsModal({
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,9 +28,9 @@ function ReviewsModal({
     const today = new Date();
     const formattedDate = today.toISOString().split("T")[0];
     const newReview = {
-      rating: data.rating,
+      rating: data.rating || 0,
       comment: data.review,
-      username: data.name,
+      username: data.name?.trim() || "Anonymous",
       date: formattedDate,
     };
 
@@ -37,6 +38,9 @@ function ReviewsModal({
       ...prev,
       reviews: [...prev.reviews, newReview],
     }));
+
+    reset();
+
     setOpenAddReview(false);
   };
 
@@ -84,7 +88,11 @@ function ReviewsModal({
             >
               <IoClose
                 aria-hidden="true"
-                style={{ width: "20px", height: "20px" }}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  color: "var(--clr-primary-900)",
+                }}
               />
             </button>
           </div>
@@ -101,7 +109,7 @@ function ReviewsModal({
               tabIndex={openAddReview ? 0 : -1}
               disabled={!openAddReview}
             />
-            <ErrorMessage message={errors.name} fieldName="name" />
+            <ErrorMessage message={errors.name?.message} fieldName="name" />
           </div>
           <div className="form-field" style={{ marginTop: "var(--spacing-sm" }}>
             <Controller
@@ -130,7 +138,7 @@ function ReviewsModal({
               tabIndex={openAddReview ? 0 : -1}
               disabled={!openAddReview}
             />
-            <ErrorMessage message={errors.review} fieldName="review" />
+            <ErrorMessage message={errors.review?.message} fieldName="review" />
           </div>
           <button
             type="submit"

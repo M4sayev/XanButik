@@ -182,7 +182,7 @@
   font-weight: var(--fw-bold);
 }
 
-@media screen and (max-height: 666px) {
+@media screen and (max-height: 666px) and (min-width: 700px) {
   .reviews-modal-component {
     position: absolute;
     top: 0;
