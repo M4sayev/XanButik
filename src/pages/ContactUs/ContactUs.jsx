@@ -1,10 +1,9 @@
-import React from 'react'
-import "./ContactUs.css"
-import Contacts from '../../components/ContactUs/Contacts/Contacts'
-import QuestionForm from '../../components/ContactUs/QuestionForm/QuestionForm'
-import MapComponent from "../../components/ContactUs/MapComponent/MapComponent"
-import FaqAccordion from '../../components/ContactUs/FaqAccordion.jsx/FaqAccordion'
-
+import React from "react";
+import "./ContactUs.css";
+import Contacts from "../../components/ContactUs/Contacts/Contacts";
+import QuestionForm from "../../components/ContactUs/QuestionForm/QuestionForm";
+import MapComponent from "../../components/ContactUs/MapComponent/MapComponent";
+import FaqAccordion from "../../components/ContactUs/FaqAccordion/FaqAccordion";
 
 function ContactUs() {
   return (
@@ -14,7 +13,7 @@ function ContactUs() {
       <MapComponent />
       <FaqAccordion />
     </main>
-  )
+  );
 }
 
-export default ContactUs
+export default ContactUs;
