@@ -16,8 +16,8 @@ function MobileImgSwiper({ img, name }) {
         pagination={{ clickable: true }}
       >
         {img.map((i, index) => (
-          <SwiperSlide>
-            <img src={i} alt={`${name} img ${index}`} key={index} />
+          <SwiperSlide key={`mobile-swiper-slide-${index}`}>
+            <img src={i} alt={`${name} img ${index}`} />
           </SwiperSlide>
         ))}
       </Swiper>

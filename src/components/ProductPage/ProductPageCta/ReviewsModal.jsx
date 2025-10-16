@@ -62,7 +62,7 @@ function ReviewsModal({
             <IoMdAdd
               aria-hidden="true"
               className="btn-icon"
-              style={{ color: "var(--clr-primary-900)" }}
+              style={{ color: "var(--clr-primary-900)", cursor: "pointer" }}
             />
           </button>
         </div>
