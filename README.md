@@ -33,6 +33,47 @@ Building this project allowed me to learn React, Vite, React Router, interactive
 
 ---
 
+## 📁 Project Structure
+
+```plaintext
+src/
+├── assets/
+│   ├── bottom/
+│   ├── companies/
+│   └── ... (images, configs)
+├── components/
+│   ├── AboutUsPage/
+│   ├── Button/
+│   ├── Cart/
+│   ├── ContactUs/
+│   ├── ErrorMessage/
+│   ├── Footer/
+│   ├── GamePage/
+│   ├── HomePage/
+│   ├── LoginPopup/
+│   ├── Modal/
+│   ├── Navbar/
+│   ├── OurClientsCarousel/
+│   ├── ProductPage/
+│   ├── ScrollToTop/
+│   ├── Spinner/
+│   ├── StorePage/
+│   ├── TestimonialsPage/
+│   └── Wishlist/
+├── constants/
+├── context/
+├── hooks/
+├── pages/
+│   ├── About/
+│   ├── Cart/
+│   └── ...
+├── utils/
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+---
+
 ## 🚀 Live Demo
 
 🔗 [View Live on Vercel](https://xanbutik-git-main-msayev02-gmailcoms-projects.vercel.app)
