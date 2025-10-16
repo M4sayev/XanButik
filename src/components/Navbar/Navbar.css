@@ -149,7 +149,7 @@
   transition: transform var(--std-transition);
 }
 .contact-us-dropdown-container:hover .dropdown-arrow-icon,
-.contact-us-dropdown-container:focus-within .dropdown-arrow-icon {
+.contact-us-dropdown-container:focus-visible .dropdown-arrow-icon {
   transform: rotate(180deg);
 }
 .dropdown-contact-us {
@@ -174,7 +174,7 @@
   z-index: var(--z-dropdown);
 }
 /* dropdown appear on hover  */
-.contact-us-dropdown-container:focus-within .dropdown-contact-us,
+.contact-us-dropdown-container:focus-visible .dropdown-contact-us,
 .contact-us-dropdown-container:hover .dropdown-contact-us,
 .dropdown-contact-us:focus {
   transform: scaleY(1);
