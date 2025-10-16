@@ -6,6 +6,7 @@ import ExchangeDropdown from "./ExchangeDropdown/ExchangeDropdown";
 import { useEscapeKey } from "../../../hooks/useEscapeKey";
 import { useFocusTrap } from "../../../hooks/useTrapFocus";
 import { GameContext } from "../../../context/GameContext";
+import { formatCoins } from "../../../utils/utils";
 
 const coinAttrbs = {
   "aria-hidden": "true",
@@ -79,9 +80,9 @@ function ExchangeCoinsBtn() {
         onClick={toggleDropdown}
         ref={balanceButtonRef}
       >
-        <span>{balance.silver}</span>
+        <span>{formatCoins(balance.silver)}</span>
         <XanCoin {...coinAttrbs} className="hud-silver-coin" />
-        <span>{balance.gold}</span>
+        <span>{formatCoins(balance.gold)}</span>
         <GoldXanCoin {...coinAttrbs} />
       </button>
       <div id="exchange-coins-dropdown-wrapper">
