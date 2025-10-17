@@ -25,7 +25,6 @@ function SingUpForm({
           required
           value={form.name}
           onChange={handleChange}
-          autoFocus={true}
           aria-invalid={errors.name ? "true" : "false"}
           aria-describedby={errors.name ? "name-error" : undefined}
         />

@@ -25,7 +25,6 @@ function LoginForm({
           required
           value={form.email}
           onChange={handleChange}
-          autoFocus={true}
           aria-invalid={errors.email ? "true" : "false"}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
