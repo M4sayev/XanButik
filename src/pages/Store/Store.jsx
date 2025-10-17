@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import "./Store.css";
@@ -15,6 +16,7 @@ import { ITEMS_PER_PAGE } from "../../constants/constants.js";
 import { useDebounce } from "use-debounce";
 import { ClipLoader } from "react-spinners";
 import Spinner from "../../components/Spinner/Spinner.jsx";
+import { use } from "react";
 
 const FilterComponent = lazy(() =>
   import("../../components/StorePage/FilterComponent/FilterComponent")
@@ -32,10 +34,10 @@ const Pagination = lazy(() =>
 function Store() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 850);
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => setLoading(false), 850);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -47,6 +49,8 @@ function Store() {
   const [products, setProducts] = useState(itemsList);
 
   const { sortOptions, filters, priceRange } = useContext(StoreContext);
+
+  const productsRef = useRef();
 
   // Create categoryMap
   const categoryMap = useMemo(() => {
@@ -182,6 +186,50 @@ function Store() {
     }
   }
 
+  // Handle images loaded
+  useEffect(() => {
+    let timeoutId;
+
+    const checkImages = () => {
+      if (!productsRef.current) {
+        setLoading(false);
+        return;
+      }
+
+      const images = Array.from(productsRef.current.querySelectorAll("img"));
+      if (images.length === 0) {
+        setLoading(false);
+        return;
+      }
+
+      let loadedCount = 0;
+      const handleImageLoad = () => {
+        loadedCount++;
+        if (loadedCount === images.length) setLoading(false);
+      };
+
+      images.forEach((img) => {
+        if (img.complete) handleImageLoad();
+        else {
+          img.addEventListener("load", handleImageLoad);
+          img.addEventListener("error", handleImageLoad);
+        }
+      });
+
+      return () => {
+        images.forEach((img) => {
+          img.removeEventListener("load", handleImageLoad);
+          img.removeEventListener("error", handleImageLoad);
+        });
+      };
+    };
+
+    // Delay image check slightly to allow Suspense to finish rendering
+    timeoutId = setTimeout(checkImages, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [paginatedProducts]);
+
   return (
     <main>
       <Spinner loading={loading} />
@@ -222,7 +270,7 @@ function Store() {
             </section>
           ) : (
             <Suspense fallback={<div>Loading products...</div>}>
-              <section className="str-products-grid">
+              <section ref={productsRef} className="str-products-grid">
                 {paginatedProducts.map((product, index) => {
                   return (
                     <Product
