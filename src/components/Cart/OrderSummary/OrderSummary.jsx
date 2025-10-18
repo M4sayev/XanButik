@@ -4,8 +4,11 @@ import { calculateDiscountPrice } from "../../../utils/utils";
 import Modal from "../../Modal/Modal";
 
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import CouponsModal from "../CouponsModal/CouponsModal";
 
 function OrderSummary({ cartItems }) {
+  const [isCouponApplied, setIsCouponApplied] = useState(false);
+  const [couponsModalOpen, setCouponModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const subTotalPrice = useMemo(
     () =>
@@ -47,6 +50,21 @@ function OrderSummary({ cartItems }) {
         <p>Total</p>
         <span>${totalPrice.toFixed(2)}</span>
       </div>
+      <button
+        type="button"
+        aria-label="Apply a coupon"
+        className="std-button apply-coupon-btn"
+        style={{ width: "100%", marginBottom: "var(--spacing-sm)" }}
+        data-type="inverted"
+        onClick={() => setCouponModalOpen(true)}
+      >
+        Apply Coupon
+      </button>
+      {couponsModalOpen && (
+        <Modal>
+          <CouponsModal setCouponModalOpen={setCouponModalOpen} />
+        </Modal>
+      )}
       <button
         type="button"
         aria-label="Proceed to checkout"
