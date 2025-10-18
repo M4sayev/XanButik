@@ -1,0 +1,20 @@
+.coupons-modal {
+  background-color: var(--clr-neutral-100);
+  padding: var(--spacing-md);
+
+  border-radius: 0.25rem;
+}
+.coupons-modal-header {
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: var(--spacing-md);
+}
+
+#couponSelect {
+  border-radius: var(--spacing-sm);
+  padding-inline: var(--spacing-sm);
+  border-radius: 0.25rem;
+}

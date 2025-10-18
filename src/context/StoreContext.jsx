@@ -60,6 +60,12 @@ function StoreContextProvider(props) {
     return items ? JSON.parse(items) : [];
   });
 
+  // bought Coupons
+  const [boughtCoupons, setBoughtCoupons] = useState(() => {
+    const storedBoughtCoupons = localStorage.getItem("boughtCoupons");
+    return storedBoughtCoupons ? JSON.parse(storedBoughtCoupons) : [];
+  });
+
   // handle add to cart
   const addToCart = (item) => {
     const notify = () => toast.success("Item added to cart");
@@ -160,6 +166,9 @@ function StoreContextProvider(props) {
     setCartItems,
     isHamActive,
     setIsHamActive,
+
+    boughtCoupons,
+    setBoughtCoupons,
   };
 
   return (

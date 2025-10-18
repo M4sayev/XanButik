@@ -5,6 +5,7 @@ import ConfirmationPopup from "./ConfirmationPopup";
 
 import { GameContext } from "../../../../context/GameContext";
 import { defaultCoupons } from "../../../../assets/game/gameAssets";
+import { StoreContext } from "../../../../context/StoreContext";
 
 function ExchangeDropdown({
   dropdownRef,
@@ -15,12 +16,7 @@ function ExchangeDropdown({
   isConfirmationOpen,
 }) {
   const { coupons } = useContext(GameContext);
-  // to be implemented
-  // When this game page is finished (save coupons in the global context and add)
-  const [boughtCoupons, setBoughtCoupons] = useState(() => {
-    const storedBoughtCoupons = localStorage.getItem("boughtCoupons");
-    return storedBoughtCoupons ? JSON.parse(storedBoughtCoupons) : [];
-  });
+  const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
 
   return (
     <div
@@ -54,6 +50,7 @@ function ExchangeDropdown({
         <ConfirmationPopup
           confiramtionPopupRef={confiramtionPopupRef}
           setBoughtCoupons={setBoughtCoupons}
+          boughtCoupons={boughtCoupons}
         />
       )}
     </div>

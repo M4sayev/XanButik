@@ -8,7 +8,7 @@ function Modal({ children, onClose, reviewsModalRef, styles = null }) {
       onClick={onClose}
       role="presentation"
       aria-hidden="true"
-      styles={{ styles }}
+      styles={styles}
     >
       <div
         className="modal-content"

@@ -4,7 +4,11 @@ import { GameContext } from "../../../../context/GameContext";
 import { defaultCoupons } from "../../../../assets/game/gameAssets";
 import { toast } from "react-toastify";
 
-function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
+function ConfirmationPopup({
+  confiramtionPopupRef,
+  boughtCoupons,
+  setBoughtCoupons,
+}) {
   const {
     setIsConfirmationOpen,
     setBalance,
@@ -45,7 +49,7 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
           coupon.id == id ? { ...coupon, count: coupon.count + 1 } : coupon
         );
       } else {
-        const newCoupon = coupons.find((coupon) => coupon.id == id);
+        const newCoupon = defaultCoupons.find((coupon) => coupon.id == id);
         if (!newCoupon) return prevCoupons;
         updatedCoupons = [...prevCoupons, { ...newCoupon, count: 1 }];
       }
