@@ -20,7 +20,9 @@ function GameContextProvider(props) {
 
   const [balance, setBalance] = useState(() => {
     const storedBalance = localStorage.getItem("balance");
-    return storedBalance ? JSON.parse(storedBalance) : { silver: 0, gold: 0 };
+    return storedBalance
+      ? JSON.parse(storedBalance)
+      : { silver: 2000, gold: 100 };
   });
 
   const [couponSelected, setCouponSelected] = useState();

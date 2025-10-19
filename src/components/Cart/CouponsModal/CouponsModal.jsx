@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import "./CouponsModal.css";
 import { IoClose } from "react-icons/io5";
 import CouponItem from "./CouponItem";
@@ -12,6 +12,28 @@ function CouponsModal({
   const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
 
   const [sortOption, setSortOption] = useState("date");
+
+  const sortedCoupons = useMemo(() => {
+    let coupons = [...boughtCoupons];
+    switch (sortOption) {
+      case "silver":
+        coupons = coupons.toSorted((a, b) => {
+          if (a.price.coinValue === b.price.coinValue) return 0;
+          return a.price.coinValue === "silver" ? -1 : 1;
+        });
+        break;
+      case "gold":
+        coupons = coupons.toSorted((a, b) => {
+          if (a.price.coinValue === b.price.coinValue) return 0;
+          return a.price.coinValue === "gold" ? -1 : 1;
+        });
+        break;
+      case "date":
+        coupons = coupons.toSorted((a, b) => b.date - a.date);
+        break;
+    }
+    return coupons;
+  }, [sortOption, boughtCoupons]);
 
   const handleCloseModal = () => {
     setSortOption("date");
@@ -47,7 +69,7 @@ function CouponsModal({
         </button>
       </div>
       <div className="coupons-modal-body">
-        {boughtCoupons.map((coupon) => (
+        {sortedCoupons.map((coupon) => (
           <CouponItem
             {...coupon}
             key={coupon.id}

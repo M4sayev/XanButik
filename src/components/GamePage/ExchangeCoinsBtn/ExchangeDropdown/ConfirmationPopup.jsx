@@ -46,12 +46,17 @@ function ConfirmationPopup({
 
       if (exists) {
         updatedCoupons = prevCoupons.map((coupon) =>
-          coupon.id == id ? { ...coupon, count: coupon.count + 1 } : coupon
+          coupon.id == id
+            ? { ...coupon, count: coupon.count + 1, date: Date.now() }
+            : coupon
         );
       } else {
         const newCoupon = defaultCoupons.find((coupon) => coupon.id == id);
         if (!newCoupon) return prevCoupons;
-        updatedCoupons = [...prevCoupons, { ...newCoupon, count: 1 }];
+        updatedCoupons = [
+          ...prevCoupons,
+          { ...newCoupon, count: 1, date: Date.now() },
+        ];
       }
       localStorage.setItem("boughtCoupons", JSON.stringify(updatedCoupons));
       return updatedCoupons;
