@@ -7,7 +7,10 @@ import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
 
 function OrderSummary({ cartItems }) {
-  const [isCouponApplied, setIsCouponApplied] = useState(false);
+  const [appliedCouponId, setAppliedCouponId] = useState(() => {
+    const storedId = localStorage.getItem("appliedCouponId");
+    return storedId ? JSON.parse(storedId) : "";
+  });
   const [couponsModalOpen, setCouponModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
   const subTotalPrice = useMemo(
@@ -62,7 +65,11 @@ function OrderSummary({ cartItems }) {
       </button>
       {couponsModalOpen && (
         <Modal maxWidth={"auto"}>
-          <CouponsModal setCouponModalOpen={setCouponModalOpen} />
+          <CouponsModal
+            setCouponModalOpen={setCouponModalOpen}
+            appliedCouponId={appliedCouponId}
+            setAppliedCouponId={setAppliedCouponId}
+          />
         </Modal>
       )}
       <button

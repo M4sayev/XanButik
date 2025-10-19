@@ -4,8 +4,13 @@ import { IoClose } from "react-icons/io5";
 import CouponItem from "./CouponItem";
 import { StoreContext } from "../../../context/StoreContext";
 
-function CouponsModal({ setCouponModalOpen }) {
+function CouponsModal({
+  setCouponModalOpen,
+  setAppliedCouponId,
+  appliedCouponId,
+}) {
   const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
+
   const [sortOption, setSortOption] = useState("date");
 
   const handleCloseModal = () => {
@@ -42,8 +47,14 @@ function CouponsModal({ setCouponModalOpen }) {
         </button>
       </div>
       <div className="coupons-modal-body">
-        {boughtCoupons.map((coupon, index) => (
-          <CouponItem {...coupon} key={`coupon-item-${index}`} />
+        {boughtCoupons.map((coupon) => (
+          <CouponItem
+            {...coupon}
+            key={coupon.id}
+            setAppliedCouponId={setAppliedCouponId}
+            appliedCouponId={appliedCouponId}
+            handleCloseModal={handleCloseModal}
+          />
         ))}
       </div>
     </div>
