@@ -12,9 +12,24 @@
 
   margin-bottom: var(--spacing-md);
 }
+.coupons-modal-body {
+  display: grid;
+  gap: var(--spacing-sm);
+
+  overflow: hidden;
+}
 
 #couponSelect {
   border-radius: var(--spacing-sm);
   padding-inline: var(--spacing-sm);
   border-radius: 0.25rem;
+
+  font-family: var(--ff-secondary);
+  color: var(--primary-900);
+}
+
+@media screen and (min-width: 777px) {
+  .coupons-modal-body {
+    grid-template-columns: 1fr auto auto;
+  }
 }

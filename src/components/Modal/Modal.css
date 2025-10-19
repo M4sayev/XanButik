@@ -10,8 +10,6 @@
 }
 
 .modal-content {
-  max-width: 400px;
-
   margin-inline: var(--spacing-md);
 
   font-family: var(--ff-secondary);

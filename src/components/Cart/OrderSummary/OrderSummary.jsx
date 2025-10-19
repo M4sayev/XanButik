@@ -61,7 +61,7 @@ function OrderSummary({ cartItems }) {
         Apply Coupon
       </button>
       {couponsModalOpen && (
-        <Modal>
+        <Modal maxWidth={"auto"}>
           <CouponsModal setCouponModalOpen={setCouponModalOpen} />
         </Modal>
       )}
