@@ -50,6 +50,20 @@
   opacity: 0.9;
   font-weight: var(--fw-bold-bold);
 }
+
+.remove-coupon-btn {
+  background-color: transparent;
+  border: none;
+  margin-left: var(--spacing-sm);
+  opacity: 0.4;
+  cursor: pointer;
+
+  transition: var(--std-transition);
+}
+.remove-coupon-btn:hover,
+.remove-coupon-btn:focus-visible {
+  opacity: 1;
+}
 @media screen and (min-width: 777px) {
   .order-summary {
     margin-inline: 0;

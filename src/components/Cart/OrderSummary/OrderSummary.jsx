@@ -1,10 +1,11 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import "./OrderSummary.css";
-import { calculateDiscountPrice } from "../../../utils/utils";
 import Modal from "../../Modal/Modal";
 
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
+import { StoreContext } from "../../../context/StoreContext";
+import { calculateDiscountPrice } from "../../../utils/utils";
 
 function OrderSummary({ cartItems }) {
   const [appliedCouponId, setAppliedCouponId] = useState(() => {
@@ -13,6 +14,8 @@ function OrderSummary({ cartItems }) {
   });
   const [couponsModalOpen, setCouponModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+
+  const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
 
   const subTotalPrice = useMemo(
     () =>
@@ -31,9 +34,46 @@ function OrderSummary({ cartItems }) {
     console.log({ cartItems, totalPrice, shippingCost });
   }
 
-  const shippingCost = 5.0;
-  const totalPrice = subTotalPrice + shippingCost;
+  const couponInfo = useMemo(() => {
+    if (!appliedCouponId || boughtCoupons.length === 0) return null;
+    const foundCoupon = boughtCoupons.find(
+      (coupon) => coupon.id == appliedCouponId
+    );
+    if (!foundCoupon) return null;
+    const { text, value } = foundCoupon.offer;
 
+    let discount = 0;
+    let newValue = 0;
+
+    if (text === "OFF") {
+      const percent = parseFloat(value);
+      if (!isNaN(percent)) {
+        newValue = percent;
+        discount = calculateDiscountPrice(percent / 100, subTotalPrice);
+      }
+    } else if (text === "Voucher") {
+      const numericValue = parseFloat(value);
+      if (!isNaN(numericValue)) {
+        newValue = numericValue;
+        discount = numericValue;
+      }
+    }
+    return { text, newValue, discount };
+  }, [appliedCouponId, boughtCoupons, subTotalPrice]);
+
+  const shippingCost = 5.0;
+  const totalPrice = subTotalPrice + shippingCost - (couponInfo?.discount || 0);
+
+  function formatCouponSummary(text, val) {
+    if (text === "OFF") return `-${val}%`;
+    if (text === "Voucher") return `-$${val.toFixed(2)}`;
+    return "";
+  }
+
+  function handleRemoveCurrentCoupon() {
+    setAppliedCouponId("");
+    localStorage.removeItem("appliedCouponId");
+  }
   return (
     <aside
       className="order-summary"
@@ -50,6 +90,25 @@ function OrderSummary({ cartItems }) {
       <div className="summary-item">
         <p>Shipping</p>
         <span>${shippingCost.toFixed(2)}</span>
+      </div>
+      <div
+        className="summary-item"
+        style={couponInfo === null ? { display: "none" } : {}}
+      >
+        <p>
+          Coupon Applied
+          <button
+            type="button"
+            className="remove-coupon-btn"
+            aria-label="Remove the current coupon"
+            onClick={handleRemoveCurrentCoupon}
+          >
+            [remove]
+          </button>
+        </p>
+        <span>
+          {formatCouponSummary(couponInfo?.text, couponInfo?.newValue)}
+        </span>
       </div>
       <div className="summary-item summary-total">
         <p>Total</p>
