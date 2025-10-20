@@ -5,7 +5,7 @@ import Modal from "../../Modal/Modal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
 import { StoreContext } from "../../../context/StoreContext";
-import { calculateDiscountPrice } from "../../../utils/utils";
+import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 
 function OrderSummary({ cartItems }) {
   const [appliedCouponId, setAppliedCouponId] = useState(() => {
@@ -15,7 +15,7 @@ function OrderSummary({ cartItems }) {
   const [couponsModalOpen, setCouponModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
-  const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
+  const { boughtCoupons } = useContext(StoreContext);
 
   const subTotalPrice = useMemo(
     () =>
@@ -49,7 +49,7 @@ function OrderSummary({ cartItems }) {
       const percent = parseFloat(value);
       if (!isNaN(percent)) {
         newValue = percent;
-        discount = calculateDiscountPrice(percent / 100, subTotalPrice);
+        discount = calculateDiscountPrice(percent, subTotalPrice);
       }
     } else if (text === "Voucher") {
       const numericValue = parseFloat(value);
@@ -66,7 +66,7 @@ function OrderSummary({ cartItems }) {
 
   function formatCouponSummary(text, val) {
     if (text === "OFF") return `-${val}%`;
-    if (text === "Voucher") return `-$${val.toFixed(2)}`;
+    if (text === "Voucher") return `-${formatPrice(val)}`;
     return "";
   }
 
@@ -85,11 +85,11 @@ function OrderSummary({ cartItems }) {
       </h1>
       <div className="summary-item">
         <p>Subtotal</p>
-        <span>${subTotalPrice.toFixed(2)}</span>
+        <span>{formatPrice(subTotalPrice)}</span>
       </div>
       <div className="summary-item">
         <p>Shipping</p>
-        <span>${shippingCost.toFixed(2)}</span>
+        <span>{formatPrice(shippingCost)}</span>
       </div>
       <div
         className="summary-item"
@@ -112,7 +112,7 @@ function OrderSummary({ cartItems }) {
       </div>
       <div className="summary-item summary-total">
         <p>Total</p>
-        <span>${totalPrice.toFixed(2)}</span>
+        <span>{formatPrice(totalPrice)}</span>
       </div>
       <button
         type="button"
@@ -149,6 +149,8 @@ function OrderSummary({ cartItems }) {
             setConfirmationModalOpen={setConfirmationModalOpen}
             cartItems={cartItems}
             totalPrice={totalPrice}
+            appliedCouponId={appliedCouponId}
+            handleRemoveCurrentCoupon={handleRemoveCurrentCoupon}
           />
         </Modal>
       )}

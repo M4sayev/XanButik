@@ -10,8 +10,10 @@ function ConfirmationModal({
   setConfirmationModalOpen,
   cartItems,
   totalPrice,
+  handleRemoveCurrentCoupon,
+  appliedCouponId,
 }) {
-  const { setCartItems } = useContext(StoreContext);
+  const { setCartItems, setBoughtCoupons } = useContext(StoreContext);
   const navigate = useNavigate();
   function handleStartNewOrder() {
     navigate("/Store");
@@ -22,6 +24,17 @@ function ConfirmationModal({
     setConfirmationModalOpen(false);
     localStorage.removeItem("cartItems");
     setCartItems([]);
+
+    // remove the current coupon from the bought coupons
+    setBoughtCoupons((prev) => {
+      const newBoughtCoupons = prev.filter(
+        (coupon) => coupon.id != appliedCouponId
+      );
+      localStorage.setItem("boughtCoupons", JSON.stringify(newBoughtCoupons));
+      return newBoughtCoupons;
+    });
+
+    handleRemoveCurrentCoupon();
   }
 
   useEscapeKey(() => clearCartItems());
