@@ -1,11 +1,10 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./OrderSummary.css";
 import { calculateDiscountPrice } from "../../../utils/utils";
 import Modal from "../../Modal/Modal";
 
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
-import { useFocusTrap } from "../../../hooks/useTrapFocus";
 
 function OrderSummary({ cartItems }) {
   const [appliedCouponId, setAppliedCouponId] = useState(() => {
@@ -14,7 +13,7 @@ function OrderSummary({ cartItems }) {
   });
   const [couponsModalOpen, setCouponModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
-  const couponModalRef = useRef(null);
+
   const subTotalPrice = useMemo(
     () =>
       cartItems
@@ -34,8 +33,6 @@ function OrderSummary({ cartItems }) {
 
   const shippingCost = 5.0;
   const totalPrice = subTotalPrice + shippingCost;
-
-  useFocusTrap(couponModalRef, couponsModalOpen);
 
   return (
     <aside
@@ -75,7 +72,6 @@ function OrderSummary({ cartItems }) {
             appliedCouponId={appliedCouponId}
             setAppliedCouponId={setAppliedCouponId}
             couponsModalOpen={couponsModalOpen}
-            couponModalRef={couponModalRef}
           />
         </Modal>
       )}

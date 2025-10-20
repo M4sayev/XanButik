@@ -19,7 +19,7 @@ function CouponItem({
 
   return (
     <button
-      className={`coupon-item ${appliedCouponId == id && "used"}`}
+      className={`coupon-item ${appliedCouponId == id ? "used" : ""}`}
       style={
         price.coinValue === "silver"
           ? { background: "var(--gradient-silver)", animationDelay }

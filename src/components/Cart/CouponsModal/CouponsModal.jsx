@@ -1,17 +1,19 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./CouponsModal.css";
 import { IoClose } from "react-icons/io5";
 import CouponItem from "./CouponItem";
 import { StoreContext } from "../../../context/StoreContext";
 import { useEscapeKey } from "../../../hooks/useEscapeKey";
+import { useFocusTrap } from "../../../hooks/useTrapFocus";
 
 function CouponsModal({
   setCouponModalOpen,
-  couponModalRef,
   setAppliedCouponId,
   appliedCouponId,
 }) {
   const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
+  const couponModalRef = useRef(null);
+  const firstEl = useRef(null);
 
   const [sortOption, setSortOption] = useState("date");
 
@@ -44,9 +46,41 @@ function CouponsModal({
 
   useEscapeKey(() => setCouponModalOpen(false));
 
+  useFocusTrap(couponModalRef, true, firstEl);
+
+  useEffect(() => {
+    let timeout;
+    function handleClickOutside(e) {
+      if (!couponModalRef.current.contains(e.target)) {
+        setCouponModalOpen(false);
+      }
+    }
+
+    timeout = setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
+
+    return () => {
+      clearTimeout(timeout);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="coupons-modal" ref={couponModalRef}>
       <div className="coupons-modal-header">
+        <button
+          className="icon-btn cross-icon"
+          type="button"
+          onClick={handleCloseModal}
+          aria-label="Close login popup"
+          ref={firstEl}
+        >
+          <IoClose
+            className="cross"
+            style={{ color: "var(--clr-primary-900)" }}
+          />
+        </button>
         <fieldset>
           <legend className="visually-hidden">Sort Products</legend>
           <select
@@ -60,17 +94,6 @@ function CouponsModal({
             <option value="silver">silver first</option>
           </select>
         </fieldset>
-        <button
-          className="icon-btn cross-icon"
-          type="button"
-          onClick={handleCloseModal}
-          aria-label="Close login popup"
-        >
-          <IoClose
-            className="cross"
-            style={{ color: "var(--clr-primary-900)" }}
-          />
-        </button>
       </div>
       <div className="coupons-modal-body">
         {sortedCoupons.map((coupon, index) => (
