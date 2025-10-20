@@ -10,6 +10,9 @@
 
   border-radius: 0.25rem;
   overflow: visible;
+
+  animation: fadeIn 500ms ease forwards;
+  opacity: 0;
 }
 
 .item-info-wrapper {

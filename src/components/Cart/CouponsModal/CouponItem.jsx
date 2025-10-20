@@ -8,7 +8,9 @@ function CouponItem({
   setAppliedCouponId,
   id,
   handleCloseModal,
+  index,
 }) {
+  const animationDelay = `${200 * index}ms`;
   function handleApplyCoupon() {
     setAppliedCouponId(id);
     localStorage.setItem("appliedCouponId", JSON.stringify(id));
@@ -20,8 +22,8 @@ function CouponItem({
       className={`coupon-item ${appliedCouponId == id && "used"}`}
       style={
         price.coinValue === "silver"
-          ? { background: "var(--gradient-silver)" }
-          : { background: "var(--gradient-gold)" }
+          ? { background: "var(--gradient-silver)", animationDelay }
+          : { background: "var(--gradient-gold)", animationDelay }
       }
       onClick={handleApplyCoupon}
     >

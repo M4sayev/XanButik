@@ -69,13 +69,14 @@ function CouponsModal({
         </button>
       </div>
       <div className="coupons-modal-body">
-        {sortedCoupons.map((coupon) => (
+        {sortedCoupons.map((coupon, index) => (
           <CouponItem
             {...coupon}
             key={coupon.id}
             setAppliedCouponId={setAppliedCouponId}
             appliedCouponId={appliedCouponId}
             handleCloseModal={handleCloseModal}
+            index={index}
           />
         ))}
       </div>
