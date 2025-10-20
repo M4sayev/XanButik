@@ -5,6 +5,7 @@
 .text-container {
   display: flex;
   align-items: center;
+  justify-self: center;
   gap: 2px;
 
   margin-bottom: var(--spacing-lg);
