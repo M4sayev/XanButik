@@ -29,6 +29,9 @@
   color: var(--primary-900);
 }
 
+.hidden {
+  opacity: 0;
+}
 @media screen and (min-width: 777px) {
   .coupons-modal-body {
     grid-template-columns: 1fr auto auto;

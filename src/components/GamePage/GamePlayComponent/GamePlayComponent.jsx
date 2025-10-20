@@ -10,7 +10,6 @@ import {
   coinLifeTime,
   coinSpawnRate,
   coinSize,
-  goldCoinSpawnPercent,
   bombSize,
   bombSpawnRate,
   bombLifeTime,

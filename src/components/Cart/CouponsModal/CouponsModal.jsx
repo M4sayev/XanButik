@@ -5,6 +5,7 @@ import CouponItem from "./CouponItem";
 import { StoreContext } from "../../../context/StoreContext";
 import { useEscapeKey } from "../../../hooks/useEscapeKey";
 import { useFocusTrap } from "../../../hooks/useTrapFocus";
+import NoCoupons from "./NoCoupons";
 
 function CouponsModal({
   setCouponModalOpen,
@@ -81,9 +82,10 @@ function CouponsModal({
             style={{ color: "var(--clr-primary-900)" }}
           />
         </button>
-        <fieldset>
+        <fieldset className={boughtCoupons.length === 0 ? "hidden" : ""}>
           <legend className="visually-hidden">Sort Products</legend>
           <select
+            tabIndex={!boughtCoupons.length ? -1 : 0}
             name="coupon"
             id="couponSelect"
             value={sortOption}
@@ -96,16 +98,20 @@ function CouponsModal({
         </fieldset>
       </div>
       <div className="coupons-modal-body">
-        {sortedCoupons.map((coupon, index) => (
-          <CouponItem
-            {...coupon}
-            key={coupon.id}
-            setAppliedCouponId={setAppliedCouponId}
-            appliedCouponId={appliedCouponId}
-            handleCloseModal={handleCloseModal}
-            index={index}
-          />
-        ))}
+        {boughtCoupons.length === 0 ? (
+          <NoCoupons />
+        ) : (
+          sortedCoupons.map((coupon, index) => (
+            <CouponItem
+              {...coupon}
+              key={coupon.id}
+              setAppliedCouponId={setAppliedCouponId}
+              appliedCouponId={appliedCouponId}
+              handleCloseModal={handleCloseModal}
+              index={index}
+            />
+          ))
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,14 @@
+.no-coupons-body {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  text-align: center;
+}
+.text-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  margin-bottom: var(--spacing-lg);
+}
+.earn-coins-btn {
+  padding-block: var(--spacing-sm);
+}
