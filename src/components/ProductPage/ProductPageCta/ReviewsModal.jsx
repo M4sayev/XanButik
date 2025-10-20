@@ -71,6 +71,7 @@ function ReviewsModal({
           className={`add-review-form-container`}
           aria-labelledby="reviews-heading"
           onSubmit={handleSubmit(onSubmit)}
+          tabIndex={-1}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h1
@@ -85,6 +86,7 @@ function ReviewsModal({
               onClick={() => setOpenAddReview(false)}
               aria-label="Close the reviews modal"
               tabIndex={openAddReview ? 0 : -1}
+              disabled={!openAddReview}
             >
               <IoClose
                 aria-hidden="true"
@@ -111,7 +113,10 @@ function ReviewsModal({
             />
             <ErrorMessage message={errors.name?.message} fieldName="name" />
           </div>
-          <div className="form-field" style={{ marginTop: "var(--spacing-sm" }}>
+          <div
+            className="form-field"
+            style={{ marginTop: "var(--spacing-sm)" }}
+          >
             <Controller
               name="rating"
               control={control}
@@ -119,6 +124,7 @@ function ReviewsModal({
                 <StarRatingInput
                   value={field.value}
                   onChange={field.onChange}
+                  focusable={openAddReview}
                 />
               )}
             />

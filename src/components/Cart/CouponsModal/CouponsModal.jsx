@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import "./CouponsModal.css";
 import { IoClose } from "react-icons/io5";
 import CouponItem from "./CouponItem";
 import { StoreContext } from "../../../context/StoreContext";
+import { useEscapeKey } from "../../../hooks/useEscapeKey";
 
 function CouponsModal({
   setCouponModalOpen,
+  couponModalRef,
   setAppliedCouponId,
   appliedCouponId,
 }) {
@@ -40,8 +42,10 @@ function CouponsModal({
     setCouponModalOpen(false);
   };
 
+  useEscapeKey(() => setCouponModalOpen(false));
+
   return (
-    <div className="coupons-modal">
+    <div className="coupons-modal" ref={couponModalRef}>
       <div className="coupons-modal-header">
         <fieldset>
           <legend className="visually-hidden">Sort Products</legend>

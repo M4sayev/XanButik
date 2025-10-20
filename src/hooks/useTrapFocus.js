@@ -23,7 +23,7 @@ export function useFocusTrap(
     const firstEl = initialFocusRef?.current || focusableElements[0];
     const lastEl = focusableElements[focusableElements.length - 1];
 
-    // firstEl?.focus();
+    firstEl?.focus();
 
     function handleKeyDown(e) {
       if (e.key !== "Tab") return;

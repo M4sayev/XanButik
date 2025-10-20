@@ -3,7 +3,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import { COLOR_MAP } from "../../../constants/constants";
 import { useState } from "react";
 
-function StarRatingInput({ onChange, value }) {
+function StarRatingInput({ onChange, value, focusable = true }) {
   const gold = COLOR_MAP["Gold"];
   const [rating, setRating] = useState(0);
 
@@ -24,7 +24,7 @@ function StarRatingInput({ onChange, value }) {
 
   return (
     <div
-      tabIndex={0}
+      tabIndex={focusable ? 0 : -1}
       style={{ display: "inline" }}
       aria-label="Select rating"
       onKeyDown={handleKeyDown}
