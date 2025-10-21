@@ -10,21 +10,22 @@ import MobileSortButton from "./MobileSortButton.jsx";
 import MobileFilterButton from "./MobileFilterButton.jsx";
 import FilterSidebar from "./FilterSidebar.jsx";
 
-function SortFilterMobile({ initialValues, currentCategory }) {
-  const { sortOptions, setSortOptions, setFilters, setPriceRange } =
+function SortFilterMobile({
+  initialValues,
+  currentCategory,
+  secondaryFilters,
+  setSecondaryFilters,
+}) {
+  const { sortOptions, setSortOptions, setFilters, setPriceRange, priceRange } =
     useContext(StoreContext);
   const [sideFilterMenuOpen, setSideFilterMenuOpen] = useState(false);
 
   const [isSecondaryNav, setIsSecondaryNav] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("");
 
-  const [secondaryFilters, setSecondaryFilters] =
-    useState(DEFAULT_RESET_FILTER);
-
-  const [secondaryPriceRange, setSecondaryPriceRange] = useState([
-    DEFAULT_PRICE_RANGE_MIN,
-    DEFAULT_PRICE_RANGE_MAX,
-  ]);
+  const [secondaryPriceRange, setSecondaryPriceRange] = useState(
+    () => priceRange
+  );
 
   // reset secondaryFilters when category changes
   useEffect(() => setSecondaryFilters(DEFAULT_RESET_FILTER), [currentCategory]);

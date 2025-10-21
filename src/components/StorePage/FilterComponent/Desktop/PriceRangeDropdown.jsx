@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ReactRangeSliderInput from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import {
@@ -14,6 +14,7 @@ function PriceRangeDropdown({
   dropdownRefs,
 }) {
   const { priceRange, setPriceRange } = useContext(StoreContext);
+
   return (
     <li
       aria-current={openDropdown === "priceRange"}

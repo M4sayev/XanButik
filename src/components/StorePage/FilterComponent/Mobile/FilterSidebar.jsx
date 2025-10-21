@@ -38,6 +38,7 @@ function FilterSidebar({
     setSideFilterMenuOpen(false);
     // set the filters to default because view items wasn't clicked
     setSecondaryFilters(filters);
+    setIsSecondaryNav(false);
   }
 
   return (

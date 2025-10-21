@@ -26,8 +26,8 @@ function MobileSortButton({ sortOptions, setSortOptions }) {
       >
         <option value="Recommended">Recommended</option>
         <option value="What's new">What's New</option>
-        <option value="Price high to low">Price high to low</option>
         <option value="Price low to high">Price low to high</option>
+        <option value="Price high to low">Price high to low</option>
       </select>
     </fieldset>
   );

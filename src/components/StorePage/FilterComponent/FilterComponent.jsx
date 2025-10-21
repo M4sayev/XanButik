@@ -16,8 +16,13 @@ import FilterButtonDesktop from "./Desktop/FilterButtonDesktop";
 import { StoreContext } from "../../../context/StoreContext";
 import { useFocusTrap } from "../../../hooks/useTrapFocus";
 import { useEscapeKey } from "../../../hooks/useEscapeKey";
+import { DEFAULT_RESET_FILTER } from "../../../constants/constants";
 
 function FilterComponent({ currentCategory, setCurrentPage }) {
+  // mobile secondary filters
+  const [secondaryFilters, setSecondaryFilters] =
+    useState(DEFAULT_RESET_FILTER);
+
   const [isDropDownOverflowing, setIsDropDownOverflowing] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const { sortOptions, setSortOptions, filters, setFilters } =
@@ -101,11 +106,19 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
   }
 
   function handleClearFilterOptions(filter) {
-    setFilters((prev) => ({ ...prev, [filter]: [] }));
+    setFilters((prev) => {
+      const newFilters = { ...prev, [filter]: [] };
+      synchronizeSecondaryFilter(newFilters);
+      return newFilters;
+    });
   }
 
   function handleSelectAllFilterOptions(filter) {
-    setFilters((prev) => ({ ...prev, [filter]: initialValues[filter] }));
+    setFilters((prev) => {
+      const newFilters = { ...prev, [filter]: initialValues[filter] };
+      synchronizeSecondaryFilter(newFilters);
+      return newFilters;
+    });
   }
 
   function selectFilterOption(filter, option) {
@@ -116,12 +129,14 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
       // Set the page to the first
       setCurrentPage(1);
 
-      return {
+      const newFilters = {
         ...prev,
         [filter]: isSelected
           ? currentOptions.filter((o) => o !== option)
           : [...currentOptions, option],
       };
+      synchronizeSecondaryFilter(newFilters);
+      return newFilters;
     });
   }
 
@@ -132,11 +147,19 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
 
   useEscapeKey(() => setOpenDropdown(null));
 
+  // function to have secondaryFilters in sync on wider screens
+  // persist the changes on mobile sidebar
+  function synchronizeSecondaryFilter(filters) {
+    setSecondaryFilters(filters);
+  }
+
   return (
     <search className="sort-filter-component">
       <SortFilterMobile
         initialValues={initialValues}
         currentCategory={currentCategory}
+        setSecondaryFilters={setSecondaryFilters}
+        secondaryFilters={secondaryFilters}
       />
 
       {/*desktop refinements */}
