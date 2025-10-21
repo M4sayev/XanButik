@@ -2,7 +2,8 @@ import { IoMdClose } from "react-icons/io";
 import FilterSecondaryMenu from "./FilterSecondaryMenu";
 import FilterMainMenu from "./FilterMainMenu";
 import { useFocusTrap } from "../../../../hooks/useTrapFocus";
-import { useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
+import { StoreContext } from "../../../../context/StoreContext";
 
 function FilterSidebar({
   sideFilterMenuOpen,
@@ -18,18 +19,26 @@ function FilterSidebar({
   handleClearAllPerFilter,
   secondaryPriceRange,
   setSecondaryPriceRange,
-  handleSelectSecendorayOption,
+  handleSelectSecondaryOption,
   initialValues,
   secondaryFilters,
+  setSecondaryFilters,
 }) {
   const mainMenuRef = useRef(null);
   const secondaryMenuRef = useRef(null);
   const firstEl = useRef(null);
+  const { filters } = useContext(StoreContext);
   useFocusTrap(
     isSecondaryNav ? secondaryMenuRef : mainMenuRef,
     sideFilterMenuOpen,
     firstEl
   );
+
+  function handleSidebarClose() {
+    setSideFilterMenuOpen(false);
+    // set the filters to default because view items wasn't clicked
+    setSecondaryFilters(filters);
+  }
 
   return (
     <aside
@@ -45,7 +54,7 @@ function FilterSidebar({
       <button
         className="close-mr-btn"
         aria-label="Close filter menu"
-        onClick={() => setSideFilterMenuOpen(false)}
+        onClick={handleSidebarClose}
         ref={firstEl}
       >
         <IoMdClose
@@ -82,7 +91,7 @@ function FilterSidebar({
           handleClearAllPerFilter={handleClearAllPerFilter}
           secondaryPriceRange={secondaryPriceRange}
           setSecondaryPriceRange={setSecondaryPriceRange}
-          handleSelectSecendorayOption={handleSelectSecendorayOption}
+          handleSelectSecondaryOption={handleSelectSecondaryOption}
           handleOptionsSelected={handleOptionsSelected}
           secondaryFilters={secondaryFilters}
           initialValues={initialValues}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../../../context/StoreContext.jsx";
 import { camelCaseToLabel } from "../../../../utils/utils.js";
 import {
@@ -10,21 +10,26 @@ import MobileSortButton from "./MobileSortButton.jsx";
 import MobileFilterButton from "./MobileFilterButton.jsx";
 import FilterSidebar from "./FilterSidebar.jsx";
 
-function SortFilterMobile({ initialValues }) {
+function SortFilterMobile({ initialValues, currentCategory }) {
   const { sortOptions, setSortOptions, setFilters, setPriceRange } =
     useContext(StoreContext);
   const [sideFilterMenuOpen, setSideFilterMenuOpen] = useState(false);
+
   const [isSecondaryNav, setIsSecondaryNav] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("");
 
   const [secondaryFilters, setSecondaryFilters] =
     useState(DEFAULT_RESET_FILTER);
+
   const [secondaryPriceRange, setSecondaryPriceRange] = useState([
     DEFAULT_PRICE_RANGE_MIN,
     DEFAULT_PRICE_RANGE_MAX,
   ]);
 
-  function handleSelectSecendorayOption(option) {
+  // reset secondaryFilters when category changes
+  useEffect(() => setSecondaryFilters(DEFAULT_RESET_FILTER), [currentCategory]);
+
+  function handleSelectSecondaryOption(option) {
     setSecondaryFilters((prev) => {
       const currentOptions = prev[currentFilter] || [];
       const isSelected = currentOptions.includes(option);
@@ -98,9 +103,10 @@ function SortFilterMobile({ initialValues }) {
         handleClearAllPerFilter={handleClearAllPerFilter}
         secondaryPriceRange={secondaryPriceRange}
         setSecondaryPriceRange={setSecondaryPriceRange}
-        handleSelectSecendorayOption={handleSelectSecendorayOption}
+        handleSelectSecondaryOption={handleSelectSecondaryOption}
         initialValues={initialValues}
         secondaryFilters={secondaryFilters}
+        setSecondaryFilters={setSecondaryFilters}
       />
     </div>
   );

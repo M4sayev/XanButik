@@ -12,7 +12,7 @@ function FilterSecondaryMenu({
   handleClearAllPerFilter,
   secondaryPriceRange,
   setSecondaryPriceRange,
-  handleSelectSecendorayOption,
+  handleSelectSecondaryOption,
   handleOptionsSelected,
   secondaryFilters,
   initialValues,
@@ -92,7 +92,7 @@ function FilterSecondaryMenu({
                 className={`mr-filter-btn mr-secondary-filter-btn ${
                   isSelected && "selected"
                 }`}
-                onClick={() => handleSelectSecendorayOption(option)}
+                onClick={() => handleSelectSecondaryOption(option)}
                 data-option={currentFilter}
                 aria-pressed={isSelected}
                 style={

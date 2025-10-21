@@ -14,10 +14,8 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 import { calculateDiscountPrice } from "../../utils/utils.js";
 import { ITEMS_PER_PAGE } from "../../constants/constants.js";
 import { useDebounce } from "use-debounce";
-import { ClipLoader } from "react-spinners";
-import Spinner from "../../components/Spinner/Spinner.jsx";
-import { use } from "react";
 
+import Spinner from "../../components/Spinner/Spinner.jsx";
 const FilterComponent = lazy(() =>
   import("../../components/StorePage/FilterComponent/FilterComponent")
 );
@@ -33,11 +31,6 @@ const Pagination = lazy(() =>
 
 function Store() {
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => setLoading(false), 850);
-  //   return () => clearTimeout(timeout);
-  // }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
 

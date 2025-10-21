@@ -134,7 +134,10 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
 
   return (
     <search className="sort-filter-component">
-      <SortFilterMobile initialValues={initialValues} />
+      <SortFilterMobile
+        initialValues={initialValues}
+        currentCategory={currentCategory}
+      />
 
       {/*desktop refinements */}
       <ul className="sort-refinements-list">
