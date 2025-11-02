@@ -168,7 +168,8 @@ The app now includes an interactive tap-to-earn mini-game and a coupon system th
 - ♻️ **Automatic Refresh:** Users receive new coupons without manual input.
 
 #### 🧠 Game Logic Architecture
-- Coordinate-based mapping (`Map()`) manages coins, bombs, and freeze items in real time  
+- Coordinate-based mapping (`Map()`) manages coins, bombs, and freeze items in real time
+- Spawn positions use AABB (Axis-Aligned Bounding Box) checks to prevent overlap between coins, bombs, and freeze items
 - Random spawn points, rectangle intersection checks prevent overlap  
 - Object lifetimes controlled via timers for smooth gameplay  
 - State and refs combined to minimize re-renders and ensure performance  
