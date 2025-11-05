@@ -5,7 +5,7 @@ import GoBackButton from "../../components/GamePage/GoBackButton/GoBackButton";
 import Timer from "../../components/GamePage/Timer/Timer";
 import ExchangeCoinsBtn from "../../components/GamePage/ExchangeCoinsBtn/ExchangeCoinsBtn";
 import Spinner from "../../components/Spinner/Spinner";
-import GameContextProvider from "../../context/GameContext";
+import GameContextProvider from "../../context/GameContextProvider";
 import CurrentGamePage from "../../components/GamePage/CurrentGamePage/CurrentGamePage";
 
 function Game() {

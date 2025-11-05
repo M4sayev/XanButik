@@ -64,7 +64,7 @@ function Store() {
     setProducts(category);
     setSearchQuery("");
     setCurrentPage(1);
-  }, [currentCategory]);
+  }, [currentCategory, categoryMap]);
 
   // Filter products by search bar input
   const filteredProducts = useMemo(() => {
@@ -254,7 +254,7 @@ function Store() {
               <div className="no-results-text">
                 <h1>No Results</h1>
                 <p>
-                  We couldn't find anything matching{" "}
+                  We couldn&apos;t find anything matching{" "}
                   <strong>
                     {searchQuery !== "" ? `"${searchQuery}"` : "this selection"}
                   </strong>
