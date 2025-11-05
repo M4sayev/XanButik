@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { assets } from "../../assets/assets.js";
 import { StoreContext } from "../../context/StoreContext.jsx";

@@ -1,5 +1,3 @@
-import React from "react";
-
 function SingUpButton({ setShowLogin }) {
   return (
     <button

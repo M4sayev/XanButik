@@ -1,4 +1,3 @@
-import React from "react";
 import { CiHeart } from "react-icons/ci";
 
 function WishlistButton({ navigate, active = false }) {

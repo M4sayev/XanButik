@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./ConfirmationPopup.css";
 import { GameContext } from "../../../../context/GameContext";
 import { defaultCoupons } from "../../../../assets/game/gameAssets";

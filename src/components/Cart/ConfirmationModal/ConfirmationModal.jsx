@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./ConfirmationModal.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ModalCartItem from "./ModalCartItem";
 import { useEscapeKey } from "../../../hooks/useEscapeKey.js";
 import { StoreContext } from "../../../context/StoreContext.jsx";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./OurClientsCarousel.css";
 import { ourBrandCompanies } from "../../assets/assets";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,20 +7,31 @@ import { useInView } from "react-intersection-observer";
 import "swiper/swiper-bundle.css";
 import { handleAnimation } from "../../utils/utils";
 
-function OurClientsCarousel({bg}) {
+function OurClientsCarousel({ bg }) {
   const { ref: carouselSecRef, inView: carouselSecInView } = useInView({
     threshold: 0.2,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
   return (
-    <section className="carousel-section" data-type={bg} aria-labelledby="our-clients-heading">
+    <section
+      className="carousel-section"
+      data-type={bg}
+      aria-labelledby="our-clients-heading"
+    >
       <div
         ref={carouselSecRef}
-        className={`carousel-section-contents ${handleAnimation(carouselSecInView)}`}
+        className={`carousel-section-contents ${handleAnimation(
+          carouselSecInView
+        )}`}
       >
         <div className="text-container">
-          <h1 id="our-clients-heading" className="text-container-title std-heading">Our Clients</h1>
+          <h1
+            id="our-clients-heading"
+            className="text-container-title std-heading"
+          >
+            Our Clients
+          </h1>
           <p className="text-container-paragraph std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
@@ -33,7 +43,7 @@ function OurClientsCarousel({bg}) {
         <div className="carousel-container">
           <Swiper
             className="carousel"
-            modules={[Pagination, Autoplay, A11y ]}
+            modules={[Pagination, Autoplay, A11y]}
             pagination={{ clickable: true }}
             autoplay={{
               delay: 5000,
@@ -62,10 +72,10 @@ function OurClientsCarousel({bg}) {
             }}
           >
             {ourBrandCompanies.length ? (
-              ourBrandCompanies.map(({ brandName, img},  index) => (
+              ourBrandCompanies.map(({ brandName, img }, index) => (
                 <SwiperSlide key={index}>
-                  <img 
-                    src={img} 
+                  <img
+                    src={img}
                     loading="lazy"
                     alt={`${brandName} logo`}
                     aria-hidden="true"

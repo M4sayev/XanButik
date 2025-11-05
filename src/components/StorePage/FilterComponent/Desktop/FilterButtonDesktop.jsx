@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from "react";
 import { ImCheckmark } from "react-icons/im";
 import FilterButtonDesktopOption from "./FilterButtonDesktopOption";
 import { camelCaseToLabel } from "../../../../utils/utils";
-import { useFocusTrap } from "../../../../hooks/useTrapFocus";
 
 function FilterButtonDesktop({
   sortCategory,

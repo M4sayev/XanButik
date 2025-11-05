@@ -1,4 +1,3 @@
-import React from "react";
 import "./Header.css";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";

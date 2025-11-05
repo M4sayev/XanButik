@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { PiShoppingBagLight } from "react-icons/pi";
 import StarRating from "../StarRating/StarRating";

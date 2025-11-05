@@ -1,4 +1,3 @@
-import React from "react";
 import { IoPlayOutline } from "react-icons/io5";
 
 function PlayIcon() {

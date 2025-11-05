@@ -1,14 +1,9 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./Product.css";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiHeart } from "react-icons/ci";
-import { calculateDiscountPrice } from "../../../utils/utils";
 import { StoreContext } from "../../../context/StoreContext";
 import ProductPrice from "./ProductPrice";
-import { Navigate, useNavigate } from "react-router-dom";
-import Modal from "../../Modal/Modal";
-import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
-import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import { toast } from "react-toastify";
 import { useWishlist } from "../../../hooks/useWishlist";
 import SelectorsDropdown from "./SelectorsDropdown";

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import { GameContext } from "../../../context/GameContext";
 import { renderCoin } from "../../../utils/renderCoins";
 import { freezeTime } from "../../../constants/gameConstants";

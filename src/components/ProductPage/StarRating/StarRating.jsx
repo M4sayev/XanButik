@@ -1,6 +1,5 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { COLOR_MAP } from "../../../constants/constants";
-import { MdHeight } from "react-icons/md";
 
 function StarRating({ rating, maxRating = 5 }) {
   const stars = [];

@@ -1,4 +1,3 @@
-import React from "react";
 import "./MobileImgSwiper.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";

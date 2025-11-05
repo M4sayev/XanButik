@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Game.css";
 import GoBackButton from "../../components/GamePage/GoBackButton/GoBackButton";
 

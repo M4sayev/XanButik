@@ -1,4 +1,3 @@
-import React from "react";
 import XanCoin from "../../../assets/game/xn_coin.svg?react";
 import XanCoinGold from "../../../assets/game/xn_coin_gold.svg?react";
 import { MdDiscount } from "react-icons/md";

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./TestSubscribeForm.css";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { handleAnimation } from "../../../utils/utils";
 
 function TestSubscribeForm() {

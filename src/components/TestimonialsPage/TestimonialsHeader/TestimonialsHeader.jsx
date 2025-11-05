@@ -1,4 +1,3 @@
-import React from "react";
 import "./TestimonialsHeader.css";
 import Button from "../../Button/Button";
 import { Link } from "react-router-dom";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { CiMail } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
 import { IoIosArrowUp } from "react-icons/io";

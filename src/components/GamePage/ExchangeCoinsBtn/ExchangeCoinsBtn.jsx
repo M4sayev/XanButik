@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import XanCoin from "../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeCoinsBtn.css";

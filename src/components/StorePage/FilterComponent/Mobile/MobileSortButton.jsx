@@ -1,5 +1,3 @@
-import React from "react";
-
 function MobileSortButton({ sortOptions, setSortOptions }) {
   function handleKeyDown(e) {
     if (e.key === "Enter" || e.key === " ") {

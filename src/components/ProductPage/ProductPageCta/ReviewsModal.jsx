@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import { IoClose } from "react-icons/io5";
 import StarRating from "../StarRating/StarRating";
 import { IoMdAdd } from "react-icons/io";

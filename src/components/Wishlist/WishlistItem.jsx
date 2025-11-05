@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from "react";
-import Modal from "../Modal/Modal";
+import { useState, useContext } from "react";
 import SelectorsDropdown from "../StorePage/Products/SelectorsDropdown";
 import { calculateDiscountPrice, formatPrice } from "../../utils/utils";
 import { toast } from "react-toastify";

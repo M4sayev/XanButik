@@ -1,4 +1,3 @@
-import React from "react";
 import backgroundImage from "../../../assets/game/game_bg.png";
 import "../CurrentGamePage/GameScreens.css";
 

@@ -1,7 +1,5 @@
-import React from "react";
 import "./CategoryButtons.css";
 import { categoryPreviewMap } from "../../../assets/assets";
-import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
 
 function CategoryButtons({ categoryMap, handleCategoryBtn, currentCategory }) {
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { SIZE_ORDER_MAP } from "../../../constants/constants";
 
 function SizeSelector({ size, handleSelectSize, currentSize }) {

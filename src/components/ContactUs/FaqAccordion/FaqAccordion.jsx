@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FaqAccordion.css";
 import { askedQuestions } from "../../../assets/assets";
 import QuestionItem from "./QuestionItem";
 import { useInView } from "react-intersection-observer";
-import { StoreContext } from "../../../context/StoreContext";
 import { handleAnimation } from "../../../utils/utils";
 
 function FaqAccordion() {

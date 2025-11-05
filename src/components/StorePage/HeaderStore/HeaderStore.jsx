@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import "./HeaderStore.css";
 import { assets } from "../../../assets/assets";
 import { IoSearchSharp } from "react-icons/io5";

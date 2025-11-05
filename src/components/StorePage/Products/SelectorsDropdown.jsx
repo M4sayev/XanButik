@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState } from "react";
+import { useRef } from "react";
 import ColorSelector from "../../ProductPage/ProductPageSelectors/ColorSelector";
 import SizeSelector from "../../ProductPage/ProductPageSelectors/SizeSelector";
 import "./SelectorsDropdown.css";

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./LoginPopup.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useFocusTrap } from "../../hooks/useTrapFocus";

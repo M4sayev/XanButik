@@ -1,4 +1,3 @@
-import React from "react";
 import "./ImageGallery.css";
 
 function ImageGallery({ currentImg, img, handleThumbSelected }) {

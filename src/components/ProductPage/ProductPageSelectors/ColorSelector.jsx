@@ -1,4 +1,3 @@
-import React from "react";
 import { COLOR_MAP } from "../../../constants/constants";
 
 function ColorSelector({ color, currentColor, handleSelectColor }) {

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Home.css";
 import Header from "../../components/HomePage/Header/Header";
 import SmartBanner from "../../components/HomePage/SmartBanner/SmartBanner";

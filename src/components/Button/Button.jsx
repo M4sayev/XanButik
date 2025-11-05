@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 const Button = ({ onClick, children, as: Component = "button", ...rest }) => {

@@ -1,11 +1,9 @@
-import React from "react";
 import "./QuestionForm.css";
 import { assets } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
 import useForm from "../../../hooks/useForm";
 import { toast } from "react-toastify";
 import { handleAnimation } from "../../../utils/utils";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 import QuestionFormInput from "./QuestionFormInput";
 import QuestionFormTextarea from "./QuestionFormTextarea";
 

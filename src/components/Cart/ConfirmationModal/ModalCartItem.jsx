@@ -1,4 +1,3 @@
-import React from "react";
 import "./ModalCartItem.css";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";

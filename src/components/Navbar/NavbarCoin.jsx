@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./NavbarCoin.css";
 
 import GoldenCoin from "../../assets/game/xn_coin_gold.svg?react";

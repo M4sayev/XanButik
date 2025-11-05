@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import { TIMER } from "../constants/gameConstants";
 import useTimedResetState from "use-timed-reset-state";
 import { defaultCoupons } from "../assets/game/gameAssets";

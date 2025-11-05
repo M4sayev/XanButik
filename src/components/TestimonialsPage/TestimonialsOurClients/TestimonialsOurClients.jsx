@@ -1,4 +1,3 @@
-import React from "react";
 import "./TestimonialsOurClients.css";
 import { ourBrandCompanies } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";

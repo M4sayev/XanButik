@@ -1,4 +1,3 @@
-import React from "react";
 import "./OurResultsBanner.css";
 import { useInView } from "react-intersection-observer";
 import { ourResults } from "../../../assets/assets";

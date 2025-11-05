@@ -1,4 +1,3 @@
-import React from "react";
 import PlayButton from "../PlayButton/PlayButton";
 import { LuTrophy } from "react-icons/lu";
 import backgroundImage from "../../../assets/game/game_bg.png";

@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   DEFAULT_PRICE_RANGE_MAX,

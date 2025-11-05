@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import "./CouponsModal.css";
 import { IoClose } from "react-icons/io5";
 import CouponItem from "./CouponItem";

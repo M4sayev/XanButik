@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from "react";
 
 //Run a callback when Escape is pressed.
 export function useEscapeKey(callback) {
@@ -13,4 +13,3 @@ export function useEscapeKey(callback) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [callback]);
 }
-

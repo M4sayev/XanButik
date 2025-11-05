@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import BombIcon from "../../../assets/game/xan_bomb.svg?react";
 import { bombFine, bombSize } from "../../../constants/gameConstants";
 import { GameContext } from "../../../context/GameContext";
-import { divIcon } from "leaflet";
 
 function Bomb({ removeBomb, coordinates, type }) {
   const [lostScorePopup, setLostScorePopup] = useState(false);

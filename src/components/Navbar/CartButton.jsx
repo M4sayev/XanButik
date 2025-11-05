@@ -1,4 +1,3 @@
-import React from "react";
 import { PiShoppingBagLight } from "react-icons/pi";
 
 function CartButton({ cartItems, active = false, navigate }) {

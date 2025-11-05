@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import "./MapComponent.css"
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import { x_marker } from '../../../assets/assets';
+import { useEffect, useRef, useState } from "react";
+import "./MapComponent.css";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { x_marker } from "../../../assets/assets";
 
-const center = [41.2015, 47.1830];
+const center = [41.2015, 47.183];
 const zoomLevel = 20;
 
 function LeafletMap() {
@@ -13,30 +13,36 @@ function LeafletMap() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    mapRef.current = L.map('map', {scrollWheelZoom: false}).setView(center, zoomLevel);
+    mapRef.current = L.map("map", { scrollWheelZoom: false }).setView(
+      center,
+      zoomLevel
+    );
 
-    const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap contributors & CartoDB',
-    });
+    const tileLayer = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution: "&copy; OpenStreetMap contributors & CartoDB",
+      }
+    );
 
-    tileLayer.on('loading', () => {
+    tileLayer.on("loading", () => {
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
       }
       setLoading(true);
     });
 
-    tileLayer.on('load', () => {
+    tileLayer.on("load", () => {
       loadingTimeoutRef.current = setTimeout(() => setLoading(false), 300);
     });
 
     tileLayer.addTo(mapRef.current);
 
-  const myIcon = L.icon({
-    iconUrl: x_marker,   
-    iconAnchor: [16, 32], 
-    popupAnchor: [0, -32], 
-  });
+    const myIcon = L.icon({
+      iconUrl: x_marker,
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
     L.marker(center, { icon: myIcon }).addTo(mapRef.current);
 
     // Fallback: hide loader after 10 seconds if loading never finishes
@@ -59,23 +65,20 @@ function LeafletMap() {
   return (
     <section className="widget-map-section">
       <div id="map-description" className="visually-hidden">
-        This is an interactive map centered on [location name]. Use the button below to re-center the map.
+        This is an interactive map centered on [location name]. Use the button
+        below to re-center the map.
       </div>
-      <div 
-        id="map" 
-        role="application" 
+      <div
+        id="map"
+        role="application"
         tabIndex="0"
-        style={{ height: '80vh', width: '100%' }}
+        style={{ height: "80vh", width: "100%" }}
         aria-labelledby="map-description"
         aria-label="Interactive map centered on [location name or coordinates]"
       ></div>
       {loading && (
-        <div 
-          className='map-loading'
-          aria-live="polite"
-          aria-busy="true"
-        >
-          <h1 className='std-heading'>Loading...</h1>
+        <div className="map-loading" aria-live="polite" aria-busy="true">
+          <h1 className="std-heading">Loading...</h1>
         </div>
       )}
       <button
@@ -86,9 +89,7 @@ function LeafletMap() {
         Back to Center
       </button>
     </section>
-  )
+  );
 }
 
 export default LeafletMap;
-
-

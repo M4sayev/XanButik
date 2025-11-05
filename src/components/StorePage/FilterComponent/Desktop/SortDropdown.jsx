@@ -1,4 +1,3 @@
-import React from "react";
 import { DEFAULT_SORT } from "../../../../constants/constants";
 
 function SortDropdown({

@@ -1,4 +1,3 @@
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";
 

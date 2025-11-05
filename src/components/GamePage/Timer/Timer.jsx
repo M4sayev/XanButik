@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HourGlass from "../../../assets/game/hourglass.svg?react";
 import "./Timer.css";
 import { formatTime } from "../../../utils/utils";

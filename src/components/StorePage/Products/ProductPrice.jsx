@@ -1,4 +1,3 @@
-import React from "react";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 
 function ProductPrice({ discountPercent, price }) {
