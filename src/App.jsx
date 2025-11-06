@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext, useState } from "react";
+import { useRef, useEffect, useContext, useState, useCallback } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -26,20 +26,23 @@ function App() {
   // Hide Navbar Footer on Game page
   const hideNavFooter = location.pathname === "/Game";
 
-  function handleClickOutside(event) {
-    if (
-      loginPopupRef.current &&
-      !loginPopupRef.current.contains(event.target)
-    ) {
-      setShowLogin(false);
-    }
-  }
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        loginPopupRef.current &&
+        !loginPopupRef.current.contains(event.target)
+      ) {
+        setShowLogin(false);
+      }
+    },
+    [setShowLogin]
+  );
 
-  function closeLoginPopup() {
+  const closeLoginPopup = useCallback(() => {
     document.body.classList.remove("body-menu-scroll");
     window.removeEventListener("mousedown", handleClickOutside);
     window.scrollTo({ top: 0 });
-  }
+  }, [handleClickOutside]);
 
   useEffect(() => {
     if (showLogin && loginPopupRef.current) {
@@ -49,7 +52,7 @@ function App() {
       closeLoginPopup();
     }
     return () => !isHamActive && closeLoginPopup();
-  }, [showLogin, isHamActive]);
+  }, [showLogin, isHamActive, handleClickOutside, closeLoginPopup]);
 
   useEffect(() => {
     function showTopBtn() {

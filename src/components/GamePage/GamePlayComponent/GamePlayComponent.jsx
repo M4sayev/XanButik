@@ -145,7 +145,7 @@ function GamePlayComponent() {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, []);
+  }, [addCoin]);
 
   function removeObject(id, type = "coin") {
     if (type === "coin") setCoins((prev) => prev.filter((c) => id !== c.id));

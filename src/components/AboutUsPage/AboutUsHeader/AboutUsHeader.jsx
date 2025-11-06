@@ -26,7 +26,7 @@ function AboutUsHeader() {
         )}`}
       >
         <h1 className="about-us-header-title std-heading">
-          Classic Men's Apparel Collection
+          Classic Men&apos;s Apparel Collection
         </h1>
         <p className="about-us-header-paragraph std-paragraph">
           Discover our curated collection of classic men&apos;s apparel, where

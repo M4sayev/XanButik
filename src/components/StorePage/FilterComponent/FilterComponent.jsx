@@ -44,7 +44,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     }
 
     setFilters(resetFilters);
-  }, [currentCategory]);
+  }, [currentCategory, setFilters]);
 
   function toggleDropDown(dropdownName) {
     setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
@@ -66,7 +66,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
         setIsDropDownOverflowing(overflows);
       }
     }
-  }, [openDropdown]);
+  }, [openDropdown, setIsDropDownOverflowing, isDropDownOverflowing]);
 
   // handle click outside dropdown
   useEffect(() => {
@@ -88,7 +88,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
       clearTimeout(timeoutId);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [openDropdown]);
+  }, [openDropdown, setIsDropDownOverflowing]);
 
   function handleSortOptionSelect(option) {
     setSortOptions(option);

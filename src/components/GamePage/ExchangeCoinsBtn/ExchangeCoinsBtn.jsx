@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import XanCoin from "../../../assets/game/xn_coin.svg?react";
 import GoldXanCoin from "../../../assets/game/xn_coin_gold.svg?react";
 import "./ExchangeCoinsBtn.css";
@@ -41,26 +41,29 @@ function ExchangeCoinsBtn() {
       : "dropdown-disabled"
     : "";
 
-  function handleClickOutside(event) {
-    const dropdownEl = dropdownRef.current;
-    const buttonEl = balanceButtonRef.current;
-    const confirmEl = confiramtionPopupRef.current;
+  const handleClickOutside = useCallback(
+    (event) => {
+      const dropdownEl = dropdownRef.current;
+      const buttonEl = balanceButtonRef.current;
+      const confirmEl = confiramtionPopupRef.current;
 
-    if (isDropDownOpen) {
-      if (
-        !dropdownEl.contains(event.target) &&
-        !buttonEl.contains(event.target) &&
-        (!confirmEl || !confirmEl.contains(event.target))
-      ) {
-        setIsConfirmationOpen(false);
-        setIsDropDownOpen(false);
+      if (isDropDownOpen) {
+        if (
+          !dropdownEl.contains(event.target) &&
+          !buttonEl.contains(event.target) &&
+          (!confirmEl || !confirmEl.contains(event.target))
+        ) {
+          setIsConfirmationOpen(false);
+          setIsDropDownOpen(false);
+        }
       }
-    }
-  }
+    },
+    [isDropDownOpen, setIsConfirmationOpen, setIsDropDownOpen]
+  );
   useEffect(() => {
     window.addEventListener("mousedown", handleClickOutside);
     return () => window.removeEventListener("mousedown", handleClickOutside);
-  }, [isDropDownOpen]);
+  }, [isDropDownOpen, handleClickOutside]);
 
   function closeDropdowns() {
     setIsConfirmationOpen(false);

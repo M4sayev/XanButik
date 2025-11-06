@@ -65,7 +65,7 @@ function CouponsModal({
       clearTimeout(timeout);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [setCouponModalOpen]);
 
   return (
     <div className="coupons-modal" ref={couponModalRef}>

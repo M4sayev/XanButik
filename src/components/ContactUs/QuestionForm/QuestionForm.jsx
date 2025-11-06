@@ -50,10 +50,7 @@ function QuestionForm() {
     phone: "",
     notes: "",
   };
-  const { form, setForm, errors, setErrors, handleChange } = useForm(
-    formData,
-    {}
-  );
+  const { form, setForm, errors, setErrors, handleChange } = useForm(formData);
 
   function handleQuestionSubmit(e) {
     e.preventDefault();

@@ -28,7 +28,10 @@ function SortFilterMobile({
   );
 
   // reset secondaryFilters when category changes
-  useEffect(() => setSecondaryFilters(DEFAULT_RESET_FILTER), [currentCategory]);
+  useEffect(
+    () => setSecondaryFilters(DEFAULT_RESET_FILTER),
+    [currentCategory, setSecondaryFilters]
+  );
 
   function handleSelectSecondaryOption(option) {
     setSecondaryFilters((prev) => {
