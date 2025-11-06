@@ -27,7 +27,7 @@ function FeaturedItems() {
             Featured items
           </p>
           <h1 className="featured-items-heading std-heading">
-            Everyone's favourite
+            Everyone&apos;s favourite
           </h1>
         </div>
         <div className="featured-items-imgs-grid">

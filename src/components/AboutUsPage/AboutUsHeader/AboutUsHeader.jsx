@@ -29,7 +29,7 @@ function AboutUsHeader() {
           Classic Men's Apparel Collection
         </h1>
         <p className="about-us-header-paragraph std-paragraph">
-          Discover our curated collection of classic men's apparel, where
+          Discover our curated collection of classic men&apos;s apparel, where
           timeless elegance meets modern sophistication. From tailored suits to
           versatile shirts, our selection offers premium quality and impeccable
           style, ensuring you make a lasting impression with every outfit.

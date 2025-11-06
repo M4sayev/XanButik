@@ -1,8 +1,4 @@
 // Logo
-
-import logo_black_bg from "./logo_black_bg.jpg";
-import logo_no_bg from "./logo_no_bg.png";
-
 import logo_sheki_bg from "./logo_sheki_bg.jpg";
 import logo_no_frame from "./logo_no_frame.png";
 
@@ -19,8 +15,6 @@ import brand_company_eight from "./companies/brand_company_eight.png";
 
 // -----Home Page----- //
 
-import header_image from "./header_imgs/header_image.jpg";
-
 import tie_image from "./header_imgs/tie_image.jpg";
 import shirts_img from "./header_imgs/shirts_img.jpg";
 import shirts_front from "./header_imgs/shirts_front.jpg";
@@ -34,7 +28,6 @@ import tshirt_category_preview from "./header_imgs/tshirt_category_preview.jpg";
 import shirts_category_preview from "./header_imgs/shirts_category_preview.jpg";
 import pants_category_preview from "./header_imgs/pants_category_preview.jpg";
 import all_category_preview from "./header_imgs/all_category_preview.jpg";
-import lv_tracksuit from "./header_imgs/lv_tracksuit.jpg";
 
 // services icons
 import services_icon_one from "./services_icons/services_icon_one.png";

@@ -12,7 +12,7 @@ function CouponsModal({
   setAppliedCouponId,
   appliedCouponId,
 }) {
-  const { boughtCoupons, setBoughtCoupons } = useContext(StoreContext);
+  const { boughtCoupons } = useContext(StoreContext);
   const couponModalRef = useRef(null);
   const firstEl = useRef(null);
 

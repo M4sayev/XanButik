@@ -4,7 +4,6 @@ import PasswordInput from "./PasswordInput";
 function LoginForm({
   errors,
   handleChange,
-  currentState,
   form,
   showPassword,
   setShowPassword,

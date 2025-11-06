@@ -4,8 +4,6 @@ import useTimedResetState from "use-timed-reset-state";
 import { defaultCoupons } from "../assets/game/gameAssets";
 import { GameContext } from "./GameContext";
 
-import PropTypes from "prop-types";
-
 function GameContextProvider(props) {
   const [isGameGoing, setIsGameGoing] = useState(false);
 
@@ -71,9 +69,5 @@ function GameContextProvider(props) {
     </GameContext.Provider>
   );
 }
-
-GameContextProvider.propTypes = {
-  children: PropTypes.node,
-};
 
 export default GameContextProvider;

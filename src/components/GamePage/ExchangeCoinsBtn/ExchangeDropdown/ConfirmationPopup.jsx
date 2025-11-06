@@ -4,18 +4,9 @@ import { GameContext } from "../../../../context/GameContext";
 import { defaultCoupons } from "../../../../assets/game/gameAssets";
 import { toast } from "react-toastify";
 
-function ConfirmationPopup({
-  confiramtionPopupRef,
-  boughtCoupons,
-  setBoughtCoupons,
-}) {
-  const {
-    setIsConfirmationOpen,
-    setBalance,
-    couponSelected,
-    setCoupons,
-    coupons,
-  } = useContext(GameContext);
+function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
+  const { setIsConfirmationOpen, setBalance, couponSelected, setCoupons } =
+    useContext(GameContext);
   const handleBuyCoupon = () => {
     setBalance((prevBalance) => {
       const { price } = defaultCoupons.find(
@@ -81,7 +72,7 @@ function ConfirmationPopup({
         </h2>
 
         <p id="confirmation-popup-description" className="std-paragraph">
-          You won't be able to get your coins back after this
+          You won&apos;t be able to get your coins back after this
         </p>
         <div className="confimation-popup-btns-container">
           <button className="std-hud-btn yes-btn" onClick={handleBuyCoupon}>

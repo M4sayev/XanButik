@@ -23,7 +23,7 @@ function MobileSortButton({ sortOptions, setSortOptions }) {
         onChange={(e) => setSortOptions(e.target.value)}
       >
         <option value="Recommended">Recommended</option>
-        <option value="What's new">What's New</option>
+        <option value="What's new">What&apos;s New</option>
         <option value="Price low to high">Price low to high</option>
         <option value="Price high to low">Price high to low</option>
       </select>

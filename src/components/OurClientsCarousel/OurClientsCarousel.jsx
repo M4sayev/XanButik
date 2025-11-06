@@ -35,8 +35,8 @@ function OurClientsCarousel({ bg }) {
           <p className="text-container-paragraph std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
-            stylish clothes that will update your wardrobe. Whether you're
-            looking for a classic staple or something trendier, there's
+            stylish clothes that will update your wardrobe. Whether you&apos;re
+            looking for a classic staple or something trendier, there&apos;s
             something here just for you.
           </p>
         </div>

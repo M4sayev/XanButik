@@ -22,11 +22,11 @@ function Header() {
         className={`header-contents ${handleAnimation(headerInView)}`}
       >
         <h1 className="header-title std-heading">
-          Xan Butik: Elevating Men's Style
+          Xan Butik: Elevating Men&apos;s Style
         </h1>
         <p className="header-description std-paragraph mi-auto">
-          Discover Xan Butik's dedication to quality, style, and sophisticaion
-          in modern menswear fashion online
+          Discover Xan Butik&apos;s dedication to quality, style, and
+          sophisticaion in modern menswear fashion online
         </p>
         <div className="header-widgets-container">
           <Button

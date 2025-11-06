@@ -35,7 +35,7 @@ function Welcome() {
             Welcome
           </h1>
           <p className="welcome-main-text-paragraph std-paragraph">
-            Discover Xan Butik, your go-to destination for men's fashion in
+            Discover Xan Butik, your go-to destination for men&apos;s fashion in
             Sheki, Azerbaijan. With a commitment to affordable prices, loyalty
             programs, and exceptional customer service, we offer a curated
             selection of stylish pieces to elevate your wardrobe. Shop now for

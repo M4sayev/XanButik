@@ -7,7 +7,6 @@ import {
   DEFAULT_SORT,
 } from "../constants/constants";
 import { toast } from "react-toastify";
-import PropTypes from "prop-types";
 import { StoreContext } from "./StoreContext";
 
 function StoreContextProvider(props) {
@@ -180,9 +179,5 @@ function StoreContextProvider(props) {
     </StoreContext.Provider>
   );
 }
-
-StoreContextProvider.propTypes = {
-  children: PropTypes.node,
-};
 
 export default StoreContextProvider;

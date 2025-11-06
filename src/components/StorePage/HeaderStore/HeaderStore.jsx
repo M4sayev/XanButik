@@ -46,10 +46,12 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
                 textInView
               )}`}
             >
-              <h1 className="std-heading clr-white">Men's Brandy Apparel</h1>
+              <h1 className="std-heading clr-white">
+                Men&apos;s Brandy Apparel
+              </h1>
               <p className="store-header-p | std-paragraph clr-white">
                 Discover our exquisite collection of menswear. From classic to
-                casual clothes, we've got you covered.
+                casual clothes, we&apos;ve got you covered.
               </p>
             </article>
           </div>

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
-const Button = ({ onClick, children, as: Component = "button", ...rest }) => {
+const Button = ({ children, as: Component = "button", ...rest }) => {
   const { setCurrentPage } = useContext(StoreContext);
 
   function handleMenuItemChange(event) {

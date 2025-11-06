@@ -3,7 +3,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import { COLOR_MAP } from "../../../constants/constants";
 import { useState } from "react";
 
-function StarRatingInput({ onChange, value, focusable = true }) {
+function StarRatingInput({ onChange, focusable = true }) {
   const gold = COLOR_MAP["Gold"];
   const [rating, setRating] = useState(0);
 

@@ -25,7 +25,8 @@ function TestimonialsHeader() {
             Our results
           </h1>
           <p className="std-paragraph mi-auto">
-            We're proud of what we've achieved, but we're not stopping there.
+            We&apos;re proud of what we&apos;ve achieved, but we&apos;re not
+            stopping there.
           </p>
         </div>
         <div className="testimonials-widgets-container">

@@ -17,7 +17,7 @@ function EmptyCartMessage() {
         aria-hidden="true"
         style={{ color: "var(--clr-primary-900)" }}
       />
-      <p>Looks like you haven't added any items to your cart yet.</p>
+      <p>Looks like you haven&apos;t added any items to your cart yet.</p>
       <p className="wishlist-cta-text">
         Browse our products and start shopping!
       </p>

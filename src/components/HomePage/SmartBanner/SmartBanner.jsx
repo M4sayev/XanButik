@@ -18,10 +18,11 @@ function SmartBanner() {
       >
         <article className="smart-banner-text-container">
           <h1 className="smart-banner-cta-title std-heading-cta">
-            Don't miss out on these amazing deals!
+            Don&apos;t miss out on these amazing deals!
           </h1>
           <p className="smart-banner-cta-paragraph std-paragraph">
-            We are proud of what we've achieved, but we are not stopping there.
+            We are proud of what we&apos;ve achieved, but we are not stopping
+            there.
           </p>
         </article>
         <Button
