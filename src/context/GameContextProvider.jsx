@@ -7,9 +7,10 @@ import { GameContext } from "./GameContext";
 function GameContextProvider(props) {
   const [isGameGoing, setIsGameGoing] = useState(false);
 
+  // interval actually supposed to be 1 day, but to test the game for viewers
   const [isGamePlayedToday, setIsGamePlayedToday] = useTimedResetState(
     false,
-    { interval: "day" },
+    { interval: "custom", msInterval: 30000 },
     "gameplayed"
   );
   // timer remaining time for the game page
