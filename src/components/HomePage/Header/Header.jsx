@@ -12,11 +12,18 @@ function Header() {
   });
 
   return (
-    <header className="home-page-header">
+    <header className="home-page-header" role="banner">
       <Parallax
         speed={-15}
         className="header-parallax-bg header-bg-animate"
       ></Parallax>
+
+      {/* screen readers */}
+      <img
+        src="/header_imgs/header_image.webp"
+        alt="Xan Butik stylish menswear collection"
+        className="visually-hidden"
+      />
       <div
         ref={headerContentsRef}
         className={`header-contents ${handleAnimation(headerInView)}`}
@@ -26,7 +33,7 @@ function Header() {
         </h1>
         <p className="header-description std-paragraph mi-auto">
           Discover Xan Butik&apos;s dedication to quality, style, and
-          sophisticaion in modern menswear fashion online
+          sophistication in modern menswear fashion online
         </p>
         <div className="header-widgets-container">
           <Button
@@ -34,6 +41,7 @@ function Header() {
             id="LearnMore"
             to="/About"
             className="widget-learn-more-btn std-button"
+            aria-label="Navigate to about page"
           >
             learn more
           </Button>
@@ -43,6 +51,7 @@ function Header() {
             to="/Store"
             data-type="inverted"
             className="widget-shop-now-btn std-button"
+            aria-label="Shop Menswear Collection"
           >
             shop now
           </Button>
