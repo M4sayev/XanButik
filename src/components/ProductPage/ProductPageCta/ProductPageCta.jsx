@@ -9,9 +9,9 @@ import { useEscapeKey } from "../../../hooks/useEscapeKey.js";
 
 import "./ProductPageCta.css";
 import "./../../StorePage/Products/Product.css";
-import "./ReviewModal.css";
+import "./Reviews/ReviewModal.css";
 
-import ReviewsModal from "./ReviewsModal.jsx";
+import ReviewsModal from "./Reviews/ReviewsModal.jsx";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
 import { StoreContext } from "../../../context/StoreContext.jsx";
 import { useWishlist } from "../../../hooks/useWishlist.js";

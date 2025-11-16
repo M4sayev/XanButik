@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { IoClose } from "react-icons/io5";
-import StarRating from "../StarRating/StarRating";
+import StarRating from "../../StarRating/StarRating.jsx";
 import { IoMdAdd } from "react-icons/io";
-import StarRatingInput from "../StarRating/StarRatingInput";
+import StarRatingInput from "../../StarRating/StarRatingInput.jsx";
 import { Controller, useForm } from "react-hook-form";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
-import { StoreContext } from "../../../context/StoreContext.jsx";
+import ErrorMessage from "../../../ErrorMessage/ErrorMessage.jsx";
+import { StoreContext } from "../../../../context/StoreContext.jsx";
+import Reviews from "./Reviews.jsx";
+import AddReviewBtn from "./AddReviewBtn.jsx";
 
 function ReviewsModal({
   setShowReviews,
@@ -44,28 +46,27 @@ function ReviewsModal({
     setOpenAddReview(false);
   };
 
+  const sortedReviews = useMemo(
+    () =>
+      currentProduct.reviews.toSorted(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      ),
+    [currentProduct.reviews]
+  );
+
   return (
-    <div className="reviews-modal-component">
+    <div
+      className="reviews-modal-component"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reviews-heading"
+    >
       <div
         className={`add-product-review-container ${
           openAddReview && "add-review--active"
         }`}
       >
-        <div className="add-product-review-btn">
-          <span className="btn-text">Add a Review</span>
-          <button
-            type="button"
-            className="add-btn"
-            aria-label="Add a new review"
-            onClick={() => setOpenAddReview(true)}
-          >
-            <IoMdAdd
-              aria-hidden="true"
-              className="btn-icon"
-              style={{ color: "var(--clr-primary-900)", cursor: "pointer" }}
-            />
-          </button>
-        </div>
+        <AddReviewBtn setOpenAddReview={setOpenAddReview} />
         <form
           ref={addReviewModalRef}
           className={`add-review-form-container`}
@@ -156,70 +157,11 @@ function ReviewsModal({
           </button>
         </form>
       </div>
-      <div
-        className="pr-reviews-container"
-        role="document"
-        aria-labelledby="reviews-heading"
-        aria-describedby="reviews-description"
+      <Reviews
+        setShowReviews={setShowReviews}
         ref={reviewsModalRef}
-      >
-        <h1 id="reviews-heading" className="std-heading pr-modal-heading">
-          Product Reviews
-        </h1>
-        <div className="pr-paragraph-container">
-          <p
-            id="reviews-description"
-            className="std-paragraph pr-modal-paragraph"
-          >
-            Read what our customers are saying
-          </p>
-          <button
-            type="button"
-            className="icon-btn cross-icon"
-            onClick={() => setShowReviews(false)}
-            aria-label="Close the reviews modal"
-          >
-            <IoClose
-              aria-hidden="true"
-              style={{
-                width: "20px",
-                height: "20px",
-                color: "var(--clr-primary-900)",
-              }}
-            />
-          </button>
-        </div>
-        <div role="list" aria-label="Customer reviews">
-          {!reviews.length ? (
-            <div style={{ textAlign: "center", height: "2rem" }}>
-              No reviews yet
-            </div>
-          ) : (
-            currentProduct.reviews
-              .toSorted(
-                (a, b) =>
-                  new Date(b.date).getTime() - new Date(a.date).getTime()
-              )
-              .map((review, i) => (
-                <div
-                  className="product-review"
-                  key={i}
-                  role="listitem"
-                  tabIndex={0}
-                >
-                  <header className="product-review-header">
-                    <StarRating rating={review.rating} />
-                    <span className="product-review-date">{review.date}</span>
-                  </header>
-                  <p className="product-review-comment">{review.comment}</p>
-                  <span className="product-review-author">
-                    {review.username}
-                  </span>
-                </div>
-              ))
-          )}
-        </div>
-      </div>
+        sortedReviews={sortedReviews}
+      />
     </div>
   );
 }
