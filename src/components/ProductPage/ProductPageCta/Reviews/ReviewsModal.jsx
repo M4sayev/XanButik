@@ -1,7 +1,5 @@
 import { useContext, useMemo } from "react";
 import { IoClose } from "react-icons/io5";
-import StarRating from "../../StarRating/StarRating.jsx";
-import { IoMdAdd } from "react-icons/io";
 import StarRatingInput from "../../StarRating/StarRatingInput.jsx";
 import { Controller, useForm } from "react-hook-form";
 import ErrorMessage from "../../../ErrorMessage/ErrorMessage.jsx";
@@ -11,7 +9,6 @@ import AddReviewBtn from "./AddReviewBtn.jsx";
 
 function ReviewsModal({
   setShowReviews,
-  reviews,
   setOpenAddReview,
   openAddReview,
   addReviewModalRef,

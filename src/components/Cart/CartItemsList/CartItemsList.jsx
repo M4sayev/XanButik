@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./CartItemsList.css";
-import { FaTrashCan } from "react-icons/fa6";
-import { FiMinus, FiPlus } from "react-icons/fi";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
 import { StoreContext } from "../../../context/StoreContext";
+import CartItemControls from "./CartItemControls";
+import CartItemInfo from "./CartItemInfo";
 
 function CartItemsList({ cartItems, setCartItems }) {
   const { openProductPage } = useContext(StoreContext);
@@ -97,82 +97,23 @@ function CartItemsList({ cartItems, setCartItems }) {
             role="listitem"
             className="cart-item"
           >
-            <div className="cart-item-info-container">
-              <div className="img-wrapper">
-                <img src={img[0]} alt="" />
-              </div>
-              <div className="cart-item-details">
-                <h3 className="cart-item-name">{item.name}</h3>
-                <p className="cart-item-selectors">
-                  Size: {currentSize} | Color: {currentColor}
-                </p>
-                <p className="cart-item-price">
-                  {formatPrice(totalPrice)} each
-                </p>
-              </div>
-            </div>
-            <div className="cart-item-controls">
-              <div
-                className="cart-item-count-controls"
-                role="group"
-                aria-label={`Adjust quantity of ${name}`}
-              >
-                <button
-                  className="decrease-item-count"
-                  type="button"
-                  aria-label={`Decrease quantity of ${name}`}
-                  aria-controls={`item-count-${id}`}
-                  onClick={() =>
-                    handleDecreaseItemCount(
-                      id,
-                      count,
-                      currentColor,
-                      currentSize
-                    )
-                  }
-                >
-                  <FiMinus
-                    aria-hidden="true"
-                    style={{ color: "var(--clr-primary-900)" }}
-                  />
-                </button>
-                <span
-                  className="item-count"
-                  aria-live="polite"
-                  aria-atomic="true"
-                  id={`item-count-${id}`}
-                >
-                  {count}
-                </span>
-                <button
-                  className="increase-item-count"
-                  type="button"
-                  aria-label={`Increase quantity of ${name}`}
-                  aria-controls={`item-count-${id}`}
-                  onClick={() =>
-                    handleIncreaseItemCount(id, currentColor, currentSize)
-                  }
-                >
-                  <FiPlus
-                    aria-hidden="true"
-                    style={{ color: "var(--clr-primary-900)" }}
-                  />
-                </button>
-              </div>
-              <p className="cart-item-total-price" aria-label="Price per item">
-                {formatPrice(totalPrice * count)}
-              </p>
-              <button
-                className="remove-cart-item"
-                type="button"
-                aria-label={`Remove ${name} from cart`}
-                onClick={() =>
-                  handleDeleteCartItem(id, currentColor, currentSize)
-                }
-              >
-                <FaTrashCan aria-hidden="true" />
-              </button>
-            </div>
+            <CartItemInfo
+              preview={img[0]}
+              name={name}
+              currentSize={currentSize}
+              currentColor={currentColor}
+              totalPrice={totalPrice}
+            />
+            <CartItemControls
+              handleDecreaseItemCount={handleDecreaseItemCount}
+              name={name}
+              id={id}
+              currentColor={currentColor}
+              currentSize={currentSize}
+              count={count}
+              handleIncreaseItemCount={handleIncreaseItemCount}
+              totalPrice={totalPrice}
+            />
           </li>
         );
       })}

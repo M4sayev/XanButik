@@ -17,12 +17,12 @@ function OurResultsBanner() {
       role="region"
     >
       <article className="our-results-banner-content">
-        <h1
+        <h2
           id="our-results-heading"
           className="our-results-banner-content-title std-heading"
         >
           Our results
-        </h1>
+        </h2>
         <div className="results-widgets-line-row">
           <div
             ref={ourResultsRef}

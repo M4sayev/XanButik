@@ -28,12 +28,12 @@ function Welcome() {
           <p className="welcome-introductory-title std-paragraph std-subtitle-fs mi-auto">
             about us
           </p>
-          <h1
+          <h2
             className="welcome-section-text-title std-heading"
             id="welcome-heading"
           >
             Welcome
-          </h1>
+          </h2>
           <p className="welcome-main-text-paragraph std-paragraph">
             Discover Xan Butik, your go-to destination for men&apos;s fashion in
             Sheki, Azerbaijan. With a commitment to affordable prices, loyalty

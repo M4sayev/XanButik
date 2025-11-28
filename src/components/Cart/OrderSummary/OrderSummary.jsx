@@ -6,6 +6,8 @@ import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
 import { StoreContext } from "../../../context/StoreContext";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
+import OrderSummaryHeader from "./orderSummaryHeader";
+import CouponSection from "./CouponSection";
 
 function OrderSummary({ cartItems }) {
   const [appliedCouponId, setAppliedCouponId] = useState(() => {
@@ -80,36 +82,15 @@ function OrderSummary({ cartItems }) {
       aria-labelledby="order-summary-heading"
       role="complementary"
     >
-      <h1 className="order-summary-heading" id="order-summary-heading">
-        order Summary
-      </h1>
-      <div className="summary-item">
-        <p>Subtotal</p>
-        <span>{formatPrice(subTotalPrice)}</span>
-      </div>
-      <div className="summary-item">
-        <p>Shipping</p>
-        <span>{formatPrice(shippingCost)}</span>
-      </div>
-      <div
-        className="summary-item"
-        style={couponInfo === null ? { display: "none" } : {}}
-      >
-        <p>
-          Coupon Applied
-          <button
-            type="button"
-            className="remove-coupon-btn"
-            aria-label="Remove the current coupon"
-            onClick={handleRemoveCurrentCoupon}
-          >
-            [remove]
-          </button>
-        </p>
-        <span>
-          {formatCouponSummary(couponInfo?.text, couponInfo?.newValue)}
-        </span>
-      </div>
+      <OrderSummaryHeader
+        subTotalPrice={subTotalPrice}
+        shippingCost={shippingCost}
+      />
+      <CouponSection
+        handleRemoveCurrentCoupon={handleRemoveCurrentCoupon}
+        couponInfo={couponInfo}
+        formatCouponSummary={formatCouponSummary}
+      />
       <div className="summary-item summary-total">
         <p>Total</p>
         <span>{formatPrice(totalPrice)}</span>

@@ -88,7 +88,6 @@ function App() {
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Store/ProductPage" element={<ProductPage />} />
-          <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Game" element={<Game />} />
         </Routes>
         <ScrollToTop showScrollTopBtn={showScrollTopBtn} />

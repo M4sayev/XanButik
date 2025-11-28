@@ -2,6 +2,7 @@ import "./TestimonialsOurClients.css";
 import { ourBrandCompanies } from "../../../assets/assets";
 import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";
+import OurClientItem from "./OurClientItem";
 
 function TestimonialsOurClients() {
   const { ref: tOurClientsTextRef, inView: tOurClientsTexInView } = useInView({
@@ -9,21 +10,21 @@ function TestimonialsOurClients() {
     triggerOnce: true,
   });
   return (
-    <section
+    <div
       className="testimonials-our-clients"
       aria-labelledby="our-clients-heading"
       role="region"
     >
       <div className="t-our-client-contents">
-        <div
+        <section
           ref={tOurClientsTextRef}
           className={`t-our-clients-text-container ${handleAnimation(
             tOurClientsTexInView
           )}`}
         >
-          <h1 id="our-clients-heading" className="std-heading">
+          <h2 id="our-clients-heading" className="std-heading">
             Our clients
-          </h1>
+          </h2>
           <p className="std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
@@ -31,30 +32,15 @@ function TestimonialsOurClients() {
             looking for a classic staple or something trendier, there&apos;s
             something here just for you.
           </p>
-        </div>
+        </section>
         <ul className="t-our-results-grid" role="list">
-          {ourBrandCompanies.map((clientItem, index) => {
-            const { ref: clientItemRef, inView: clientItemInView } = useInView({
-              threshold: 0.5,
-              triggerOnce: true,
-            });
-            const { img, brandName } = clientItem;
-            return (
-              <div
-                ref={clientItemRef}
-                key={index}
-                className={`client-item-container ${handleAnimation(
-                  clientItemInView
-                )}`}
-                aria-label={`Logo of ${brandName}`}
-              >
-                <img src={img} aria-hidden="true" />
-              </div>
-            );
+          {ourBrandCompanies.map((clientItem) => {
+            const { img, brandName, id } = clientItem;
+            return <OurClientItem key={id} src={img} brandName={brandName} />;
           })}
         </ul>
       </div>
-    </section>
+    </div>
   );
 }
 

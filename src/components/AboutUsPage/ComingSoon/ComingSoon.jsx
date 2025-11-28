@@ -4,7 +4,7 @@ import { videoBg } from "../../../assets/assets";
 import ProgressBar from "./ProgressBar";
 
 function ComingSoon() {
-  const endDate = new Date(2025, 10, 23, 15, 0, 0);
+  const endDate = new Date(2025, 11, 23, 15, 0, 0);
 
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
@@ -13,10 +13,14 @@ function ComingSoon() {
         aria-label="Countdown to launch"
         aria-live="polite"
       >
-        <span>{zeroPad(days)}</span>
-        <span>{zeroPad(hours)}</span>
-        <span>{zeroPad(minutes)}</span>
-        <span>{zeroPad(seconds)}</span>
+        <span aria-label={`${zeroPad(days)} days`}>{zeroPad(days)}</span>
+        <span aria-label={`${zeroPad(hours)} hours`}>{zeroPad(hours)}</span>
+        <span aria-label={`${zeroPad(minutes)} minutes`}>
+          {zeroPad(minutes)}
+        </span>
+        <span aria-label={`${zeroPad(seconds)} seconds`}>
+          {zeroPad(seconds)}
+        </span>
       </div>
     );
   };
@@ -25,12 +29,12 @@ function ComingSoon() {
     <section className="coming-soon" aria-labelledby="coming-soon-heading">
       <div className={`coming-soon-contents`}>
         <div className="coming-soon-text-container">
-          <h1
+          <h2
             id="coming-soon-heading"
             className="coming-soon-title std-heading"
           >
             Coming Soon
-          </h1>
+          </h2>
           <p className="coming-soon-paragraph">
             We&#8217;re proud of what we&#8217;ve achieved, but we&#8217;re not
             stopping there.

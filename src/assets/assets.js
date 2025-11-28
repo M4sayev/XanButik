@@ -89,34 +89,42 @@ export const assets = {
 
 export const ourBrandCompanies = [
   {
+    id: "company-brand-1",
     brandName: "Elegance",
     img: brand_company_one,
   },
   {
+    id: "company-brand-2",
     brandName: "Rolestigana",
     img: brand_company_two,
   },
   {
+    id: "company-brand-3",
     brandName: "Blanco Y Negro",
     img: brand_company_three,
   },
   {
+    id: "company-brand-3",
     brandName: "Clean Sleep",
     img: brand_company_four,
   },
   {
+    id: "company-brand-4",
     brandName: "Dame Elegante",
     img: brand_company_five,
   },
   {
+    id: "company-brand-5",
     brandName: "Lullaby",
     img: brand_company_six,
   },
   {
+    id: "company-brand-6",
     brandName: "Knitted Dreams",
     img: brand_company_seven,
   },
   {
+    id: "company-brand-7",
     brandName: "roberto cavalli",
     img: brand_company_eight,
   },

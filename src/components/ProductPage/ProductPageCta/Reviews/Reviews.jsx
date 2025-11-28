@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import NoReviews from "./NoReviews";
 import Review from "./Review";
 import { IoClose } from "react-icons/io5";
