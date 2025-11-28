@@ -6,8 +6,8 @@ import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import CouponsModal from "../CouponsModal/CouponsModal";
 import { StoreContext } from "../../../context/StoreContext";
 import { calculateDiscountPrice, formatPrice } from "../../../utils/utils";
-import OrderSummaryHeader from "./orderSummaryHeader";
 import CouponSection from "./CouponSection";
+import OrderSummaryHeader from "./SummaryHeader";
 
 function OrderSummary({ cartItems }) {
   const [appliedCouponId, setAppliedCouponId] = useState(() => {
