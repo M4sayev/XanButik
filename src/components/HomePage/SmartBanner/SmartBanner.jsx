@@ -17,9 +17,9 @@ function SmartBanner() {
         className={`smart-banner-container ${handleAnimation(bannerInView)}`}
       >
         <article className="smart-banner-text-container">
-          <h1 className="smart-banner-cta-title std-heading-cta">
+          <h2 className="smart-banner-cta-title std-heading-cta">
             Don&apos;t miss out on these amazing deals!
-          </h1>
+          </h2>
           <p className="smart-banner-cta-paragraph std-paragraph">
             We are proud of what we&apos;ve achieved, but we are not stopping
             there.

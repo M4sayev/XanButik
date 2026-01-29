@@ -26,9 +26,9 @@ function FeaturedItems() {
           <p className="std-paragraph std-subtitle-fs mi-auto">
             Featured items
           </p>
-          <h1 className="featured-items-heading std-heading">
+          <h2 className="featured-items-heading std-heading">
             Everyone&apos;s favourite
-          </h1>
+          </h2>
         </div>
         <div className="featured-items-imgs-grid">
           {favoriteItems.map((item, index) => {

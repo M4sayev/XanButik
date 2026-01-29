@@ -43,7 +43,7 @@ function ServicesBanner() {
         className={`services-container ${handleAnimation(servicesInView)}`}
       >
         {services.map((service, index) => (
-          <article key={index}>
+          <article key={`sb-our-service-${index}`}>
             <img src={service.icon} alt={service.alt} />
             <p>{service.label}</p>
           </article>

@@ -12,9 +12,9 @@ function Reviews({ setShowReviews, sortedReviews }, ref) {
       aria-describedby="reviews-description"
       ref={ref}
     >
-      <h1 id="reviews-heading" className="std-heading pr-modal-heading">
+      <h2 id="reviews-heading" className="std-heading pr-modal-heading">
         Product Reviews
-      </h1>
+      </h2>
       <div className="pr-paragraph-container">
         <p
           id="reviews-description"
