@@ -33,11 +33,8 @@ function ServicesBanner() {
   ];
 
   return (
-    <section
-      className="services-banner"
-      role="region"
-      aria-label="Services Offered"
-    >
+    <section className="services-banner">
+      <h2 className="visually-hidden">Services offered</h2>
       <div
         ref={servicesRef}
         className={`services-container ${handleAnimation(servicesInView)}`}

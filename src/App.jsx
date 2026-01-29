@@ -35,7 +35,7 @@ function App() {
         setShowLogin(false);
       }
     },
-    [setShowLogin]
+    [setShowLogin],
   );
 
   const closeLoginPopup = useCallback(() => {

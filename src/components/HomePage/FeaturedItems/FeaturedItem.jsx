@@ -16,7 +16,7 @@ function FeaturedItem({ img, name, price, layoutClass }) {
       ref={ref}
     >
       <img src={img} alt={`Featured item: ${name}`} aria-hidden="true" />
-      <span className="price-popup">
+      <span className="price-popup" aria-hidden="true">
         <p className="item-name">{name}</p>
         <p className="item-price-usd">
           {price}

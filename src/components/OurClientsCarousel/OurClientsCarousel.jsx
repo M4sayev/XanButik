@@ -14,24 +14,15 @@ function OurClientsCarousel({ bg }) {
   });
 
   return (
-    <section
-      className="carousel-section"
-      data-type={bg}
-      aria-labelledby="our-clients-heading"
-    >
+    <section className="carousel-section" data-type={bg}>
       <div
         ref={carouselSecRef}
         className={`carousel-section-contents ${handleAnimation(
-          carouselSecInView
+          carouselSecInView,
         )}`}
       >
         <div className="text-container">
-          <h2
-            id="our-clients-heading"
-            className="text-container-title std-heading"
-          >
-            Our Clients
-          </h2>
+          <h2 className="text-container-title std-heading">Our Clients</h2>
           <p className="text-container-paragraph std-paragraph mi-auto">
             Welcome to our clients section - the perfect place for
             fashionably-minded men everywhere! Here you can explore an array of
@@ -64,8 +55,6 @@ function OurClientsCarousel({ bg }) {
             a11y={{
               enabled: true,
             }}
-            role="region"
-            aria-label="Client logos carousel"
             keyboard={{
               enabled: true,
               onlyInViewport: true,

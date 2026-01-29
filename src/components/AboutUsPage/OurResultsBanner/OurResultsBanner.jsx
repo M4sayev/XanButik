@@ -27,7 +27,7 @@ function OurResultsBanner() {
           <div
             ref={ourResultsRef}
             className={`results-widgets-container ${handleAnimation(
-              resultsInView
+              resultsInView,
             )}`}
             role="list"
             aria-label="List of key achievements and results"

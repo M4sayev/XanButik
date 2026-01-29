@@ -17,5 +17,5 @@ createRoot(document.getElementById("root")).render(
         </StoreContextProvider>
       </StrictMode>
     </ParallaxProvider>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

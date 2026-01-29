@@ -17,13 +17,10 @@ function TestimonialsHeader() {
       className={`testimonials-header ${
         testHeaderInView ? "testimonials-header-animate-in" : ""
       }`}
-      aria-labelledby="our-results-heading"
     >
       <div className="testimonials-contents">
         <div className="testimonials-text-container">
-          <h1 id="our-results-heading" className="std-heading">
-            Our results
-          </h1>
+          <h1 className="std-heading">Our results</h1>
           <p className="std-paragraph mi-auto">
             We&apos;re proud of what we&apos;ve achieved, but we&apos;re not
             stopping there.

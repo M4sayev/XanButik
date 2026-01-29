@@ -24,7 +24,7 @@ function LoginPopup({ formRef }) {
   };
   const { form, errors, setForm, setErrors, handleChange } = useForm(
     formSchema,
-    {}
+    {},
   );
 
   function handleOnSubmit(e) {
@@ -124,8 +124,15 @@ function LoginPopup({ formRef }) {
         )}
 
         <FormFooter
-          currentState={currentState}
-          setCurrentState={setCurrentState}
+          submitLabel={currentState === "Sign Up" ? "Create account" : "Login"}
+          suggestionText={
+            currentState === "Login"
+              ? "Create a new account?"
+              : "Already have an account?"
+          }
+          onSwitch={() =>
+            setCurrentState(currentState === "Login" ? "Sign Up" : "Login")
+          }
         />
       </form>
     </div>

@@ -14,7 +14,7 @@ function Header() {
   return (
     <header className="home-page-header" role="banner">
       <Parallax
-        speed={-15}
+        speed={-5}
         className="header-parallax-bg header-bg-animate"
       ></Parallax>
 
