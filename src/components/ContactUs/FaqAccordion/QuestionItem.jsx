@@ -27,15 +27,7 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index }) {
         className="faq-accordion-head"
         aria-expanded={!isCollapsed}
         aria-controls={`faq-content-${id}`}
-        onKeyDown={(e) => {
-          const articles = Array.from(
-            document.querySelectorAll(".faq-accordion-item")
-          );
-          const currentIndex = articles.findIndex(
-            (el) => el.id === `article-${index}`
-          );
-          handleArrows(e, currentIndex);
-        }}
+        onKeyDown={(e) => handleArrows(e, index)}
       >
         <h2 className="std-subtitle-fs faq-accordion-question">{question}</h2>
         <i>
@@ -49,9 +41,7 @@ function QuestionItem({ question, ans, isFiltered, handleArrows, index }) {
         </i>
       </button>
       <div
-        role="region"
         id={`faq-content-${id}`}
-        aria-labelledby={`faq-button-${id}`}
         className={`faq-accordion-body ${
           !isCollapsed ? "faq-accordion-body-show" : ""
         }`}

@@ -6,10 +6,9 @@ function FaqCategoryItem({
   index,
 }) {
   return (
-    <li key={category} role="presentation">
+    <li role="tab">
       <button
         onKeyDown={(e) => handleKeyDown(e, index)}
-        tabIndex={0}
         aria-selected={activeCategory === category}
         className={`faq-category-item ${
           activeCategory === category ? "category-active" : ""

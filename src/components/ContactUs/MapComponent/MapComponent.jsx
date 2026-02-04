@@ -15,14 +15,14 @@ function LeafletMap() {
   useEffect(() => {
     mapRef.current = L.map("map", { scrollWheelZoom: false }).setView(
       center,
-      zoomLevel
+      zoomLevel,
     );
 
     const tileLayer = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
       {
         attribution: "&copy; OpenStreetMap contributors & CartoDB",
-      }
+      },
     );
 
     tileLayer.on("loading", () => {
@@ -45,9 +45,6 @@ function LeafletMap() {
     });
     L.marker(center, { icon: myIcon }).addTo(mapRef.current);
 
-    // Fallback: hide loader after 10 seconds if loading never finishes
-    loadingTimeoutRef.current = setTimeout(() => setLoading(false), 10000);
-
     return () => {
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
@@ -64,21 +61,22 @@ function LeafletMap() {
 
   return (
     <section className="widget-map-section">
-      <div id="map-description" className="visually-hidden">
-        This is an interactive map centered on [location name]. Use the button
-        below to re-center the map.
-      </div>
+      <h2 id="map-description" className="visually-hidden">
+        This is an interactive map centered on Xan Butik Store - Azerbaijan,
+        Sheki, coordinates: 41.2015, 47.183. Use the button below to re-center
+        the map.
+      </h2>
       <div
         id="map"
         role="application"
         tabIndex="0"
         style={{ height: "80vh", width: "100%" }}
         aria-labelledby="map-description"
-        aria-label="Interactive map centered on [location name or coordinates]"
+        aria-label="Interactive map centered on 41.2015, 47.183"
       ></div>
       {loading && (
         <div className="map-loading" aria-live="polite" aria-busy="true">
-          <h1 className="std-heading">Loading...</h1>
+          <h2 className="std-heading">Loading...</h2>
         </div>
       )}
       <button

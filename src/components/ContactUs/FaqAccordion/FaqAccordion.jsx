@@ -6,6 +6,11 @@ import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";
 import FaqCategoryItem from "./FaqCategoryItem";
 
+const allCategories = [
+  "All Questions",
+  ...new Set(askedQuestions.map((item) => item.category)),
+];
+
 function FaqAccordion() {
   const [accordionItems, setAccordionItems] = useState(askedQuestions);
   const [activeCategory, setActiveCategory] = useState("All Questions");
@@ -16,11 +21,6 @@ function FaqAccordion() {
     triggerOnce: true,
   });
 
-  const allCategories = [
-    "All Questions",
-    ...new Set(askedQuestions.map((item) => item.category)),
-  ];
-
   const filterItems = (category) => {
     // to collapse all the questions when the category changes
     setIsFiltered(true);
@@ -30,7 +30,7 @@ function FaqAccordion() {
       return;
     }
     const newAccordionItems = askedQuestions.filter(
-      (accordionItem) => accordionItem.category === category
+      (accordionItem) => accordionItem.category === category,
     );
     setAccordionItems(newAccordionItems);
 
@@ -57,7 +57,7 @@ function FaqAccordion() {
       }
       if (string === "first-question") {
         const firstQuestion = document.querySelector(
-          `.faq-accordion-item button`
+          `.faq-accordion-item button`,
         );
         if (firstQuestion) {
           firstQuestion.focus();
@@ -78,6 +78,7 @@ function FaqAccordion() {
     if (e.key === "ArrowLeft" && !isWideScreen) {
       focusAccordionEl("prev");
     }
+
     if (e.key === "ArrowDown") {
       e.preventDefault();
       if (!isWideScreen) {
@@ -106,7 +107,7 @@ function FaqAccordion() {
       targetIndex = (index - 1 + len) % len;
     }
     const targetEl = document.querySelector(
-      `[data-tab-index="article-button-${targetIndex}"]`
+      `[data-tab-index="article-button-${targetIndex}"]`,
     );
 
     if (targetEl) {
@@ -118,30 +119,32 @@ function FaqAccordion() {
   return (
     <section className="faq-accordion-section">
       <div className="faq-accordion-contents">
-        <h1
+        <h2
           ref={headingRef}
           className={`std-heading faq-heading ${handleAnimation(
-            headingInView
+            headingInView,
           )}`}
         >
           Frequently asked questions
-        </h1>
+        </h2>
         <div className="faq-accordion-container">
           <ul className="faq-question-categories" role="tablist">
             {allCategories.map((category, index) => (
               <FaqCategoryItem
+                key={category}
                 category={category}
+                activeCategory={activeCategory}
                 index={index}
                 handleKeyDown={handleKeyDown}
                 handleQuestionSelected={handleQuestionSelected}
               />
             ))}
           </ul>
-          <div className="faq-accordion">
+          <ul className="faq-accordion">
             {accordionItems.map((questionItem, index) => {
               return (
                 <QuestionItem
-                  key={index}
+                  key={questionItem.id}
                   id={`question-item-${index}`}
                   {...questionItem}
                   isFiltered={isFiltered}
@@ -150,7 +153,7 @@ function FaqAccordion() {
                 />
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
