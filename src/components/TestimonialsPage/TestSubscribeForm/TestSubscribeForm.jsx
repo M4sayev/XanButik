@@ -4,6 +4,7 @@ import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 import { toast } from "react-toastify";
 import { handleAnimation } from "../../../utils/utils";
+import { validateEmail } from "../../../utils/validate";
 
 function TestSubscribeForm() {
   const { ref: sFormRef, inView: sFormInView } = useInView({
@@ -19,11 +20,12 @@ function TestSubscribeForm() {
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    const email = value.trim();
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    const emailError = validateEmail(value);
+    if (emailError !== "") {
       setValidEmail(false);
       return;
     }
+
     setValue("");
     notify();
   }
@@ -38,16 +40,16 @@ function TestSubscribeForm() {
       <Parallax
         speed={-10}
         className="sf-section-bg-container"
-        role="img"
+        aria-hidden="true"
       ></Parallax>
-      <article className="subscribe-form-contents">
+      <div className="subscribe-form-contents">
         <form
           onSubmit={handleOnSubmit}
           ref={sFormRef}
           className={`subscribe-form ${handleAnimation(sFormInView)}`}
           noValidate
         >
-          <h1 className="std-heading-cta">Subscribe form</h1>
+          <h2 className="std-heading-cta">Subscribe form</h2>
           <p className="std-paragraph mi-auto">
             Want to be in the know? Subscribe to a newsletter to get all news
             and weekly updates.
@@ -74,12 +76,12 @@ function TestSubscribeForm() {
           )}
           <button
             className="subscribe-btn std-button"
-            aria-label="Subscribe to newsletter"
+            aria-label="Subscribe to our newsletter"
           >
             Subscribe
           </button>
         </form>
-      </article>
+      </div>
     </section>
   );
 }

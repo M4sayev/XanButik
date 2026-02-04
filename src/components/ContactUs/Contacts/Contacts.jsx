@@ -4,10 +4,8 @@ import WorkingHours from "./WorkingHours";
 
 function Contacts() {
   return (
-    <section className="contacts-section" aria-labelledby="contacts-heading">
-      <h1 id="contacts-heading" className="visually-hidden">
-        Contact Information and Working Hours
-      </h1>
+    <section className="contacts-section">
+      <h2 className="visually-hidden">Contact Information and Working Hours</h2>
       <div className="contacts-contents">
         <AddressSection />
         <WorkingHours />

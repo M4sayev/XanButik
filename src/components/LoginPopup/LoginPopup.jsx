@@ -9,6 +9,11 @@ import LoginForm from "./LoginForm";
 import SingUpForm from "./SingUpForm";
 import FormFooter from "./FormFooter";
 import FormHeader from "./FormHeader";
+import {
+  validateEmail,
+  validateName,
+  validatePassword,
+} from "../../utils/validate";
 
 function LoginPopup({ formRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -62,20 +67,11 @@ function LoginPopup({ formRef }) {
   function validate() {
     const newErrors = {};
 
-    if (!form.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-    if (!form.password.trim()) {
-      newErrors.password = "Password is required";
-    } else if (form.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
-    }
+    newErrors.name = validateName(form.name);
 
-    if (!form.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = "Email is invalid";
-    }
+    newErrors.password = validatePassword(form.password);
+
+    newErrors.email = validateEmail(form.email);
 
     if (currentState === "Sign Up" && !form.agreeToTerms) {
       newErrors.agreeToTerms = "You must agree to the terms";

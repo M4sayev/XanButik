@@ -6,6 +6,11 @@ import { toast } from "react-toastify";
 import { handleAnimation } from "../../../utils/utils";
 import QuestionFormInput from "./QuestionFormInput";
 import QuestionFormTextarea from "./QuestionFormTextarea";
+import {
+  validateEmail,
+  validateName,
+  validatePhone,
+} from "../../../utils/validate";
 
 const inputFields = [
   {
@@ -21,7 +26,7 @@ const inputFields = [
     required: false,
   },
   {
-    name: "emailC",
+    name: "email",
     label: "Email address",
     type: "email",
     required: true,
@@ -76,43 +81,12 @@ function QuestionForm() {
   function validate() {
     const newErrors = {};
 
-    const nameRegex = /^[a-zA-ZÀ-ÿ' -]+$/;
-    if (
-      !nameRegex.test(form.firstName.trim()) &&
-      form.firstName.trim() !== ""
-    ) {
-      newErrors.firstName =
-        "Please enter a valid first name using letters only";
-    } else if (
-      (form.firstName.length < 2 || form.firstName.length > 50) &&
-      form.firstName.trim() !== ""
-    ) {
-      newErrors.firstName =
-        "Please enter a valid first name using 2–50 letters";
-    }
+    newErrors.firstName = validateName(form.firstName, "first name");
+    newErrors.lastName = validateName(form.lastName, "last name");
 
-    if (form.lastName.trim() === "") {
-    }
-    if (!nameRegex.test(form.lastName.trim()) && form.lastName.trim() !== "") {
-      newErrors.lastName = "Please enter a valid last name using letters only";
-    } else if (
-      (form.lastName.length < 2 || form.lastName.length > 50) &&
-      form.lastName.trim() !== ""
-    ) {
-      newErrors.lastName = "Please enter a valid last name using 2–50 letters";
-    }
+    newErrors.email = validateEmail(form.email);
 
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!form.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!emailRegex.test(form.email)) {
-      newErrors.email = "Email is invalid";
-    }
-
-    const phoneRegex = /^\+?[0-9\s\-().]{7,20}$/;
-    if (!phoneRegex.test(form.phone.trim()) && form.phone.trim() !== "") {
-      newErrors.phone = "Please enter a valid phone number using digits only";
-    }
+    newErrors.phone = validatePhone(form.phone);
 
     if (!form.notes.trim()) {
       newErrors.notes = "Please add a question";
@@ -131,7 +105,7 @@ function QuestionForm() {
           <div className="qf-widgets-container">
             <div className="qf-text-container">
               <p className="std-paragraph std-subtitle-fs">Contacts</p>
-              <h1 className="qf-heading std-heading">Have a question?</h1>
+              <h2 className="qf-heading std-heading">Have a question?</h2>
               <p className="std-paragraph">
                 Contact us whenever you have any questions. We are always here
                 for you!
@@ -168,7 +142,7 @@ function QuestionForm() {
           ref={qfimgRef}
           className={`qf-img-container ${handleAnimation(qfImgInView)}`}
         >
-          <img src={assets.contact_us_form} aria-hidden="" />
+          <img src={assets.contact_us_form} aria-hidden="true" />
         </div>
       </div>
     </section>

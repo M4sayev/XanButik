@@ -4,10 +4,10 @@ import { handleAnimation } from "../../../utils/utils";
 function AddressSection() {
   const { ref: contactRef, inView: contactInView } = useInView();
   return (
-    <div
+    <section
       ref={contactRef}
       className={`contacts-address-info-container ${handleAnimation(
-        contactInView
+        contactInView,
       )}`}
     >
       <h2 id="contacts-heading" className="std-heading info-container-heading">
@@ -21,14 +21,14 @@ function AddressSection() {
         <ul aria-label="Contact details" className="contact-widgets-container">
           <li className="contact-widget-item">
             <span className="widget-name">Email</span>
-            <a className="widget-info" href="mailto:msayev02@gmail.com">
-              msayev02@gmail.com
+            <a className="widget-info" href="mailto:nadir02@gmail.com">
+              nadir02@gmail.com
             </a>
           </li>
           <li className="contact-widget-item">
             <span className="widget-name">Phone</span>
-            <a className="widget-info" href="tel:0554584886">
-              0554584886
+            <a className="widget-info" href="tel:+994554584886">
+              +994554584886
             </a>
           </li>
           <li className="contact-widget-item">
@@ -37,7 +37,7 @@ function AddressSection() {
           </li>
         </ul>
       </address>
-    </div>
+    </section>
   );
 }
 

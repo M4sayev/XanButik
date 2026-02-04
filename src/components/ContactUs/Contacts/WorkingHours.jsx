@@ -16,18 +16,12 @@ function WorkingHours() {
   const { ref: WhRef, inView: WhInView } = useInView();
 
   return (
-    <div className="contacts-working-hours-info-container">
+    <section className="contacts-working-hours-info-container">
       <div
         ref={WhRef}
         className={`working-hours-contents ${handleAnimation(WhInView)}`}
-        aria-labelledby="working-hours-heading"
       >
-        <h2
-          id="working-hours-heading"
-          className="std-heading info-container-heading"
-        >
-          Working Hours
-        </h2>
+        <h2 className="std-heading info-container-heading">Working Hours</h2>
         <ul
           aria-label="Working hours for each day of the week"
           className="workin-hours-list"
@@ -37,7 +31,7 @@ function WorkingHours() {
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

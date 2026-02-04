@@ -11,9 +11,7 @@ function QuestionFormInput({
 }) {
   return (
     <div>
-      <label htmlFor={name} id={name}>
-        {label}
-      </label>
+      <label htmlFor={name}>{label}</label>
       <input
         type={type}
         name={name}
