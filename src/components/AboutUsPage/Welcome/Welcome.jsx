@@ -14,26 +14,18 @@ function Welcome() {
   });
 
   return (
-    <section
-      className="about-us-welcome-section"
-      aria-labelledby="welcome-heading"
-    >
+    <section className="about-us-welcome-section">
       <div className="welcome-section-contents">
         <article
           ref={welcomeTextAreaRef}
           className={`welcome-section-text ${handleAnimation(
-            welcomeTextInView
+            welcomeTextInView,
           )}`}
         >
           <p className="welcome-introductory-title std-paragraph std-subtitle-fs mi-auto">
             about us
           </p>
-          <h2
-            className="welcome-section-text-title std-heading"
-            id="welcome-heading"
-          >
-            Welcome
-          </h2>
+          <h2 className="welcome-section-text-title std-heading">Welcome</h2>
           <p className="welcome-main-text-paragraph std-paragraph">
             Discover Xan Butik, your go-to destination for men&apos;s fashion in
             Sheki, Azerbaijan. With a commitment to affordable prices, loyalty
@@ -46,7 +38,7 @@ function Welcome() {
           <img
             ref={welcomeImgRef}
             className={`welcome-section-img ${handleAnimation(
-              welcomeImgInView
+              welcomeImgInView,
             )}`}
             src={assets.logo_sheki_bg}
             alt="Xan Butik logo"

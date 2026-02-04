@@ -10,9 +10,8 @@ function ResultWidget({ handleAnimation, achievement, result }) {
       ref={resultRef}
       className={`result-widget ${handleAnimation(resultInView)}`}
       role="listitem"
-      aria-label={`Achievement: ${achievement}, Result: ${result}`}
     >
-      <h1 className="result-widget-heading std-heading">{achievement}</h1>
+      <h2 className="result-widget-heading std-heading">{achievement}</h2>
       <p className="result-widget-name">{result}</p>
     </article>
   );

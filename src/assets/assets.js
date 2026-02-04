@@ -99,32 +99,32 @@ export const ourBrandCompanies = [
     img: brand_company_two,
   },
   {
-    id: "company-brand-3",
+    id: "company-brand-4",
     brandName: "Blanco Y Negro",
     img: brand_company_three,
   },
   {
-    id: "company-brand-3",
+    id: "company-brand-5",
     brandName: "Clean Sleep",
     img: brand_company_four,
   },
   {
-    id: "company-brand-4",
+    id: "company-brand-6",
     brandName: "Dame Elegante",
     img: brand_company_five,
   },
   {
-    id: "company-brand-5",
+    id: "company-brand-7",
     brandName: "Lullaby",
     img: brand_company_six,
   },
   {
-    id: "company-brand-6",
+    id: "company-brand-8",
     brandName: "Knitted Dreams",
     img: brand_company_seven,
   },
   {
-    id: "company-brand-7",
+    id: "company-brand-9",
     brandName: "roberto cavalli",
     img: brand_company_eight,
   },
@@ -205,6 +205,7 @@ export const ourServices = [
 
 export const clientReviews = [
   {
+    id: "david-smith-review",
     review:
       "The men's fashion ecommerce site offered a diverse range of trendy clothing options, and the quality exceeded my expectations. My go-to online store for fashion-forward pieces.",
     name: "David Smith",
@@ -212,6 +213,7 @@ export const clientReviews = [
     img: david_pp,
   },
   {
+    id: "dina-maro-review",
     review:
       "The seamless shopping experience on the men's fashion ecommerce site was impressive. The clothing arrived promptly, and the fit and fabric were fantastic. Highly recommended for quality and service.",
     name: "Dina Maro",
@@ -219,6 +221,7 @@ export const clientReviews = [
     img: dina_pp,
   },
   {
+    id: "william-brown-review",
     review:
       "The men's fashion ecommerce site consistently delivers on their promise of stylish, high-quality clothing. The website's user-friendly interface and fast shipping make shopping a pleasure every time.",
     name: "William Brown",
@@ -226,6 +229,7 @@ export const clientReviews = [
     img: william_pp,
   },
   {
+    id: "emma-stone-review",
     review:
       "I found unique and stylish pieces on the men's fashion ecommerce site that perfectly matched my taste. The timely delivery and excellent customer service were the cherry on top. Will be returning for more!",
     name: "Emma Stone",

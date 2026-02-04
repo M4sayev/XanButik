@@ -11,16 +11,9 @@ function OurResultsBanner() {
   });
 
   return (
-    <section
-      className="our-results-banner"
-      aria-labelledby="our-results-heading"
-      role="region"
-    >
-      <article className="our-results-banner-content">
-        <h2
-          id="our-results-heading"
-          className="our-results-banner-content-title std-heading"
-        >
+    <section className="our-results-banner">
+      <div className="our-results-banner-content">
+        <h2 className="our-results-banner-content-title std-heading">
           Our results
         </h2>
         <div className="results-widgets-line-row">
@@ -51,7 +44,7 @@ function OurResultsBanner() {
             })}
           </div>
         </div>
-      </article>
+      </div>
     </section>
   );
 }

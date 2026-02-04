@@ -6,8 +6,8 @@ function ProgressBar({ endDate }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const start = startDate.getTime();
     const end = new Date(endDate).getTime();
+    const start = startDate.getTime();
     const totalDuration = end - start;
 
     function updateProgress() {

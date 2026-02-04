@@ -10,16 +10,12 @@ function TestimonialsOurClients() {
     triggerOnce: true,
   });
   return (
-    <div
-      className="testimonials-our-clients"
-      aria-labelledby="our-clients-heading"
-      role="region"
-    >
+    <section className="testimonials-our-clients">
       <div className="t-our-client-contents">
-        <section
+        <div
           ref={tOurClientsTextRef}
           className={`t-our-clients-text-container ${handleAnimation(
-            tOurClientsTexInView
+            tOurClientsTexInView,
           )}`}
         >
           <h2 id="our-clients-heading" className="std-heading">
@@ -32,15 +28,15 @@ function TestimonialsOurClients() {
             looking for a classic staple or something trendier, there&apos;s
             something here just for you.
           </p>
-        </section>
-        <ul className="t-our-results-grid" role="list">
+        </div>
+        <ul className="t-our-results-grid">
           {ourBrandCompanies.map((clientItem) => {
             const { img, brandName, id } = clientItem;
             return <OurClientItem key={id} src={img} brandName={brandName} />;
           })}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

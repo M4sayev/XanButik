@@ -9,14 +9,15 @@ import "swiper/css/pagination";
 import "swiper/css/a11y";
 import { handleAnimation } from "../../../utils/utils";
 
-function TestimonialsReviewsCarousel() {
-  const reviewFallback = {
-    review: "No review provided",
-    name: "No name provided",
-    occupation: "No occupation provided",
-    img: "no-pic.avif",
-  };
+const reviewFallback = {
+  id: "no-item-fallback",
+  review: "No review provided",
+  name: "No name provided",
+  occupation: "No occupation provided",
+  img: "no-pic.avif",
+};
 
+function TestimonialsReviewsCarousel() {
   const { ref: tReviewsCarouselRef, inView: tReviewsCarouselInView } =
     useInView({
       threshold: 0.2,
@@ -24,17 +25,14 @@ function TestimonialsReviewsCarousel() {
     });
 
   return (
-    <section
-      className="testimonials-reviews-carousel"
-      aria-label="Client testimonials carousel"
-    >
+    <section className="testimonials-reviews-carousel">
       <div
         ref={tReviewsCarouselRef}
         className={`testimonials-reviews-carousel-contents ${handleAnimation(
-          tReviewsCarouselInView
+          tReviewsCarouselInView,
         )}`}
       >
-        <h1 className="std-heading">What our clients say</h1>
+        <h2 className="std-heading">What our clients say</h2>
         <Swiper
           id="reviewSwiper"
           className="reviews-carousel-container"
@@ -58,28 +56,23 @@ function TestimonialsReviewsCarousel() {
             },
           }}
         >
-          {clientReviews.map((reviewItem, index) => {
-            const { review, name, occupation, img } = reviewItem;
+          {clientReviews.map((reviewItem) => {
+            const { review, name, occupation, img, id } =
+              reviewItem ?? reviewFallback;
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={id}>
                 <article className="review-item">
-                  <p className="std-paragraph">
-                    {review || reviewFallback.review}
-                  </p>
+                  <p className="std-paragraph">{review}</p>
                   <div className="reviewer-info-container">
                     <img
-                      src={img || reviewFallback.img}
+                      src={img}
                       alt={`Photo of ${name}, ${occupation}`}
                       className="reviewer-pp"
                       loading="lazy"
                     />
                     <div className="reviewer-name-job-container">
-                      <p className="reviewer-name">
-                        {name || reviewFallback.name}
-                      </p>
-                      <p className="std-paragraph">
-                        {occupation || reviewFallback.occupation}
-                      </p>
+                      <p className="reviewer-name">{name}</p>
+                      <p className="std-paragraph">{occupation}</p>
                     </div>
                   </div>
                 </article>

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./HeaderStore.css";
 import { assets } from "../../../assets/assets";
 import { IoSearchSharp } from "react-icons/io5";
@@ -13,6 +13,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
     triggerOnce: true,
   });
   const { ref: textRef, inView: textInView } = useInView();
+
   const debounceTimeout = useRef(null);
 
   function handleSearchInput(e) {
@@ -43,7 +44,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
             <article
               ref={textRef}
               className={`header-store-text-container ${handleAnimation(
-                textInView
+                textInView,
               )}`}
             >
               <h1 className="std-heading clr-white">

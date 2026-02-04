@@ -12,7 +12,7 @@ function AboutUsHeader() {
   });
 
   return (
-    <header className="header-about-us" aria-label="About Us Intro Section">
+    <header className="header-about-us">
       <Parallax
         speed={-15}
         className="header-parallax-bg header-bg-animate"
@@ -22,7 +22,7 @@ function AboutUsHeader() {
       <div
         ref={headerAboutRef}
         className={`header-contents-about-us ${handleAnimation(
-          headerAboutInView
+          headerAboutInView,
         )}`}
       >
         <h1 className="about-us-header-title std-heading">
