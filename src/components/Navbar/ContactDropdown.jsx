@@ -1,41 +1,47 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiMail } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
 import { IoIosArrowUp } from "react-icons/io";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
 import { MdLocalPhone } from "react-icons/md";
 
+const PHONE_NUMBER = "+994554584886";
+
 function ContactDropdown() {
   const [copied, setCopied] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef(null);
+
   function handleDropDownClick(e) {
-    // If it's a keydown, only respond to Enter
     if (e.type === "keydown" && e.key !== "Enter") return;
 
-    const phoneNum = e.currentTarget
-      .querySelector(".dp-number")
-      ?.textContent?.trim();
+    clearTimeout(timeoutRef.current);
 
-    if (phoneNum) {
-      navigator.clipboard
-        .writeText(phoneNum)
-        .then(() => {
-          setCopied(true);
-          setTimeout(() => setCopied(false), 2000);
-        })
-        .catch((err) => {
-          console.error("Failed to copy phone number:", err);
-        });
-    } else {
-      console.warn("No phone number found to copy.");
-    }
+    navigator.clipboard
+      .writeText(PHONE_NUMBER)
+      .then(() => {
+        setCopied(true);
+        timeoutRef.current = setTimeout(() => setCopied(false), 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy phone number:", err);
+      });
   }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
   return (
     <div className="contact-us-dropdown-container">
-      <span
-        aria-label="contacts"
-        aria-haspopup="true"
+      <button
+        aria-label="Our contacts"
+        aria-controls="contactsDropdown"
         className="mail-phone-icon-container"
-        tabIndex={0}
+        aria-haspopup="true"
+        onFocus={() => setIsOpen(true)}
       >
         <CiMail
           className="btns-icon"
@@ -45,19 +51,22 @@ function ContactDropdown() {
           className="phone-icon"
           style={{ color: "var(--clr-primary-900)" }}
         />
-      </span>
+      </button>
       <span className="dropdown-arrow">
         <IoIosArrowUp
-          aria-label="Arrow up"
           aria-hidden="true"
           className="dropdown-arrow-icon"
           style={{ color: "var(--clr-primary-900)" }}
         />
       </span>
-      <div role="dropdown" className="active dropdown-contact-us">
+      <div
+        id="contactsDropdown"
+        role="dropdown"
+        aria-expanded={isOpen}
+        className={`dropdown-contact-us ${isOpen ? "dropdown-active" : ""}`}
+      >
         <span>
           <FiPhone
-            aria-label="Phone icon"
             aria-hidden="true"
             className="dropdown-phone-icon"
             style={{ color: "var(--clr-primary-900)" }}
@@ -68,7 +77,8 @@ function ContactDropdown() {
           onKeyDown={handleDropDownClick}
           role="button"
           className="dropdown-item"
-          tabIndex={0}
+          tabIndex={isOpen ? 0 : -1}
+          onBlur={() => setIsOpen(false)}
           aria-label={
             copied
               ? "Phone number copied to clipboard"
@@ -76,7 +86,7 @@ function ContactDropdown() {
           }
         >
           <p className="dropdown-phone-number">
-            <span className="dp-number">0554584886</span>
+            <span className="dp-number">{PHONE_NUMBER}</span>
             <span className="copy-icon" aria-hidden="true">
               {copied ? (
                 <LuCopyCheck style={{ color: "var(--clr-primary-900)" }} />

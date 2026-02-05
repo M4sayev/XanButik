@@ -14,6 +14,10 @@
 }
 
 /* navbar left side */
+.logo-btn {
+  background-color: transparent;
+  border: none;
+}
 .navbar .logo {
   height: 16px;
   cursor: pointer;
@@ -117,6 +121,8 @@
 
 /* phone mail icon  */
 .mail-phone-icon-container {
+  background-color: transparent;
+  border: none;
   position: relative;
 }
 .mail-phone-icon-container .phone-icon {
@@ -177,6 +183,11 @@
 .contact-us-dropdown-container:focus-visible .dropdown-contact-us,
 .contact-us-dropdown-container:hover .dropdown-contact-us,
 .dropdown-contact-us:focus {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: all;
+}
+.dropdown-active {
   transform: scaleY(1);
   opacity: 1;
   pointer-events: all;

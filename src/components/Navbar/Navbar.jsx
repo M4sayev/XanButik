@@ -18,7 +18,6 @@ function Navbar() {
   } = useContext(StoreContext);
 
   const logoRef = useRef(null);
-
   const sidebarRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -52,7 +51,7 @@ function Navbar() {
   useEffect(() => {
     if (sidebarRef.current) {
       if (!isHamActive) {
-        sidebarRef.current.setAttribute("inert", "true");
+        sidebarRef.current.setAttribute("inert", true);
       } else {
         sidebarRef.current.removeAttribute("inert");
       }
@@ -78,14 +77,14 @@ function Navbar() {
   return (
     <div className="navigation">
       <div className="navbar">
-        <img
-          tabIndex={0}
-          onClick={handleLogoClick}
-          src={assets.logo_no_frame}
-          alt="Xan Butik Logo"
-          className="logo"
-          ref={logoRef}
-        />
+        <button className="logo-btn" aria-label="Re" onClick={handleLogoClick}>
+          <img
+            src={assets.logo_no_frame}
+            className="logo"
+            aria-hidden="true"
+            ref={logoRef}
+          />
+        </button>
         {/* Top menu links */}
         <nav className="navbar-top-menu" aria-label="Main navigation">
           <ul role="menubar" onClick={handlePage}>
@@ -102,13 +101,17 @@ function Navbar() {
           <div className="navbar-right-side-btns top">
             <BtnsContainer navigateTo={navigateTo} />
           </div>
-          <div className="hamburger-menu-sidebar-container">
+          <div
+            className="hamburger-menu-sidebar-container"
+            aria-expanded={isHamActive}
+            id="sideBarMenu"
+          >
             <button
               className={`hamburger-menu ${isHamActive ? "is-active" : ""}`}
-              aria-label="toggle"
+              aria-label={`${isHamActive ? "open" : "close"} the sidebar menu`}
               aria-haspopup="true"
-              aria-expanded={isHamActive}
               onClick={toggleHamburger}
+              aria-controls="siderBarMenu"
               ref={hamburgerRef}
             >
               <span />

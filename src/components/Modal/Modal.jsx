@@ -12,7 +12,6 @@ function Modal({
     <div
       className="modal-backdrop"
       onClick={onClose}
-      role="presentation"
       aria-hidden="true"
       style={styles}
     >
@@ -27,7 +26,7 @@ function Modal({
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 

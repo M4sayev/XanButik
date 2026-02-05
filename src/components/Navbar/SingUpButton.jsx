@@ -3,7 +3,7 @@ function SingUpButton({ setShowLogin }) {
     <button
       onClick={() => setShowLogin(true)}
       className="std-button sign-up-btn"
-      aria-label="Sign up"
+      aria-label="Open the sign up modal"
     >
       Sign up
     </button>

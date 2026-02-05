@@ -1,28 +1,29 @@
 import { useEffect } from "react";
 
+const focusableSelectors = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  '[tabindex]:not([tabindex="-1"])',
+];
+
 export function useFocusTrap(
   containerRef,
   active = true,
-  initialFocusRef = null
+  initialFocusRef = null,
 ) {
   useEffect(() => {
     if (!active || !containerRef.current) return;
 
-    const focusableSelectors = [
-      "a[href]",
-      "button:not([disabled])",
-      "input:not([disabled])",
-      "select:not([disabled])",
-      "textarea:not([disabled])",
-      '[tabindex]:not([tabindex="-1"])',
-    ];
-
     const focusableElements = containerRef.current.querySelectorAll(
-      focusableSelectors.join(",")
+      focusableSelectors.join(","),
     );
     const firstEl = initialFocusRef?.current || focusableElements[0];
     const lastEl = focusableElements[focusableElements.length - 1];
 
+    console.log(focusableElements);
     firstEl?.focus();
 
     function handleKeyDown(e) {

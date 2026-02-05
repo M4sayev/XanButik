@@ -2,7 +2,11 @@ import { CiHeart } from "react-icons/ci";
 
 function WishlistButton({ navigate, active = false }) {
   return (
-    <button className="icon-btn" aria-label="wishlist" onClick={navigate}>
+    <button
+      className="icon-btn"
+      aria-label="Go to wishlist page"
+      onClick={navigate}
+    >
       <CiHeart
         aria-label="wishlist"
         className="btns-icon"
