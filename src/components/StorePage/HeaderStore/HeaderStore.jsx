@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "./HeaderStore.css";
 import { assets } from "../../../assets/assets";
 import { IoSearchSharp } from "react-icons/io5";
@@ -58,7 +58,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
           </div>
           <div className="search-bar-container">
             <div className="store-search-input-wrapper">
-              <IoSearchSharp className="search-icon" />
+              <IoSearchSharp className="search-icon" aria-hidden="true" />
               <label htmlFor="searchBar" className="visually-hidden">
                 Search for products
               </label>
@@ -74,7 +74,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
             </div>
             <button
               className="std-button search-btn"
-              aria-label="Submit search"
+              aria-label="Submit product search"
             >
               Search
             </button>

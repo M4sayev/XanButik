@@ -45,13 +45,14 @@ function App() {
   }, [handleClickOutside]);
 
   useEffect(() => {
+    if (!isHamActive) {
+      closeLoginPopup();
+    }
     if (showLogin && loginPopupRef.current) {
       document.body.classList.add("body-menu-scroll");
       window.addEventListener("mousedown", handleClickOutside);
-    } else if (!isHamActive) {
-      closeLoginPopup();
     }
-    return () => !isHamActive && closeLoginPopup();
+    return () => window.removeEventListener("mousedown", handleClickOutside);
   }, [showLogin, isHamActive, handleClickOutside, closeLoginPopup]);
 
   useEffect(() => {

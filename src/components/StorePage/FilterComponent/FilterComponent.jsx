@@ -30,7 +30,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
   const dropdownRefs = useRef({});
 
   const [initialValues, setInitialValues] = useState(
-    () => filterConfig[currentCategory]
+    () => filterConfig[currentCategory],
   );
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     }
 
     setFilters(resetFilters);
-  }, [currentCategory, setFilters]);
+  }, [currentCategory]);
 
   function toggleDropDown(dropdownName) {
     setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
@@ -66,7 +66,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
         setIsDropDownOverflowing(overflows);
       }
     }
-  }, [openDropdown, setIsDropDownOverflowing, isDropDownOverflowing]);
+  }, [openDropdown, setIsDropDownOverflowing]);
 
   // handle click outside dropdown
   useEffect(() => {
@@ -142,7 +142,7 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
 
   useFocusTrap(
     { current: dropdownRefs.current[openDropdown] },
-    openDropdown !== null
+    openDropdown !== null,
   );
 
   useEscapeKey(() => setOpenDropdown(null));

@@ -42,6 +42,8 @@ function ContactDropdown() {
         className="mail-phone-icon-container"
         aria-haspopup="true"
         onFocus={() => setIsOpen(true)}
+        onBlur={() => setIsOpen(false)}
+        onKeyDown={handleDropDownClick}
       >
         <CiMail
           className="btns-icon"
@@ -77,8 +79,7 @@ function ContactDropdown() {
           onKeyDown={handleDropDownClick}
           role="button"
           className="dropdown-item"
-          tabIndex={isOpen ? 0 : -1}
-          onBlur={() => setIsOpen(false)}
+          tabIndex={-1}
           aria-label={
             copied
               ? "Phone number copied to clipboard"

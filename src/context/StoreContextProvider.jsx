@@ -5,6 +5,7 @@ import {
   DEFAULT_PRICE_RANGE_MIN,
   DEFAULT_RESET_FILTER,
   DEFAULT_SORT,
+  routePageMap,
 } from "../constants/constants";
 import { toast } from "react-toastify";
 import { StoreContext } from "./StoreContext";
@@ -47,7 +48,7 @@ function StoreContextProvider(props) {
       setWishListItems((prev) => [...prev, newWishListItem]);
       localStorage.setItem(
         "wishlistItems",
-        JSON.stringify([...wishListItems, newWishListItem])
+        JSON.stringify([...wishListItems, newWishListItem]),
       );
     }
     notify();
@@ -73,7 +74,7 @@ function StoreContextProvider(props) {
 
       // Remove the item from the wishlist
       const newItems = wishListItems.filter(
-        (wishlistItem) => wishlistItem.productId !== item.id
+        (wishlistItem) => wishlistItem.productId !== item.id,
       );
       setWishListItems(newItems);
       localStorage.setItem("wishlistItems", JSON.stringify(newItems));
@@ -98,7 +99,7 @@ function StoreContextProvider(props) {
                 ...cartItem,
                 count: cartItem.count + 1,
               }
-            : cartItem
+            : cartItem,
         );
       }
 
@@ -107,18 +108,6 @@ function StoreContextProvider(props) {
     });
     notify();
   };
-
-  const routePageMap = useMemo(
-    () => ({
-      "/": "Home",
-      "/About": "About Us",
-      "/Testimonials": "About Us",
-      "/ContactUs": "Contact Us",
-      "/Store": "Store",
-      "/Store/ProductPage": "Store",
-    }),
-    []
-  );
 
   function openProductPage(e, productData = {}) {
     if (
@@ -146,32 +135,46 @@ function StoreContextProvider(props) {
     sessionStorage.setItem("menu", currentPage);
   }, [currentPage]);
 
-  const contextValue = {
-    currentPage,
-    setCurrentPage,
-    showLogin,
-    setShowLogin,
-    sortOptions,
-    setSortOptions,
-    filters,
-    setFilters,
-    priceRange,
-    setPriceRange,
-    currentProduct,
-    setCurrentProduct,
-    wishListItems,
-    setWishListItems,
-    handleAddToWishlist,
-    openProductPage,
-    addToCart,
-    cartItems,
-    setCartItems,
-    isHamActive,
-    setIsHamActive,
+  const contextValue = useMemo(
+    () => ({
+      currentPage,
+      setCurrentPage,
+      showLogin,
+      setShowLogin,
+      sortOptions,
+      setSortOptions,
+      filters,
+      setFilters,
+      priceRange,
+      setPriceRange,
+      currentProduct,
+      setCurrentProduct,
+      wishListItems,
+      setWishListItems,
+      handleAddToWishlist,
+      openProductPage,
+      addToCart,
+      cartItems,
+      setCartItems,
+      isHamActive,
+      setIsHamActive,
 
-    boughtCoupons,
-    setBoughtCoupons,
-  };
+      boughtCoupons,
+      setBoughtCoupons,
+    }),
+    [
+      currentPage,
+      showLogin,
+      sortOptions,
+      filters,
+      priceRange,
+      currentProduct,
+      wishListItems,
+      cartItems,
+      isHamActive,
+      boughtCoupons,
+    ],
+  );
 
   return (
     <StoreContext.Provider value={contextValue}>

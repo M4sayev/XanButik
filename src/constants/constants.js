@@ -61,3 +61,12 @@ export const excludedKeys = [
   "category",
   "reviews",
 ];
+
+export const routePageMap = {
+  "/": "Home",
+  "/About": "About Us",
+  "/Testimonials": "About Us",
+  "/ContactUs": "Contact Us",
+  "/Store": "Store",
+  "/Store/ProductPage": "Store",
+};
