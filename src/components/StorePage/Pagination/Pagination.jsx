@@ -4,6 +4,7 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+import { range } from "../../../utils/utils";
 
 function Pagination({ totalPages, currentPage, goToPage }) {
   const [maxLength, setMaxLength] = useState(window.innerWidth < 777 ? 5 : 7);
@@ -27,11 +28,6 @@ function Pagination({ totalPages, currentPage, goToPage }) {
     const leftWidth = Math.floor(available / 2);
     const rightWidth = available - leftWidth;
 
-    function range(start, end) {
-      if (start === end) return [start];
-      return Array.from({ length: end - start + 1 }, (_, i) => i + start);
-    }
-
     if (totalPages <= maxLength) {
       return range(1, totalPages);
     }
@@ -50,7 +46,7 @@ function Pagination({ totalPages, currentPage, goToPage }) {
         "...",
         ...range(
           totalPages - sideWidth - 1 - leftWidth - rightWidth,
-          totalPages
+          totalPages,
         ),
       ];
     }
@@ -67,7 +63,7 @@ function Pagination({ totalPages, currentPage, goToPage }) {
   if (totalPages < 2) return null;
 
   return (
-    <nav aria-label="Pagination" role="navigation">
+    <nav aria-label="Pagination">
       <ul className="pagination">
         <li>
           <button
@@ -76,12 +72,12 @@ function Pagination({ totalPages, currentPage, goToPage }) {
             disabled={currentPage === 1}
             onClick={() => goToPage(currentPage - 1)}
           >
-            <MdOutlineKeyboardArrowLeft />
+            <MdOutlineKeyboardArrowLeft aria-hidden="true" />
           </button>
         </li>
-        {getPagination(currentPage, totalPages, maxLength).map((num, index) => {
+        {getPagination(currentPage, totalPages, maxLength).map((num) => {
           return (
-            <li key={index}>
+            <li key={num}>
               <button
                 className={`std-button pagination-btn ${
                   num === currentPage ? "pagination--active" : ""
@@ -104,7 +100,7 @@ function Pagination({ totalPages, currentPage, goToPage }) {
             disabled={currentPage === totalPages}
             onClick={() => goToPage(currentPage + 1)}
           >
-            <MdOutlineKeyboardArrowRight />
+            <MdOutlineKeyboardArrowRight aria-hidden="true" />
           </button>
         </li>
       </ul>

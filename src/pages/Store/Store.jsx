@@ -12,21 +12,21 @@ import HeaderStore from "../../components/StorePage/HeaderStore/HeaderStore";
 import { itemsList } from "../../assets/itemsList.js";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import { calculateDiscountPrice } from "../../utils/utils.js";
-import { ITEMS_PER_PAGE } from "../../constants/constants.js";
+import { categoryMap, ITEMS_PER_PAGE } from "../../constants/constants.js";
 import { useDebounce } from "use-debounce";
 
 import Spinner from "../../components/Spinner/Spinner.jsx";
-const FilterComponent = lazy(() =>
-  import("../../components/StorePage/FilterComponent/FilterComponent")
+const FilterComponent = lazy(
+  () => import("../../components/StorePage/FilterComponent/FilterComponent"),
 );
-const Product = lazy(() =>
-  import("../../components/StorePage/Products/Product")
+const Product = lazy(
+  () => import("../../components/StorePage/Products/Product"),
 );
-const CategoryButtons = lazy(() =>
-  import("../../components/StorePage/CategoryButtons/CategoryButtons")
+const CategoryButtons = lazy(
+  () => import("../../components/StorePage/CategoryButtons/CategoryButtons"),
 );
-const Pagination = lazy(() =>
-  import("../../components/StorePage/Pagination/Pagination.jsx")
+const Pagination = lazy(
+  () => import("../../components/StorePage/Pagination/Pagination.jsx"),
 );
 
 function Store() {
@@ -44,20 +44,6 @@ function Store() {
   const { sortOptions, filters, priceRange } = useContext(StoreContext);
 
   const productsRef = useRef();
-
-  // Create categoryMap
-  const categoryMap = useMemo(() => {
-    return itemsList.reduce(
-      (map, product) => {
-        if (!map[product.category]) {
-          map[product.category] = [];
-        }
-        map[product.category].push(product);
-        return map;
-      },
-      { All: itemsList }
-    );
-  }, []);
 
   useEffect(() => {
     const category = categoryMap[currentCategory];
@@ -77,7 +63,7 @@ function Store() {
     return filteredProducts.filter((product) => {
       const totalPrice = calculateDiscountPrice(
         product.price,
-        product.discountPercent
+        product.discountPercent,
       );
       return totalPrice <= priceRange[1] && totalPrice >= priceRange[0];
     });
@@ -92,18 +78,18 @@ function Store() {
         break;
       case "What's new":
         newProducts = productsWithinRange.filter(
-          (product) => product.isNewArrival
+          (product) => product.isNewArrival,
         );
         break;
       case "Price low to high":
         newProducts = productsWithinRange.toSorted((productOne, productTwo) => {
           const priceOne = calculateDiscountPrice(
             productOne.price,
-            productOne.discountPercent
+            productOne.discountPercent,
           );
           const priceTwo = calculateDiscountPrice(
             productTwo.price,
-            productTwo.discountPercent
+            productTwo.discountPercent,
           );
           return priceOne - priceTwo;
         });
@@ -112,11 +98,11 @@ function Store() {
         newProducts = productsWithinRange.toSorted((productOne, productTwo) => {
           const priceOne = calculateDiscountPrice(
             productOne.price,
-            productOne.discountPercent
+            productOne.discountPercent,
           );
           const priceTwo = calculateDiscountPrice(
             productTwo.price,
-            productTwo.discountPercent
+            productTwo.discountPercent,
           );
           return priceTwo - priceOne;
         });
@@ -252,7 +238,7 @@ function Store() {
               aria-live="polite"
             >
               <div className="no-results-text">
-                <h1>No Results</h1>
+                <h2>No Results</h2>
                 <p>
                   We couldn&apos;t find anything matching{" "}
                   <strong>

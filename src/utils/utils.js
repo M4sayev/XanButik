@@ -7,7 +7,8 @@ export function camelCaseToLabel(str) {
 }
 
 export function calculateDiscountPrice(price, discountPercent) {
-  return price * (1 - (discountPercent || 0) / 100);
+  const discounted = price * (1 - (discountPercent || 0) / 100);
+  return parseFloat(discounted.toFixed(2));
 }
 
 export function handleAnimation(inView) {
@@ -48,4 +49,9 @@ export function formatCoins(value) {
   if (value >= 1e6) return (value / 1e6).toFixed(1) + "M";
   if (value >= 1e3) return (value / 1e3).toFixed(1) + "K";
   return value.toString();
+}
+
+export function range(start, end) {
+  if (start === end) return [start];
+  return Array.from({ length: end - start + 1 }, (_, i) => i + start);
 }

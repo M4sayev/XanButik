@@ -41,9 +41,8 @@ function StoreContextProvider(props) {
 
   // handle add to wishlist
   function handleAddToWishlist(newWishListItem, isInTheWishlist) {
-    let notify = () => toast.success("Item added to the wishlist");
     if (isInTheWishlist) {
-      notify = () => toast.error("The item is already in the wishlist.");
+      toast.error("The item is already in the wishlist.");
     } else {
       setWishListItems((prev) => [...prev, newWishListItem]);
       localStorage.setItem(
@@ -51,7 +50,7 @@ function StoreContextProvider(props) {
         JSON.stringify([...wishListItems, newWishListItem]),
       );
     }
-    notify();
+    toast.success("Item added to the wishlist");
   }
 
   // retrieve cart items from localStorage
@@ -68,7 +67,6 @@ function StoreContextProvider(props) {
 
   // handle add to cart
   const addToCart = (item) => {
-    const notify = () => toast.success("Item added to cart");
     setCartItems((prev) => {
       const foundProduct = prev.find((cartItem) => cartItem.id === item.id);
 
@@ -106,7 +104,7 @@ function StoreContextProvider(props) {
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
-    notify();
+    toast.success("Item added to cart");
   };
 
   function openProductPage(e, productData = {}) {

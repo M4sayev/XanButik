@@ -1,21 +1,19 @@
 import "./CategoryButtons.css";
 import { categoryPreviewMap } from "../../../assets/assets";
+import { categoryMap } from "../../../constants/constants";
 
-function CategoryButtons({ categoryMap, handleCategoryBtn, currentCategory }) {
+function CategoryButtons({ handleCategoryBtn, currentCategory }) {
   return (
     <section className="category-btns-section">
       <div className="category-btns-container">
-        {Object.entries(categoryMap).map(([category, products], index) => {
-          let imgSrc;
-          if (categoryPreviewMap[category] == undefined)
-            imgSrc = products[0].img[0];
-          else imgSrc = categoryPreviewMap[category];
+        {Object.entries(categoryMap).map(([category, products]) => {
+          let imgSrc = categoryPreviewMap[category] ?? products[0].img[0];
           return (
             <button
               className={`category-btn ${
                 currentCategory === category && "category-btn--active"
               }`}
-              key={index}
+              key={category}
               onClick={() => handleCategoryBtn(category)}
             >
               <div className="category-img-wrapper">
@@ -26,7 +24,7 @@ function CategoryButtons({ categoryMap, handleCategoryBtn, currentCategory }) {
                 />
               </div>
               <div className="category-btn-overlay">
-                <h1>{category}</h1>
+                <h2>{category}</h2>
               </div>
             </button>
           );

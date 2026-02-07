@@ -1,3 +1,5 @@
+import { itemsList } from "../assets/itemsList";
+
 export const DEFAULT_SORT = "Recommended";
 export const DEFAULT_RESET_FILTER = {
   size: [],
@@ -70,3 +72,14 @@ export const routePageMap = {
   "/Store": "Store",
   "/Store/ProductPage": "Store",
 };
+
+export const categoryMap = itemsList.reduce(
+  (map, product) => {
+    if (!map[product.category]) {
+      map[product.category] = [];
+    }
+    map[product.category].push(product);
+    return map;
+  },
+  { All: itemsList },
+);

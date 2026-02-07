@@ -90,18 +90,14 @@ function FilterComponent({ currentCategory, setCurrentPage }) {
     };
   }, [openDropdown, setIsDropDownOverflowing]);
 
-  function handleSortOptionSelect(option) {
-    setSortOptions(option);
-    setOpenDropdown(null);
-  }
-
   function handleOptionsDelegation(e) {
     const li = e.target.closest("li");
     if (!li) return;
 
     const selectedOption = li.dataset.option;
     if (selectedOption) {
-      handleSortOptionSelect(selectedOption);
+      setSortOptions(selectedOption);
+      setOpenDropdown(null);
     }
   }
 

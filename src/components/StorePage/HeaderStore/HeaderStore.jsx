@@ -1,29 +1,28 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./HeaderStore.css";
 import { assets } from "../../../assets/assets";
 import { IoSearchSharp } from "react-icons/io5";
 import { useInView } from "react-intersection-observer";
 import { handleAnimation } from "../../../utils/utils";
+import { useDebounce } from "../../../hooks/useDebounce";
 
-const SEARCH_DEBOUNCE = 50;
-
-function HeaderStore({ setSearchQuery, searchQuery }) {
+function HeaderStore({ setSearchQuery }) {
   const { ref: imgRef, inView: imgInView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
   const { ref: textRef, inView: textInView } = useInView();
 
-  const debounceTimeout = useRef(null);
+  const [inputValue, setInputValue] = useState("");
+
+  const debouncedInput = useDebounce(inputValue);
+
+  useEffect(() => {
+    setSearchQuery(debouncedInput);
+  }, [debouncedInput]);
 
   function handleSearchInput(e) {
-    const value = e.target.value;
-
-    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
-
-    debounceTimeout.current = setTimeout(() => {
-      setSearchQuery(value);
-    }, SEARCH_DEBOUNCE);
+    setInputValue(e.target.value);
   }
 
   return (
@@ -50,7 +49,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
               <h1 className="std-heading clr-white">
                 Men&apos;s Brandy Apparel
               </h1>
-              <p className="store-header-p | std-paragraph clr-white">
+              <p className="store-header-p std-paragraph clr-white">
                 Discover our exquisite collection of menswear. From classic to
                 casual clothes, we&apos;ve got you covered.
               </p>
@@ -63,7 +62,7 @@ function HeaderStore({ setSearchQuery, searchQuery }) {
                 Search for products
               </label>
               <input
-                value={searchQuery}
+                value={inputValue}
                 name="searchBar"
                 id="searchBar"
                 onChange={handleSearchInput}
