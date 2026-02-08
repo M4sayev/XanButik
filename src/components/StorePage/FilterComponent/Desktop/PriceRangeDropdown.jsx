@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactRangeSliderInput from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import {
@@ -14,13 +14,15 @@ function PriceRangeDropdown({
   dropdownRefs,
 }) {
   const { priceRange, setPriceRange } = useContext(StoreContext);
+  const [localRange, setLocalRange] = useState(priceRange);
+
+  useEffect(() => {
+    setLocalRange(priceRange);
+  }, [priceRange]);
 
   return (
     <li
       aria-current={openDropdown === "priceRange"}
-      aria-haspopup="dialog"
-      aria-expanded={openDropdown === "priceRange"}
-      aria-controls="price-range-dropdown"
       className={`refinement-list-element 
             ${
               priceRange[0] !== DEFAULT_PRICE_RANGE_MIN ||
@@ -37,6 +39,9 @@ function PriceRangeDropdown({
       >
         <button
           className="refinement-head-btn"
+          aria-haspopup="dialog"
+          aria-expanded={openDropdown === "priceRange"}
+          aria-controls="price-range-dropdown"
           onClick={() => toggleDropDown("priceRange")}
         >
           <span>Price Range</span>
@@ -49,29 +54,28 @@ function PriceRangeDropdown({
             dropdownRefs.current["priceRange"] = el;
           }}
           id="price-range-dropdown"
-          role="region"
-          aria-labelledby="price-range-label"
         >
           <header className="rl-dropdown-header">
             <p id="price-range-label">Price Range Selected </p>
             <p className="rl-dropdown-header-preview" aria-live="polite">
-              ${priceRange[0]} - ${priceRange[1]}
+              ${localRange[0]} - ${localRange[1]}
             </p>
           </header>
           <div className="range-slider-dropdown">
             <div className="range-slider-dropdown-container">
               <div className="thumb-label-container">
-                <div className="thumb-label-left-label">${priceRange[0]}</div>
-                <div className="thumb-label-right-label">${priceRange[1]}</div>
+                <div className="thumb-label-left-label">${localRange[0]}</div>
+                <div className="thumb-label-right-label">${localRange[1]}</div>
               </div>
               <ReactRangeSliderInput
                 id="price-range-slider"
                 min={0}
                 max={1500}
                 step={1}
-                value={priceRange}
-                onInput={setPriceRange}
+                value={localRange}
+                onInput={setLocalRange}
                 aria-labelledby="price-range-label"
+                onThumbDragEnd={() => setPriceRange(localRange)}
               />
             </div>
           </div>

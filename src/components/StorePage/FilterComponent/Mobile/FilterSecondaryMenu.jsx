@@ -34,7 +34,6 @@ function FilterSecondaryMenu({
         >
           <FaArrowLeftLong
             aria-hidden="true"
-            focusable="false"
             style={{
               height: "25px",
               width: "20px",
@@ -52,11 +51,9 @@ function FilterSecondaryMenu({
           <button
             className="mr-all-btn"
             onClick={() => handleSelectAllBtn(currentFilter)}
-            aria-pressed="true"
           >
             <GiCheckMark
               aria-hidden="true"
-              focusable="false"
               style={{
                 height: "12px",
                 paddingBottom: "3px",
@@ -68,7 +65,6 @@ function FilterSecondaryMenu({
           <button
             className="mr-all-btn"
             onClick={() => handleClearAllPerFilter(currentFilter)}
-            aria-pressed="false"
           >
             clear
           </button>
@@ -104,7 +100,7 @@ function FilterSecondaryMenu({
                 }
               >
                 <p>{option}</p>
-                {isSelected ? <GiCheckMark /> : ""}
+                {isSelected ? <GiCheckMark aria-hidden="true" /> : ""}
               </button>
             );
           })

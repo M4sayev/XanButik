@@ -37,22 +37,19 @@ function SortDropdown({
             dropdownRefs.current["sort"] = el;
           }}
           id="sort-dropdown"
-          role="listbox"
-          aria-labelledby="sort-label"
         >
-          <h2 id="sort-label" className="visually-hidden">
-            Sort Options
-          </h2>
+          <h2 className="visually-hidden">Sort Options</h2>
           <ul
             className="rl-dropdown-sort-options-list"
             onClick={handleOptionsDelegation}
+            role="listbox"
           >
             {[
               "Recommended",
               "What's new",
               "Price low to high",
               "Price high to low",
-            ].map((option, index) => {
+            ].map((option) => {
               return (
                 <li
                   role="option"
@@ -63,7 +60,7 @@ function SortDropdown({
                       : ""
                   }`}
                   data-option={option}
-                  key={index}
+                  key={option}
                 >
                   <button>{option}</button>
                 </li>

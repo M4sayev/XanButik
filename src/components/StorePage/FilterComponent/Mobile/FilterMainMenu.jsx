@@ -22,8 +22,12 @@ function FilterMainMenu({
       ref={mainMenuRef}
     >
       <header className="mr-header">
-        <h1>filter</h1>
-        <button className="mr-clear-btn" onClick={handleClearAll}>
+        <h2>filter</h2>
+        <button
+          className="mr-clear-btn"
+          aria-label="clear all seleceted filters"
+          onClick={handleClearAll}
+        >
           clear all
         </button>
       </header>
@@ -69,7 +73,7 @@ function FilterMainMenu({
         <button
           className="mr-view-items std-button bebra"
           onClick={handleOptionsSelected}
-          aria-label="View filtered items"
+          aria-label="Apply filters"
         >
           view items
         </button>

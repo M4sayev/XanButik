@@ -38,8 +38,6 @@ function FilterButtonDesktop({
         </button>
         <div
           id={`${sortCategory}-dropdown`}
-          role="listbox"
-          aria-multiselectable="true"
           className={`rl-dropdown ${
             isDropDownOverflowing ? "dropdown-left" : ""
           }
@@ -60,10 +58,10 @@ function FilterButtonDesktop({
                 className="std-button rl-dropdown-header-btn"
                 onClick={() => handleSelectAllFilterOptions(sortCategory)}
                 aria-label={`Select all ${camelCaseToLabel(
-                  sortCategory
+                  sortCategory,
                 )} options`}
               >
-                <ImCheckmark style={{ height: "10px" }} />
+                <ImCheckmark style={{ height: "10px" }} aria-hidden="true" />
                 ALL
               </button>
             ) : (
@@ -71,15 +69,19 @@ function FilterButtonDesktop({
                 className="std-button rl-dropdown-header-btn"
                 onClick={() => handleClearFilterOptions(sortCategory)}
                 aria-label={`Clear selected ${camelCaseToLabel(
-                  sortCategory
+                  sortCategory,
                 )} options`}
               >
                 CLEAR
               </button>
             )}
           </header>
-          <ul className="rl-dropdown-sort-options-list">
-            {data.map((option, index) => {
+          <ul
+            className="rl-dropdown-sort-options-list"
+            role="listbox"
+            aria-multiselectable="true"
+          >
+            {data.map((option) => {
               const isSelected = filters[sortCategory].includes(option);
 
               return (
@@ -88,7 +90,7 @@ function FilterButtonDesktop({
                   sortCategory={sortCategory}
                   option={option}
                   selectFilterOption={selectFilterOption}
-                  key={index}
+                  key={sortCategory}
                 />
               );
             })}
