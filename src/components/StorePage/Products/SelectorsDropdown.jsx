@@ -46,6 +46,7 @@ function SelectorsDropdown({
       >
         <IoClose
           className="cross"
+          aria-hidden="true"
           style={{ color: "var(--clr-primary-900)" }}
         />
       </button>

@@ -5,13 +5,8 @@ import { FaCartPlus } from "react-icons/fa";
 
 function EmptyCartMessage() {
   return (
-    <section
-      className="empty-cart-message"
-      aria-labelledby="empty-cart-heading"
-    >
-      <h2 id="empty-cart-heading" className="std-heading">
-        Your cart is empty
-      </h2>
+    <section className="empty-cart-message">
+      <h2 className="std-heading">Your cart is empty</h2>
       <FaCartPlus
         className="cart-icon"
         aria-hidden="true"

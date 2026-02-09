@@ -16,7 +16,7 @@ function MobileImgSwiper({ img, name }) {
       >
         {img.map((i, index) => (
           <SwiperSlide key={`mobile-swiper-slide-${index}`}>
-            <img src={i} alt={`${name} img ${index}`} />
+            <img src={i} alt={`${name} img ${index + 1}`} />
           </SwiperSlide>
         ))}
       </Swiper>

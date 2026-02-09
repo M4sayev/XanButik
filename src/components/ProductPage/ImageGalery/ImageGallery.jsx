@@ -19,7 +19,7 @@ function ImageGallery({ currentImg, img, handleThumbSelected }) {
               type="button"
               className="gallery-thumb"
               onClick={() => handleThumbSelected(img)}
-              aria-label={`Thumbnail ${index + 1}`}
+              aria-label={`Select thumbnail ${index + 1}`}
               aria-current={img === currentImg}
             >
               <img

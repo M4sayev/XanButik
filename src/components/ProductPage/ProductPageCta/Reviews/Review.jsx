@@ -2,7 +2,7 @@ import StarRating from "../../StarRating/StarRating";
 
 function Review({ rating, date, comment, username }) {
   return (
-    <li className="product-review" role="listitem" tabIndex={0}>
+    <li className="product-review" tabIndex={0}>
       <header className="product-review-header">
         <StarRating rating={rating} />
         <span className="product-review-date">{date}</span>

@@ -46,18 +46,13 @@ function ReviewsModal({
   const sortedReviews = useMemo(
     () =>
       currentProduct.reviews.toSorted(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
       ),
-    [currentProduct.reviews]
+    [currentProduct.reviews],
   );
 
   return (
-    <div
-      className="reviews-modal-component"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="reviews-heading"
-    >
+    <div className="reviews-modal-component" role="dialog" aria-modal="true">
       <div
         className={`add-product-review-container ${
           openAddReview && "add-review--active"
@@ -67,17 +62,11 @@ function ReviewsModal({
         <form
           ref={addReviewModalRef}
           className={`add-review-form-container`}
-          aria-labelledby="reviews-heading"
           onSubmit={handleSubmit(onSubmit)}
           tabIndex={-1}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h1
-              id="reviews-heading"
-              className="std-heading-cta pr-modal-heading"
-            >
-              Add a review
-            </h1>
+            <h2 className="std-heading-cta pr-modal-heading">Add a review</h2>
             <button
               type="button"
               className="icon-btn cross-icon"

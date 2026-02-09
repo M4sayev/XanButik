@@ -52,7 +52,7 @@ function ProductPageCta({
 
   useFocusTrap(
     openAddReview ? addReviewModalRef : reviewsModalRef,
-    showReviews
+    showReviews,
   );
 
   useEscapeKey(() => {
@@ -84,7 +84,7 @@ function ProductPageCta({
   const handleAddToCart = () => {
     if (!currentSize && !currentColor) {
       setErrorMessage(
-        "Please select from the available colour and size options"
+        "Please select from the available colour and size options",
       );
     } else {
       setErrorMessage("");
@@ -157,15 +157,12 @@ function ProductPageCta({
           </Modal>
         )}
       </div>
-      {!currentColor || !currentSize ? (
+      {(!currentColor || !currentSize) && (
         <ErrorMessage message={errorMessage} fieldName={"color-size"} />
-      ) : (
-        ""
       )}
       <button
         className="std-button pp-btn"
         type="button"
-        aria-label="Add an item to your cart"
         onClick={handleAddToCart}
       >
         <PiShoppingBagLight aria-hidden="true" />
@@ -176,7 +173,6 @@ function ProductPageCta({
         data-type="inverted"
         type="button"
         onClick={handleAddToWishlistWithSelectors}
-        aria-label="Add an item to your wishlist"
       >
         <AiOutlineHeart aria-hidden="true" />
         <span>Add to Wishlist</span>

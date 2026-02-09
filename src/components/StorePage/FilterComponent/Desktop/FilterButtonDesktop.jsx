@@ -90,7 +90,7 @@ function FilterButtonDesktop({
                   sortCategory={sortCategory}
                   option={option}
                   selectFilterOption={selectFilterOption}
-                  key={sortCategory}
+                  key={option}
                 />
               );
             })}

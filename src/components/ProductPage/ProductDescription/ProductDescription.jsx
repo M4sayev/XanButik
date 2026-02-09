@@ -13,7 +13,9 @@ function ProductDescription({ description }) {
       }`}
     >
       <h2 className="pp-heading pp-description-heading">description</h2>
-      <p className="std-paragraph pp-description">{description}</p>
+      <p className="std-paragraph pp-description" id="product-description">
+        {description}
+      </p>
       <button
         className="pp-read-more-btn"
         onClick={toggleDesc}

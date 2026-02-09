@@ -12,9 +12,9 @@ function NoCoupons() {
         aria-hidden="true"
         style={{ width: "100%", height: "60px" }}
       />
-      <h1 id="no-coupons-heading" className="std-heading mi-auto">
+      <h2 id="no-coupons-heading" className="std-heading mi-auto">
         Out of coupons
-      </h1>
+      </h2>
       <div className="text-container">
         <span>Earn coins</span>
         <span></span>
@@ -25,13 +25,8 @@ function NoCoupons() {
         />
         <span> to buy coupons</span>
       </div>
-      <Button
-        as={Link}
-        to="/Game"
-        className="std-button earn-coins-btn"
-        aria-label="Go to game to earn coins"
-      >
-        Earn Now
+      <Button as={Link} to="/Game" className="std-button earn-coins-btn">
+        Earn Coupons Now
       </Button>
     </div>
   );

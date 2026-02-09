@@ -4,6 +4,7 @@ import { FaTrashCan } from "react-icons/fa6";
 
 function CartItemControls({
   handleDecreaseItemCount,
+  handleDeleteCartItem,
   name,
   id,
   currentColor,
@@ -14,11 +15,7 @@ function CartItemControls({
 }) {
   return (
     <div className="cart-item-controls">
-      <div
-        className="cart-item-count-controls"
-        role="group"
-        aria-label={`Adjust quantity of ${name}`}
-      >
+      <div className="cart-item-count-controls">
         <button
           className="decrease-item-count"
           type="button"
@@ -33,12 +30,7 @@ function CartItemControls({
             style={{ color: "var(--clr-primary-900)" }}
           />
         </button>
-        <span
-          className="item-count"
-          aria-live="polite"
-          aria-atomic="true"
-          id={`item-count-${id}`}
-        >
+        <span className="item-count" aria-live="polite" id={`item-count-${id}`}>
           {count}
         </span>
         <button

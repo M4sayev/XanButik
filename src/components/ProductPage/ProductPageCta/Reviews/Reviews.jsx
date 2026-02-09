@@ -5,21 +5,10 @@ import { IoClose } from "react-icons/io5";
 
 function Reviews({ setShowReviews, sortedReviews }, ref) {
   return (
-    <div
-      className="pr-reviews-container"
-      role="document"
-      aria-labelledby="reviews-heading"
-      aria-describedby="reviews-description"
-      ref={ref}
-    >
-      <h2 id="reviews-heading" className="std-heading pr-modal-heading">
-        Product Reviews
-      </h2>
+    <div className="pr-reviews-container" ref={ref}>
+      <h2 className="std-heading pr-modal-heading">Product Reviews</h2>
       <div className="pr-paragraph-container">
-        <p
-          id="reviews-description"
-          className="std-paragraph pr-modal-paragraph"
-        >
+        <p className="std-paragraph pr-modal-paragraph">
           Read what our customers are saying
         </p>
         <button

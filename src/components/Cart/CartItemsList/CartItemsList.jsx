@@ -13,7 +13,7 @@ function CartItemsList({ cartItems, setCartItems }) {
       (item) =>
         item.id !== id ||
         item.currentColor !== currentColor ||
-        item.currentSize !== currentSize
+        item.currentSize !== currentSize,
     );
     setCartItems(newItems);
     localStorage.setItem("cartItems", JSON.stringify(newItems));
@@ -38,7 +38,7 @@ function CartItemsList({ cartItems, setCartItems }) {
     id,
     currentCount,
     currentColor,
-    currentSize
+    currentSize,
   ) {
     if (currentCount <= 1) {
       handleDeleteCartItem(id, currentColor, currentSize);
@@ -60,7 +60,7 @@ function CartItemsList({ cartItems, setCartItems }) {
   }
 
   return (
-    <ul className="cart-items-list" role="region" aria-label="Cart Items List">
+    <ul className="cart-items-list" aria-label="Cart Items List">
       {cartItems.map((item) => {
         const {
           id,
@@ -94,7 +94,6 @@ function CartItemsList({ cartItems, setCartItems }) {
             }
             tabIndex={0}
             key={id + currentColor + currentSize}
-            role="listitem"
             className="cart-item"
           >
             <CartItemInfo
@@ -106,6 +105,7 @@ function CartItemsList({ cartItems, setCartItems }) {
             />
             <CartItemControls
               handleDecreaseItemCount={handleDecreaseItemCount}
+              handleDeleteCartItem={handleDeleteCartItem}
               name={name}
               id={id}
               currentColor={currentColor}

@@ -28,7 +28,7 @@ function ConfirmationModal({
     // remove the current coupon from the bought coupons
     setBoughtCoupons((prev) => {
       const newBoughtCoupons = prev.filter(
-        (coupon) => coupon.id != appliedCouponId
+        (coupon) => coupon.id != appliedCouponId,
       );
       localStorage.setItem("boughtCoupons", JSON.stringify(newBoughtCoupons));
       return newBoughtCoupons;

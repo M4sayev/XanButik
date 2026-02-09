@@ -3,9 +3,7 @@ import { formatPrice } from "../../../utils/utils";
 function OrderSummaryHeader({ subTotalPrice, shippingCost }) {
   return (
     <header>
-      <h2 className="order-summary-heading" id="order-summary-heading">
-        order Summary
-      </h2>
+      <h2 className="order-summary-heading">order Summary</h2>
       <div className="summary-item">
         <p>Subtotal</p>
         <span>{formatPrice(subTotalPrice)}</span>

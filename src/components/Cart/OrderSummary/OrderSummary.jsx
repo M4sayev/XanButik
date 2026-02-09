@@ -23,10 +23,10 @@ function OrderSummary({ cartItems }) {
     () =>
       cartItems
         .map((item) =>
-          calculateDiscountPrice(item.price * item.count, item.discountPercent)
+          calculateDiscountPrice(item.price * item.count, item.discountPercent),
         )
         .reduce((a, b) => a + b, 0),
-    [cartItems]
+    [cartItems],
   );
 
   function checkout() {
@@ -39,7 +39,7 @@ function OrderSummary({ cartItems }) {
   const couponInfo = useMemo(() => {
     if (!appliedCouponId || boughtCoupons.length === 0) return null;
     const foundCoupon = boughtCoupons.find(
-      (coupon) => coupon.id == appliedCouponId
+      (coupon) => coupon.id == appliedCouponId,
     );
     if (!foundCoupon) return null;
     const { text, value } = foundCoupon.offer;
@@ -77,11 +77,7 @@ function OrderSummary({ cartItems }) {
     localStorage.removeItem("appliedCouponId");
   }
   return (
-    <aside
-      className="order-summary"
-      aria-labelledby="order-summary-heading"
-      role="complementary"
-    >
+    <aside className="order-summary">
       <OrderSummaryHeader
         subTotalPrice={subTotalPrice}
         shippingCost={shippingCost}
@@ -97,7 +93,6 @@ function OrderSummary({ cartItems }) {
       </div>
       <button
         type="button"
-        aria-label="Apply a coupon"
         className="std-button apply-coupon-btn"
         style={{ width: "100%", marginBottom: "var(--spacing-sm)" }}
         data-type="inverted"
@@ -117,7 +112,6 @@ function OrderSummary({ cartItems }) {
       )}
       <button
         type="button"
-        aria-label="Proceed to checkout"
         className="std-button checkout-btn"
         style={{ width: "100%" }}
         onClick={checkout}

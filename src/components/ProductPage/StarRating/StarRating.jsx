@@ -12,11 +12,11 @@ function StarRating({ rating, maxRating = 5 }) {
 
   for (let i = 1; i <= maxRating; i++) {
     if (i <= Math.floor(rating)) {
-      stars.push(<FaStar key={i} style={styles} />);
+      stars.push(<FaStar key={`full-star-${i}`} style={styles} />);
     } else if (i - rating <= 0.5) {
-      stars.push(<FaStarHalfAlt key={i} style={styles} />);
+      stars.push(<FaStarHalfAlt key={`half-star-${i}`} style={styles} />);
     } else {
-      stars.push(<FaRegStar key={i} style={styles} />);
+      stars.push(<FaRegStar key={`empty-star-${i}`} style={styles} />);
     }
   }
 

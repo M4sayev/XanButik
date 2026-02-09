@@ -54,7 +54,7 @@ function Product({
     setImage(img[0]);
   }
 
-  const getHighlightedText = (text, highlight) => {
+  const getHighlightedText = (text, highlight, id) => {
     if (!highlight) return text;
 
     const regex = new RegExp(`(${highlight})`, "gi");
@@ -62,19 +62,16 @@ function Product({
 
     return parts.map((part, index) =>
       part.toLowerCase() === highlight.toLowerCase() ? (
-        <mark key={index}>{part}</mark>
+        <mark key={`${id}-image-${index}`}>{part}</mark>
       ) : (
         part
-      )
+      ),
     );
   };
 
   function handleAddToCart(product) {
     if (!selectedColor || !selectedSize) {
-      const notify = toast.error(
-        "Please select a color and a size of the product."
-      );
-      notify();
+      toast.error("Please select a color and a size of the product.");
       return;
     } else {
       addToCart(product);
@@ -96,8 +93,6 @@ function Product({
     <article
       className="str-product"
       style={{ animationDelay }}
-      role="group"
-      aria-label={name}
       onKeyDown={(e) => e.key === "Enter" && openProductPage()}
       tabIndex={0}
       id={id}
@@ -121,16 +116,12 @@ function Product({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {discountPercent === 0 ? (
-          ""
-        ) : (
-          <span className="product-sale">Sale</span>
-        )}
+        {!!discountPercent && <span className="product-sale">Sale</span>}
         <img className="str-preview-img" src={image} alt={name} />
         <button
           type="button"
           className="std-button add-to-wishlist-btn"
-          aria-label="Add to wishlist"
+          aria-label={`Add ${name} to wishlist`}
           onClick={() =>
             toggleWishlist({
               productId: id,
@@ -156,13 +147,14 @@ function Product({
       <div className="str-product-info-container">
         <div className="str-product-name-price">
           <p className="str-product-name">
-            {getHighlightedText(name, searchQuery)}
+            {getHighlightedText(name, searchQuery, id)}
           </p>
           <ProductPrice discountPercent={discountPercent} price={price} />
         </div>
         <div className="product-add-to-cart">
           <button
             className="product-add-to-cart-btn"
+            aria-label={`Add ${name} to the cart`}
             onClick={() => setSelectorsDropdownOpen((prev) => !prev)}
           >
             <HiOutlineShoppingBag
