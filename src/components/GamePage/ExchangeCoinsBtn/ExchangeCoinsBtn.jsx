@@ -58,8 +58,9 @@ function ExchangeCoinsBtn() {
         }
       }
     },
-    [isDropDownOpen, setIsConfirmationOpen, setIsDropDownOpen]
+    [isDropDownOpen, setIsConfirmationOpen, setIsDropDownOpen],
   );
+
   useEffect(() => {
     window.addEventListener("mousedown", handleClickOutside);
     return () => window.removeEventListener("mousedown", handleClickOutside);
@@ -79,14 +80,18 @@ function ExchangeCoinsBtn() {
         aria-controls="exchange-coins-dropdown-wrapper"
         className="std-hud-btn buy-coins-btn"
         type="button"
-        aria-label="you have 100 silver coins and 0 gold coins"
+        aria-label="Open a coupon shop dropdown"
         onClick={toggleDropdown}
         ref={balanceButtonRef}
       >
         <span>{formatCoins(balance.silver)}</span>
-        <XanCoin {...coinAttrbs} className="hud-silver-coin" />
+        <XanCoin
+          {...coinAttrbs}
+          className="hud-silver-coin"
+          aria-label="silver coin"
+        />
         <span>{formatCoins(balance.gold)}</span>
-        <GoldXanCoin {...coinAttrbs} />
+        <GoldXanCoin {...coinAttrbs} aria-label="gold coin" />
       </button>
       <div id="exchange-coins-dropdown-wrapper">
         <ExchangeDropdown

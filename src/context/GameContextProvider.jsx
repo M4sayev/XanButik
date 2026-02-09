@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { TIMER } from "../constants/gameConstants";
 import useTimedResetState from "use-timed-reset-state";
 import { defaultCoupons } from "../assets/game/gameAssets";
@@ -10,8 +10,8 @@ function GameContextProvider(props) {
   // interval actually supposed to be 1 day, but to test the game for viewers
   const [isGamePlayedToday, setIsGamePlayedToday] = useTimedResetState(
     false,
-    { interval: "custom", msInterval: 30000 },
-    "gameplayed"
+    { interval: "custom", msInterval: 3000 },
+    "gameplayed",
   );
   // timer remaining time for the game page
   const [timeRemaining, setTimeRemaining] = useState(TIMER);
@@ -34,36 +34,46 @@ function GameContextProvider(props) {
       resetAtHours: 0,
       resetAtMinutes: 0,
     },
-    "coupons"
+    "coupons",
   );
 
   const [isGameFrozen, setIsGameFrozen] = useState(false);
   const totalPausedRef = useRef(0);
   const currentFreezeRef = useRef(0);
 
-  const contextValue = {
-    timeRemaining,
-    setTimeRemaining,
-    isConfirmationOpen,
-    setIsConfirmationOpen,
-    balance,
-    setBalance,
-    couponSelected,
-    setCouponSelected,
-    setCoupons,
-    coupons,
+  const contextValue = useMemo(
+    () => ({
+      timeRemaining,
+      setTimeRemaining,
+      isConfirmationOpen,
+      setIsConfirmationOpen,
+      balance,
+      setBalance,
+      couponSelected,
+      setCouponSelected,
+      setCoupons,
+      coupons,
+      isGameGoing,
+      setIsGameGoing,
+      isGamePlayedToday,
+      setIsGamePlayedToday,
+      isGameFrozen,
+      setIsGameFrozen,
+      totalPausedRef,
+      currentFreezeRef,
+    }),
+    [
+      timeRemaining,
+      isConfirmationOpen,
+      balance,
+      couponSelected,
+      coupons,
+      isGameGoing,
+      isGamePlayedToday,
+      isGameFrozen,
+    ],
+  );
 
-    isGameGoing,
-    setIsGameGoing,
-
-    isGamePlayedToday,
-    setIsGamePlayedToday,
-
-    isGameFrozen,
-    setIsGameFrozen,
-    totalPausedRef,
-    currentFreezeRef,
-  };
   return (
     <GameContext.Provider value={contextValue}>
       {props.children}

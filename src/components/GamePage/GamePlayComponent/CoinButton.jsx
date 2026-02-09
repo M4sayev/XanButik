@@ -38,6 +38,7 @@ function CoinButton({ coordinates, removeCoin, type }) {
       style={{ ...coordinates }}
       onClick={handleCoinClicked}
       onTouchStart={handleCoinClicked}
+      aria-label={`collect ${type} coin`}
     >
       {renderCoin(type)}
     </button>

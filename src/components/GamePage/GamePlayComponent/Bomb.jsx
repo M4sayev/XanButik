@@ -21,8 +21,12 @@ function Bomb({ removeBomb, coordinates, type }) {
         className="coin-btn"
         onClick={handleBombClicked}
         onTouchStart={handleBombClicked}
+        aria-label="collect a bomb"
       >
-        <BombIcon style={{ width: bombSize, height: bombSize }} />
+        <BombIcon
+          style={{ width: bombSize, height: bombSize }}
+          aria-hidden="true"
+        />
       </button>
       <span
         className={`lost-score-popup ${

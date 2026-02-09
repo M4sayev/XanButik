@@ -8,12 +8,12 @@ export function renderCoin(type) {
 
   switch (type) {
     case "silver":
-      return <XanCoin style={commonStyle} />;
+      return <XanCoin style={commonStyle} aria-hidden="true" />;
     case "gold":
-      return <GoldXanCoin style={commonStyle} />;
+      return <GoldXanCoin style={commonStyle} aria-hidden="true" />;
     case "frozen":
-      return <FrozenXanCoin style={commonStyle} />;
+      return <FrozenXanCoin style={commonStyle} aria-hidden="true" />;
     default:
-      return <XanCoin style={commonStyle} />;
+      return <XanCoin style={commonStyle} aria-hidden="true" />;
   }
 }

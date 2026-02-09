@@ -53,7 +53,7 @@ function ExchangeOption({
         } ${isRevealed ? "revealed" : ""}`}
         aria-label={`Exchange ${price.value} ${price.coinValue} Xan coins for ${offer.value} ${offer.text}`}
       >
-        <span className="exchange-options-price-container">
+        <span className="exchange-options-price-container" aria-hidden="true">
           <span style={{ height: "15px" }}>{price.value}</span>
           {price.coinValue === "silver" ? (
             <XanCoin {...coinAttrbs} />
@@ -61,7 +61,7 @@ function ExchangeOption({
             <GoldXanCoin {...coinAttrbs} />
           )}
         </span>
-        <span className="coupon-offer coupon-offer-active ">
+        <span className="coupon-offer coupon-offer-active " aria-hidden="true">
           {offer.value} {offer.text}
         </span>
       </button>

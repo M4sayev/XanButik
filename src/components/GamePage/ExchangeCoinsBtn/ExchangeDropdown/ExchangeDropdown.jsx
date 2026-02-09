@@ -22,7 +22,6 @@ function ExchangeDropdown({
     <div
       role="dialog"
       aria-modal="true"
-      aria-expanded={isDropDownOpen}
       ref={dropdownRef}
       className={`exchange-coins-dropdown ${dropdownClass}`}
       style={{ position: "absolute", right: 0 }}

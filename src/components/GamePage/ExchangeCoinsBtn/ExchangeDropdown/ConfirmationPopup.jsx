@@ -10,7 +10,7 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
   const handleBuyCoupon = () => {
     setBalance((prevBalance) => {
       const { price } = defaultCoupons.find(
-        (coupon) => coupon.id === couponSelected
+        (coupon) => coupon.id === couponSelected,
       );
       const newBalance = {
         ...prevBalance,
@@ -23,8 +23,7 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
     // add a new coupon
     addCoupon(couponSelected);
 
-    const notify = () => toast.success("Coupon successfully bought");
-    notify();
+    toast.success("Coupon successfully bought");
     setIsConfirmationOpen(false);
   };
 
@@ -39,7 +38,7 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
         updatedCoupons = prevCoupons.map((coupon) =>
           coupon.id == id
             ? { ...coupon, count: coupon.count + 1, date: Date.now() }
-            : coupon
+            : coupon,
         );
       } else {
         const newCoupon = defaultCoupons.find((coupon) => coupon.id == id);
@@ -60,16 +59,9 @@ function ConfirmationPopup({ confiramtionPopupRef, setBoughtCoupons }) {
       className="confirmation-popup"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="confirmation-popup-heading"
-      aria-describedby="confirmation-popup-description"
     >
       <div className="confirmation-popup-contents">
-        <h2
-          className="confimartion-popup-heading"
-          id="confirmation-popup-heading"
-        >
-          Are you sure?
-        </h2>
+        <h2 className="confimartion-popup-heading">Are you sure?</h2>
 
         <p id="confirmation-popup-description" className="std-paragraph">
           You won&apos;t be able to get your coins back after this

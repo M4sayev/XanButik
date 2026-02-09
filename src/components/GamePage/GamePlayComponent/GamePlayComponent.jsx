@@ -15,6 +15,7 @@ import {
   bombLifeTime,
 } from "../../../constants/gameConstants";
 import Bomb from "./Bomb";
+import { useSpawnInterval } from "../../../hooks/useSpawnInterval";
 
 function GamePlayComponent() {
   const coinMap = useRef(new Map());
@@ -43,8 +44,8 @@ function GamePlayComponent() {
     const sectionHeight = rect.height;
 
     for (let tries = 0; tries < tryCount; tries++) {
-      const top = randomInBetween(0, sectionHeight - objectSize);
-      const left = randomInBetween(0, sectionWidth - objectSize);
+      const top = randomInBetween(0, sectionHeight - objectSize, objectSize);
+      const left = randomInBetween(0, sectionWidth - objectSize, objectSize);
 
       const newRect = {
         top,
@@ -69,7 +70,7 @@ function GamePlayComponent() {
             newRect.bottom < existing.top ||
             newRect.left > existing.right
           );
-        })
+        }),
       );
       if (!overlapping) {
         const key = getCoordinateKey(top, left);
@@ -80,7 +81,7 @@ function GamePlayComponent() {
 
         setTimeout(() => {
           setObjects((prev) =>
-            prev.filter(({ date }) => Date.now() - date <= lifetime)
+            prev.filter(({ date }) => Date.now() - date <= lifetime),
           );
           objectMap.delete(key);
         }, lifetime);
@@ -152,13 +153,6 @@ function GamePlayComponent() {
     else if (type === "bomb")
       setBombs((prev) => prev.filter((c) => id !== c.id));
     else console.log("No such object found");
-  }
-
-  function useSpawnInterval(callback, interval) {
-    useEffect(() => {
-      const id = setInterval(callback, interval);
-      return () => clearInterval(id);
-    }, [callback, interval]);
   }
 
   useSpawnInterval(addCoin, coinSpawnRate);

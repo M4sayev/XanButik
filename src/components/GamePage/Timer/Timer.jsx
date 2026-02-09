@@ -18,7 +18,6 @@ function Timer({ startTime, setStartTime }) {
     currentFreezeRef,
   } = useContext(GameContext);
   const [hourglassColor, setHourglassColor] = useState("green");
-  const notify = () => toast("Your time has ended!");
 
   useEffect(() => {
     if (!startTime) return;
@@ -41,7 +40,7 @@ function Timer({ startTime, setStartTime }) {
         setTimeRemaining(TIMER);
         clearInterval(intervalID);
         setIsGameGoing(false);
-        notify();
+        toast("Your time has ended!");
         // reset timer color
         changeHourglassColor(0);
         // save collected from the game balance to localStorage
@@ -82,7 +81,7 @@ function Timer({ startTime, setStartTime }) {
           "--svg-clr-bg":
             HOURGLASS_COLORS[hourglassColor] || HOURGLASS_COLORS["green"],
         }}
-        aria-label={`Hourglass color: ${hourglassColor}`}
+        aria-hidden="true"
       />
       <div
         className={`snow-flakes-overlay ${isGameFrozen && "animate-flakes"}`}
